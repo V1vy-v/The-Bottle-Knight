@@ -59,6 +59,7 @@ namespace GamePlay
                 new InstantiateOptions(true));
 
             _modeFsm.ChangeState(startNode.mode);
+            Global.Get<CameraManager>()?.SetTarget(_player.transform);
         }
 
         /// <summary>

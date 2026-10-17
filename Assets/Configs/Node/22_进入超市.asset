@@ -16,7 +16,7 @@ MonoBehaviour:
   mode: 0
   refreshDialog: 0
   refreshBattle: 0
-  goalId: enter_makret
+  goalId: enter_market
   dialogConfig: {fileID: 0}
   battleConfig: {fileID: 0}
   nextNode: {fileID: 0}
