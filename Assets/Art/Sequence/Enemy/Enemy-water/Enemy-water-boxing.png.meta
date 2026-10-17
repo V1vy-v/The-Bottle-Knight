@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -95,18 +95,898 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Enemy-water-boxing_0
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 3906
+        width: 493
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ccda2d20316c1542a20dd255731700b
+      internalID: 313675228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_1
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 3904
+        width: 504
+        height: 770
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 645f581db7a84134bb12c4fdd6b68a01
+      internalID: -340760913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_2
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 3904
+        width: 514
+        height: 769
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1773baa341eae1b4894f19ecc99363ae
+      internalID: 1695524533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 4196
+        width: 125
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd919ce08071e849a96d8f26a93c771
+      internalID: -1910271795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_4
+      rect:
+        serializedVersion: 2
+        x: 2045
+        y: 3904
+        width: 400
+        height: 769
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2692d3d296be1c8498312e0780edda24
+      internalID: 29430382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_5
+      rect:
+        serializedVersion: 2
+        x: 2541
+        y: 4194
+        width: 125
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 243620ee748d84f4587f4502f9a915dd
+      internalID: 1155070163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_6
+      rect:
+        serializedVersion: 2
+        x: 2677
+        y: 3904
+        width: 400
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb1360483759c334fa3c3eb220259f6e
+      internalID: -1014819179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_7
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 3415
+        width: 127
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3708c1e792f814b48bdb51199850cf68
+      internalID: -105529137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_8
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 3123
+        width: 400
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0de9f33e17782a74d8a441cbded31977
+      internalID: 1488132109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_9
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 3413
+        width: 127
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb9333f32d566ac45a31afb8d0cfbc1d
+      internalID: -1666890075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_10
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 3123
+        width: 400
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20f6ba18669aac747b2a36eb8d79e0cd
+      internalID: 178398695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_11
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 3123
+        width: 509
+        height: 765
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d0c403a2a4dfd8409acf01cb368c4d8
+      internalID: 501142560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_12
+      rect:
+        serializedVersion: 2
+        x: 2041
+        y: 3123
+        width: 404
+        height: 765
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 367c4e0c9f24fd549afe464113c11b76
+      internalID: -1602974926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_13
+      rect:
+        serializedVersion: 2
+        x: 2666
+        y: 3123
+        width: 411
+        height: 765
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b96162716121894e91a27b14b4fa6be
+      internalID: -2126368419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_14
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 2343
+        width: 434
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ec4354768a34784bbe7e836bc7015a7
+      internalID: 501048821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_15
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 2343
+        width: 457
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa4f6ecfc60b154983dd2af27e02755
+      internalID: -158835043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_16
+      rect:
+        serializedVersion: 2
+        x: 1336
+        y: 2343
+        width: 477
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ad2ff465b051b438bcac23a1e31d1c
+      internalID: 1368882641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_17
+      rect:
+        serializedVersion: 2
+        x: 1952
+        y: 2343
+        width: 493
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 323692c7c2a1a1541bb1fd0b4acde558
+      internalID: 2086947938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_18
+      rect:
+        serializedVersion: 2
+        x: 2586
+        y: 2343
+        width: 491
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d06920f3269a194f8d0f30d2de77ad2
+      internalID: 91559635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_19
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 1564
+        width: 491
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f89a77a3668139468742c9e006bd4f4
+      internalID: -1107406022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_20
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 1564
+        width: 484
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c773ff1a5ad250543a7b1c9667163134
+      internalID: -1804420088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_21
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 1564
+        width: 472
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 435579f67af094743ab8b739e2c00587
+      internalID: -165007590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_22
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 1564
+        width: 461
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ff42bc2b8be5b549a11ef0da730d164
+      internalID: -504270300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_23
+      rect:
+        serializedVersion: 2
+        x: 2586
+        y: 1564
+        width: 450
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20eac16b5e5392042b8629c63ae05db2
+      internalID: 1814675694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_24
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 786
+        width: 431
+        height: 765
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52e5d7358c49ed446b3f950073754cd6
+      internalID: -1178264080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_25
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 786
+        width: 429
+        height: 765
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f063d76d28b04948adde60fbd73d17b
+      internalID: -229475959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_26
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 786
+        width: 429
+        height: 765
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab9810bdf5de2b840bec05e38f0e88a7
+      internalID: -306294179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_27
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 786
+        width: 397
+        height: 765
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc0bceb15e5a728458e416b46117ef4a
+      internalID: 932723958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_28
+      rect:
+        serializedVersion: 2
+        x: 2363
+        y: 1080
+        width: 125
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 620ee683afc008148bba23dc380c06ac
+      internalID: -189890289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_29
+      rect:
+        serializedVersion: 2
+        x: 2586
+        y: 786
+        width: 397
+        height: 765
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa60a64a53af5774288b952f38d752d1
+      internalID: 1947226287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_30
+      rect:
+        serializedVersion: 2
+        x: 3029
+        y: 1081
+        width: 125
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93f6cf2206f72cf46ac9dbada8dfe97c
+      internalID: 152725297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_31
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 0
+        width: 397
+        height: 773
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93f23de33f098c84e8cda9acdb65f9ba
+      internalID: -1243762323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_32
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 302
+        width: 125
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5b1d5ee7f36d394f9c00ec191d8d2a1
+      internalID: 1930066418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_33
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 0
+        width: 397
+        height: 773
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a563a26d0071a1141850a1364b76bbd9
+      internalID: -727002405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_34
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 302
+        width: 125
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57483f6f60b497f4a8f0b7294537a58f
+      internalID: 193505753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_35
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 6
+        width: 397
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cece0b8890f01a9428f436bc1dedd8d2
+      internalID: 1704902278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_36
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 302
+        width: 126
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e302cd346d6a9574e9300ccc96658118
+      internalID: -45175617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_37
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 6
+        width: 397
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3815c2a8b946133468462240434c85fe
+      internalID: 1552640694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_38
+      rect:
+        serializedVersion: 2
+        x: 2356
+        y: 302
+        width: 127
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6f1772cac6dba444bf45aac1c2b885c
+      internalID: 907180176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-boxing_39
+      rect:
+        serializedVersion: 2
+        x: 2586
+        y: 6
+        width: 509
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ab4212587acee489bb01922bdf6ee0
+      internalID: -1350815907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a516bf36976641142862bc8b766f039e
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Enemy-water-boxing_0: 313675228
+      Enemy-water-boxing_1: -340760913
+      Enemy-water-boxing_10: 178398695
+      Enemy-water-boxing_11: 501142560
+      Enemy-water-boxing_12: -1602974926
+      Enemy-water-boxing_13: -2126368419
+      Enemy-water-boxing_14: 501048821
+      Enemy-water-boxing_15: -158835043
+      Enemy-water-boxing_16: 1368882641
+      Enemy-water-boxing_17: 2086947938
+      Enemy-water-boxing_18: 91559635
+      Enemy-water-boxing_19: -1107406022
+      Enemy-water-boxing_2: 1695524533
+      Enemy-water-boxing_20: -1804420088
+      Enemy-water-boxing_21: -165007590
+      Enemy-water-boxing_22: -504270300
+      Enemy-water-boxing_23: 1814675694
+      Enemy-water-boxing_24: -1178264080
+      Enemy-water-boxing_25: -229475959
+      Enemy-water-boxing_26: -306294179
+      Enemy-water-boxing_27: 932723958
+      Enemy-water-boxing_28: -189890289
+      Enemy-water-boxing_29: 1947226287
+      Enemy-water-boxing_3: -1910271795
+      Enemy-water-boxing_30: 152725297
+      Enemy-water-boxing_31: -1243762323
+      Enemy-water-boxing_32: 1930066418
+      Enemy-water-boxing_33: -727002405
+      Enemy-water-boxing_34: 193505753
+      Enemy-water-boxing_35: 1704902278
+      Enemy-water-boxing_36: -45175617
+      Enemy-water-boxing_37: 1552640694
+      Enemy-water-boxing_38: 907180176
+      Enemy-water-boxing_39: -1350815907
+      Enemy-water-boxing_4: 29430382
+      Enemy-water-boxing_5: 1155070163
+      Enemy-water-boxing_6: -1014819179
+      Enemy-water-boxing_7: -105529137
+      Enemy-water-boxing_8: 1488132109
+      Enemy-water-boxing_9: -1666890075
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

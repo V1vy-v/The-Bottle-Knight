@@ -14,7 +14,8 @@ namespace GamePlay.Interaction
 
         [Tooltip("与节点 goalId 匹配；留空接受任何节点")]
         [SerializeField] private string _goalId = "flow";
-
+        [Tooltip("勾上则把自己注册为本场战斗的刷怪锚点，并在敌人生成后被隐藏")]
+        [SerializeField] private bool _asEncounterAnchor;
         private bool _fired;
 
         private void Reset()
@@ -28,7 +29,11 @@ namespace GamePlay.Interaction
             if (other.GetComponentInParent<Player.PlayerController>() == null) return;
 
             _fired = true;
-            Global.Get<GameplayRoot>()?.ReportGoalReached(_goalId);
+
+            var root = Global.Get<GameplayRoot>();
+            root?.ReportGoalReached(_goalId);
+            if (_asEncounterAnchor) root?.SetEncounterAnchor(transform);
+
             Debug.Log($"[流程] 触发 {name}");
         }
     }

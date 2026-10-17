@@ -1,4 +1,4 @@
-using Framework;
+﻿using Framework;
 using GamePlay.Configs;
 using System;
 using UnityEngine;
@@ -36,6 +36,7 @@ namespace GamePlay.Enemy
         private SpriteRenderer _sprite;
         private Animator animator;
         private EnemyMoveController moveController;
+        private EnemyAttackController attackController;
 
         private StateMachine<EnemyState> _fsm;
 
@@ -45,6 +46,7 @@ namespace GamePlay.Enemy
             animator = GetComponent<Animator>();
             _sprite = GetComponent<SpriteRenderer>();
             moveController = GetComponent<EnemyMoveController>();
+            attackController = GetComponent<EnemyAttackController>();
 
             if (moveController == null) return;
             if (animator == null) return;
@@ -60,7 +62,7 @@ namespace GamePlay.Enemy
             state.CurrentHP = state.MaxHP;  
             state.baseAtk = config.Damage;
             state.baseMoveSpeed = config.MoveSpeed;
-            state.baseAttackRange = config.AttackRange;
+            //state.baseAttackRange = config.AttackRange;
             state.baseAttackCooldown = config.AttackCooldown;
             state.baseHurtDuration = config.HurtStunTime;
 
@@ -110,7 +112,6 @@ namespace GamePlay.Enemy
         {
             if(_player == null) return;
             moveController?.MoveTo(_player.transform.position);
-            print(_player.transform.position);
         }
 
         public void ChangeSpeed(float speed = 0)
@@ -181,6 +182,14 @@ namespace GamePlay.Enemy
             if (IsDefeated) return;
             IsDefeated = true;
             OnDefeated?.Invoke(this);
+        }
+        public void Attack()
+        {
+            attackController.OnAttack();
+        }
+        public void OnAttackEnd()
+        {
+            attackController.OnAttackEnd();
         }
     }
 }

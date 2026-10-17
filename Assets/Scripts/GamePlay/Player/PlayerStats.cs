@@ -1,4 +1,4 @@
-using GamePlay.Configs;
+﻿using GamePlay.Configs;
 using UnityEngine;
 
 namespace GamePlay.Player
@@ -101,7 +101,7 @@ namespace GamePlay.Player
                 return;
 
             Hp = Mathf.Clamp(Hp - dmg, 0, MaxHp);
-
+            Debug.Log("玩家受伤");
             //动画与音效
             if (Hp <= 0)
             {

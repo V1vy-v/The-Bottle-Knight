@@ -54,9 +54,7 @@ namespace GamePlay
             ApplyNodeContext(startNode, isFirstNode: true);
 
             BuildModeFsm();
-            _player = Global.InstantiateUnpooled(
-                GlobalConstants.PlayerPrefabLocation,
-                new InstantiateOptions(true));
+            SpawnPlayer();
 
             _modeFsm.ChangeState(startNode.mode);
             Global.Get<CameraManager>()?.SetTarget(_player.transform);
@@ -83,9 +81,7 @@ namespace GamePlay
             ApplyNodeContext(savedNode, isFirstNode: true);
 
             BuildModeFsm();
-            _player = Global.InstantiateUnpooled(
-                GlobalConstants.PlayerPrefabLocation,
-                new InstantiateOptions(true));
+            SpawnPlayer();
 
             _modeFsm.ChangeState(savedNode.mode);
         }
@@ -111,6 +107,29 @@ namespace GamePlay
             _storyContext = null;
             _battleContext = null;
             _dialogContext = null;
+        }
+
+        /// <summary>取场景里的全局出生点；找不到就退回预制体自身坐标</summary>
+        private static InstantiateOptions PlayerSpawnOptions()
+        {
+            GameObject marker = GameObject.Find(GlobalConstants.PLAYER_SPAWN_NAME);
+            if (marker == null)
+            {
+                Debug.LogWarning($"[GameplayRoot] 场景里找不到 {GlobalConstants.PLAYER_SPAWN_NAME}，主角落在预制体自身坐标");
+                return new InstantiateOptions(true);
+            }
+
+            return new InstantiateOptions(true, marker.transform.position, marker.transform.rotation);
+        }
+
+        /// <summary>生成主角并交给相机。StartNewGame / ContinueGame 共用，避免两处漂移</summary>
+        private void SpawnPlayer()
+        {
+            _player = Global.InstantiateUnpooled(
+                GlobalConstants.PlayerPrefabLocation,
+                PlayerSpawnOptions());
+
+            Global.Get<CameraManager>()?.SetTarget(_player.transform);
         }
 
         #endregion
@@ -159,10 +178,23 @@ namespace GamePlay
 
         /// <summary>本节点目标已达成</summary>
         public void ReportGoalReached(string goalId = null) => OnGoalReached?.Invoke(goalId);
+        /// <summary>本场战斗的刷怪锚点，由场景里的触发点提供；为空则用预制体自身坐标</summary>
+        public Transform EncounterAnchor { get; private set; }
+
+        public void SetEncounterAnchor(Transform anchor) => EncounterAnchor = anchor;
+
+        /// <summary>转场进行中：挡住旧状态每帧重复请求推进</summary>
+        private bool _transitioning;
+
+        /// <summary>上一次回收暂留尸体时的剧情阶段</summary>
+        private bool _stageInitialized;
+        private StoryStage _releasedStage;
 
         /// <summary>推进到下一个节点。</summary>
         public void AdvanceNode()
         {
+            if (_transitioning) return;      // 转场中：旧状态可能每帧请求推进，必须挡住
+
             if (_storyContext == null)
             {
                 Debug.LogWarning("[GameplayRoot] StoryContext 为空，无法推进");
@@ -186,7 +218,29 @@ namespace GamePlay
                 Debug.LogWarning("[GameplayRoot] EnterNode 传入空节点");
                 return;
             }
+
+            if (_transitioning) return;
+
             Debug.Log($"切换节点至: {node.name}");
+
+            // 需要黑屏转场的节点：等黑幕盖住之后再真正切换，玩家看不到瞬移
+            if (node.fadeTransition && ScreenFader.Instance != null)
+            {
+                _transitioning = true;
+                ScreenFader.Instance.Play(() =>
+                {
+                    _transitioning = false;
+                    EnterNodeImmediate(node);
+                });
+                return;
+            }
+
+            EnterNodeImmediate(node);
+        }
+
+        /// <summary>真正的切换：刷 Context + 切模式</summary>
+        private void EnterNodeImmediate(NodeConfig node)
+        {
             _storyContext?.JumpTo(node);
 
             ApplyNodeContext(node, isFirstNode: false);
@@ -197,7 +251,16 @@ namespace GamePlay
         /// <summary>按节点声明刷新 Context。只刷数据，不切模式。</summary>
         private void ApplyNodeContext(NodeConfig node, bool isFirstNode)
         {
-            _battleState?.ReleasePendingCorpses();   // 节点推进，上一节点的暂留尸体统一回收
+            // 只在「剧情阶段」变化时回收暂留尸体。
+            // 不能每个节点都回收：否则「战斗 → 战败对话 → 吸取环节」中间那一步就清掉了，
+            // 玩家还没走到尸体就没了，吸取环节永远推不动。
+            Debug.Log($"[阶段] {_releasedStage} -> {node.currentStage}  节点={node.name}");
+            if (!_stageInitialized || _releasedStage != node.currentStage)
+            {
+                _battleState?.ReleasePendingCorpses();
+                _releasedStage = node.currentStage;
+                _stageInitialized = true;
+            }
 
             // 首个节点必须无条件刷新，否则 CurrentBattle / 对话都是空的
             if (isFirstNode || node.refreshBattle) _battleContext?.RefreshByNode(node);

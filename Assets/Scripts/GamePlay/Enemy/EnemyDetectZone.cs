@@ -1,4 +1,4 @@
-using GamePlay.Enemy;
+﻿using GamePlay.Enemy;
 using UnityEngine;
 /// <summary>
 /// 碰撞器功能枚举
@@ -18,7 +18,9 @@ public class EnemyDetectZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         if (!other.CompareTag("Player")) return;
+        Debug.Log($"[{zoneType}] 检测到玩家: {other.name}, 位置: {other.transform.position}");
         switch (zoneType)
         {
             case ZoneType.Detect:

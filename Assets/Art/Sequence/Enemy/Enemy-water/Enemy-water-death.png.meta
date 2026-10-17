@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -95,18 +95,502 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Enemy-water-death_0
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 4327
+        width: 490
+        height: 772
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ef1fad0d0f4c684391889a6156e97b2
+      internalID: 982600838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_1
+      rect:
+        serializedVersion: 2
+        x: 2315
+        y: 4327
+        width: 493
+        height: 772
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8283f20a19811945aa89e8ce4c1d2ff
+      internalID: 312782647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_2
+      rect:
+        serializedVersion: 2
+        x: 3742
+        y: 4317
+        width: 490
+        height: 765
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d864a0d5ab684834eaf45004b78b9250
+      internalID: 508241150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_3
+      rect:
+        serializedVersion: 2
+        x: 5148
+        y: 4320
+        width: 469
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 358f019f515900441b236c8da852c018
+      internalID: -914141179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_4
+      rect:
+        serializedVersion: 2
+        x: 6500
+        y: 4341
+        width: 458
+        height: 786
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 597b681ead083e64cbfe78cd7adf01df
+      internalID: -265839376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_5
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 3335
+        width: 444
+        height: 789
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c85910d19b5c510489cef9d42a24a1f4
+      internalID: 2024878855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_6
+      rect:
+        serializedVersion: 2
+        x: 2132
+        y: 3352
+        width: 431
+        height: 775
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11d2384db48fe9544a9d8ef7ba489bf2
+      internalID: 780508377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_7
+      rect:
+        serializedVersion: 2
+        x: 3387
+        y: 3304
+        width: 452
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e58730d416390ce409aeede381d68e05
+      internalID: -195279113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_8
+      rect:
+        serializedVersion: 2
+        x: 4538
+        y: 3273
+        width: 624
+        height: 672
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a33271b848abea4a96c1c67128289ed
+      internalID: 963375539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_9
+      rect:
+        serializedVersion: 2
+        x: 5728
+        y: 3207
+        width: 748
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4e1c785e9b297847aff65f1d99e4c2f
+      internalID: 1473540670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_10
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 2146
+        width: 779
+        height: 361
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19bce33dae574bf459c22fb47b4ab5d3
+      internalID: -364313615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_11
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 2080
+        width: 783
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5edc9f3486a76704bbb5ec608f33f778
+      internalID: -878971954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_12
+      rect:
+        serializedVersion: 2
+        x: 2829
+        y: 2094
+        width: 788
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c8d3c327249a4b4493b7e639d198486
+      internalID: -888021164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_13
+      rect:
+        serializedVersion: 2
+        x: 4242
+        y: 2097
+        width: 793
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc258d84e027d96409d7613116ad6bd8
+      internalID: -607313704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_14
+      rect:
+        serializedVersion: 2
+        x: 5655
+        y: 2097
+        width: 786
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaca3d886d71c8e4c9a9b00bcc705a50
+      internalID: 1433541152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_15
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1063
+        width: 782
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e91878afe6f1ca04f97c7a028b68f0f1
+      internalID: 1351876819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_16
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 1063
+        width: 779
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dc32720198fffc4e9d97b4f7c2d1d01
+      internalID: 1834193800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_17
+      rect:
+        serializedVersion: 2
+        x: 2832
+        y: 1063
+        width: 776
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37e6cd78bae7b3f4bb8dbceaa591e887
+      internalID: 172670417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_18
+      rect:
+        serializedVersion: 2
+        x: 4242
+        y: 1063
+        width: 772
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91037636f2fcb7f43adad63d217d2b49
+      internalID: 2141972959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_19
+      rect:
+        serializedVersion: 2
+        x: 5655
+        y: 1063
+        width: 769
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef11a756769853b4e95525abba0974d4
+      internalID: -343795364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_20
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 29
+        width: 765
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed2c2adbcb0b80c41b36aad799121307
+      internalID: 1298221886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-death_21
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 29
+        width: 765
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16776d62b24d43840b10d963621afd7a
+      internalID: -1727353600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a8d9ce33fcbfa3447915eb6178a4cbdf
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Enemy-water-death_0: 982600838
+      Enemy-water-death_1: 312782647
+      Enemy-water-death_10: -364313615
+      Enemy-water-death_11: -878971954
+      Enemy-water-death_12: -888021164
+      Enemy-water-death_13: -607313704
+      Enemy-water-death_14: 1433541152
+      Enemy-water-death_15: 1351876819
+      Enemy-water-death_16: 1834193800
+      Enemy-water-death_17: 172670417
+      Enemy-water-death_18: 2141972959
+      Enemy-water-death_19: -343795364
+      Enemy-water-death_2: 508241150
+      Enemy-water-death_20: 1298221886
+      Enemy-water-death_21: -1727353600
+      Enemy-water-death_3: -914141179
+      Enemy-water-death_4: -265839376
+      Enemy-water-death_5: 2024878855
+      Enemy-water-death_6: 780508377
+      Enemy-water-death_7: -195279113
+      Enemy-water-death_8: 963375539
+      Enemy-water-death_9: 1473540670
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

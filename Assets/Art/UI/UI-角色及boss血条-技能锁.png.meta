@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -95,18 +95,128 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "UI-\u89D2\u8272\u53CAboss\u8840\u6761-\u6280\u80FD\u9501_0"
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 856
+        width: 71
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e907930be4f108429f2128b6b0b5eac
+      internalID: 1501955035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "UI-\u89D2\u8272\u53CAboss\u8840\u6761-\u6280\u80FD\u9501_1"
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 845
+        width: 94
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e4c03f1c8ac11443b3e82c6d28dd5ad
+      internalID: 1528060705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "UI-\u89D2\u8272\u53CAboss\u8840\u6761-\u6280\u80FD\u9501_2"
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 707
+        width: 339
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc034bfe100def64c9f6ffee2bf60655
+      internalID: -1792242308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "UI-\u89D2\u8272\u53CAboss\u8840\u6761-\u6280\u80FD\u9501_3"
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 585
+        width: 370
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 059a4147a225da549af820aa6db9bb0a
+      internalID: -1567519799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "UI-\u89D2\u8272\u53CAboss\u8840\u6761-\u6280\u80FD\u9501_4"
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 223
+        width: 232
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c834211110fb3d9489ced7f33b947073
+      internalID: -589617954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a8f324df3bed3a14386ff9945aed43f4
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "UI-\u89D2\u8272\u53CAboss\u8840\u6761-\u6280\u80FD\u9501_0": 1501955035
+      "UI-\u89D2\u8272\u53CAboss\u8840\u6761-\u6280\u80FD\u9501_1": 1528060705
+      "UI-\u89D2\u8272\u53CAboss\u8840\u6761-\u6280\u80FD\u9501_2": -1792242308
+      "UI-\u89D2\u8272\u53CAboss\u8840\u6761-\u6280\u80FD\u9501_3": -1567519799
+      "UI-\u89D2\u8272\u53CAboss\u8840\u6761-\u6280\u80FD\u9501_4": -589617954
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

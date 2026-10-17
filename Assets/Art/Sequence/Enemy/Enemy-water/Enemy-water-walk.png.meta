@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -95,18 +95,505 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Enemy-water-walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3116
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e40ad26b97f12df49822c47e327e320f
+      internalID: 2043290593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_1
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 3116
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d991adabdcb365b428bd7f96a06ce9e3
+      internalID: 1241703524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_2
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 3116
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ff5f5220531ba64d9eb194492271392
+      internalID: -608690704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_3
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 3116
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c608ad9870f61f64ca0547cb9351113c
+      internalID: -553726386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_4
+      rect:
+        serializedVersion: 2
+        x: 1956
+        y: 3116
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c0e92719169894d92a6dd3cc081919
+      internalID: 1357933697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2337
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7082f4a8d9a68dc41ab6208aedb6efdf
+      internalID: -1951039427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_6
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 2337
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9ad7bf97a3292945975bb20c3abe360
+      internalID: 1931025931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_7
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 2337
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbba87ef2bcaa414986510d8cc17bc40
+      internalID: 4855928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_8
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 2337
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecc76767401109e4a92775d1803cb8e8
+      internalID: 1849585432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_9
+      rect:
+        serializedVersion: 2
+        x: 1956
+        y: 2337
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 285e500b73821104e851cdbca568fe76
+      internalID: -973369919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1558
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd07d87181873e2489fbe7a61c809a01
+      internalID: 1721964966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_11
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 1558
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 944b533006ce8b248be4884f2e3c71d8
+      internalID: -22736073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_12
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 1558
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05fd48fc6a9f1cf49b52dc03dfb48486
+      internalID: 934404518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_13
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 1558
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 832718d85ef0bbd4c9a09d171167351f
+      internalID: 435691728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_14
+      rect:
+        serializedVersion: 2
+        x: 1956
+        y: 1558
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d333273405434cb489b96dba2503129e
+      internalID: 1888151707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 779
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e0a14b9ecf33d84ea3a1b4e3c321ba2
+      internalID: 1278792385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_16
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 779
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccc3951aad9a5bd46a940222af98ef63
+      internalID: 1386552242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_17
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 779
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98a00b9a902412948a8fec6553db7270
+      internalID: -824192863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_18
+      rect:
+        serializedVersion: 2
+        x: 1467
+        y: 779
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f34b576b88984b4eb5d02f6e2b229b2
+      internalID: -610181127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_19
+      rect:
+        serializedVersion: 2
+        x: 1956
+        y: 779
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5d1fd1016b80cd4191da3fd03625b6d
+      internalID: 1402948690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 920a09276a9102f49946d49d7ea60e3e
+      internalID: -2119914543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-walk_21
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 0
+        width: 489
+        height: 779
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 361b55a000a1eb14886ad6743ca6b353
+      internalID: 291470580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: bda40db52f5f08d4f9d0177ca863120a
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Enemy-water-walk_0: 2043290593
+      Enemy-water-walk_1: 1241703524
+      Enemy-water-walk_10: 1721964966
+      Enemy-water-walk_11: -22736073
+      Enemy-water-walk_12: 934404518
+      Enemy-water-walk_13: 435691728
+      Enemy-water-walk_14: 1888151707
+      Enemy-water-walk_15: 1278792385
+      Enemy-water-walk_16: 1386552242
+      Enemy-water-walk_17: -824192863
+      Enemy-water-walk_18: -610181127
+      Enemy-water-walk_19: 1402948690
+      Enemy-water-walk_2: -608690704
+      Enemy-water-walk_20: -2119914543
+      Enemy-water-walk_21: 291470580
+      Enemy-water-walk_22: 1138345341
+      Enemy-water-walk_23: -417589827
+      Enemy-water-walk_24: 762055077
+      Enemy-water-walk_3: -553726386
+      Enemy-water-walk_4: 1357933697
+      Enemy-water-walk_5: -1951039427
+      Enemy-water-walk_6: 1931025931
+      Enemy-water-walk_7: 4855928
+      Enemy-water-walk_8: 1849585432
+      Enemy-water-walk_9: -973369919
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

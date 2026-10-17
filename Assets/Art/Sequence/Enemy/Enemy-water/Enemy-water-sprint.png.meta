@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -95,18 +95,766 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Enemy-water-sprint_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 4656
+        width: 492
+        height: 769
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af13a4bbb10763f4c98ee2e4b2ec68df
+      internalID: -96742306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_1
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 4656
+        width: 490
+        height: 769
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 386a821322ca2c54582ad1b4651e7dc6
+      internalID: 618478114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_2
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 4658
+        width: 493
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79df906377982574b8ebaab67ba516d7
+      internalID: -350451508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_3
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 4658
+        width: 493
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec66ff29979ccd4ca1e938dddb3fbbf
+      internalID: 1742742172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_4
+      rect:
+        serializedVersion: 2
+        x: 2083
+        y: 4658
+        width: 492
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0e80fc6ea408bc45a5675853d4f142e
+      internalID: 1618949941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_5
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 3885
+        width: 492
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf1378befe17e7d4e84dddf7c4982354
+      internalID: -1923484935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_6
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 3885
+        width: 493
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9feacde006b49d0488af7e825d8f6ea2
+      internalID: -1120865120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_7
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 3885
+        width: 493
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a49321409ac20b04b917c029000a3abc
+      internalID: -1964153628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_8
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 3887
+        width: 493
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63ed15cbe640fbf4c906e671fcfec337
+      internalID: -1535680941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_9
+      rect:
+        serializedVersion: 2
+        x: 2083
+        y: 3890
+        width: 495
+        height: 763
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ef617c47f8605e4ca8d1bfffe7b028c
+      internalID: 503866481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_10
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 3114
+        width: 492
+        height: 763
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503111bde9a9cea45b1683ce018dffc6
+      internalID: 1287269054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_11
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 3116
+        width: 496
+        height: 761
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d47cef3b1e785f45b307b5f56627b40
+      internalID: 789757786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_12
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 3119
+        width: 493
+        height: 758
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c34841485b8910f4b92a55bfc5a16c94
+      internalID: 1199233594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_13
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 3119
+        width: 493
+        height: 758
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62b80fe38b6dbaa49bb5e6154e6e2dcd
+      internalID: 337325023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_14
+      rect:
+        serializedVersion: 2
+        x: 2086
+        y: 3119
+        width: 489
+        height: 758
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4e1ac012290a84c814279685561c51
+      internalID: -1478578751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_15
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 2346
+        width: 492
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477e211169e5cdc4494d7dc16fd6d8c3
+      internalID: 82516016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_16
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 2346
+        width: 492
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39b9ef4cfddf6134196cce6b5271c46c
+      internalID: -2094157984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_17
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 2346
+        width: 493
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5289c365839c6c45bb674288cfb3182
+      internalID: -74187550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_18
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 2346
+        width: 493
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6293893ee6a24ae418f7282cc51b8cea
+      internalID: 1375197393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_19
+      rect:
+        serializedVersion: 2
+        x: 2083
+        y: 2346
+        width: 495
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d3d2ca6cd49f364da3c30b5f1f189a2
+      internalID: 244017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_20
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 1570
+        width: 492
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0122f6e5d95b83499a4524717c055be
+      internalID: -1187643650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_21
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 1570
+        width: 495
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c00974d988154478d65cb9b0025813
+      internalID: -46639667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_22
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 1570
+        width: 495
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6773718dbb82b5e429e913db27019452
+      internalID: -306841211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_23
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 1570
+        width: 495
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8766423d79d33d848b13051966884d70
+      internalID: -1620289063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_24
+      rect:
+        serializedVersion: 2
+        x: 2083
+        y: 1570
+        width: 495
+        height: 757
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e54c9736c4912dc48ad8ca6a3d546401
+      internalID: 1320079217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_25
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 796
+        width: 492
+        height: 755
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6662c0a92b4066441a9af0b6d7f1da1e
+      internalID: -307480556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_26
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 796
+        width: 496
+        height: 755
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed3582b7af0713443b93f10c114d560d
+      internalID: 1027510434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_27
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 796
+        width: 493
+        height: 755
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 438fa81953a70774c8602fe066350451
+      internalID: 839453435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_28
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 796
+        width: 493
+        height: 755
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad9ca8facdd9cd47a5dc16af7a6d3cc
+      internalID: 1040132222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_29
+      rect:
+        serializedVersion: 2
+        x: 2083
+        y: 793
+        width: 495
+        height: 758
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2adf1ddbc3b39d24db9424d87a572f0e
+      internalID: 61172848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_30
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 0
+        width: 492
+        height: 777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd7a43d338f04744a397c6e6eebccbb
+      internalID: -624599126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_31
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 0
+        width: 494
+        height: 777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3510d040b31411048a5b51304d50c9bf
+      internalID: -179957008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_32
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 0
+        width: 493
+        height: 777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a909836dff408e14893453f6bfa7624e
+      internalID: 857807718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-sprint_33
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 5
+        width: 499
+        height: 772
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52342e7371103df4b9cbd01bb37c0c60
+      internalID: -1460918118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f0cff19a9711b1a40afb7d866edc5087
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Enemy-water-sprint_0: -96742306
+      Enemy-water-sprint_1: 618478114
+      Enemy-water-sprint_10: 1287269054
+      Enemy-water-sprint_11: 789757786
+      Enemy-water-sprint_12: 1199233594
+      Enemy-water-sprint_13: 337325023
+      Enemy-water-sprint_14: -1478578751
+      Enemy-water-sprint_15: 82516016
+      Enemy-water-sprint_16: -2094157984
+      Enemy-water-sprint_17: -74187550
+      Enemy-water-sprint_18: 1375197393
+      Enemy-water-sprint_19: 244017
+      Enemy-water-sprint_2: -350451508
+      Enemy-water-sprint_20: -1187643650
+      Enemy-water-sprint_21: -46639667
+      Enemy-water-sprint_22: -306841211
+      Enemy-water-sprint_23: -1620289063
+      Enemy-water-sprint_24: 1320079217
+      Enemy-water-sprint_25: -307480556
+      Enemy-water-sprint_26: 1027510434
+      Enemy-water-sprint_27: 839453435
+      Enemy-water-sprint_28: 1040132222
+      Enemy-water-sprint_29: 61172848
+      Enemy-water-sprint_3: 1742742172
+      Enemy-water-sprint_30: -624599126
+      Enemy-water-sprint_31: -179957008
+      Enemy-water-sprint_32: 857807718
+      Enemy-water-sprint_33: -1460918118
+      Enemy-water-sprint_4: 1618949941
+      Enemy-water-sprint_5: -1923484935
+      Enemy-water-sprint_6: -1120865120
+      Enemy-water-sprint_7: -1964153628
+      Enemy-water-sprint_8: -1535680941
+      Enemy-water-sprint_9: 503866481
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

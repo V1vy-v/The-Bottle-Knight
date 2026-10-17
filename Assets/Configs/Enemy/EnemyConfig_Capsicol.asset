@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62ccc1e887a14a348b44756c3172808a, type: 3}
-  m_Name: EnemyConfig
+  m_Name: EnemyConfig_Capsicol
   m_EditorClassIdentifier: 
   Id: Enemy_001
   Name: "\u56FD\u7A96"
@@ -18,8 +18,6 @@ MonoBehaviour:
   MaxHp: 200
   Damage: 0
   MoveSpeed: 0
-  ChaseSpeed: 0
-  AttackRange: 1
   AttackCooldown: 1.5
   HurtStunTime: 0.3
   IdleDuration: 2
@@ -32,4 +30,4 @@ MonoBehaviour:
   ImmuneStun: 0
   DebuffDurationScale: 1
   DebuffChanceScale: 1
-  PrefabLocation: "Prefab_Enemy_ManbaTea_\u9632\u4E22\u5931\u65B0\u52A0\u7248"
+  PrefabLocation: Prefab_Enemy_Capsicol

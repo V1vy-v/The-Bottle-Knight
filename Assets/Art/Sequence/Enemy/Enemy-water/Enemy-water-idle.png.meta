@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -95,18 +95,458 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Enemy-water-idle_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 2326
+        width: 488
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0277b82798a9ef458f1a7a00f728a3c
+      internalID: 1380278004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_1
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 2326
+        width: 488
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25e425d1430972a4fbffbbf82904ed37
+      internalID: 85133559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_2
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 2326
+        width: 489
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e8e514202fbff446bedfc08ca808a6c
+      internalID: -1433300790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_3
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 2326
+        width: 489
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0154a4b421001464e83edab7f3cde601
+      internalID: -1514360709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_4
+      rect:
+        serializedVersion: 2
+        x: 1988
+        y: 2327
+        width: 488
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3d1c819f3d201e4eb33ef8a563b7c6f
+      internalID: -1828694689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_5
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1553
+        width: 488
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbad33790ce388b4597e87221e3b46ee
+      internalID: -1807486961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_6
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 1555
+        width: 489
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9afd82c74f1d4940bd69bc2cf7fc14f
+      internalID: -903549416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_7
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 1555
+        width: 489
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4688d2a9a61bb29478e6c42e6df9db25
+      internalID: -239780805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_8
+      rect:
+        serializedVersion: 2
+        x: 1489
+        y: 1555
+        width: 488
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f10cbab99a470b343b60d754d49d8b85
+      internalID: 884345856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_9
+      rect:
+        serializedVersion: 2
+        x: 1985
+        y: 1555
+        width: 488
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e532c9f13416840a9e50a9536ad959
+      internalID: -1110334076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 781
+        width: 488
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d9745b59dcc814389f88d50dc893ce
+      internalID: -944234163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_11
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 781
+        width: 488
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c7d16303072c3e429b3b52b7575900f
+      internalID: 1118058150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_12
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 781
+        width: 488
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ac53be58ba5f194ab81be60eaa4fad8
+      internalID: 723098369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_13
+      rect:
+        serializedVersion: 2
+        x: 1489
+        y: 781
+        width: 488
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070a60eb7ac71a54aadeb1b3e23155d8
+      internalID: -2122286685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_14
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 781
+        width: 488
+        height: 766
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed1ac231fa7eb3c4bb9f13da2d71216f
+      internalID: -1183198012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_15
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 5
+        width: 488
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30ee47804e96c394aaaef9cafcd82ffc
+      internalID: -1152895322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_16
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 5
+        width: 488
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e40d4e53fc7fc45a7c8075c6ff525a
+      internalID: -1756796664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_17
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 5
+        width: 488
+        height: 767
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29754fd09bd1c1c478a651e1eb6116d9
+      internalID: -1172029618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_18
+      rect:
+        serializedVersion: 2
+        x: 1493
+        y: 4
+        width: 489
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11b2be78e61376b4f819b878ef9c31a3
+      internalID: 1528504390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-water-idle_19
+      rect:
+        serializedVersion: 2
+        x: 1990
+        y: 4
+        width: 488
+        height: 768
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05b5af35b8a630d4c830814369f146b6
+      internalID: 1552220833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c34ad9cdbce255544a99f06df8d8bceb
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Enemy-water-idle_0: 1380278004
+      Enemy-water-idle_1: 85133559
+      Enemy-water-idle_10: -944234163
+      Enemy-water-idle_11: 1118058150
+      Enemy-water-idle_12: 723098369
+      Enemy-water-idle_13: -2122286685
+      Enemy-water-idle_14: -1183198012
+      Enemy-water-idle_15: -1152895322
+      Enemy-water-idle_16: -1756796664
+      Enemy-water-idle_17: -1172029618
+      Enemy-water-idle_18: 1528504390
+      Enemy-water-idle_19: 1552220833
+      Enemy-water-idle_2: -1433300790
+      Enemy-water-idle_3: -1514360709
+      Enemy-water-idle_4: -1828694689
+      Enemy-water-idle_5: -1807486961
+      Enemy-water-idle_6: -903549416
+      Enemy-water-idle_7: -239780805
+      Enemy-water-idle_8: 884345856
+      Enemy-water-idle_9: -1110334076
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

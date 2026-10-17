@@ -1,4 +1,4 @@
-using Framework;
+﻿using Framework;
 using GamePlay.Configs;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,6 +16,7 @@ namespace GamePlay.Player
         private PlayerLiquids _playerLiquids;
         private PlayerCombat _playerCombat;
         private PlayerStats _playerStats;
+        public PlayerStats PlayerStats => _playerStats;
         private PlayerView _playerView;
         private PlayerInteractor _playerInteractor;
         private Rigidbody2D _rb;

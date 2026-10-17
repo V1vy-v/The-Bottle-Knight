@@ -1,4 +1,4 @@
-/*
+﻿/*
  * 怪物状态机状态
  */
 using Framework;
@@ -113,7 +113,9 @@ namespace GamePlay.Enemy
     /// </summary>
     public class EnemyAttackState : EnemyStateBase
     {
-        private float _attackTimer;//上一次攻击时间
+        private float _attackTimer;     // 攻击冷却计时
+        private float _preAttackTimer;  // 前摇/停留计时
+        private bool _hasAttacked;      // 是否已经发起过第一次攻击
 
         public override EnemyState StateKey => EnemyState.Attack;
 
@@ -122,35 +124,58 @@ namespace GamePlay.Enemy
 
         public override void Enter()
         {
-            Enemy.ChangeSpeed();
-            _attackTimer = 0f; 
-            Enemy.PlayAnimation("Attack");
+            _attackTimer = 0f;
+            _preAttackTimer = 0f;
+            _hasAttacked = false;
+
+            //Enemy.PlayAnimation("Idle");
         }
 
         protected override void Tick(float deltaTime)
         {
+            // 处理前摇停留逻辑
+            if (!_hasAttacked)
+            {
+                _preAttackTimer += deltaTime;
+                if (_preAttackTimer >= 1.0f) // 停留 1 秒后发动攻击
+                {
+                    _hasAttacked = true;
+                    _attackTimer = 0f;
+
+                    Enemy.PlayAnimation("Attack");
+                    Enemy.Attack();
+                }
+                return; 
+            }
+
             _attackTimer += deltaTime;
 
             if (_attackTimer >= Enemy.state.AttackCooldown)
             {
                 _attackTimer = 0f;
                 Enemy.PlayAnimation("Attack");
+                Enemy.OnAttackEnd();
+                Enemy.Attack();
             }
         }
 
         protected override void CheckStateChange()
         {
-            //如果玩家离开攻击范围,根据索敌范围回到巡逻状态或者是追击状态
-            //如果玩家没死且仍在攻击范围内
-            //无需操作
+            // 如果玩家离开攻击范围
             if (!Enemy.playerInAttackRange && Enemy.playerInDetectRange)
             {
                 _stateMachine.ChangeState(EnemyState.Chase);
-            }else if (!Enemy.playerInDetectRange)
+            }
+            else if (!Enemy.playerInDetectRange)
             {
                 _stateMachine.ChangeState(EnemyState.Patrol);
             }
+        }
 
+        public override void Exit()
+        {
+            base.Exit();
+            Enemy.OnAttackEnd();
         }
     }
 

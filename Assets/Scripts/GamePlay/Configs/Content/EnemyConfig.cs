@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace GamePlay.Configs
 {
@@ -22,8 +22,7 @@ namespace GamePlay.Configs
         public float MaxHp = 50f;
         public float Damage = 8f;
         public float MoveSpeed = 2f;            // 巡逻速度
-        public float ChaseSpeed = 4f;           // 追击速度
-        public float AttackRange = 1f;
+        //public float AttackRange = 1f;
         public float AttackCooldown = 1.5f;
         public float HurtStunTime = 0.3f;       // 受击僵直
 

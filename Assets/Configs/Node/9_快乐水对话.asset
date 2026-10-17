@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74807c75f37db974e98ca729d3361545, type: 3}
   m_Name: "9_\u5FEB\u4E50\u6C34\u5BF9\u8BDD"
   m_EditorClassIdentifier: 
-  nodeId: 2
+  nodeId: Node_9
   mode: 1
   refreshDialog: 1
   refreshBattle: 0
+  goalId: 
   dialogConfig: {fileID: 4900000, guid: 44c6805b503b77a4a99630f590a615ce, type: 3}
   battleConfig: {fileID: 0}
   nextNode: {fileID: 11400000, guid: 0f829cef9a3252a4b8166f7e3995a0a7, type: 2}

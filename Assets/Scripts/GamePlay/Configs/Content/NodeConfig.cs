@@ -28,10 +28,17 @@ namespace GamePlay.Story
         public TextAsset dialogConfig;
         public BattleConfig battleConfig;
 
+        [Tooltip("【临时】战斗系统完成前：敌人照常生成，进场后短暂延迟立刻判定死亡。" +
+                 "做完真战斗后逐个取消勾选，最后删掉本字段。")]
+        public bool autoWinBattle;
+
         [Header("下一个结点")]
         public NodeConfig nextNode;
 
         [Header("当前流程")]
         public StoryStage currentStage;
+        [Header("转场")]
+        [Tooltip("进入本节点时播放一次黑屏转场（跨关卡区域用，比如冰箱→厨房）")]
+        public bool fadeTransition;
     }
 }

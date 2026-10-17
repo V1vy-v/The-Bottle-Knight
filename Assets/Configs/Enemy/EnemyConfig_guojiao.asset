@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ccc1e887a14a348b44756c3172808a, type: 3}
+  m_Name: EnemyConfig_guojiao
+  m_EditorClassIdentifier: 
+  Id: Enemy_002
+  Name: "\u56FD\u7A96"
+  Tier: 3
+  MaxHp: 20
+  Damage: 10
+  MoveSpeed: 5
+  AttackCooldown: 1.5
+  HurtStunTime: 0.3
+  IdleDuration: 2
+  PatrolDuration: 5
+  FadeDuration: 1
+  CapDrop: 0
+  CanAbsorb: 1
+  AbsorbLiquidId: Liquid_001
+  ImmuneKnockback: 0
+  ImmuneStun: 0
+  DebuffDurationScale: 1
+  DebuffChanceScale: 1
+  PrefabLocation: Prefab_Enemy_ManbaTea

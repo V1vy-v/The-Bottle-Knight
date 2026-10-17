@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74807c75f37db974e98ca729d3361545, type: 3}
   m_Name: "22_\u8FDB\u5165\u8D85\u5E02"
   m_EditorClassIdentifier: 
-  nodeId: 2
+  nodeId: Node_22
   mode: 0
   refreshDialog: 0
   refreshBattle: 0
@@ -21,3 +21,4 @@ MonoBehaviour:
   battleConfig: {fileID: 0}
   nextNode: {fileID: 0}
   currentStage: 3
+  fadeTransition: 1

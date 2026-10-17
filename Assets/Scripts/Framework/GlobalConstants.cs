@@ -9,5 +9,6 @@ namespace Framework
         public const string GAME_SCENE_NAME = "GameScene";
 
         public const string PlayerPrefabLocation = "Prefab_Player";
+        public const string PLAYER_SPAWN_NAME = "[PlayerSpawn]";
     }
 }
