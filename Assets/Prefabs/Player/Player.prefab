@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8369d6a1bea8e04eac775b885ad45b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _primaryMeleeAtkOffset: {x: 0, y: 0}
+  _primaryMeleeAtkOffset: {x: 0, y: 3}
   _primaryRangedAtkOffset: {x: 0, y: 0}
   _enemyLayerMask:
     serializedVersion: 2

@@ -20,7 +20,7 @@ MonoBehaviour:
   goalId: 
   dialogConfig: {fileID: 0}
   battleConfig: {fileID: 11400000, guid: 61d111c7ecc4a4846a476e550b0f02f3, type: 2}
-  autoWinBattle: 1
+  autoWinBattle: 0
   nextNode: {fileID: 11400000, guid: cedc2cea6ee62814a898ee226a4a73ab, type: 2}
   currentStage: 1
   fadeTransition: 0

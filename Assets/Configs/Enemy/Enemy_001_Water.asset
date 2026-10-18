@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: Enemy_001_Water
   Name: "\u77FF\u6CC9\u6C34"
   Tier: 0
-  MaxHp: 20
+  MaxHp: 50
   Damage: 10
   MoveSpeed: 5
   AttackCooldown: 1.5

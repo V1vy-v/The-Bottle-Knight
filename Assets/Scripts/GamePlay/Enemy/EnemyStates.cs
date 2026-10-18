@@ -193,7 +193,7 @@ namespace GamePlay.Enemy
         {
             Enemy.ChangeSpeed();     
             _hurtTimer = 0f;         
-            Enemy.PlayAnimation("Hurt");
+            //Enemy.PlayAnimation("Hurt");
         }
 
         protected override void Tick(float deltaTime)
