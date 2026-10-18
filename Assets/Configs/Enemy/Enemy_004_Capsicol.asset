@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Enemy_004_Capsicol
   Name: "\u8FA3\u6912\u6CB9"
-  Tier: 0
+  Tier: 1
   MaxHp: 200
   Damage: 0
   MoveSpeed: 0

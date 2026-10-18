@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Node_16
   questText: 前往下一处擂台
-  mode: 0
+  mode: 1
   refreshDialog: 0
   refreshBattle: 0
   goalId: 
-  dialogConfig: {fileID: 0}
+  dialogConfig: {fileID: 4900000, guid: a1b2c3d4e5f60718293a4b5c6d7e8f04, type: 3}
   battleConfig: {fileID: 0}
   autoWinBattle: 0
-  nextNode: {fileID: 11400000, guid: 473510e697ab7f04ba5b49ec501edc26, type: 2}
+  nextNode: {fileID: 11400000, guid: b1b2c3d4e5f60718293a4b5c6d7e8f04, type: 2}
   currentStage: 1
   fadeTransition: 0
   teleportTargetName: 
