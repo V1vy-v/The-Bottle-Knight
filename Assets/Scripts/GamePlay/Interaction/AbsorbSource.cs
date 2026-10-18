@@ -16,8 +16,8 @@ namespace GamePlay.Interaction
     [RequireComponent(typeof(EnemyController))]
     public class AbsorbSource : MonoBehaviour, IInteractable
     {
-        /// <summary>覆盖 EnemyConfig 里的 AbsorbLiquidId；留空则用配置值</summary>
-        [SerializeField] private string _liquidIdOverride;
+        /// <summary>覆盖 EnemyConfig 里的 AbsorbLiquid；留空则用配置值</summary>
+        [SerializeField] private LiquidConfig _liquidOverride;
 
         /// <summary>吸取表现时长，播完才消失。表现是即时的就填 0</summary>
         [SerializeField] private float _absorbDuration = 0.6f;
@@ -31,9 +31,9 @@ namespace GamePlay.Interaction
         /// </summary>
         public event Action<AbsorbSource> OnAbsorbed;
 
-        /// <summary>实际产出的液体 Id</summary>
-        public string LiquidId =>
-            string.IsNullOrEmpty(_liquidIdOverride) ? _enemy?.config?.AbsorbLiquidId : _liquidIdOverride;
+        /// <summary>实际产出的液体</summary>
+        public LiquidConfig Liquid =>
+            _liquidOverride != null ? _liquidOverride : _enemy?.config?.AbsorbLiquid;
 
         private void Awake() => _enemy = GetComponent<EnemyController>();
 
@@ -50,7 +50,7 @@ namespace GamePlay.Interaction
             && _enemy.config != null
             && _enemy.config.CanAbsorb
             && _enemy.IsDefeated
-            && !string.IsNullOrEmpty(LiquidId);
+            && Liquid != null;
 
         /// <summary>还留在场上等人吸取（战斗结束时据此决定是否暂留尸体）</summary>
         public bool IsAwaitingAbsorb => CanInteract;
@@ -67,8 +67,8 @@ namespace GamePlay.Interaction
             if (!CanInteract) return;
             if (liquids == null) return;
 
-            if (!ConfigManager.Instance.TryGetConfig<LiquidConfig>(LiquidId, out var cfg))
-                return;
+            var cfg = Liquid;
+            if (cfg == null) return;
 
             if (!liquids.GetLiquid(cfg))   // 二次确认：扫描间隔内玩家可能刚换了液体
                 return;

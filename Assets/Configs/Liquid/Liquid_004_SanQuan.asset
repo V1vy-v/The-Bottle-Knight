@@ -10,29 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b21861acf0c343646ad3ace835a8bc2e, type: 3}
-  m_Name: ManbaTea
+  m_Name: Liquid_004_SanQuan
   m_EditorClassIdentifier: 
-  Id: Liquid_001
-  Name: "\u56FD\u7A96"
-  Type: 1
-  Kind: 0
+  Id: Liquid_004
+  Name: "\u4E09\u62F3"
+  Type: 5
+  Kind: 1
   CanBeMain: 1
-  Damage: 0
+  Damage: 15
   AttackInterval: 0
   BulletPrefabRes: 
-  SkillDamage: 50
+  SkillDamage: 0
   SkillCd: 0
-  SkillDuration: 5
+  SkillDuration: 0
   AtkBonus: 0
   MoveSpeedBonus: 0
   RangeBonus: 0
-  AttackSpeedBonus: 0.2
+  AttackSpeedBonus: 0
   HasKnockback: 0
   RagePerHit: 10
   RageDecayPerSec: 10
   RageMax: 100
   RageDecayDelay: 5
-  ChillSlow: 0.2
+  ChillSlow: 0
   ExtendPerHit: 0.5
   ExtendMax: 5
   PassThroughDamage: 15

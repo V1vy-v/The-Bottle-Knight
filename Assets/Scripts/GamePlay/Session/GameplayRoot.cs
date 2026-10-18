@@ -1,4 +1,5 @@
 ﻿using Framework;
+using GamePlay.Configs;
 using GamePlay.Session;
 using GamePlay.Story;
 using System;
@@ -37,11 +38,10 @@ namespace GamePlay
         /// </summary>
         public void StartNewGame()
         {
-            AssetHandle handle = Global.Load<NodeConfig>("Assets/Configs/Node/0_StartNode.asset");
-            NodeConfig startNode = handle.AssetObject as NodeConfig;
-            if (startNode == null)
+            var configs = ConfigManager.Instance;
+            if (configs == null || !configs.TryGetStartNode(out NodeConfig startNode))
             {
-                Debug.LogError("[GameplayRoot] StartNewGame 传入的 startNode 为空");
+                Debug.LogError("[GameplayRoot] 找不到起始节点，检查 ConfigManager 的起始节点 Id");
                 return;
             }
 

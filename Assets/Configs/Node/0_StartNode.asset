@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74807c75f37db974e98ca729d3361545, type: 3}
   m_Name: 0_StartNode
   m_EditorClassIdentifier: 
-  nodeId: Node_0
+  Id: Node_0
   mode: 0
   refreshDialog: 0
   refreshBattle: 0
@@ -22,3 +22,4 @@ MonoBehaviour:
   autoWinBattle: 0
   nextNode: {fileID: 11400000, guid: 697dbafe8ebcc964bb6a49c60b49a0c8, type: 2}
   currentStage: 0
+  fadeTransition: 0

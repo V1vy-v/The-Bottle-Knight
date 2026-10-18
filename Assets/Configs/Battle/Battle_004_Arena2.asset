@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46ba8b21b2e0d3e49af26b39c0a82ff1, type: 3}
-  m_Name: Battle_Guojiao
+  m_Name: Battle_004_Arena2
   m_EditorClassIdentifier: 
-  Id: Battle_02
-  Name: Battle_Guojiao
+  Id: Battle_004_Arena2
+  Name: "\u64C2\u53F02"
   Enemies:
-  - Config: {fileID: 11400000, guid: f09ff9e2a8fe20e40af105cd1a994db5, type: 2}
+  - Config: {fileID: 11400000, guid: f59fdebf0f6fa16479366d37214d296f, type: 2}
+    Count: 2
+  - Config: {fileID: 11400000, guid: a871f4d8c15b05d4593f9c1025cd40a6, type: 2}
+    Count: 1
+  - Config: {fileID: 11400000, guid: daf2a8e6f4eeb51489c3016b3a8ede8d, type: 2}
     Count: 1

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46ba8b21b2e0d3e49af26b39c0a82ff1, type: 3}
-  m_Name: BattleConfig 4
+  m_Name: Battle_006_Arena4
   m_EditorClassIdentifier: 
-  Id: 
+  Id: Battle_006_Arena4
   Name: 
   Enemies:
-  - Config: {fileID: 11400000, guid: 669a4ce948cf7be489bece2dc1410699, type: 2}
+  - Config: {fileID: 11400000, guid: 39541e338661f144d842f3202eaf7596, type: 2}
     Count: 1

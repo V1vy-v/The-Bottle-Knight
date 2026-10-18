@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b21861acf0c343646ad3ace835a8bc2e, type: 3}
-  m_Name: Cola
+  m_Name: Liquid_003_LeiBi
   m_EditorClassIdentifier: 
-  Id: Liquid_002
-  Name: "\u5FEB\u4E50\u6C34"
-  Type: 0
+  Id: Liquid_003
+  Name: "\u96F7\u78A7"
+  Type: 2
   Kind: 0
   CanBeMain: 1
   Damage: 0
   AttackInterval: 0
   BulletPrefabRes: 
   SkillDamage: 0
-  SkillCd: 12
-  SkillDuration: 10
-  AtkBonus: 0.2
-  MoveSpeedBonus: 0.1
-  RangeBonus: 0.2
+  SkillCd: 8
+  SkillDuration: 8
+  AtkBonus: 0
+  MoveSpeedBonus: 0.6
+  RangeBonus: 0
   AttackSpeedBonus: 0
-  HasKnockback: 1
+  HasKnockback: 0
   RagePerHit: 10
   RageDecayPerSec: 10
   RageMax: 100

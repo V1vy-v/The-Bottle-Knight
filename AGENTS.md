@@ -5,14 +5,15 @@ Unity 2022.3.62f3 (LTS) 2D 游戏项目（TapTap「聚光灯」GameJam 参赛项
 ## 工具链
 
 - **渲染**：URP 14.0.12，2D Renderer，Linear 色彩空间（`ProjectSettings/ProjectSettings.asset: m_ActiveColorSpace: 1`）；管线资产在 `Assets/Settings/`（`URP-Balanced` / `URP-HighFidelity` / `URP-Performant` 各带同名 `-Renderer`，2D 用 `URP-2D-Renderer.asset`），全局设置在 `Assets/UniversalRenderPipelineGlobalSettings.asset`。
-- **输入**：Input System 1.14.2，`activeInputHandler: 2`（新旧输入系统同时启用）；`Assets/InputActions/PlayerInputActions.inputactions` 与其生成的 `PlayerInputActions.cs`（**生成物，不要手改**）。
+- **输入**：Input System 1.14.2，`activeInputHandler: 2`（新旧输入系统同时启用）；`Assets/InputActions/PlayerInputActions.inputactions` 与其生成的 `PlayerInputActions.cs`（**生成物，不要手改**）。`Player` 映射：`PrimaryAttack → J`、`Skill → K`、`Interact → F`、`SwitchLiquid → Tab`。
 - **相机**：Cinemachine 3.1.3，预设 `Assets/Prefabs/Cameara/Third Person Camera.prefab`、`Third Person Aim Camera.prefab`（注意目录名就是拼错的 `Cameara`）。
 - **资源与打包**：YooAsset 3.0.5（`Assets/Scripts/Framework/SubSystems/Resource/Provider/YooAsset/YooAssetProvider.cs`）。采集配置 `Assets/Resources/BundleCollectorSetting.asset`，三组均为 `CollectorType: 0`（MainAsset）+ `PackRule: PackDirectory` + `AddressRule: AddressByGroupAndFileName`：
   - `UI` ← `Assets/Prefabs/UI`
   - `Prefab` ← `Assets/Prefabs/Player`、`Assets/Prefabs/Enemy`
   - `Config` ← `Assets/Configs`
 
-  **地址规则是 `<组名>_<文件名>`**（如 `Prefab_Player`、`UI_BeginPanel`）。**场景不走 YooAsset**，只走 Build Settings；Wwise SoundBank 走 StreamingAssets。
+  **地址规则是 `<组名>_<文件名（无扩展名）>`**（如 `Prefab_Player`、`Prefab_Enemy_Water`、`Config_国窖对话`）。地址**大小写敏感**，改文件名就等于改地址。**场景不走 YooAsset**，只走 Build Settings；Wwise SoundBank 走 StreamingAssets。
+- **`AppCoreConfig.resourceMode = 1`，即 `EPlayMode.OfflinePlayMode`** —— 运行期读的是**打好的 bundle**（构建输出在 `Bundles/<平台>/`），不是 `Assets/` 里的原资产。**改资产地址 / 文件名后要在游戏里生效，必须重新构建一次 YooAsset bundle**（编辑器里跑同一份 bundle 的情况除外，自己确认）。另外：`Assets/StreamingAssets/` 下目前**没有** `yoo` 目录，只有 Wwise 的 `Audio/` 和 `desc.txt`，如果进游戏报资源初始化失败，先查这里。
 - **寻路**：NavMeshPlus（`com.h8man.2d.navmeshplus`，2D 版 NavMesh）；烘焙数据在 `Assets/Scenes/GameScene/NavMesh-Navigation*.asset`。
 - **音频**：Wwise 2022.1.19.8584 深度集成；作者工程在**本仓库内** `Taptap_Wwise/Taptap_Wwise.wproj`（与 `Assets/` 同级，所以 `WwiseProjectPath=../Taptap_Wwise/Taptap_Wwise.wproj` 才解析得到）。两个场景都有 `WwiseGlobal`。
 - **UI 文本**：TextMeshPro 3.0.7；中文字体源文件 `Assets/Art/Fonts/AaHouDiHei-2.ttf`（详见末尾「中文文本」）。
@@ -20,80 +21,126 @@ Unity 2022.3.62f3 (LTS) 2D 游戏项目（TapTap「聚光灯」GameJam 参赛项
 
 ## 项目结构
 
-- `Assets/Scripts/` —— 项目自有代码（147 个 `.cs`），全部编译进 `Assembly-CSharp`。目录分四层，但**目录名与 namespace 并不一一对应，以代码为准**：
+- `Assets/Scripts/` —— 项目自有代码 **164 个 `.cs`**，全部编译进 `Assembly-CSharp`。**目录名与 namespace 并不一一对应，以代码为准**：
   - `Core/`（`namespace Core`）—— `AppCore`（`MonoSingleton<AppCore>`，全局子系统宿主）、`AppCoreConfig`、`AppModel`、`AppModelProxy`。启动顺序是：**先**注册 `ResourceManager` 并 `SetProvider(new YooAssetProvider(...))`，在 `OnResourceReady` 回调里才 `InitSubSystems()`（`StorageManager` → `InstantiateManager` → `PoolManager` → `TimerManager` → `DataProxyManager` → `UIManager` → `SceneLoader` → `LocalInputManager` → `AudioManager` → `CameraManager` → `GameplayRoot`），再 `InitDataProxy()`（`AppModelProxy`、`GameSaveDataProxy`），最后置 `IsReady` 并触发 `OnAppReady`。**订阅 `OnAppReady` 不必关心 Awake 顺序：已就绪后再订阅会立刻收到一次回调。**
   - `Debug/`（`namespace Core`）—— `ConsoleToScreen.cs`，把 Runtime 日志显示到屏幕。
   - `Framework/`（`namespace Framework`；少数为 `Framework.SubSystems`，编辑器侧为 `Framework.Editor`）—— 与玩法无关的通用框架：
-    - `Global.cs` —— 服务定位器。业务层通过 `Global.Get<T>()` / `Global.Register<T>()` / `Global.RegisterDataProxy<T>()` 取子系统，**不要直接引用 `AppCore`**。
-    - `GlobalConstants.cs` —— 场景名与预制体地址：`MENU_SCENE_NAME = "MainScene"`、`GAME_SCENE_NAME = "GameScene"`、`PlayerPrefabLocation = "Prefab_Player"`。
-    - `Common/` —— `Singleton/`（`MonoSingleton`；`ScriptableObjectSingleton` 用 `Resources.Load<T>(typeof(T).Name)` 取 `Resources/<类名>.asset`）、`StateMachine/`、`SubSystemManager/`（`ISubSystem`、`SubSystemBase`、`SubSystemPriority`、`SystemManager`）。
+    - `Global.cs` —— 服务定位器。业务层通过 `Global.Get<T>()` / `Global.Register<T>()` / `Global.RegisterDataProxy<T>()` 取子系统，**不要直接引用 `AppCore`**。另有 `Global.Load<T>(path)`（返回 `AssetHandle`）、`Instantiate/InstantiateUnpooled`、`Release`。
+    - `GlobalConstants.cs` —— 场景名与预制体地址：`MENU_SCENE_NAME = "MainScene"`、`GAME_SCENE_NAME = "GameScene"`、`PlayerPrefabLocation = "Prefab_Player"`、`PLAYER_SPAWN_NAME = "[PlayerSpawn]"`。
+    - `Common/` —— `Singleton/`（`MonoSingleton`，子类覆写 `Init()`／`Destroy()`，**不要自己再写 `Awake`**；`ScriptableObjectSingleton` 用 `Resources.Load<T>(typeof(T).Name)` 取 `Resources/<类名>.asset`）、`StateMachine/`、`SubSystemManager/`（`ISubSystem`、`SubSystemBase`、`SubSystemPriority`、`SystemManager`）。
     - `Event/EventBus.cs`；`Input/`（`LocalInputManager`、`LocalInputProvider`、`InputState`、`IInputStateProvider`、`LocalInputType`；`LocalInputManager.SwitchMap(LocalInputType)` 切映射，内部 `GameObject.Find("[GameRoot]")`）。
-    - `SubSystems/` —— 各子系统实现：
-      - `Audio/`（`AudioManager`、`AudioConfig`，`namespace Framework.SubSystems`，接 Wwise）
-      - `Camera/`（`CameraManager`、`CameraConfig`、`CameraState`）
-      - `DataProxy/`（`DataProxyManager`、`BaseDataProxy`、`IDataProxy`）
-      - `Instantiation/`（`InstantiateManager`，partial 拆分：`.Async` / `.Debug` / `.Entries` / `.Pool` / `.Recycle`）
-      - `ObjectPool/`（`PoolManager`、`ObjectPool`、`IPoolable`；`ResGroup/` 下 `ResGroup`、`ResGroupPolicy`）
-      - `Resource/`（`ResourceManager`、`IResourceLoader`、`Provider/YooAsset/YooAssetProvider`）
-      - `SceneControl/`（`SceneLoader`）
-      - `Storage/`（`StorageManager`：JSON 存档，`Load<T>` / `SaveJson<T>` / `DeleteFile`，配 `UnityVectorJsonConverter`）
-      - `Timer/`（`TimerManager`、`Timer`）
-      - `UI/`（`UIManager`；`Core/`：`UIView`、`UIController`、`UIBaseLayer`、`IUIController`、`IUIProperties`；`Panel/`、`Window/`、`Scene/` 三层各有 `*Controller` / `*Layer` / `*Properties` / `*Priority`；`UIAnimation/`：`AnimationView`、`AnimComponent`、`FadeAnimation`）。`UIManager` 对外是 `ShowPanel` / `HidePanel`、`ShowWindow` / `HideWindow` / `CloseCurrentWindow`、`ShowScene` / `HideScene`、`ShowUI<T>`，带实例缓存与延迟隐藏。
-  - `GamePlay/` —— 玩法层。**namespace 沿用现状（若干目录仍是 `Framework`），不要按目录名想当然**：
-    - `Procedure/`（`namespace GamePlay.Procedure`）—— **会话层**流程状态机。`ProcedureCore`（`MonoSingleton`，挂在 MainScene 的 `[GameRoot]` 上）持有 `StateMachine<ProcedureState>`：`Menu` / `Loading` / `Playing`；`States/` 三个状态 + `ProcedureStateBase`，`Task/`（`ILoadTask`、`ProcedureTransition`、`SceneLoadTask`）。对外：`StartUp()`、`RequestPlay()`、`RequestMenu()`、`RequestState(ProcedureState, ILoadTask)`、`RequestScene(...)`、`ClearNewGameTag()`、`FailTransition(...)`。**换场景只能走 `RequestPlay()` / `RequestMenu()`，绝不要直接调 `Global.LoadScene`** —— 否则状态机与场景不同步，表现为「旧面板不消失、主角不生成」。
-    - `Session/`（`namespace GamePlay.Session`，惟 `GameplayRoot.cs` 是 `namespace GamePlay`）—— 一局对局的上下文：`GameplayRoot`（`SubSystemBase`）、`StoryContext`、`StoryStage`、`BattleContext`、`GameplayState.cs`（内含 **`GameplayMode`** 枚举：FreeRoam / Dialogue / Cutscene / Battle / Pause / GameOver；注意文件名与类型名不一致）、`States/` 六个局内状态 + `GameplayStateBase`。`GameplayRoot` 对外：`StartNewGame()`、`ContinueGame()`、`EndGame()`、`ChangeMode(GameplayMode)`、`Pause()` / `Resume()`、`AdvanceNode()` / `AdvanceStage()`、`EnterBattle()` / `EndBattle()`，并负责主角的实例化与释放。
-    - `Configs/`（`namespace GamePlay.Configs`）—— `ConfigManager`（`ScriptableObjectSingleton<ConfigManager>`，`OnEnable` 按 `ConfigBase.Id` 建字典，重复 Id 会 `LogError`）+ `ConfigBase`（`Id`、`Name`）+ `Content/`：`BuffConfig`、`EnemyConfig`、`ItemConfig`、`LiquidConfig`、`PlayerConfig`、`StoryConfig`。读取用 `ConfigManager.Instance.TryGetConfig<T>(id, out var cfg)`。实例资产在 `Assets/Configs/`。**配置里只放数值或地址字符串，不放资源引用** —— `ConfigManager` 由 `Resources.Load` 加载并**硬引用** `_configs` 列表，塞进 Sprite/Prefab 会把所有依赖拖进启动并让 YooAsset bundle 互相交叉。
-    - `Player/`（`namespace GamePlay.Player`）—— 主角：`PlayerController`（输入入口 + 编排）、`PlayerCombat`、`PlayerLiquids`、`PlayerStats`、`PlayerInteractor`、`PlayerView`（**唯一**持有 Animator / SpriteRenderer 的表现层）。
-    - `Liquid/`（`namespace GamePlay.Liquid`）—— 液体形态：`LiquidBase`（纯 C# 抽象基类，管技能时序）、`LiquidFactory`（`Create(LiquidConfig, PlayerStats)`，按 `LiquidConfig.Type` 造子类）、`Liquids/`（`Cola`、`GuoJiao`）。`LiquidConfig` 里另有 `LiquidKind` 枚举（`Active` / `MainPassive` / `StandbyPassive`）。
-    - `Enemy/`（`namespace GamePlay.Enemy`）—— 敌人状态机与导航：`EnemyController`、`EnemyMoveController`、`EnemyDetectZone`、`EnemyBaseState` / `EnemyRealState` / `EnemyStates`、`EnemyStateType`。
-    - `Buff/`、`Obstacle/` —— **注意这两个目录的 namespace 不是 `GamePlay.*`**：`Buff/` 是 `Framework`，`Obstacle/` 是 `GamePlay.Liquid`。内容为 `BuffController`、`BuffEffect`、`BuffInstance`、`SpeedBuffEffect`；`ObstacleBase`、`Obstacle_Breakable` / `Obstacle_Pushable` / `Obstacle_UnBreakable`、`ObstacleType`。
-    - `Dialog/`（`namespace GamePlay.DataProxy`）—— 对话系统：`CharacterDatabase`（`GetIcon` / `Contains`）、`CharacterEntry`、`DialogController`。
-    - `GameSave/`（`namespace GamePlay.GameSave`）—— `SaveData/GameSaveData.cs`，局内存档数据实体。
-    - `DataProxy/`（`namespace GamePlay.DataProxy`）—— `GameSave/GameSaveDataProxy.cs`。
-    - `TestScript.cs` —— 临时脚本（`namespace Framework`）。
-  - `UI/`（`namespace UI`）—— 界面按 `Binding/`（自动生成的控件引用）、`Logic/`（界面逻辑，`partial class`）、`Properties/`（对外参数）三层拆分，并按场景分子目录（`MainScene/`、`GameScene/`）。绑定代码由 `Assets/Scripts/Editor/UIFramework/UIViewBindingEditor.cs` 在 Inspector 中生成；新增界面请沿用该拆分并保留 `// <ui-bind:add>` 标记块。
-  - `Editor/`（`namespace Framework.Editor`）—— 编辑器扩展：`Instantiation/InstantiateManagerDebugWindow.cs`、`Protobuf/ProtoCompilerWindow.cs`、`UIFramework/UIViewBindingEditor.cs`。
-- `Assets/Scenes/` —— `MainScene.unity`（菜单，**启动场景**：根下有 `[GameRoot]`、`WwiseGlobal`、`Global Volume`、`Light 2D`，以及一个名为「========== 全局组件 ==========」的分隔节点）与 `GameScene.unity`（对局：根下有 `[SceneRoot]`、`WwiseGlobal`、`Ground`、`BK`、`Navigation`、`Items`、`[Chicken]`、`Light 2D` 及各场景道具）。两个场景**都已加入 Build Settings**（`ProjectSettings/EditorBuildSettings.asset`，均 enabled）且不进 YooAsset。`[GameRoot]` 是运行期经 `GameObject.Find("[GameRoot]")` 定位的，**改名会断掉 `LocalInputManager` 与 `InstantiateManager`**；`[SceneRoot]` 目前无脚本引用，只是 GameScene 的组织节点。
-- `Assets/Configs/` —— `ConfigBase` 实例资产：`Player/PlayerConfig`、`Enemy/EnemyConfig`、`Liquid/`（`Cola`、`CookingWine`、`Leibi`、`ManbaTea`、`Vinegar`）、`BuffEffect/SpeedBuffEffect`；`Item/`、`Story/` 目前是空目录。
-- `Assets/Prefabs/` —— `Cameara/`（第三人称相机）、`Player/Player.prefab`、`Enemy/`（`Enemy_ManbaTea.prefab`、`Enemy_ManbaTea_防丢失新加版.prefab`）、`GameScene/`（`ScenePalette.prefab` + `Tiles/`）、`Scene/`、`Text/`、`UI/`（`UIManager.prefab`；`MainScene/`：`BeginPanel`、`SettingPanel`；`GameScene/`：`HUD`、`MenuPanel`、`DialogPanel`；`Loading/LoadingPanel`）。
-- `Assets/Art/`、`Assets/Animations/`（`Animations/` + `Animation Controller/`）、`Assets/ThirdParty/`（`AruiPostEffect1.0_URP`、`AruiShader_URP`、`PandaShaderSamPleURPV1.1`、`TextMesh Pro` —— **视为只读**）、`Assets/Plugins/`（**当前为空目录**）、`Assets/Audio/`（**当前为空占位目录**）。
-- `Assets/Editor/SpineSettings.asset` —— Spine 残留资产：工程内没有 Spine 运行时（`Assets/Plugins/` 为空可佐证），不要被它误导。
-- `Assets/Resources/` —— 7 个 `ScriptableObject` 单例配置：`AppCoreConfig`、`AudioConfig`、`CameraConfig`、`ConfigManager`、`ResGroupPolicy`、`YooAssetSettings`、`BundleCollectorSetting`。**注意：Resources 下的内容会被无条件打进包，且不经 YooAsset 管理。**
-- `Assets/StreamingAssets/` —— Wwise SoundBank 产物（`Audio/GeneratedSoundBanks/**`、`Init.bnk`、`Wwise_IDs.h`）。
-- `Taptap_Wwise/` —— Wwise 作者工程；`Assets/Wwise/` 是 Wwise Unity Integration 插件本体（自带 8 个 asmdef），由安装器生成，**不要手改**。
-- `docs/` —— 策划文档 `01流程` … `07数值`（7 个 `.docx`）+ `开发任务线.md`、`开发者日志02.md`。
-- `Library/`、`Temp/`、`obj/`、`Logs/`、`UserSettings/`、`Bundles/`、`Build/` 是 Unity/构建生成目录，已被根目录 `.gitignore` 忽略。
+    - `SubSystems/` —— 各子系统实现：`Audio/`（接 Wwise）、`Camera/`、`DataProxy/`、`Instantiation/`（`InstantiateManager`，partial 拆分 `.Async` / `.Debug` / `.Entries` / `.Pool` / `.Recycle`）、`ObjectPool/`、`Resource/`、`SceneControl/`、`Storage/`（JSON 存档）、`Timer/`、`UI/`（`UIManager` + `Core/` `Panel/` `Window/` `Scene/` 三层 + `UIAnimation/`：`AnimationView`、`AnimComponent`、`FadeAnimation`）。
+  - `GamePlay/` —— 玩法层：
+    - `Procedure/`（`namespace GamePlay.Procedure`）—— **会话层**流程状态机。`ProcedureCore`（`MonoSingleton`，挂在 MainScene 的 `[GameRoot]` 上）持有 `StateMachine<ProcedureState>`：`Menu` / `Loading` / `Playing`。对外 `StartUp()`、`RequestPlay()`、`RequestMenu()`、`RequestState(...)`、`RequestScene(...)`、`ClearNewGameTag()`、`FailTransition(...)`。**换场景只能走 `RequestPlay()` / `RequestMenu()`，绝不要直接调 `Global.LoadScene`**。
+    - `Session/`（`namespace GamePlay.Session`，惟 `GameplayRoot.cs` 是 `namespace GamePlay`）—— 一局对局的上下文：`GameplayRoot`（`SubSystemBase`）、`StoryContext`、`StoryStage`、`BattleContext`、`DialogContext`、`GameplayState.cs`（内含 **`GameplayMode`** 枚举：FreeRoam / Dialogue / Cutscene / Battle / Pause / GameOver；文件名与类型名不一致）、`States/` 六个局内状态 + `GameplayStateBase`（含 `GameplayModeStateBase`）。
+    - `Configs/`（`namespace GamePlay.Configs`）—— `ConfigManager` + `ConfigBase` + `Content/`：`BattleConfig`、`BuffConfig`、`EnemyConfig`、`LiquidConfig`、`NodeConfig`、`PlayerConfig`、`StoryConfig`。详见下方「配置系统」。
+    - `Interaction/`（`namespace GamePlay.Interaction`）—— 交互层：`IInteractable`、`AbsorbSource`（吸取敌人尸体）、`FlowTrigger`（流程触发器 / 遭遇锚点）、`InteractionPrompt`（F 提示，跟随 `PromptAnchor`）。
+    - `Player/`（`namespace GamePlay.Player`）—— `PlayerController`（输入入口 + 编排）、`PlayerCombat`、`PlayerLiquids`、`PlayerStats`、`PlayerInteractor`（`OverlapCircleNonAlloc` 扫交互物，半径 1.5，`_interactMask` = 2048）、`PlayerView`（**唯一**持有 Animator / SpriteRenderer 的表现层）。
+    - `Liquid/`（`namespace GamePlay.Liquid`）—— `LiquidBase`（纯 C# 抽象基类，管技能时序：`TryUseSkill` / `TickSkill` / `ForceEndSkill` / `CanUseSkill` / `OnPassiveTick` / `OnSkillBegin/Tick/End` / `OnSkillShouldEnd`）、`LiquidFactory`、`Liquids/`（`Cola`、`GuoJiao`、`Leibi`、`SanQuan`、`StandbyPassiveLiquid`）。`LiquidConfig` 里另有 `LiquidKind`（`Active` / `MainPassive` / `StandbyPassive`）。
+    - `Enemy/`（9 个 `.cs`）—— `EnemyController`、`EnemyMoveController`（封 `NavMeshAgent`）、`EnemyStates` / `EnemyBaseState` / `EnemyRealState`、`EnemyDetectZone`、`EnemyAtkDetect`、`EnemyAttackController`。**注意 `EnemyDetectZone`、`EnemyAtkDetect`、`EnemyMoveController` 在 `<global>` 命名空间**，`EnemyController` 等在 `GamePlay.Enemy`。
+    - `Buff/`（4 个）、`Obstacle/`（5 个）—— **这两个目录全部是 `<global>` 命名空间**（既不是 `Framework` 也不是 `GamePlay.*`）。
+    - `Dialog/`（`namespace GamePlay.DataProxy`）—— `CharacterDatabase`、`CharacterEntry`、`DialogController`（`SetDialogContent(TextAsset)`）。
+    - `GameSave/`（`namespace GamePlay.GameSave`）、`DataProxy/`（`namespace GamePlay.DataProxy`）。
+    - 根目录散着三个文件：`ScreenFader.cs`（黑屏转场，`namespace GamePlay`）、`TestEnemySpawner.cs`（临时测试）、`test.cs`（临时）。
+  - `UI/`（`namespace UI`）—— 界面按 `Binding/`（自动生成）、`Logic/`（`partial class`，手写）、`Properties/`（对外参数）三层拆分，按场景分子目录。绑定代码由 `Assets/Scripts/Editor/UIFramework/UIViewBindingEditor.cs` 在 Inspector 中生成；新增界面请沿用该拆分并保留 `// <ui-bind:add>` 标记块。
+  - `Editor/`（`namespace Framework.Editor`）—— `InstantiateManagerDebugWindow`、`ProtoCompilerWindow`、`UIViewBindingEditor`。
+- `Assets/Scenes/` —— `MainScene.unity`（菜单，**启动场景**：`[GameRoot]`、`WwiseGlobal`、`Global Volume`、`Light 2D`）与 `GameScene.unity`（对局：`[SceneRoot]`、`WwiseGlobal`、`Ground`、`BK`、`Navigation`、`Items`、`[Chicken]`、`Light 2D` 及场景道具）。两个场景都在 Build Settings 且不进 YooAsset。`[GameRoot]` 由 `GameObject.Find` 定位，**改名会断掉 `LocalInputManager` 与 `InstantiateManager`**。
+- `Assets/Configs/` —— 配置资产：`Player/`(1) `Enemy/`(6) `Battle/`(6) `Liquid/`(6) `Node/`(23) `BuffEffect/`(1) `CharacterDataBase_Dialog/`(1) `Text/`(5 个对话 `.txt`)。
+- `Assets/Prefabs/` —— `Cameara/`、`Player/Player.prefab`、`Enemy/`（6 个：`Enemy_Water` / `Enemy_GuoJiao` / `Enemy_LeiBi` / `Enemy_Capsicol` / `Enemy_CookingWine` / `Enemy_OrangeJuice`，每个都带 `EnemyController` + `EnemyMoveController` + `AbsorbSource` + `EnemyAttackController` + `EnemyDetectZone`×2 + `EnemyAtkDetect`，子物体 `MoveCollider` / `Hitbox` / `Detect` / `AttackZone` / `Attack` / `InteractPoint`）、`GameScene/`、`Scene/`、`Text/`、`UI/`。
+- `Assets/Art/`、`Assets/Animations/`、`Assets/ThirdParty/`（**视为只读**）、`Assets/Plugins/`（空）、`Assets/Audio/`（空占位）、`Assets/Editor/SpineSettings.asset`（Spine 残留，工程内无 Spine 运行时，不要被误导）。
+- `Assets/Resources/` —— 7 个 `ScriptableObject` 单例：`AppCoreConfig`、`AudioConfig`、`CameraConfig`、`ConfigManager`、`ResGroupPolicy`、`YooAssetSettings`、`BundleCollectorSetting`。**Resources 下的内容会被无条件打进包，且不经 YooAsset 管理。**
+- `Taptap_Wwise/` —— Wwise 作者工程；`Assets/Wwise/` 是插件本体（自带 8 个 asmdef），由安装器生成，**不要手改**。
+- `docs/` —— 策划文档 `空瓶骑士_01流程` / `_02敌人` / `_03规则` / `_04剧情` / `_05数值`（5 个 `.docx`）+ `美术需求清单.xlsx`。
+- `Library/`、`Temp/`、`obj/`、`Logs/`、`UserSettings/`、`Bundles/`、`Build/` 是生成目录，已被 `.gitignore` 忽略。
+
+## 节点驱动的对局流程
+
+**整个对局是单场景（`GameScene`），中途不加载场景**，靠 23 个 `NodeConfig` 串成一条链推进。
+
+- 起始节点由 `ConfigManager._startNodeId`（默认 `Node_0`）指定，`GameplayRoot.StartNewGame()` 调 `TryGetStartNode()` 取。
+- 推进链路：
+  ```
+  GameplayModeStateBase.CheckStateChange()
+    if (Finished && AutoAdvanceOnFinish) { Finished = false; Root.AdvanceNode(); }
+  AdvanceNode()        → StoryContext.TryMoveNext() → EnterNode(next)
+  EnterNode()          → [node.fadeTransition ? ScreenFader.Play(...) : 直接] → EnterNodeImmediate()
+  EnterNodeImmediate() → StoryContext.JumpTo() + ApplyNodeContext() + ChangeMode(node.mode)
+  ```
+- ⚠️ **`TryMoveNext()` 有副作用（会写 `CurrentNode`）**。所以 `AdvanceNode()` 和 `EnterNode()` 都用 `_transitioning` 挡重复请求 —— 黑屏转场要 0.95 秒，期间旧状态每帧都会 `MarkFinished()` 再请求推进，没有守卫就会**一次把整条链走穿**。
+- ⚠️ `MarkFinished()` 只置一个布尔；必须同时 `AutoAdvanceOnFinish == true` 才会真的推进。重写 `CheckStateChange()` 时**一定要调 `base.CheckStateChange()`**，否则表现为「打赢了但切不出去」。
+- **目标信号**：`GameplayRoot.ReportGoalReached(goalId)` → `OnGoalReached` 事件。`GameplayFreeRoamState` 订阅后只认与 `CurrentNode.goalId` 匹配的报告（节点 `goalId` 为空则接受任意报告）。报告方只有两个：`FlowTrigger`（场景触发器）和 `AbsorbSource`（吸取，报 `"absorb"`）。
+- **场景里 `FlowTrigger._goalId` 填的是「要进入的那个节点的 Id」**（如 `Node_4`），不是节点自己的 Id；对应地，该 FreeRoam 节点的 `goalId` 必须等于下个节点的 Id。
+
+### StoryStage 与尸体回收
+
+`StoryStage`：`Fridge=0` / `Kitchen=1` / `Road=2`（未用）/ `Supermarket=3`。节点按阶段分组：`Node_0`~`Node_7` 是 Fridge，`Node_8`~`Node_21` 是 Kitchen，`Node_22` 是 Supermarket。
+
+战斗中「可吸取」的敌人尸体在 `GameplayBattleState.Exit()` 时移入 `_pendingCorpses`，**只在 `node.currentStage` 变化或结束对局时**才 `ReleasePendingCorpses()`。**不能每个节点都回收** —— 否则「战斗 → 战败对话 → 吸取环节」中间那一步就把尸体清掉了，玩家还没走到就没了。
+
+### 遭遇（encounter）
+
+场景里放占位贴图 + `FlowTrigger`（**Layer 必须是 `Obstacle`**，勾 `_asEncounterAnchor`）→ 触发后报 `_goalId` → 节点推进到对话 → 对话结束进战斗节点 → `GameplayBattleState.SpawnEnemy()` 在 `Root.EncounterAnchor` 生成敌人预制体 → 隐藏占位贴图 → `SetEncounterAnchor(null)`。这样对话期间场上没有敌人（不会隔着对话框挨打），且敌人是门面实例化的，`Global.Release` 合法。
+
+⚠️ **NavMeshAgent 陷阱**：直接 `go.transform.position = anchor.position` 会被 Agent 覆盖 —— 敌人会回到预制体保存的坐标（所有敌人预制体根节点都是 `(0,0)`），表现为「BOS 生成在场景原点、尸体不在死亡地点」。必须 `agent.enabled = false` → 改位置 → `agent.enabled = true`。
+
+### 黑屏转场
+
+`ScreenFader`（`MonoSingleton<ScreenFader>`，挂在「Canvas + 全屏黑色 Image」那个物体上，`SortingOrder` 要高于 `UIManager` 的 0）。`NodeConfig.fadeTransition` 勾上即触发，目前只有 `8_进入厨房`（冰箱→厨房）和 `22_进入超市`（厨房→超市）。
+
+⚠️ **只用 alpha 控制显隐，不要 `SetActive`** —— 脚本和黑幕 Image 在同一物体上时，`SetActive(false)` 等于关掉自己，之后 `StartCoroutine` 直接报 "game object is inactive"。黑幕 Image 的 `Raycast Target` 必须取消。
+
+## 配置系统
+
+- `ConfigManager`（`ScriptableObjectSingleton`，资产在 `Assets/Resources/ConfigManager.asset`）按类型分 7 个 `List`：主角 / 敌人 / 战斗 / 液体 / Buff / 剧情 / 流程节点。`OnEnable` 建 `Dictionary<Type, Dictionary<Id, ConfigBase>>`，**重复 Id 只在同类型内报错**。
+- 对外 API（`ConfigManager.Instance`）：
+  - `bool TryGetConfig<T>(string id, out T cfg) where T : ConfigBase` —— 按类型 + Id 查
+  - `bool TryGetNode(string nodeId, out NodeConfig node)`
+  - `bool TryGetStartNode(out NodeConfig node)`
+- **Id 命名规范**：`Player_001` / `Enemy_00N_Name` / `Battle_00N_Name` / `Liquid_00N_Name` / `Node_N`。资产文件名与 `Id` 保持一致，且**资产内部 `m_Name` 必须和文件名一致**（否则 Unity 弹黄框）。
+- `ConfigBase` 的 `Id` 带 `[FormerlySerializedAs("nodeId")]` —— `NodeConfig` 原来叫 `nodeId`。
+- **配置之间互相引用一律用 Id 字符串，不用资源引用**：`NodeConfig.battleConfigId`、`BattleConfig.Enemies[].EnemyConfigId`、`EnemyConfig.AbsorbLiquidId`、`EnemyConfig.PrefabLocation`（YooAsset 地址）。原因：`ConfigManager` 硬引用这些资产，塞进 Sprite / Prefab 会把整条依赖链拖进启动并让 bundle 互相交叉。
+- **唯一例外：`NodeConfig.dialogConfig` 是 `TextAsset` 直接引用。** 对话 txt 与节点资产同在 `Config` 组（`Assets/Configs` 整目录），不产生跨组依赖，且只有 200–700 字节；改成地址反而要处理 `AssetHandle` 的生命周期与释放时机。**前提：这 5 个 txt 必须留在 `Assets/Configs/Text/` 下**，挪走就会变空引用。
+- 新增配置类型的步骤：类继承 `ConfigBase` → `ConfigManager` 加一个 `List<T>` 字段和一行 `AddGroup(...)` → 把资产拖进 Inspector 的对应列表。**拖漏了运行时只会打一条 `[ConfigManager] 找不到 XXX：id`，功能静默失效**（例如漏拖 `PlayerConfig` 会让 `PlayerController` 直接 `enabled = false`）。
+
+## 层与碰撞矩阵
+
+层（索引）：0 Default、5 UI、6 Player、7 PlayerHitbox、8 Enemy、9 EnemyHitbox、10 Obstacle、11 Interactable、12 PlayerBullet、13 EnemyBullet。**`Interactable` 的 LayerMask 位是 2048。**
+
+碰撞矩阵里 **`Interactable` 和谁都不碰**。`PlayerInteractor` 用 `Physics2D.OverlapCircleNonAlloc`（查询只看 mask，不看矩阵）所以能扫到 `InteractPoint`；但**任何依赖 `OnTriggerEnter2D` 的东西必须放在 `Obstacle` 层**。`Enemy × Player` 已勾上（`EnemyDetectZone` 靠它认玩家）。
 
 ## 已知现状 / 待办
 
-以下是盘查到的**真实工程状态**，动手前先确认，别踩坑：
-
-- **`LiquidFactory` 只实现了 `Cola` 与 `GuoJiao`**；`LiquidType` 里其余四个（`LeiBi`、`LiaoJiu`、`BingMeiShi`、`SanQuan`）走 `_ => null`。
-- **`ConfigManager.asset` 只登记了 3 个配置**：`Enemy/EnemyConfig`、`Liquid/ManbaTea`、`Player/PlayerConfig`。`BuffEffect/SpeedBuffEffect`、`Liquid/Cola`、`Liquid/CookingWine`、`Liquid/Leibi`、`Liquid/Vinegar` **都不在** `_configs` 里，`TryGetConfig` 取不到。
-- **5 个 Liquid 资产是复制出来的占位数据**：`CookingWine` / `Leibi` / `ManbaTea` / `Vinegar` 的 `Id` 全是 `Liquid_001`、`Name` 全是「国窖」，且资产里**没有序列化 `Type` 字段**（`Cola` 的 `Id` 是 `Liquid_002`）。当前只有 `ManbaTea` 被登记，所以重复 Id 的 `LogError` 暂时不会触发。
-- **`GameSaveData` 只有 `PlayerPos` 一个字段并带 TODO**，「存档功能」还在早期。
-- **只有 `BeginPanel` / `MenuPanel` 三件套齐全**；`HUD`、`SettingPanel`、`DialogPanel`、`LoadingPanel` 目前只有预制体，没有 Binding / Logic / Properties。
+- **战斗还没真打**：`NodeConfig.autoWinBattle` 打开时，敌人生成 0.4 秒后被 `ForceDefeated()` 判定死亡。等真战斗做完，逐个取消勾选并删掉这个字段以及 `GameplayBattleState` 里的【临时】区块。
+- **5 个战斗节点还没接 `battleConfigId`**：`11/13/15/17_擂台战斗`、`19_快乐水战斗`。空的 `Battle_003_Arena1`~`Battle_006_Arena4` 正好 4 个。
+- **没有「快乐水」的 `EnemyConfig`**。现有 6 个是矿泉水 / 国窖 / 雷碧 / 辣椒 / 料酒 / 橙汁；橙汁暂时顶 `Liquid_002`（快乐水）。
+- **辣椒、橙汁的数值和吸取配置都是占位**；矿泉水 `CanAbsorb = 0`（杂兵不产液体，否则玩家会在 `7_吸取液体环节` 吸到矿泉水尸体、拿错液体）。
+- **`GameplayPauseState` / `GameplayCutsceneState` / `GameplayGameOverState` 是空壳**（只有构造函数）；`GameplayRoot.EnterBattle()` / `EndBattle()` / `Resume()` 目前零调用。
+- **`ContinueGame()` 不可用**：里面是 `Resources.Load<NodeConfig>("")`，永远返回 null；`GameSaveData` 只有 `PlayerPos` 一个字段。
+- **`GameplayRoot` 职责过载**（约 280 行，管对局生命周期 + 模式状态机 + 节点推进 + 黑屏转场 + 刷怪锚点 + 目标信号）。后续可把节点推进 / 转场 / 目标信号抽成独立的 `NodeFlow`。**等战斗接完再拆。**
+- **临时调试代码仍在**（有意保留）：`PlayerInteractor` 的 `[交互] 候选/提示`、`PlayerCombat` 的 `[技能] 释放失败`、`GameplayBattleState` 的 `[战斗清理]`、`GameplayRoot` 的 `[阶段]` 与 `Player` 属性、`TestEnemySpawner.cs`、`test.cs`。清理时一起删。
+- **大量表现层还是空的**：`AbsorbSource.PlayAbsorbPresentation()`、`Obstacle_*` 的 `OnPlayerHit()`、`PlayerController.OnSprint()`、`GuoJiao` 技能的火伤 / 减速 / 击退、`PlayerCombat.SearchForEnemy()`（返回 `Vector2.zero`）、`DirectionalAttack` 忽略朝向与枪口。
 
 ## 注意事项
 
-- **没有项目自有的 `.asmdef`**：`Assets/Scripts/` 下代码全部编译进单个 `Assembly-CSharp`（`/Editor/` 目录进 `Assembly-CSharp-Editor`）；`Assets/Wwise/**` 自带 8 个 asmdef 除外。不要随意新增 asmdef，那会改变整个项目的编译方式与程序集引用关系。
-- **编码与换行**：`Assets/` 下 **461 个 `.cs` 全部**是 UTF-8 无 BOM + CRLF（0 个 BOM、0 个 LF），这是硬约定 —— 一旦出现 GBK（cp936），中文注释在 UTF-8 工具链下会乱码；编辑器里请关闭「UTF-8 带签名 / BOM」的保存选项。但**非 `.cs` 资产并未统一**：`.meta` 144 个、`.asset` 14 个、`.prefab` 8 个、`.unity` 1 个（`MainScene.unity`）、`.inputactions` 1 个、`.json` 2 个仍是 LF。改动这些文件时**不要顺手做全文件 EOL 转换**，否则会产生巨大的无意义 diff。
-- `*.sln` / `*.csproj`（`SpotLight.sln`、`Assembly-CSharp*.csproj`、各 `AK.Wwise.*.csproj`）由 Unity 生成，**且已被 `.gitignore` 的 `*.sln` / `*.csproj` 规则忽略**（未跟踪），只能由编辑器重新生成，**绝不手改**。注意 `.vscode/settings.json` 的 `dotnet.defaultSolution` 仍指向旧仓库名 `2026-TapTap-Spotlight-GameJam-Project.sln`，已失效。
-- `.meta` 必须与资产一起提交；删除/重命名资产时必须带上对应 `.meta`。**不要手改 `.asset` / `.prefab` / `.unity` 中的 GUID**。
-- **Wwise 配置与本机强绑定**：`Assets/WwiseSettings.xml` 里 `WwiseInstallationPathWindows` 是机器绝对路径（当前值 `D:\LRF\Wwise\Wwise_2022.1.19.8584` —— **该路径在本机不存在，换机后必须重设**，否则 Wwise 面板与预构建 SoundBank 步骤不可用）；`WwiseProjectPath=../Taptap_Wwise/Taptap_Wwise.wproj`（相对 `Assets/` 解析，即作者工程就在本仓库内，**不是**仓库同级）；WAAPI 端口 `8081`；`CopySoundBanksAsPreBuildStep=true`（SoundBank 已提交在 StreamingAssets，所以运行期音频不受上面的路径失效影响）。
-- 代码注释与文档沿用中文（多为中文 XML 注释 + `#region` 分区），项目自有代码请保持这一惯例。
-- **这是一个 git 仓库** —— **两个远程**：`origin` = https://github.com/V1vy-v/2026-TapTap-Spotlight-GameJam-Project.git，`gitee` = https://gitee.com/hyyye/2026-TapTap-Spotlight-GameJam-Project.git；默认分支 `main`。没有 CI、没有测试基础设施。破坏性 git 操作（reset、强推、回退、丢弃未提交改动）必须先经用户同意。本地目录名已从 `2026-TapTap-Spotlight-GameJam-Project` 改为 `SpotLight`，远程仓库名未变。
-- `docs/` 下会出现 Word 打开文档时产生的 `~$*.docx` 锁文件（**已有 6 个被误提交**：`~$01流程`、`~$02敌人`、`~$03道具`、`~$04系统规则`、`~$07数值`、`~$UI与HUD`），**不要提交新的锁文件**。
-- `.gitignore` 里的 `.curosr/` 是 `.cursor/` 的拼写错误，**`.cursor/` 实际未被忽略**，改动 `.cursor/mcp.json` 时留意不要误提交。
+- **没有项目自有的 `.asmdef`**：`Assets/Scripts/` 全部编译进单个 `Assembly-CSharp`（`/Editor/` 进 `Assembly-CSharp-Editor`）；`Assets/Wwise/**` 自带 8 个 asmdef 除外。不要随意新增 asmdef。
+- **编码与换行**：`Assets/Scripts/` 下 164 个 `.cs` **全部是 UTF-8 + CRLF**（0 个裸 LF，无 GBK）。其中 **23 个带 BOM**（Unity 自己生成的那批，如 `Framework/Global.cs`、`Gameplay/Session/GameplayRoot.cs`、`Configs/Content/NodeConfig.cs`、`Enemy/EnemyController.cs`、`Player/PlayerController.cs` 等）。**硬性要求只有一条：不能是 GBK（cp936）** —— 那会让中文注释在 UTF-8 工具链下乱码。BOM 有无都可以，**不要**为了统一 BOM 去做全仓批量改动，会产生巨大无意义 diff。非 `.cs` 资产的 EOL / BOM 未统一，同样不要顺手做全文件 EOL 转换。
+- `*.sln` / `*.csproj` 由 Unity 生成，**且已被 `.gitignore` 忽略**（未跟踪），只能由编辑器重新生成，**绝不手改**。`.vscode/settings.json` 的 `dotnet.defaultSolution` 仍指向旧仓库名，已失效。
+- **`.asset` / `.prefab` / `.unity` 的 YAML 只有在 Unity 关闭时才能安全手改** —— Unity 开着会用它内存里的版本覆盖回去。
+- `.meta` 必须与资产一起提交；**重命名资产时 `.asset` 与 `.asset.meta` 必须同步改**，只有文件名和 `m_Name` 都一致才不会弹框。**不要手改任何文件里的 GUID。**
+- **Wwise 配置与本机强绑定**：`Assets/WwiseSettings.xml` 里 `WwiseInstallationPathWindows` 是机器绝对路径（当前值在本机不存在，换机必须重设）；`WwiseProjectPath=../Taptap_Wwise/Taptap_Wwise.wproj`；WAAPI 端口 `8081`；`CopySoundBanksAsPreBuildStep=true`（SoundBank 已提交在 StreamingAssets，所以运行期音频不受路径失效影响）。
+- 代码注释与文档沿用中文（中文 XML 注释 + `#region` 分区）。
+- **这是一个 git 仓库** —— 两个远程：`origin` = https://github.com/V1vy-v/2026-TapTap-Spotlight-GameJam-Project.git，`gitee` = https://gitee.com/hyyye/2026-TapTap-Spotlight-GameJam-Project.git；默认分支 `main`。没有 CI、没有测试基础设施。破坏性 git 操作（reset、强推、回退、丢弃未提交改动）必须先经用户同意。
+- `docs/` 下有 5 个 `~$*.docx` 锁文件（Word 打开时生成的），**不要提交**。`Temp/UnityLockfile` 也可能是崩溃后的残留锁文件，导致下次打开 Unity 提示锁定。
+- `.gitignore` 里的 `.curosr/` 是 `.cursor/` 的拼写错误，**`.cursor/` 实际未被忽略**。
 
 ## 中文文本
 
 - 字体源文件 `Assets/Art/Fonts/AaHouDiHei-2.ttf`：Dynamic 导入、`Include Font Data` 已开，覆盖 GB2312 全集 6763 汉字 —— 项目现有文案零缺字；GB2312 之外的字（生僻字、繁体）会缺。
-- 制作 TMP 字体资产：右键 `.ttf` → `Create > TextMeshPro > Font Asset` 得到 **Dynamic** 资产，务必勾上 `Multi Atlas Textures`（中文必需，否则字形一多就报 atlas 满）；`Sampling Point Size` ≥ 40（约 60）、`Padding` ≈ 点大小 × 0.1、`Render Mode` 用 `SDFAA`。
+- 制作 TMP 字体资产：右键 `.ttf` → `Create > TextMeshPro > Font Asset` 得到 **Dynamic** 资产，务必勾上 `Multi Atlas Textures`（中文必需）；`Sampling Point Size` ≥ 40（约 60）、`Padding` ≈ 点大小 × 0.1、`Render Mode` 用 `SDFAA`。
 - 字体资产在 UI 预制体上引用即可（作为依赖随 `UI` 组 bundle 走）；**不要**轻易设成 `TMP Settings` 的默认字体 —— 那会让它走 `Resources` 无条件进包。
 
 ## AI 协作环境
 
 - 当前通过 **DeepSeek Harness（DSH）** 在本工程下工作，本文件即工作区指令。
-- 该工程同时注册在 Codex 桌面端：`~/.codex/config.toml` 中 `model_provider = "opencode-go"`，`[model_providers.opencode-go]` 指向 `base_url = "https://opencode.ai/zen/go/v1"`（`wire_api = "responses"`），凭据取自环境变量 `OPENCODE_GO_API_KEY`；`model = "deepseek-flash"`（DeepSeek V4 Flash），`model_reasoning_effort = "high"`；`[mcp_servers.unityMCP]` 注册了 Unity MCP。`trust_level = "trusted"`。
+- 该工程同时注册在 Codex 桌面端：`~/.codex/config.toml` 中 `model_provider = "opencode-go"`，`base_url = "https://opencode.ai/zen/go/v1"`（`wire_api = "responses"`），凭据取自环境变量 `OPENCODE_GO_API_KEY`；`model = "deepseek-flash"`；`[mcp_servers.unityMCP]` 注册了 Unity MCP。`trust_level = "trusted"`。
 - Unity Editor 安装位置（手动注册在 Unity Hub）：`D:\Programdata\UnityHub\Editor\Unity2022.3\Editor\Unity.exe`（2022.3.62f3）。

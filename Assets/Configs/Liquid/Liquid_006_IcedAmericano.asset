@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b21861acf0c343646ad3ace835a8bc2e, type: 3}
-  m_Name: CookingWine
+  m_Name: Liquid_006_IcedAmericano
   m_EditorClassIdentifier: 
-  Id: Liquid_005
-  Name: "\u6599\u9152"
-  Type: 3
+  Id: Liquid_006
+  Name: "\u51B0\u7F8E\u5F0F"
+  Type: 4
   Kind: 2
   CanBeMain: 0
   Damage: 0
@@ -26,7 +26,7 @@ MonoBehaviour:
   AtkBonus: 0
   MoveSpeedBonus: 0
   RangeBonus: 0
-  AttackSpeedBonus: 0.2
+  AttackSpeedBonus: 0.3
   HasKnockback: 0
   RagePerHit: 10
   RageDecayPerSec: 10
@@ -37,5 +37,5 @@ MonoBehaviour:
   ExtendMax: 5
   PassThroughDamage: 15
   PassThroughRadiusScale: 1
-  PassiveMissChance: 0.3
+  PassiveMissChance: 0
   EnemyMissChance: 0

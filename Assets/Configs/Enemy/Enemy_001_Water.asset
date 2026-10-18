@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62ccc1e887a14a348b44756c3172808a, type: 3}
-  m_Name: EnemyConfig_Water
+  m_Name: Enemy_001_Water
   m_EditorClassIdentifier: 
-  Id: Enemy_001
+  Id: Enemy_001_Water
   Name: "\u77FF\u6CC9\u6C34"
   Tier: 0
   MaxHp: 20
@@ -24,8 +24,8 @@ MonoBehaviour:
   PatrolDuration: 5
   FadeDuration: 1
   CapDrop: 0
-  CanAbsorb: 1
-  AbsorbLiquidId: Liquid_001
+  CanAbsorb: 0
+  AbsorbLiquid: {fileID: 0}
   ImmuneKnockback: 0
   ImmuneStun: 0
   DebuffDurationScale: 1

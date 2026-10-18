@@ -10,29 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b21861acf0c343646ad3ace835a8bc2e, type: 3}
-  m_Name: Leibi
+  m_Name: Liquid_001_GuoJiao
   m_EditorClassIdentifier: 
-  Id: Liquid_003
-  Name: "\u96F7\u78A7"
-  Type: 2
+  Id: Liquid_001
+  Name: "\u56FD\u7A96"
+  Type: 1
   Kind: 0
   CanBeMain: 1
   Damage: 0
   AttackInterval: 0
   BulletPrefabRes: 
-  SkillDamage: 0
-  SkillCd: 8
-  SkillDuration: 8
+  SkillDamage: 50
+  SkillCd: 0
+  SkillDuration: 5
   AtkBonus: 0
-  MoveSpeedBonus: 0.6
+  MoveSpeedBonus: 0
   RangeBonus: 0
-  AttackSpeedBonus: 0
+  AttackSpeedBonus: 0.2
   HasKnockback: 0
   RagePerHit: 10
   RageDecayPerSec: 10
   RageMax: 100
   RageDecayDelay: 5
-  ChillSlow: 0
+  ChillSlow: 0.2
   ExtendPerHit: 0.5
   ExtendMax: 5
   PassThroughDamage: 15

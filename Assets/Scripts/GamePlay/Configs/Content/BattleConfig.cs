@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using GamePlay.Configs;
 
-namespace GamePlay.Session
+namespace GamePlay.Configs
 {
-    /// <summary>EnemyConfig + 数量</summary>
-    [System.Serializable]  
+    /// <summary>敌人配置 + 数量</summary>
+    [System.Serializable]
     public class EnemySpawnEntry
     {
         public EnemyConfig Config;

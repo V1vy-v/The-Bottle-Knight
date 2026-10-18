@@ -1,4 +1,5 @@
-﻿using GamePlay.Story;
+﻿using GamePlay.Configs;
+using GamePlay.Story;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,7 +34,7 @@ namespace GamePlay.Session
 
             CurrentBattle = node.battleConfig;
             if (CurrentBattle != null)
-                Debug.Log($"[BattleContext] 切换战斗: {node.nodeId}");
+                Debug.Log($"[BattleContext] 切换战斗: {node.Id} -> {CurrentBattle.Id}");
         }
 
         /// <summary>开始战斗（进入战斗模式时调用）</summary>

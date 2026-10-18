@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74807c75f37db974e98ca729d3361545, type: 3}
   m_Name: "12_\u64C2\u53F0\u80DC\u52291"
   m_EditorClassIdentifier: 
-  nodeId: Node_12
+  Id: Node_12
   mode: 0
   refreshDialog: 0
   refreshBattle: 0

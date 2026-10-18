@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
+using GamePlay.Configs;
 using UnityEngine;
+
 [CreateAssetMenu(fileName = "BuffConfig", menuName = "Configs/BuffConfig")]
-public class BuffConfig : ScriptableObject
+public class BuffConfig : ConfigBase
 {
-    public string buffID;
-    public string buffName;
     public float duration = 5f;
 
     // 一个 Buff 可以有多个效果

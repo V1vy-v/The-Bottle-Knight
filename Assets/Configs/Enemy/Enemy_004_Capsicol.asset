@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62ccc1e887a14a348b44756c3172808a, type: 3}
-  m_Name: EnemyConfig_CookingWine
+  m_Name: Enemy_004_Capsicol
   m_EditorClassIdentifier: 
-  Id: Enemy_001
-  Name: 
+  Id: Enemy_004_Capsicol
+  Name: "\u8FA3\u6912\u6CB9"
   Tier: 0
-  MaxHp: 20
-  Damage: 10
-  MoveSpeed: 5
+  MaxHp: 200
+  Damage: 0
+  MoveSpeed: 0
   AttackCooldown: 1.5
   HurtStunTime: 0.3
   IdleDuration: 2
   PatrolDuration: 5
   FadeDuration: 1
   CapDrop: 0
-  CanAbsorb: 1
-  AbsorbLiquidId: Liquid_001
+  CanAbsorb: 0
+  AbsorbLiquid: {fileID: 0}
   ImmuneKnockback: 0
   ImmuneStun: 0
   DebuffDurationScale: 1
   DebuffChanceScale: 1
-  PrefabLocation: Prefab_Enemy_CookingWine
+  PrefabLocation: Prefab_Enemy_Capsicol

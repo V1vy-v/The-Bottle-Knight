@@ -37,14 +37,14 @@ public class BuffController : MonoBehaviour
     {
         if (config == null || state == null) return;
 
-        if (activeBuffs.TryGetValue(config.buffID, out var existing))
+        if (activeBuffs.TryGetValue(config.Id, out var existing))
         {
             existing.currentDuration = config.duration;
             return;
         }
 
         var instance = new BuffInstance(config);
-        activeBuffs.Add(config.buffID, instance);
+        activeBuffs.Add(config.Id, instance);
 
         // 逐个效果应用
         foreach (var effect in config.effects)

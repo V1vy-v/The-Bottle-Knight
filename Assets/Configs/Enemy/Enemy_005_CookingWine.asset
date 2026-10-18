@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62ccc1e887a14a348b44756c3172808a, type: 3}
-  m_Name: EnemyConfig_guojiao
+  m_Name: Enemy_005_CookingWine
   m_EditorClassIdentifier: 
-  Id: Enemy_002
-  Name: "\u56FD\u7A96"
-  Tier: 3
+  Id: Enemy_005_CookingWine
+  Name: "\u6599\u9152"
+  Tier: 2
   MaxHp: 20
   Damage: 10
   MoveSpeed: 5
@@ -25,9 +25,9 @@ MonoBehaviour:
   FadeDuration: 1
   CapDrop: 0
   CanAbsorb: 1
-  AbsorbLiquidId: Liquid_001
+  AbsorbLiquid: {fileID: 11400000, guid: f4c5893168b13e04a9fa6c7e48cce570, type: 2}
   ImmuneKnockback: 0
   ImmuneStun: 0
   DebuffDurationScale: 1
   DebuffChanceScale: 1
-  PrefabLocation: Prefab_Enemy_ManbaTea
+  PrefabLocation: Prefab_Enemy_CookingWine

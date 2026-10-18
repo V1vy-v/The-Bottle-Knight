@@ -34,7 +34,7 @@ namespace GamePlay.Configs
         [Header("掉落与吸取")]
         public int CapDrop;                     // 瓶盖：精英 1 / BOSS 2 / 其余 0
         public bool CanAbsorb;                  // 是否可吸取
-        public string AbsorbLiquidId;           // 吸取产出的液体，指向 LiquidConfig 的 Id
+        public LiquidConfig AbsorbLiquid;      // 吸取产出的液体；同在 Config 组，直接引用
 
         [Header("抗性")]
         public bool ImmuneKnockback;            // BOSS 免疫击退

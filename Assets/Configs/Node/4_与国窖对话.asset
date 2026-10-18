@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74807c75f37db974e98ca729d3361545, type: 3}
   m_Name: "4_\u4E0E\u56FD\u7A96\u5BF9\u8BDD"
   m_EditorClassIdentifier: 
-  nodeId: Node_4
+  Id: Node_4
   mode: 1
   refreshDialog: 1
   refreshBattle: 0
   goalId: 
   dialogConfig: {fileID: 4900000, guid: b3eb2e12399597a4b90da5bbbed0d740, type: 3}
   battleConfig: {fileID: 0}
+  autoWinBattle: 0
   nextNode: {fileID: 11400000, guid: 8ff35e357f516ac4187e748adbe72684, type: 2}
   currentStage: 0
+  fadeTransition: 0
