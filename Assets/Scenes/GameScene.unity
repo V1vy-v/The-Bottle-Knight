@@ -24162,7 +24162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f55eba2d3f5c8d4ab121e47575d7437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyAddress: "Prefab_Enemy_ManbaTea_\u9632\u4E22\u5931\u65B0\u52A0\u7248"
+  _enemyAddress: Prefab_Enemy_GuoJiao
   _spawnOffsetX: 1.5
   _debugLiquid: {fileID: 11400000, guid: c29dec9d9c9137a41a26fc6081437d01, type: 2}
 --- !u!4 &1465343866

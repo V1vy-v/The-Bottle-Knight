@@ -32,20 +32,20 @@ Unity 2022.3.62f3 (LTS) 2D 游戏项目（TapTap「聚光灯」GameJam 参赛项
     - `SubSystems/` —— 各子系统实现：`Audio/`（接 Wwise）、`Camera/`、`DataProxy/`、`Instantiation/`（`InstantiateManager`，partial 拆分 `.Async` / `.Debug` / `.Entries` / `.Pool` / `.Recycle`）、`ObjectPool/`、`Resource/`、`SceneControl/`、`Storage/`（JSON 存档）、`Timer/`、`UI/`（`UIManager` + `Core/` `Panel/` `Window/` `Scene/` 三层 + `UIAnimation/`：`AnimationView`、`AnimComponent`、`FadeAnimation`）。
   - `GamePlay/` —— 玩法层：
     - `Procedure/`（`namespace GamePlay.Procedure`）—— **会话层**流程状态机。`ProcedureCore`（`MonoSingleton`，挂在 MainScene 的 `[GameRoot]` 上）持有 `StateMachine<ProcedureState>`：`Menu` / `Loading` / `Playing`。对外 `StartUp()`、`RequestPlay()`、`RequestMenu()`、`RequestState(...)`、`RequestScene(...)`、`ClearNewGameTag()`、`FailTransition(...)`。**换场景只能走 `RequestPlay()` / `RequestMenu()`，绝不要直接调 `Global.LoadScene`**。
-    - `Session/`（`namespace GamePlay.Session`，惟 `GameplayRoot.cs` 是 `namespace GamePlay`）—— 一局对局的上下文：`GameplayRoot`（`SubSystemBase`）、`StoryContext`、`StoryStage`、`BattleContext`、`DialogContext`、`GameplayState.cs`（内含 **`GameplayMode`** 枚举：FreeRoam / Dialogue / Cutscene / Battle / Pause / GameOver；文件名与类型名不一致）、`States/` 六个局内状态 + `GameplayStateBase`（含 `GameplayModeStateBase`）。
+    - `Session/`（`namespace GamePlay.Session`，惟 `GameplayRoot.cs` 是 `namespace GamePlay`）—— 一局对局的上下文：`GameplayRoot`（`SubSystemBase`）、`StoryContext`、`StoryStage`、`BattleContext`、`DialogContext`、`GameplayState.cs`（内含 **`GameplayMode`** 枚举：FreeRoam / Dialogue / Cutscene / Battle / Pause / GameOver；文件名与类型名不一致）、`States/` 六个局内状态 + `GameplayModeStateBase`（全部在 `GamePlay.Session`；文件名与类名一致）。
     - `Configs/`（`namespace GamePlay.Configs`）—— `ConfigManager` + `ConfigBase` + `Content/`：`BattleConfig`、`BuffConfig`、`EnemyConfig`、`LiquidConfig`、`NodeConfig`、`PlayerConfig`、`StoryConfig`。详见下方「配置系统」。
     - `Interaction/`（`namespace GamePlay.Interaction`）—— 交互层：`IInteractable`、`AbsorbSource`（吸取敌人尸体）、`FlowTrigger`（流程触发器 / 遭遇锚点）、`InteractionPrompt`（F 提示，跟随 `PromptAnchor`）。
     - `Player/`（`namespace GamePlay.Player`）—— `PlayerController`（输入入口 + 编排）、`PlayerCombat`、`PlayerLiquids`、`PlayerStats`、`PlayerInteractor`（`OverlapCircleNonAlloc` 扫交互物，半径 1.5，`_interactMask` = 2048）、`PlayerView`（**唯一**持有 Animator / SpriteRenderer 的表现层）。
     - `Liquid/`（`namespace GamePlay.Liquid`）—— `LiquidBase`（纯 C# 抽象基类，管技能时序：`TryUseSkill` / `TickSkill` / `ForceEndSkill` / `CanUseSkill` / `OnPassiveTick` / `OnSkillBegin/Tick/End` / `OnSkillShouldEnd`）、`LiquidFactory`、`Liquids/`（`Cola`、`GuoJiao`、`Leibi`、`SanQuan`、`StandbyPassiveLiquid`）。`LiquidConfig` 里另有 `LiquidKind`（`Active` / `MainPassive` / `StandbyPassive`）。
-    - `Enemy/`（9 个 `.cs`）—— `EnemyController`、`EnemyMoveController`（封 `NavMeshAgent`）、`EnemyStates` / `EnemyBaseState` / `EnemyRealState`、`EnemyDetectZone`、`EnemyAtkDetect`、`EnemyAttackController`。**注意 `EnemyDetectZone`、`EnemyAtkDetect`、`EnemyMoveController` 在 `<global>` 命名空间**，`EnemyController` 等在 `GamePlay.Enemy`。
+    - `Enemy/`（9 个 `.cs`）—— `EnemyController`、`EnemyMoveController`（封 `NavMeshAgent`）、`EnemyStates` / `EnemyBaseState` / `EnemyRealState`、`EnemyDetectZone`、`EnemyAtkDetect`、`EnemyAttackController`。**注意 `EnemyDetectZone`、`EnemyAtkDetect`、`EnemyMoveController`、`EnemyAttackController`、`EnemyRealState` 在 `<global>` 命名空间**，`EnemyController`、`EnemyStates` 等在 `GamePlay.Enemy`。
     - `Buff/`（4 个）、`Obstacle/`（5 个）—— **这两个目录全部是 `<global>` 命名空间**（既不是 `Framework` 也不是 `GamePlay.*`）。
-    - `Dialog/`（`namespace GamePlay.DataProxy`）—— `CharacterDatabase`、`CharacterEntry`、`DialogController`（`SetDialogContent(TextAsset)`）。
+    - `Dialog/` —— `CharacterDatabase`、`CharacterEntry`、`DialogController`（`SetDialogContent(TextAsset)`）。**三个文件全部是 `<global>` 命名空间**（不是 `GamePlay.DataProxy`，别按目录猜）。
     - `GameSave/`（`namespace GamePlay.GameSave`）、`DataProxy/`（`namespace GamePlay.DataProxy`）。
     - 根目录散着三个文件：`ScreenFader.cs`（黑屏转场，`namespace GamePlay`）、`TestEnemySpawner.cs`（临时测试）、`test.cs`（临时）。
   - `UI/`（`namespace UI`）—— 界面按 `Binding/`（自动生成）、`Logic/`（`partial class`，手写）、`Properties/`（对外参数）三层拆分，按场景分子目录。绑定代码由 `Assets/Scripts/Editor/UIFramework/UIViewBindingEditor.cs` 在 Inspector 中生成；新增界面请沿用该拆分并保留 `// <ui-bind:add>` 标记块。
   - `Editor/`（`namespace Framework.Editor`）—— `InstantiateManagerDebugWindow`、`ProtoCompilerWindow`、`UIViewBindingEditor`。
 - `Assets/Scenes/` —— `MainScene.unity`（菜单，**启动场景**：`[GameRoot]`、`WwiseGlobal`、`Global Volume`、`Light 2D`）与 `GameScene.unity`（对局：`[SceneRoot]`、`WwiseGlobal`、`Ground`、`BK`、`Navigation`、`Items`、`[Chicken]`、`Light 2D` 及场景道具）。两个场景都在 Build Settings 且不进 YooAsset。`[GameRoot]` 由 `GameObject.Find` 定位，**改名会断掉 `LocalInputManager` 与 `InstantiateManager`**。
-- `Assets/Configs/` —— 配置资产：`Player/`(1) `Enemy/`(6) `Battle/`(6) `Liquid/`(6) `Node/`(23) `BuffEffect/`(1) `CharacterDataBase_Dialog/`(1) `Text/`(5 个对话 `.txt`)。
+- `Assets/Configs/` —— 配置资产：`Player/`(1) `Enemy/`(9) `Battle/`(7) `Liquid/`(6) `Node/`(24) `BuffEffect/`(1) `CharacterDataBase_Dialog/`(1) `Text/`(5 个对话 `.txt`)。
 - `Assets/Prefabs/` —— `Cameara/`、`Player/Player.prefab`、`Enemy/`（6 个：`Enemy_Water` / `Enemy_GuoJiao` / `Enemy_LeiBi` / `Enemy_Capsicol` / `Enemy_CookingWine` / `Enemy_OrangeJuice`，每个都带 `EnemyController` + `EnemyMoveController` + `AbsorbSource` + `EnemyAttackController` + `EnemyDetectZone`×2 + `EnemyAtkDetect`，子物体 `MoveCollider` / `Hitbox` / `Detect` / `AttackZone` / `Attack` / `InteractPoint`）、`GameScene/`、`Scene/`、`Text/`、`UI/`。
 - `Assets/Art/`、`Assets/Animations/`、`Assets/ThirdParty/`（**视为只读**）、`Assets/Plugins/`（空）、`Assets/Audio/`（空占位）、`Assets/Editor/SpineSettings.asset`（Spine 残留，工程内无 Spine 运行时，不要被误导）。
 - `Assets/Resources/` —— 7 个 `ScriptableObject` 单例：`AppCoreConfig`、`AudioConfig`、`CameraConfig`、`ConfigManager`、`ResGroupPolicy`、`YooAssetSettings`、`BundleCollectorSetting`。**Resources 下的内容会被无条件打进包，且不经 YooAsset 管理。**
@@ -55,7 +55,7 @@ Unity 2022.3.62f3 (LTS) 2D 游戏项目（TapTap「聚光灯」GameJam 参赛项
 
 ## 节点驱动的对局流程
 
-**整个对局是单场景（`GameScene`），中途不加载场景**，靠 23 个 `NodeConfig` 串成一条链推进。
+**整个对局是单场景（`GameScene`），中途不加载场景**，靠 24 个 `NodeConfig` 串成一条链推进。
 
 - 起始节点由 `ConfigManager._startNodeId`（默认 `Node_0`）指定，`GameplayRoot.StartNewGame()` 调 `TryGetStartNode()` 取。
 - 推进链路：
@@ -79,13 +79,17 @@ Unity 2022.3.62f3 (LTS) 2D 游戏项目（TapTap「聚光灯」GameJam 参赛项
 
 ### 遭遇（encounter）
 
-场景里放占位贴图 + `FlowTrigger`（**Layer 必须是 `Obstacle`**，勾 `_asEncounterAnchor`）→ 触发后报 `_goalId` → 节点推进到对话 → 对话结束进战斗节点 → `GameplayBattleState.SpawnEnemy()` 在 `Root.EncounterAnchor` 生成敌人预制体 → 隐藏占位贴图 → `SetEncounterAnchor(null)`。这样对话期间场上没有敌人（不会隔着对话框挨打），且敌人是门面实例化的，`Global.Release` 合法。
+场景里放占位贴图 + `FlowTrigger`（**Layer 必须是 `Obstacle`**，勾 `_asEncounterAnchor`）→ 触发后报 `_goalId`，同时 `FlowTrigger.RegisterEncounter()` 调 `Root.SetEncounter(占位物, 刷怪位置列表)` → 节点推进到对话 → 对话结束进战斗节点 → `GameplayBattleState.SpawnEnemy()` 按序号在各刷怪位置生成敌人 → `Root.HideEncounterPlaceholder()` 隐藏整组占位贴图 → `Root.ClearEncounter()`。这样对话期间场上没有敌人（不会隔着对话框挨打），且敌人是门面实例化的，`Global.Release` 合法。
+
+**刷怪位置规则**：`FlowTrigger._spawnPoints` 有填就用填的；留空则用「自己 + 所有子物体」—— 也就是把多余的占位贴图拖成子物体，一张贴图 = 一个刷怪位置。因为隐藏的是父物体，子物体里的贴图会一起消失。敌人数量超过位置数量时，多出来的围绕最后一个位置各偏移 1.5 单位，避免叠在一起。
 
 ⚠️ **NavMeshAgent 陷阱**：直接 `go.transform.position = anchor.position` 会被 Agent 覆盖 —— 敌人会回到预制体保存的坐标（所有敌人预制体根节点都是 `(0,0)`），表现为「BOS 生成在场景原点、尸体不在死亡地点」。必须 `agent.enabled = false` → 改位置 → `agent.enabled = true`。
 
 ### 黑屏转场
 
-`ScreenFader`（`MonoSingleton<ScreenFader>`，挂在「Canvas + 全屏黑色 Image」那个物体上，`SortingOrder` 要高于 `UIManager` 的 0）。`NodeConfig.fadeTransition` 勾上即触发，目前只有 `8_进入厨房`（冰箱→厨房）和 `22_进入超市`（厨房→超市）。
+`ScreenFader`（`MonoSingleton<ScreenFader>`，挂在「Canvas + 全屏黑色 Image」那个物体上，`SortingOrder` 要高于 `UIManager` 的 0）。`NodeConfig.fadeTransition` 勾上即触发，目前只有 `8b_传送进厨房`（传送带→厨房）和 `22_进入超市`（厨房→超市）。
+
+`NodeConfig.teleportTargetName` 填一个场景物体名（如 `[KitchenSpawn]`），**在全黑之后**把主角传送到该物体处；留空则不传送。必须挂在带 `fadeTransition` 的节点上，否则玩家会看到瞬移。
 
 ⚠️ **只用 alpha 控制显隐，不要 `SetActive`** —— 脚本和黑幕 Image 在同一物体上时，`SetActive(false)` 等于关掉自己，之后 `StartCoroutine` 直接报 "game object is inactive"。黑幕 Image 的 `Raycast Target` 必须取消。
 
@@ -98,8 +102,10 @@ Unity 2022.3.62f3 (LTS) 2D 游戏项目（TapTap「聚光灯」GameJam 参赛项
   - `bool TryGetStartNode(out NodeConfig node)`
 - **Id 命名规范**：`Player_001` / `Enemy_00N_Name` / `Battle_00N_Name` / `Liquid_00N_Name` / `Node_N`。资产文件名与 `Id` 保持一致，且**资产内部 `m_Name` 必须和文件名一致**（否则 Unity 弹黄框）。
 - `ConfigBase` 的 `Id` 带 `[FormerlySerializedAs("nodeId")]` —— `NodeConfig` 原来叫 `nodeId`。
-- **配置之间互相引用一律用 Id 字符串，不用资源引用**：`NodeConfig.battleConfigId`、`BattleConfig.Enemies[].EnemyConfigId`、`EnemyConfig.AbsorbLiquidId`、`EnemyConfig.PrefabLocation`（YooAsset 地址）。原因：`ConfigManager` 硬引用这些资产，塞进 Sprite / Prefab 会把整条依赖链拖进启动并让 bundle 互相交叉。
-- **唯一例外：`NodeConfig.dialogConfig` 是 `TextAsset` 直接引用。** 对话 txt 与节点资产同在 `Config` 组（`Assets/Configs` 整目录），不产生跨组依赖，且只有 200–700 字节；改成地址反而要处理 `AssetHandle` 的生命周期与释放时机。**前提：这 5 个 txt 必须留在 `Assets/Configs/Text/` 下**，挪走就会变空引用。
+- **引用规则按「是否跨 YooAsset 组」划界**：
+  - **同组内 config → config 用直接资源引用**（Inspector 拖拽、不会打错、改名自动跟着走）：`NodeConfig.battleConfig`（→ `BattleConfig`）、`BattleConfig.Enemies[].Config`（→ `EnemyConfig`）、`EnemyConfig.AbsorbLiquid`（→ `LiquidConfig`）。这些资产同属 `Config` 组，用引用不会多拖任何东西。
+  - **跨组引用用字符串地址**：`EnemyConfig.PrefabLocation`（→ `Prefab` 组的敌人预制体，YooAsset 地址形如 `Prefab_Enemy_Water`）。用引用会把预制体连同整条依赖链拖进 `Config` bundle。
+- **`NodeConfig.dialogConfig` 也是直接引用**（`TextAsset`）：对话 txt 与节点资产同在 `Config` 组，不产生跨组依赖，且只有 200–700 字节；改成地址反而要处理 `AssetHandle` 的生命周期与释放时机。**前提：这 5 个 txt 必须留在 `Assets/Configs/Text/` 下**，挪走就会变空引用。
 - 新增配置类型的步骤：类继承 `ConfigBase` → `ConfigManager` 加一个 `List<T>` 字段和一行 `AddGroup(...)` → 把资产拖进 Inspector 的对应列表。**拖漏了运行时只会打一条 `[ConfigManager] 找不到 XXX：id`，功能静默失效**（例如漏拖 `PlayerConfig` 会让 `PlayerController` 直接 `enabled = false`）。
 
 ## 层与碰撞矩阵
@@ -111,8 +117,8 @@ Unity 2022.3.62f3 (LTS) 2D 游戏项目（TapTap「聚光灯」GameJam 参赛项
 ## 已知现状 / 待办
 
 - **战斗还没真打**：`NodeConfig.autoWinBattle` 打开时，敌人生成 0.4 秒后被 `ForceDefeated()` 判定死亡。等真战斗做完，逐个取消勾选并删掉这个字段以及 `GameplayBattleState` 里的【临时】区块。
-- **5 个战斗节点还没接 `battleConfigId`**：`11/13/15/17_擂台战斗`、`19_快乐水战斗`。空的 `Battle_003_Arena1`~`Battle_006_Arena4` 正好 4 个。
-- **没有「快乐水」的 `EnemyConfig`**。现有 6 个是矿泉水 / 国窖 / 雷碧 / 辣椒 / 料酒 / 橙汁；橙汁暂时顶 `Liquid_002`（快乐水）。
+- **7 个战斗节点的 `battleConfig` 都已接上**（`Battle_001_Water` / `002_GuoJiao` / `003_Arena1`~`006_Arena4` / `007_Cola`），且 `autoWinBattle` 全部勾上。
+- **`EnemyConfig` 现有 9 个**：水 / 国窖 / 雷碧 / 辣椒 / 料酒 / 酱油 / 可乐 / 醋 / 橙汁。**酱油、醋、橙汁的 `CanAbsorb = 0`**（没有对应的 `LiquidConfig`，留着会卡住吸取环节）。
 - **辣椒、橙汁的数值和吸取配置都是占位**；矿泉水 `CanAbsorb = 0`（杂兵不产液体，否则玩家会在 `7_吸取液体环节` 吸到矿泉水尸体、拿错液体）。
 - **`GameplayPauseState` / `GameplayCutsceneState` / `GameplayGameOverState` 是空壳**（只有构造函数）；`GameplayRoot.EnterBattle()` / `EndBattle()` / `Resume()` 目前零调用。
 - **`ContinueGame()` 不可用**：里面是 `Resources.Load<NodeConfig>("")`，永远返回 null；`GameSaveData` 只有 `PlayerPos` 一个字段。
