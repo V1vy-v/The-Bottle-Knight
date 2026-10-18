@@ -38,5 +38,8 @@ namespace GamePlay.Story
         [Header("转场")]
         [Tooltip("进入本节点时播放一次黑屏转场（跨关卡区域用，比如冰箱→厨房）")]
         public bool fadeTransition;
+
+        [Tooltip("黑屏全黑时把主角传送到这个场景物体处（填物体名，如 [KitchenSpawn]）；留空则不传送")]
+        public string teleportTargetName;
     }
 }

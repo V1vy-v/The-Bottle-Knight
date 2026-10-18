@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74807c75f37db974e98ca729d3361545, type: 3}
-  m_Name: "8_\u8FDB\u5165\u53A8\u623F"
+  m_Name: "8b_\u4F20\u9001\u8FDB\u53A8\u623F"
   m_EditorClassIdentifier: 
-  Id: Node_8
+  Id: Node_8b
   mode: 0
   refreshDialog: 0
   refreshBattle: 0
   goalId: Node_9
-  dialogConfig: {fileID: 4900000, guid: 3a1588b2c16f7fa408a796a932eb1418, type: 3}
+  dialogConfig: {fileID: 0}
   battleConfig: {fileID: 0}
   autoWinBattle: 0
   nextNode: {fileID: 11400000, guid: dbb6843a993c13d438a555b7ee3d711d, type: 2}
   currentStage: 1
   fadeTransition: 1
+  teleportTargetName: "[KitchenSpawn]"

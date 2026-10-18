@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74807c75f37db974e98ca729d3361545, type: 3}
+  m_Name: "8_\u79BB\u5F00\u51B0\u7BB1"
+  m_EditorClassIdentifier: 
+  Id: Node_8
+  mode: 0
+  refreshDialog: 0
+  refreshBattle: 0
+  goalId: enter_chicken
+  dialogConfig: {fileID: 4900000, guid: 3a1588b2c16f7fa408a796a932eb1418, type: 3}
+  battleConfig: {fileID: 0}
+  autoWinBattle: 0
+  nextNode: {fileID: 11400000, guid: 4a95aa86fff34a118e5224b9e1b6b026, type: 2}
+  currentStage: 0
+  fadeTransition: 0
+  teleportTargetName: 

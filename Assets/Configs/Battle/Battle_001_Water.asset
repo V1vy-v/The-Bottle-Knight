@@ -16,4 +16,4 @@ MonoBehaviour:
   Name: Battle_Water
   Enemies:
   - Config: {fileID: 11400000, guid: 669a4ce948cf7be489bece2dc1410699, type: 2}
-    Count: 1
+    Count: 2

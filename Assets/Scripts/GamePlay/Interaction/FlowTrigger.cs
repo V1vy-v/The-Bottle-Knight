@@ -1,4 +1,5 @@
 using Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GamePlay.Interaction
@@ -14,9 +15,37 @@ namespace GamePlay.Interaction
 
         [Tooltip("与节点 goalId 匹配；留空接受任何节点")]
         [SerializeField] private string _goalId = "flow";
-        [Tooltip("勾上则把自己注册为本场战斗的刷怪锚点，并在敌人生成后被隐藏")]
+        [Tooltip("勾上则把自己登记为本场战斗的遭遇点：战斗开始时隐藏整个占位物，并在占位贴图的位置生成敌人")]
         [SerializeField] private bool _asEncounterAnchor;
+
+        [Tooltip("刷怪位置（一张占位贴图一个）。留空则用「自己 + 所有子物体」——把多余的占位贴图拖成自己的子物体即可")]
+        [SerializeField] private Transform[] _spawnPoints;
         private bool _fired;
+
+        /// <summary>
+        /// 登记遭遇点。刷怪位置优先用 _spawnPoints；留空则用「自己 + 所有子物体」，
+        /// 也就是每张占位贴图一个位置（把多余的占位贴图拖成自己的子物体即可）。
+        /// 战斗开始时隐藏的是自己这个物体，所以子物体里的贴图会一起消失。
+        /// </summary>
+        private void RegisterEncounter(GameplayRoot root)
+        {
+            if (root == null) return;
+
+            var points = new List<Transform>();
+
+            if (_spawnPoints != null && _spawnPoints.Length > 0)
+            {
+                points.AddRange(_spawnPoints);
+            }
+            else
+            {
+                points.Add(transform);                                  // 自己也是一张占位贴图
+                for (int i = 0; i < transform.childCount; i++)
+                    points.Add(transform.GetChild(i));
+            }
+
+            root.SetEncounter(gameObject, points);
+        }
 
         private void Reset()
         {
@@ -32,7 +61,7 @@ namespace GamePlay.Interaction
 
             var root = Global.Get<GameplayRoot>();
             root?.ReportGoalReached(_goalId);
-            if (_asEncounterAnchor) root?.SetEncounterAnchor(transform);
+            if (_asEncounterAnchor) RegisterEncounter(root);
 
             Debug.Log($"[流程] 触发 {name}");
         }

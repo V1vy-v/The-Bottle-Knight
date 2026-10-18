@@ -51,12 +51,20 @@ namespace GamePlay.Session
             // 不能用 config.TotalCount —— 它只统计 Config != null，
             // PrefabLocation 为空或实例化失败时不会扣掉；计数高于场上敌人，
             // AliveEnemyCount 就归不了零，IsVictory 永远 false，玩家卡在战斗态出不来。
+            // 刷怪位置按顺序分配：一张占位贴图对应一只敌人；位置不够时围绕最后一个位置散开
+            var anchors = Root.EncounterAnchors;
             int spawned = 0;
+            int index = 0;
+
             foreach (var entry in config.Enemies)
             {
                 if (entry.Config == null) continue;
+
                 for (int i = 0; i < entry.Count; i++)
-                    if (SpawnEnemy(entry.Config)) spawned++;
+                {
+                    if (SpawnEnemy(entry.Config, ResolveSpawnPosition(anchors, index))) spawned++;
+                    index++;
+                }
             }
 
             if (spawned == 0)
@@ -67,9 +75,8 @@ namespace GamePlay.Session
                 return;
             }
 
-            // 贴图任务结束：敌人已就位，隐藏占位贴图
-            if (Root.EncounterAnchor != null)
-                Root.EncounterAnchor.gameObject.SetActive(false);
+            // 贴图任务结束：敌人已就位，整组占位贴图一起隐藏
+            Root.HideEncounterPlaceholder();
 
             //通知敌人数量
             Root.Battle.StartBattle(spawned);
@@ -79,7 +86,7 @@ namespace GamePlay.Session
                 _autoWinRemain = AutoWinDelay;
 
             // 用完即清，避免下一场复用
-            Root.SetEncounterAnchor(null);
+            Root.ClearEncounter();
         }
 
         protected override void Tick(float deltaTime)
@@ -136,8 +143,30 @@ namespace GamePlay.Session
 
         #region 敌人生成 / 清理
 
+        /// <summary>超出占位贴图数量时，多出来的敌人围绕最后一个位置散开，避免叠在一起</summary>
+        private const float SpreadRadius = 1.5f;
+
+        /// <summary>按序号取刷怪位置；没有位置就返回 null，表示用预制体自身坐标</summary>
+        private static Vector3? ResolveSpawnPosition(IReadOnlyList<Transform> anchors, int index)
+        {
+            if (anchors == null || anchors.Count == 0) return null;
+
+            if (index < anchors.Count)
+            {
+                var a = anchors[index];
+                return a != null ? a.position : (Vector3?)null;
+            }
+
+            var last = anchors[anchors.Count - 1];
+            if (last == null) return null;
+
+            int extra = index - anchors.Count + 1;
+            float angle = Mathf.PI * 2f * extra / Mathf.Max(2, extra + 1);
+            return last.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f) * SpreadRadius;
+        }
+
         /// <summary>生成一只敌人；返回是否真的生成成功</summary>
-        private bool SpawnEnemy(EnemyConfig enemyConfig)
+        private bool SpawnEnemy(EnemyConfig enemyConfig, Vector3? spawnPosition)
         {
             if (enemyConfig == null) return false;
 
@@ -154,13 +183,13 @@ namespace GamePlay.Session
                 return false;
             }
 
-            var anchor = Root.EncounterAnchor;
-            if (anchor != null)
+            if (spawnPosition.HasValue)
             {
+                // NavMeshAgent 会覆盖 transform 赋值：先禁用、改位置、再启用（启用时吸附到 NavMesh）
                 var agent = go.GetComponent<UnityEngine.AI.NavMeshAgent>();
                 if (agent != null) agent.enabled = false;
 
-                go.transform.position = anchor.position;
+                go.transform.position = spawnPosition.Value;
 
                 if (agent != null) agent.enabled = true;
             }

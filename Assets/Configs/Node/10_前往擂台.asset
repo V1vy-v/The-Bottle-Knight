@@ -23,3 +23,4 @@ MonoBehaviour:
   nextNode: {fileID: 11400000, guid: f6d95f32b6e9fdc41b6906901ff5806a, type: 2}
   currentStage: 1
   fadeTransition: 0
+  teleportTargetName: 

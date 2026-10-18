@@ -1,4 +1,5 @@
 ﻿using Framework;
+using System.Collections.Generic;
 using GamePlay.Configs;
 using GamePlay.Session;
 using GamePlay.Story;
@@ -178,10 +179,40 @@ namespace GamePlay
 
         /// <summary>本节点目标已达成</summary>
         public void ReportGoalReached(string goalId = null) => OnGoalReached?.Invoke(goalId);
-        /// <summary>本场战斗的刷怪锚点，由场景里的触发点提供；为空则用预制体自身坐标</summary>
-        public Transform EncounterAnchor { get; private set; }
+        /// <summary>本次遭遇的占位物（战斗开始时整组隐藏）。为空表示没有占位贴图</summary>
+        private GameObject _encounterPlaceholder;
 
-        public void SetEncounterAnchor(Transform anchor) => EncounterAnchor = anchor;
+        /// <summary>本次遭遇的刷怪位置，按顺序分配给敌人。为空则用预制体自身坐标</summary>
+        private readonly List<Transform> _encounterAnchors = new();
+
+        public IReadOnlyList<Transform> EncounterAnchors => _encounterAnchors;
+
+        /// <summary>
+        /// 登记一次遭遇。placeholder 是战斗开始时整组隐藏的占位物（一般是那组占位贴图的父物体），
+        /// anchors 是刷怪位置（一张占位贴图一个位置），按顺序分配给敌人。
+        /// </summary>
+        public void SetEncounter(GameObject placeholder, IReadOnlyList<Transform> anchors)
+        {
+            _encounterPlaceholder = placeholder;
+            _encounterAnchors.Clear();
+
+            if (anchors == null) return;
+            foreach (var a in anchors)
+                if (a != null && !_encounterAnchors.Contains(a)) _encounterAnchors.Add(a);
+        }
+
+        /// <summary>隐藏本次遭遇的占位物（战斗开始时调用）</summary>
+        public void HideEncounterPlaceholder()
+        {
+            if (_encounterPlaceholder != null) _encounterPlaceholder.SetActive(false);
+        }
+
+        /// <summary>清掉本次遭遇的登记，避免下一场复用</summary>
+        public void ClearEncounter()
+        {
+            _encounterPlaceholder = null;
+            _encounterAnchors.Clear();
+        }
 
         /// <summary>转场进行中：挡住旧状态每帧重复请求推进</summary>
         private bool _transitioning;
@@ -223,18 +254,20 @@ namespace GamePlay
 
             Debug.Log($"切换节点至: {node.name}");
 
-            // 需要黑屏转场的节点：等黑幕盖住之后再真正切换，玩家看不到瞬移
+            // 需要黑屏转场的节点：等黑幕全黑之后再传送 + 真正切换，玩家看不到瞬移
             if (node.fadeTransition && ScreenFader.Instance != null)
             {
                 _transitioning = true;
                 ScreenFader.Instance.Play(() =>
                 {
                     _transitioning = false;
+                    TeleportPlayer(node.teleportTargetName);
                     EnterNodeImmediate(node);
                 });
                 return;
             }
 
+            TeleportPlayer(node.teleportTargetName);
             EnterNodeImmediate(node);
         }
 
@@ -246,6 +279,43 @@ namespace GamePlay
             ApplyNodeContext(node, isFirstNode: false);
 
             ChangeMode(node.mode);
+        }
+
+        /// <summary>
+        /// 把主角移到场景里的命名标记处。黑屏转场用 —— 必须在全黑之后调用，
+        /// 否则玩家会看到瞬移。名字为空或找不到就跳过。
+        /// </summary>
+        private void TeleportPlayer(string markerName)
+        {
+            if (string.IsNullOrEmpty(markerName)) return;
+
+            if (!_player)
+            {
+                Debug.LogWarning($"[GameplayRoot] 要传送到 {markerName}，但主角不存在");
+                return;
+            }
+
+            GameObject marker = GameObject.Find(markerName);
+            if (marker == null)
+            {
+                Debug.LogWarning($"[GameplayRoot] 场景里找不到传送目标 {markerName}");
+                return;
+            }
+
+            Vector3 pos = marker.transform.position;
+
+            var rb = _player.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.velocity = Vector2.zero;   // 别把旧速度带过去
+                rb.position = pos;            // Rigidbody2D 要用 position，直接改 transform 会和物理不同步
+            }
+            else
+            {
+                _player.transform.position = pos;
+            }
+
+            Debug.Log($"[GameplayRoot] 主角已传送到 {markerName}");
         }
 
         /// <summary>按节点声明刷新 Context。只刷数据，不切模式。</summary>
