@@ -19,7 +19,6 @@ namespace GamePlay.Player
         public float MoveSpeed;
         public float SprintSpeed;
         public float SprintCd;
-        public float SprintMaxHold;
         public float SprintDuration;
 
         // 喷射累积伤害
@@ -55,7 +54,6 @@ namespace GamePlay.Player
             MoveSpeed = config.MoveSpeed;
             SprintSpeed = config.SprintSpeed;
             SprintCd = config.SprintCd;
-            SprintMaxHold = config.SprintMaxHold;
             SprintDuration = config.SprintDuration;
 
             SprintDamagePerTick = config.SprintDamagePerTick;

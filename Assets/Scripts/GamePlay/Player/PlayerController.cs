@@ -22,7 +22,27 @@ namespace GamePlay.Player
         private Rigidbody2D _rb;
         public PlayerLiquids PlayerLiquids => _playerLiquids;
 
+        #region 给 UI 的只读状态
+
+        /// <summary>是否正在喷射</summary>
+        public bool IsSprinting => _sprintRemain > 0f;
+
+        /// <summary>喷射剩余冷却秒数，供 UI 读取</summary>
+        public float SprintCdRemain => _sprintCdRemain;
+
+        /// <summary>喷射冷却总时长，供 UI 读取</summary>
+        public float SprintCdTotal => _playerStats != null ? _playerStats.SprintCd : 0f;
+
+        /// <summary>现在能不能喷（不在冷却里 且 不在喷射中）</summary>
+        public bool SprintReady => _sprintCdRemain <= 0f && _sprintRemain <= 0f;
+
+        #endregion
+
         private Vector2 _moveValue;
+
+        // 点按型喷射：_sprintRemain = 本次喷射还剩多久，_sprintCdRemain = 冷却还剩多久
+        private float _sprintRemain;
+        private float _sprintCdRemain;
 
 
         #region 生命周期
@@ -69,13 +89,17 @@ namespace GamePlay.Player
 
             // 切换液体CD Tick
             _playerLiquids.TickChangeLiquid(Time.deltaTime);
-            // 喷射CD tick
+
+            // 喷射与喷射冷却
+            if (_sprintRemain > 0f) _sprintRemain = Mathf.Max(0f, _sprintRemain - Time.deltaTime);
+            if (_sprintCdRemain > 0f) _sprintCdRemain = Mathf.Max(0f, _sprintCdRemain - Time.deltaTime);
 
         }
         private void FixedUpdate()
         {
-            //移动逻辑
-            _rb.velocity = _moveValue * _playerStats.MoveSpeed * (1f + _playerLiquids.MoveSpeedBonus);
+            //移动逻辑。喷射期间换成喷射速度（点按型，按一下冲 SprintDuration 秒）
+            float speed = _sprintRemain > 0f ? _playerStats.SprintSpeed : _playerStats.MoveSpeed;
+            _rb.velocity = _moveValue * speed * (1f + _playerLiquids.MoveSpeedBonus);
         }
         private void OnEnable()
         {
@@ -112,8 +136,14 @@ namespace GamePlay.Player
         }
         private void OnSprint(InputAction.CallbackContext context)
         {
-            //喷射动画
-            //喷射逻辑待定
+            // 点按型喷射：按下就冲，冷却从按下这一刻开始算。冷却中或正在喷射时忽略
+            if (!SprintReady) return;
+
+            _sprintRemain = _playerStats.SprintDuration;
+            _sprintCdRemain = _playerStats.SprintCd;
+
+            // TODO 喷射动画 / 音效 / 伤害。PlayerView 目前没有喷射接口，
+            //      Animator 里也没有「喷射」状态，加的时候一起补。
         }
         private void OnSwitchModule(InputAction.CallbackContext ctx)
         {

@@ -100,12 +100,12 @@ TextureImporter:
       name: Enemy-water-idle_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 2326
-        width: 488
-        height: 766
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2322
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,12 +121,12 @@ TextureImporter:
       name: Enemy-water-idle_1
       rect:
         serializedVersion: 2
-        x: 503
-        y: 2326
-        width: 488
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 496
+        y: 2322
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,12 +142,12 @@ TextureImporter:
       name: Enemy-water-idle_2
       rect:
         serializedVersion: 2
-        x: 997
-        y: 2326
-        width: 489
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 992
+        y: 2322
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,12 +163,12 @@ TextureImporter:
       name: Enemy-water-idle_3
       rect:
         serializedVersion: 2
-        x: 1493
-        y: 2326
-        width: 489
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1488
+        y: 2322
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: Enemy-water-idle_4
       rect:
         serializedVersion: 2
-        x: 1988
-        y: 2327
-        width: 488
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1984
+        y: 2322
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,12 +205,12 @@ TextureImporter:
       name: Enemy-water-idle_5
       rect:
         serializedVersion: 2
-        x: 4
-        y: 1553
-        width: 488
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1548
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -226,12 +226,12 @@ TextureImporter:
       name: Enemy-water-idle_6
       rect:
         serializedVersion: 2
-        x: 499
-        y: 1555
-        width: 489
-        height: 766
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 496
+        y: 1548
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -247,12 +247,12 @@ TextureImporter:
       name: Enemy-water-idle_7
       rect:
         serializedVersion: 2
-        x: 994
-        y: 1555
-        width: 489
-        height: 766
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 992
+        y: 1548
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -268,12 +268,12 @@ TextureImporter:
       name: Enemy-water-idle_8
       rect:
         serializedVersion: 2
-        x: 1489
-        y: 1555
-        width: 488
-        height: 766
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1488
+        y: 1548
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -289,12 +289,12 @@ TextureImporter:
       name: Enemy-water-idle_9
       rect:
         serializedVersion: 2
-        x: 1985
-        y: 1555
-        width: 488
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1984
+        y: 1548
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -310,12 +310,12 @@ TextureImporter:
       name: Enemy-water-idle_10
       rect:
         serializedVersion: 2
-        x: 1
-        y: 781
-        width: 488
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 774
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -332,11 +332,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 496
-        y: 781
-        width: 488
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 774
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -352,12 +352,12 @@ TextureImporter:
       name: Enemy-water-idle_12
       rect:
         serializedVersion: 2
-        x: 994
-        y: 781
-        width: 488
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 992
+        y: 774
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -373,12 +373,12 @@ TextureImporter:
       name: Enemy-water-idle_13
       rect:
         serializedVersion: 2
-        x: 1489
-        y: 781
-        width: 488
-        height: 766
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1488
+        y: 774
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -394,12 +394,12 @@ TextureImporter:
       name: Enemy-water-idle_14
       rect:
         serializedVersion: 2
-        x: 1987
-        y: 781
-        width: 488
-        height: 766
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1984
+        y: 774
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -415,12 +415,12 @@ TextureImporter:
       name: Enemy-water-idle_15
       rect:
         serializedVersion: 2
-        x: 4
-        y: 5
-        width: 488
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -436,12 +436,12 @@ TextureImporter:
       name: Enemy-water-idle_16
       rect:
         serializedVersion: 2
-        x: 500
-        y: 5
-        width: 488
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 496
+        y: 0
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -457,12 +457,12 @@ TextureImporter:
       name: Enemy-water-idle_17
       rect:
         serializedVersion: 2
-        x: 997
-        y: 5
-        width: 488
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 992
+        y: 0
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -478,12 +478,12 @@ TextureImporter:
       name: Enemy-water-idle_18
       rect:
         serializedVersion: 2
-        x: 1493
-        y: 4
-        width: 489
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1488
+        y: 0
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -499,12 +499,12 @@ TextureImporter:
       name: Enemy-water-idle_19
       rect:
         serializedVersion: 2
-        x: 1990
-        y: 4
-        width: 488
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1984
+        y: 0
+        width: 496
+        height: 774
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -128,5 +128,24 @@ namespace GamePlay.Player
         {
             _elapsed = Mathf.Max(0f, _elapsed - delta);
         }
+
+        #region 给 UI 的只读状态
+
+        /// <summary>备用槽里是否有能换到主槽的液体（HUD 用它判断切换键解不解锁）</summary>
+        public bool HasSwitchableLiquid =>
+            StandbyLiquid != null
+            && StandbyLiquid.Config != null
+            && StandbyLiquid.Config.CanBeMain;
+
+        /// <summary>切换液体剩余冷却秒数，供 UI 读取</summary>
+        public float ChangeLiquidCdRemain => _elapsed;
+
+        /// <summary>切换液体冷却总时长，供 UI 读取</summary>
+        public float ChangeLiquidCdTotal => _stats != null ? _stats.ChangeLiquidCd : 0f;
+
+        /// <summary>现在能不能切（备用槽可换 且 不在冷却中）</summary>
+        public bool CanChangeLiquid => HasSwitchableLiquid && _elapsed <= 0f;
+
+        #endregion
     }
 }

@@ -100,12 +100,12 @@ TextureImporter:
       name: Enemy-water-boxing_0
       rect:
         serializedVersion: 2
-        x: 56
-        y: 3906
-        width: 493
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3895
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,12 +121,12 @@ TextureImporter:
       name: Enemy-water-boxing_1
       rect:
         serializedVersion: 2
-        x: 677
-        y: 3904
-        width: 504
-        height: 770
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 632
+        y: 3895
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,12 +142,12 @@ TextureImporter:
       name: Enemy-water-boxing_2
       rect:
         serializedVersion: 2
-        x: 1299
-        y: 3904
-        width: 514
-        height: 769
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1264
+        y: 3895
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,12 +163,12 @@ TextureImporter:
       name: Enemy-water-boxing_3
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 4196
-        width: 125
-        height: 125
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1896
+        y: 3895
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: Enemy-water-boxing_4
       rect:
         serializedVersion: 2
-        x: 2045
-        y: 3904
-        width: 400
-        height: 769
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2528
+        y: 3895
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,12 +205,12 @@ TextureImporter:
       name: Enemy-water-boxing_5
       rect:
         serializedVersion: 2
-        x: 2541
-        y: 4194
-        width: 125
-        height: 127
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3116
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -226,12 +226,12 @@ TextureImporter:
       name: Enemy-water-boxing_6
       rect:
         serializedVersion: 2
-        x: 2677
-        y: 3904
-        width: 400
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 632
+        y: 3116
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -247,12 +247,12 @@ TextureImporter:
       name: Enemy-water-boxing_7
       rect:
         serializedVersion: 2
-        x: 4
-        y: 3415
-        width: 127
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1264
+        y: 3116
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -268,12 +268,12 @@ TextureImporter:
       name: Enemy-water-boxing_8
       rect:
         serializedVersion: 2
-        x: 149
-        y: 3123
-        width: 400
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1896
+        y: 3116
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -289,12 +289,12 @@ TextureImporter:
       name: Enemy-water-boxing_9
       rect:
         serializedVersion: 2
-        x: 636
-        y: 3413
-        width: 127
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2528
+        y: 3116
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -310,12 +310,12 @@ TextureImporter:
       name: Enemy-water-boxing_10
       rect:
         serializedVersion: 2
-        x: 781
-        y: 3123
-        width: 400
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2337
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -331,12 +331,12 @@ TextureImporter:
       name: Enemy-water-boxing_11
       rect:
         serializedVersion: 2
-        x: 1304
-        y: 3123
-        width: 509
-        height: 765
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 632
+        y: 2337
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -352,12 +352,12 @@ TextureImporter:
       name: Enemy-water-boxing_12
       rect:
         serializedVersion: 2
-        x: 2041
-        y: 3123
-        width: 404
-        height: 765
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1264
+        y: 2337
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -373,12 +373,12 @@ TextureImporter:
       name: Enemy-water-boxing_13
       rect:
         serializedVersion: 2
-        x: 2666
-        y: 3123
-        width: 411
-        height: 765
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1896
+        y: 2337
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -394,12 +394,12 @@ TextureImporter:
       name: Enemy-water-boxing_14
       rect:
         serializedVersion: 2
-        x: 115
-        y: 2343
-        width: 434
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2528
+        y: 2337
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -415,12 +415,12 @@ TextureImporter:
       name: Enemy-water-boxing_15
       rect:
         serializedVersion: 2
-        x: 724
-        y: 2343
-        width: 457
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1558
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -436,12 +436,12 @@ TextureImporter:
       name: Enemy-water-boxing_16
       rect:
         serializedVersion: 2
-        x: 1336
-        y: 2343
-        width: 477
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 632
+        y: 1558
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -457,12 +457,12 @@ TextureImporter:
       name: Enemy-water-boxing_17
       rect:
         serializedVersion: 2
-        x: 1952
-        y: 2343
-        width: 493
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1264
+        y: 1558
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -478,12 +478,12 @@ TextureImporter:
       name: Enemy-water-boxing_18
       rect:
         serializedVersion: 2
-        x: 2586
-        y: 2343
-        width: 491
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1896
+        y: 1558
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -499,12 +499,12 @@ TextureImporter:
       name: Enemy-water-boxing_19
       rect:
         serializedVersion: 2
-        x: 58
-        y: 1564
-        width: 491
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2528
+        y: 1558
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -520,12 +520,12 @@ TextureImporter:
       name: Enemy-water-boxing_20
       rect:
         serializedVersion: 2
-        x: 690
-        y: 1564
-        width: 484
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 779
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -541,12 +541,12 @@ TextureImporter:
       name: Enemy-water-boxing_21
       rect:
         serializedVersion: 2
-        x: 1322
-        y: 1564
-        width: 472
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 632
+        y: 779
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -562,12 +562,12 @@ TextureImporter:
       name: Enemy-water-boxing_22
       rect:
         serializedVersion: 2
-        x: 1954
-        y: 1564
-        width: 461
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1264
+        y: 779
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -583,12 +583,12 @@ TextureImporter:
       name: Enemy-water-boxing_23
       rect:
         serializedVersion: 2
-        x: 2586
-        y: 1564
-        width: 450
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1896
+        y: 779
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -604,12 +604,12 @@ TextureImporter:
       name: Enemy-water-boxing_24
       rect:
         serializedVersion: 2
-        x: 58
-        y: 786
-        width: 431
-        height: 765
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2528
+        y: 779
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -625,12 +625,12 @@ TextureImporter:
       name: Enemy-water-boxing_25
       rect:
         serializedVersion: 2
-        x: 690
-        y: 786
-        width: 429
-        height: 765
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -646,12 +646,12 @@ TextureImporter:
       name: Enemy-water-boxing_26
       rect:
         serializedVersion: 2
-        x: 1322
-        y: 786
-        width: 429
-        height: 765
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 632
+        y: 0
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -667,12 +667,12 @@ TextureImporter:
       name: Enemy-water-boxing_27
       rect:
         serializedVersion: 2
-        x: 1954
-        y: 786
-        width: 397
-        height: 765
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1264
+        y: 0
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -688,12 +688,12 @@ TextureImporter:
       name: Enemy-water-boxing_28
       rect:
         serializedVersion: 2
-        x: 2363
-        y: 1080
-        width: 125
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1896
+        y: 0
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -709,12 +709,12 @@ TextureImporter:
       name: Enemy-water-boxing_29
       rect:
         serializedVersion: 2
-        x: 2586
-        y: 786
-        width: 397
-        height: 765
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2528
+        y: 0
+        width: 632
+        height: 779
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -722,216 +722,6 @@ TextureImporter:
       bones: []
       spriteID: fa60a64a53af5774288b952f38d752d1
       internalID: 1947226287
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy-water-boxing_30
-      rect:
-        serializedVersion: 2
-        x: 3029
-        y: 1081
-        width: 125
-        height: 125
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 93f6cf2206f72cf46ac9dbada8dfe97c
-      internalID: 152725297
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy-water-boxing_31
-      rect:
-        serializedVersion: 2
-        x: 58
-        y: 0
-        width: 397
-        height: 773
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 93f23de33f098c84e8cda9acdb65f9ba
-      internalID: -1243762323
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy-water-boxing_32
-      rect:
-        serializedVersion: 2
-        x: 501
-        y: 302
-        width: 125
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5b1d5ee7f36d394f9c00ec191d8d2a1
-      internalID: 1930066418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy-water-boxing_33
-      rect:
-        serializedVersion: 2
-        x: 690
-        y: 0
-        width: 397
-        height: 773
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a563a26d0071a1141850a1364b76bbd9
-      internalID: -727002405
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy-water-boxing_34
-      rect:
-        serializedVersion: 2
-        x: 1133
-        y: 302
-        width: 125
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57483f6f60b497f4a8f0b7294537a58f
-      internalID: 193505753
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy-water-boxing_35
-      rect:
-        serializedVersion: 2
-        x: 1322
-        y: 6
-        width: 397
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cece0b8890f01a9428f436bc1dedd8d2
-      internalID: 1704902278
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy-water-boxing_36
-      rect:
-        serializedVersion: 2
-        x: 1744
-        y: 302
-        width: 126
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e302cd346d6a9574e9300ccc96658118
-      internalID: -45175617
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy-water-boxing_37
-      rect:
-        serializedVersion: 2
-        x: 1954
-        y: 6
-        width: 397
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3815c2a8b946133468462240434c85fe
-      internalID: 1552640694
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy-water-boxing_38
-      rect:
-        serializedVersion: 2
-        x: 2356
-        y: 302
-        width: 127
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b6f1772cac6dba444bf45aac1c2b885c
-      internalID: 907180176
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy-water-boxing_39
-      rect:
-        serializedVersion: 2
-        x: 2586
-        y: 6
-        width: 509
-        height: 767
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 26ab4212587acee489bb01922bdf6ee0
-      internalID: -1350815907
       vertices: []
       indices: 
       edges: []
@@ -971,16 +761,6 @@ TextureImporter:
       Enemy-water-boxing_28: -189890289
       Enemy-water-boxing_29: 1947226287
       Enemy-water-boxing_3: -1910271795
-      Enemy-water-boxing_30: 152725297
-      Enemy-water-boxing_31: -1243762323
-      Enemy-water-boxing_32: 1930066418
-      Enemy-water-boxing_33: -727002405
-      Enemy-water-boxing_34: 193505753
-      Enemy-water-boxing_35: 1704902278
-      Enemy-water-boxing_36: -45175617
-      Enemy-water-boxing_37: 1552640694
-      Enemy-water-boxing_38: 907180176
-      Enemy-water-boxing_39: -1350815907
       Enemy-water-boxing_4: 29430382
       Enemy-water-boxing_5: 1155070163
       Enemy-water-boxing_6: -1014819179

@@ -15,16 +15,20 @@ namespace GamePlay.Procedure
             if (Procedure.IsNewGame)
             {
                 Global.HideAllUI();
-                //Global.ShowUI("HUD");
                 GameplayRoot.StartNewGame();
                 Procedure.ClearNewGameTag();
             }
-            else 
+            else
                 GameplayRoot.ContinueGame();
+
+            // 新游戏和读档两条分支都要显示 HUD，所以放在 if 外面
+            Global.ShowUI("HUD");
         }
 
         public override void Exit()
         {
+            Global.HideUI("HUD");
+
             // 离开关卡的这条边 = 拆对局（内层状态机 / 玩家 / Session 数据）
             GameplayRoot.EndGame();
         }

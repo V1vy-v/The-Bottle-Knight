@@ -12,16 +12,14 @@ namespace GamePlay.Configs
 
         [Header("移动")]
         public float MoveSpeed = 15f;
-        public float SprintSpeed = 40f;         // 空格喷射
-        public float SprintCd = 1f;             // 喷射冷却
-        public float SprintMaxHold = 6f;        // 喷射长按上限
-        // TODO: 待定 —— 07 数值里喷射只有「冷却 1 秒 / 长按上限 6 秒 / 每 0.5 秒累积」，没有对应项
-        public float SprintDuration = 0.2f;
+        public float SprintSpeed = 40f;         // 点按喷射时的移动速度
+        public float SprintDuration = 0.2f;     // 一次喷射持续多久（点按型，没有蓄力）
+        public float SprintCd = 1f;             // 喷射冷却，从按下那一刻开始算，建议 >= SprintDuration
 
-        [Header("喷射累积伤害")]
-        public float SprintDamagePerTick = 4f;      // 每 SprintTickInterval 累积
+        [Header("喷射伤害（点按喷射期间每 tick 结算，尚未实现）")]
+        public float SprintDamagePerTick = 4f;
         public float SprintTickInterval = 0.5f;
-        public float SprintCartExtraDamage = 2f;    // 购物车每秒额外累积
+        public float SprintCartExtraDamage = 2f;    // 推着购物车时的额外伤害
 
         [Header("普通攻击 J")]
         public float PrimaryAtkInterval = 0.8f;     // 普攻间隔
