@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: "15_\u64C2\u53F0\u6218\u65973"
   m_EditorClassIdentifier: 
   Id: Node_15
+  Name: 
   mode: 3
   refreshDialog: 0
   refreshBattle: 1
   goalId: 
   dialogConfig: {fileID: 0}
   battleConfig: {fileID: 11400000, guid: 50faca9e63eb1024ab72098f623062a9, type: 2}
-  autoWinBattle: 1
+  autoWinBattle: 0
   nextNode: {fileID: 11400000, guid: ae67774ffc223a04994240f2a6c3ae87, type: 2}
   currentStage: 1
   fadeTransition: 0

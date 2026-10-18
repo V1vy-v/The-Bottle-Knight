@@ -10,13 +10,16 @@ namespace GamePlay.Enemy
     /// </summary>
     public class EnemyController : MonoBehaviour
     {
+        public event Action<float,float> OnWound;//受伤事件，供UI订阅
         [Header("配置表")]
         public EnemyConfig config;  
 
         [Header("运行时状态")]
         public EnemyRealState state = new EnemyRealState();
 
-        public float currentHP;
+        private float currentHP;
+
+        public float CurrentHP => currentHP;
 
         //AI
         public float idleDuration;    //待机持续时间
@@ -145,6 +148,7 @@ namespace GamePlay.Enemy
             if (_fsm.CurrentState == EnemyState.Dead) return;
 
             state.CurrentHP -= damage;
+            OnWound?.Invoke(state.CurrentHP,state.MaxHP);
             Debug.Log($"受到{damage}点伤害");
 
             if (state.CurrentHP <= 0)
