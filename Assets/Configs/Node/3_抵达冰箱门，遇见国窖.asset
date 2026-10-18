@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "3_\u62B5\u8FBE\u51B0\u7BB1\u95E8\uFF0C\u9047\u89C1\u56FD\u7A96"
   m_EditorClassIdentifier: 
   Id: Node_3
+  questText: 走到冰箱门前，找国窖
   mode: 0
   refreshDialog: 0
   refreshBattle: 0

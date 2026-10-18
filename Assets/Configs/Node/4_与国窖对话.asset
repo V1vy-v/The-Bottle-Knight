@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "4_\u4E0E\u56FD\u7A96\u5BF9\u8BDD"
   m_EditorClassIdentifier: 
   Id: Node_4
+  questText: 接受国窖的挑战
   mode: 1
   refreshDialog: 1
   refreshBattle: 0

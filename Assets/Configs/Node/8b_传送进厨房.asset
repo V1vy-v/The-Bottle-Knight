@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "8b_\u4F20\u9001\u8FDB\u53A8\u623F"
   m_EditorClassIdentifier: 
   Id: Node_8b
+  questText: 抵达厨房
   mode: 0
   refreshDialog: 0
   refreshBattle: 0

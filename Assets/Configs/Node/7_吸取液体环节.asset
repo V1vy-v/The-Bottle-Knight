@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "7_\u5438\u53D6\u6DB2\u4F53\u73AF\u8282"
   m_EditorClassIdentifier: 
   Id: Node_7
+  questText: 走到国窖的尸体旁，吸取它的液体
   mode: 0
   refreshDialog: 0
   refreshBattle: 0

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "18_\u64C2\u53F0\u80DC\u52294"
   m_EditorClassIdentifier: 
   Id: Node_18
+  questText: 挑战卫冕冠军快乐水
   mode: 0
   refreshDialog: 0
   refreshBattle: 0

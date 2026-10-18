@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "10_\u524D\u5F80\u64C2\u53F0"
   m_EditorClassIdentifier: 
   Id: Node_10
+  questText: 前往擂台，报名鸡翅争霸赛
   mode: 0
   refreshDialog: 0
   refreshBattle: 0

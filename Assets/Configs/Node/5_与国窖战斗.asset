@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "5_\u4E0E\u56FD\u7A96\u6218\u6597"
   m_EditorClassIdentifier: 
   Id: Node_5
+  questText: 击败国窖
   Name: 
   mode: 3
   refreshDialog: 0

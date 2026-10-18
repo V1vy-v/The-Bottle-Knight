@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "1_\u77FF\u6CC9\u6C34\u62E6\u8DEF"
   m_EditorClassIdentifier: 
   Id: Node_1
+  questText: 教训一下拦路的矿泉水
   mode: 1
   refreshDialog: 1
   refreshBattle: 0

@@ -1,5 +1,9 @@
+using Framework;
+using GamePlay;
 using GamePlay.Liquid;
 using GamePlay.Player;
+using GamePlay.Story;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +31,12 @@ namespace UI
 
         // Image 引用（从 Binding 给的 RectTransform 上取）
         private Image _healthFill;
+
+        /// <summary>任务栏前缀。预制体里原本写的是「当前任务 ******」，前缀固定、目标由节点给</summary>
+        private const string QuestPrefix = "当前任务 ";
+
+        private TextMeshProUGUI _questLabel;
+        private string _questTextCache;
         private Image _sprintIcon, _sprintMask;
         private Image _skill1Icon, _skill1Mask;
         private Image _skill2Icon, _skill2Mask;
@@ -41,6 +51,9 @@ namespace UI
         {
             // 血条已经由美术在预制体里配好 Filled（纵向），这里只取引用，不改它的设置
             _healthFill = ImageOf(_healthBar);
+
+            // 任务栏绑定给的是 RectTransform，文字在 TextMeshProUGUI 上
+            _questLabel = _questTxt != null ? _questTxt.GetComponent<TextMeshProUGUI>() : null;
 
             _sprintMask = ImageOf(_sprintCdMask);
             _skill1Mask = ImageOf(_skill1CdMask);
@@ -103,6 +116,9 @@ namespace UI
 
         private void Refresh()
         {
+            // 任务栏不依赖主角，先刷
+            RefreshQuest();
+
             if (_stats == null) return;
 
             // ---- 血条 ----
@@ -130,6 +146,26 @@ namespace UI
             // ---- 喷射（点按型，没有解锁条件）----
             float sprintRatio = Ratio(_player?.SprintCdRemain ?? 0f, _player?.SprintCdTotal ?? 0f);
             ApplySlot(_sprintIcon, _sprintMask, _sprintLockGO, true, sprintRatio);
+        }
+
+        /// <summary>
+        /// 任务栏：直接读当前节点。节点没填 questText 就整行隐藏。
+        /// 轮询而不是订阅事件 —— HUD 是 ShowUI 之后才出现的，事件会漏掉第一个节点。
+        /// </summary>
+        private void RefreshQuest()
+        {
+            if (_questLabel == null) return;
+
+            NodeConfig node = Global.Get<GameplayRoot>()?.Story?.CurrentNode;
+            string text = node != null ? node.questText : null;
+
+            if (text == _questTextCache) return;   // 只在变化时写，避免每帧重建文本网格
+
+            _questTextCache = text;
+            bool has = !string.IsNullOrEmpty(text);
+
+            _questLabel.gameObject.SetActive(has);
+            if (has) _questLabel.text = QuestPrefix + text;
         }
 
         /// <summary>

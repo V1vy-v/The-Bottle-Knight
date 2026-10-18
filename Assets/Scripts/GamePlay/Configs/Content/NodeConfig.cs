@@ -41,5 +41,9 @@ namespace GamePlay.Story
 
         [Tooltip("黑屏全黑时把主角传送到这个场景物体处（填物体名，如 [KitchenSpawn]）；留空则不传送")]
         public string teleportTargetName;
+
+        [Header("任务栏")]
+        [Tooltip("进入本节点时 HUD 任务栏显示的目标文本；留空则隐藏任务栏。前缀「当前任务」由 HUD 代码统一拼")]
+        public string questText;
     }
 }

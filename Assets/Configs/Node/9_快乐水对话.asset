@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "9_\u5FEB\u4E50\u6C34\u5BF9\u8BDD"
   m_EditorClassIdentifier: 
   Id: Node_9
+  questText: 找快乐水聊聊
   mode: 1
   refreshDialog: 1
   refreshBattle: 0

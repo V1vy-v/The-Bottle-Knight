@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "14_\u64C2\u53F0\u80DC\u52292"
   m_EditorClassIdentifier: 
   Id: Node_14
+  questText: 前往下一处擂台
   mode: 0
   refreshDialog: 0
   refreshBattle: 0

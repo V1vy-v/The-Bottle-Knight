@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "22_\u8FDB\u5165\u8D85\u5E02"
   m_EditorClassIdentifier: 
   Id: Node_22
+  questText: 进入超市，找到雷碧
   mode: 0
   refreshDialog: 0
   refreshBattle: 0
