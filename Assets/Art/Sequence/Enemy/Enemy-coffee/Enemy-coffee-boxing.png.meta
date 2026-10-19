@@ -1,0 +1,686 @@
+fileFormatVersion: 2
+guid: 4cc25260dacab5344b4290efc211150c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4700
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96d6fa3f548815e4fb864958b867e101
+      internalID: 303046184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_1
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 4700
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c85cad876df4aa744ada903b6ddbd6ef
+      internalID: 413835896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_2
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 4700
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce66f5e790e8cbd41a971dcc46e5d980
+      internalID: -570969228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_3
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 4700
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9438de76885faf54596bb4c5910d233e
+      internalID: 814301445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_4
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 4700
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7acaef22eb3ded74a939110e45354abf
+      internalID: 1061451787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3760
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 905135520be41864bbaf64298f56ea59
+      internalID: 1310640266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_6
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 3760
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb048fd4d80b1e04da265934a053a4b4
+      internalID: 26670762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_7
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 3760
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 966033d908877ae4ca57ea79c4d2cf13
+      internalID: 542337685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_8
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 3760
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53a45aab8fe0f004bb0777eba091f5b0
+      internalID: 1936335804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_9
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 3760
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e73f01c01079b0d4db6af7ff356ecc5f
+      internalID: 1489729821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2820
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e001e6bf8382db47a333b1a524919a6
+      internalID: 1464834855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_11
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 2820
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22a91d4505da12f46b8a6b32a61d1fd4
+      internalID: 1780264494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_12
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2820
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c923ad72ae5b1fe40ba4a5aea46c3aa0
+      internalID: 2034400428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_13
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 2820
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86164b850a524ae4d809f50d85a92858
+      internalID: -742743207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_14
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 2820
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa87181c0c94969499cf17f617267f6a
+      internalID: 1404519863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1880
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a53a9c119477a948b704fc98276ad32
+      internalID: -1521528396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_16
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1880
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4d02e85b0c859242a59c90a40790a9e
+      internalID: 922780028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_17
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1880
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1695e11e92a8b0d49af15f4e212ad39a
+      internalID: 1691384235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_18
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 1880
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b06b40d3a4cadd4f8ffee3bca3ec661
+      internalID: -1880928991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_19
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1880
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bad40fef4ca407d4787c797330af4762
+      internalID: 940799179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 940
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a47760b0aa3d6042a42fb6f7f8a2998
+      internalID: -708088200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_21
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 940
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd4458aa5e5a9a44ea559e21b686b3d4
+      internalID: -1233125519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_22
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 940
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1cc85fa00e3a7048a58c74a38ef2e19
+      internalID: 1887880007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_23
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 940
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b30b377c889a35d4cad50dcc1c051a34
+      internalID: 1511261754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_24
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 940
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aa111f428fda0d4c9ab62f75b2bdbde
+      internalID: -1737672465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-boxing_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 750
+        height: 940
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43d6a984c66cb5749924e00dfb7fc1c9
+      internalID: 1140938434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 54b394c2957042049bc7a40abcf0e004
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Enemy-coffee-boxing_0: 303046184
+      Enemy-coffee-boxing_1: 413835896
+      Enemy-coffee-boxing_10: 1464834855
+      Enemy-coffee-boxing_11: 1780264494
+      Enemy-coffee-boxing_12: 2034400428
+      Enemy-coffee-boxing_13: -742743207
+      Enemy-coffee-boxing_14: 1404519863
+      Enemy-coffee-boxing_15: -1521528396
+      Enemy-coffee-boxing_16: 922780028
+      Enemy-coffee-boxing_17: 1691384235
+      Enemy-coffee-boxing_18: -1880928991
+      Enemy-coffee-boxing_19: 940799179
+      Enemy-coffee-boxing_2: -570969228
+      Enemy-coffee-boxing_20: -708088200
+      Enemy-coffee-boxing_21: -1233125519
+      Enemy-coffee-boxing_22: 1887880007
+      Enemy-coffee-boxing_23: 1511261754
+      Enemy-coffee-boxing_24: -1737672465
+      Enemy-coffee-boxing_25: 1140938434
+      Enemy-coffee-boxing_3: 814301445
+      Enemy-coffee-boxing_4: 1061451787
+      Enemy-coffee-boxing_5: 1310640266
+      Enemy-coffee-boxing_6: 26670762
+      Enemy-coffee-boxing_7: 542337685
+      Enemy-coffee-boxing_8: 1936335804
+      Enemy-coffee-boxing_9: 1489729821
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

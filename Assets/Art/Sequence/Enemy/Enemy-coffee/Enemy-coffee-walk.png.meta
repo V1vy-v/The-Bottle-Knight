@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: 25d1e70da3cc9c948bb41f7bff814f33
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3864
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb4327a1ab8a398408115bb2bdc0f3a2
+      internalID: 122578390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_1
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 3864
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 399c2dc08291cb54cb4686599d24ec54
+      internalID: -604994310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_2
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 3864
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd0d4572bae3f3844a87f4d3d053d4e3
+      internalID: -212220290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_3
+      rect:
+        serializedVersion: 2
+        x: 1842
+        y: 3864
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fcc7bd8850b9db42ab93c0a3aa500fd
+      internalID: -1538506724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_4
+      rect:
+        serializedVersion: 2
+        x: 2456
+        y: 3864
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d87a7f5f82073d343b813bac385b07f7
+      internalID: -1058728411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2898
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0b0820aad5c8d94d8ea35791ffe7796
+      internalID: -153404963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_6
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 2898
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62fa8243dbddd864e9915bf5d0b55475
+      internalID: -577396840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_7
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 2898
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5942269c321b46145acef8ed369a6464
+      internalID: -1745475968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_8
+      rect:
+        serializedVersion: 2
+        x: 1842
+        y: 2898
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 205a2dd835bdfe642979f4b3e706d199
+      internalID: 39123333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_9
+      rect:
+        serializedVersion: 2
+        x: 2456
+        y: 2898
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f9960bf879204944a05ecf61fe1fd7e
+      internalID: -1172011670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1932
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf2a48f0e2d941340936cccc3c8733c3
+      internalID: 866283562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_11
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 1932
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df7adbd3a1ff30448139c88fcbd92bd
+      internalID: 2116590287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_12
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 1932
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93d18d9935ad7747840127cfd6517b7
+      internalID: 823032087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_13
+      rect:
+        serializedVersion: 2
+        x: 1842
+        y: 1932
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8af6120336beafa4fbc0c09da5f2318d
+      internalID: -748873270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_14
+      rect:
+        serializedVersion: 2
+        x: 2456
+        y: 1932
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d66e5705e5086094ba586723cacd1c83
+      internalID: -1792893972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 966
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efdb6f9c1978f62428e62a038e2a0053
+      internalID: -2065221091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_16
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 966
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeb7470a5db1efe42b0430653ec872b8
+      internalID: -301753914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_17
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 966
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d3430b46c5effc4c913a4efafde7e66
+      internalID: -1802811730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_18
+      rect:
+        serializedVersion: 2
+        x: 1842
+        y: 966
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 456dc4e28f8f7ec43b1a63a5118b0e1c
+      internalID: -1801311326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_19
+      rect:
+        serializedVersion: 2
+        x: 2456
+        y: 966
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de5720d4ff89a48488c5cb04ee25fd4e
+      internalID: -1769180656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a27e98ad3fb699489c238a2812b25b7
+      internalID: 2079234421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-walk_21
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 0
+        width: 614
+        height: 966
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24b7fddc9e222e040ac09e6ffe93006b
+      internalID: 212932772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 45f4a20620da3a64da41843283338807
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Enemy-coffee-walk_0: 122578390
+      Enemy-coffee-walk_1: -604994310
+      Enemy-coffee-walk_10: 866283562
+      Enemy-coffee-walk_11: 2116590287
+      Enemy-coffee-walk_12: 823032087
+      Enemy-coffee-walk_13: -748873270
+      Enemy-coffee-walk_14: -1792893972
+      Enemy-coffee-walk_15: -2065221091
+      Enemy-coffee-walk_16: -301753914
+      Enemy-coffee-walk_17: -1802811730
+      Enemy-coffee-walk_18: -1801311326
+      Enemy-coffee-walk_19: -1769180656
+      Enemy-coffee-walk_2: -212220290
+      Enemy-coffee-walk_20: 2079234421
+      Enemy-coffee-walk_21: 212932772
+      Enemy-coffee-walk_3: -1538506724
+      Enemy-coffee-walk_4: -1058728411
+      Enemy-coffee-walk_5: -153404963
+      Enemy-coffee-walk_6: -577396840
+      Enemy-coffee-walk_7: -1745475968
+      Enemy-coffee-walk_8: 39123333
+      Enemy-coffee-walk_9: -1172011670
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

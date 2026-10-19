@@ -1,0 +1,819 @@
+fileFormatVersion: 2
+guid: 571aae1a6c82bba49a3fbd4ea2dffc35
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5700
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25363944c00be9e4ca4ee037146883a9
+      internalID: 412210203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_1
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 5700
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 472b0d44778ad4843b6a4351d77e61f9
+      internalID: -2085161975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_2
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 5700
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d5f9c1188ee5c45928edac1d0f1b80
+      internalID: 2022599375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_3
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 5700
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3ed3ea281a2bf449a0f3d8440d959b0
+      internalID: 984003786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_4
+      rect:
+        serializedVersion: 2
+        x: 2464
+        y: 5700
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a744f1ff9604caf42ad2189ac5d52890
+      internalID: -1001243323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4750
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2566cd4f08174474d8f756dbc2313891
+      internalID: -699910193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_6
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 4750
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f288b68c642e34a8f136dea9a591d0
+      internalID: 752184034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_7
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 4750
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4546e3aaa49b8b84ea46986ea1caa349
+      internalID: 1866251554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_8
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 4750
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02d3a7891f78054a89b133ca22cbd51
+      internalID: -1895490664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_9
+      rect:
+        serializedVersion: 2
+        x: 2464
+        y: 4750
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a0e07b47405a914492315c0a1a4e2bc
+      internalID: 438432290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3800
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd54320294b979b45b0958de73c32675
+      internalID: 1781107763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_11
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 3800
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc549a4801873bd42b8f961748bc805f
+      internalID: -2108851793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_12
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 3800
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f395a8031ffa642a4ede812df29723
+      internalID: 1572710578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_13
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 3800
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99bf604363d07064a8314d3880e6a317
+      internalID: 853138609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_14
+      rect:
+        serializedVersion: 2
+        x: 2464
+        y: 3800
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55f1242df9509374785ab017d2db0696
+      internalID: 931744784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2850
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 269fcc83a6026634dbc9d7e31a1bbabc
+      internalID: 1685646120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_16
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 2850
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06daade35a791604ea10f9577879f1f8
+      internalID: 1517673700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_17
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 2850
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5f5ade80bd02ac4dbfe144ab8ca3456
+      internalID: 225598371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_18
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 2850
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b6f16ef87a5da84c8bc76e77871b8ae
+      internalID: -1234177015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_19
+      rect:
+        serializedVersion: 2
+        x: 2464
+        y: 2850
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b38b198b57cfc024d823260820a6dfa1
+      internalID: 1631018305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1900
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b41ffb6764fbc4c8d9ce3955320c16
+      internalID: -1326560294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_21
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 1900
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62425f34eedc8d5488322622cb528974
+      internalID: 625435476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_22
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 1900
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 839a5579f5ca0034190d8f17a402f969
+      internalID: -1643911928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_23
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 1900
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7b6d3197ec091449bc53d8f314efb25
+      internalID: -1087881462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_24
+      rect:
+        serializedVersion: 2
+        x: 2464
+        y: 1900
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ef469806988e7b4db08815c802d12d1
+      internalID: -1486230331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 950
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7347561da6a8ec546be5ab702566a491
+      internalID: -568978931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_26
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 950
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 885fd2529d64c1440ab3f0a9caae954a
+      internalID: 1712435605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_27
+      rect:
+        serializedVersion: 2
+        x: 1232
+        y: 950
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43d64233c09bf0e4698cce1594e7be25
+      internalID: -2102946609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_28
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 950
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cc1a128bb30e2d46b727367ff167dbb
+      internalID: -703830483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_29
+      rect:
+        serializedVersion: 2
+        x: 2464
+        y: 950
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af4669a95ba03a540915687402cae7b2
+      internalID: 898806383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb7f9dd2e8e9854998382c9d448d66c
+      internalID: -2000968200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-idle_31
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 0
+        width: 616
+        height: 950
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df32c0f1217fd5342b72875275638954
+      internalID: 436224270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b7862fa61f8cc4348b4e3deabd2ff809
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Enemy-coffee-idle_0: 412210203
+      Enemy-coffee-idle_1: -2085161975
+      Enemy-coffee-idle_10: 1781107763
+      Enemy-coffee-idle_11: -2108851793
+      Enemy-coffee-idle_12: 1572710578
+      Enemy-coffee-idle_13: 853138609
+      Enemy-coffee-idle_14: 931744784
+      Enemy-coffee-idle_15: 1685646120
+      Enemy-coffee-idle_16: 1517673700
+      Enemy-coffee-idle_17: 225598371
+      Enemy-coffee-idle_18: -1234177015
+      Enemy-coffee-idle_19: 1631018305
+      Enemy-coffee-idle_2: 2022599375
+      Enemy-coffee-idle_20: -1326560294
+      Enemy-coffee-idle_21: 625435476
+      Enemy-coffee-idle_22: -1643911928
+      Enemy-coffee-idle_23: -1087881462
+      Enemy-coffee-idle_24: -1486230331
+      Enemy-coffee-idle_25: -568978931
+      Enemy-coffee-idle_26: 1712435605
+      Enemy-coffee-idle_27: -2102946609
+      Enemy-coffee-idle_28: -703830483
+      Enemy-coffee-idle_29: 898806383
+      Enemy-coffee-idle_3: 984003786
+      Enemy-coffee-idle_30: -2000968200
+      Enemy-coffee-idle_31: 436224270
+      Enemy-coffee-idle_32: -1303674548
+      Enemy-coffee-idle_4: -1001243323
+      Enemy-coffee-idle_5: -699910193
+      Enemy-coffee-idle_6: 752184034
+      Enemy-coffee-idle_7: 1866251554
+      Enemy-coffee-idle_8: -1895490664
+      Enemy-coffee-idle_9: 438432290
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

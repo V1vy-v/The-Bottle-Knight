@@ -89,7 +89,10 @@ namespace GamePlay.Interaction
 
             OnAbsorbed?.Invoke(this);      // 剧情侧在这里开门 / 解锁出口
 
-            Global.Release(gameObject);    // 敌人是 InstantiateUnpooled 生成的，用 Release 销毁
+            // 敌人可能是门面生成的（要还池），也可能是场景里直接摆的剧情敌人（要 Destroy）
+            var enemy = GetComponent<EnemyController>();
+            if (enemy != null) enemy.ReleaseSelf();
+            else Destroy(gameObject);
         }
 
         /// <summary>

@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3176981748542200297}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9, z: 0}
+  m_LocalPosition: {x: -0.12, y: 5.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64,8 +64,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -4.3350396}
-  m_Size: {x: 5.9735885, y: 2.7572231}
+  m_Offset: {x: 0.16171072, y: -4.3350396}
+  m_Size: {x: 4.5990624, y: 2.7572234}
   m_Direction: 1
 --- !u!1 &5213897385145486336
 GameObject:
@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: 39541e338661f144d842f3202eaf7596, type: 2}
-  currentHP: 0
+  _passiveAtStart: 0
   idleDuration: 2
   patrolDuration: 5
   fadeDuration: 1
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ebba73151643fe47b76d43364049507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _liquidIdOverride: 
+  _liquidOverride: {fileID: 0}
   _absorbDuration: 0.6
 --- !u!114 &6678524252991320144
 MonoBehaviour:
@@ -650,6 +650,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 5.95, y: 11.56}
+  m_Offset: {x: 0.040427446, y: -1.0915418}
+  m_Size: {x: 3.7669168, y: 9.376917}
   m_Direction: 0

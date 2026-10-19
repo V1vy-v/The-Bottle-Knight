@@ -35,8 +35,10 @@ namespace GamePlay.Enemy
                 _stateMachine.ChangeState(EnemyState.Attack);
             else if (Enemy.playerInDetectRange)
                 _stateMachine.ChangeState(EnemyState.Chase);
-            else if (_idleTimer >= Enemy.idleDuration)
-                _stateMachine.ChangeState(EnemyState.Patrol); 
+            // 被动（剧情）敌人不转巡逻：它应该一直播 Idle 站着等对话，
+            // 一旦进了 Patrol 就会播 Move 并往 12 单位内乱走。
+            else if (Enemy.CombatEnabled && _idleTimer >= Enemy.idleDuration)
+                _stateMachine.ChangeState(EnemyState.Patrol);
         }
     }
 
@@ -272,7 +274,7 @@ namespace GamePlay.Enemy
             if (CanAbsorb) return;
 
             _released = true;
-            Global.Release(Enemy.gameObject);
+            Enemy.ReleaseSelf();      // 场景里摆的敌人要走 Destroy，交回门面会报错
         }
     }
 }

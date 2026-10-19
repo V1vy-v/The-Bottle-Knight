@@ -1,0 +1,1104 @@
+fileFormatVersion: 2
+guid: ba70696cdcf573e4ea9bbcbcc9ac88e1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7688
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72a02243c3ca8e747803ddce3b6c7e61
+      internalID: 516030303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_1
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 7688
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd1ab0848ce86240b5e6cb115500293
+      internalID: 2029117102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_2
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 7688
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca5588e4a66cee74db4a496da467be39
+      internalID: -1226010675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_3
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 7688
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2921a842acdabd746b060a2772e185b5
+      internalID: -1992771655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_4
+      rect:
+        serializedVersion: 2
+        x: 2596
+        y: 7688
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a22affc187e57f048963c05b0991b7b3
+      internalID: -647546862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6727
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c30386a584c39a848a7b88e971b4af60
+      internalID: 88176955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_6
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 6727
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a485d9dc361acc04e9e931a00f6809ea
+      internalID: 1059433447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_7
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 6727
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed6d7121c6c0ff44a95ce4ade6f34669
+      internalID: -44456906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_8
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 6727
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1ea5195c69565141aa824efde4cc6b3
+      internalID: 337590282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_9
+      rect:
+        serializedVersion: 2
+        x: 2596
+        y: 6727
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a3943dc3a50b148af0021c231774fe
+      internalID: 100872157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5766
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52d48b4bf9a4b2943866385ca0741913
+      internalID: 925540523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_11
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 5766
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb64c3f5a6e04a84283de83d29b15bb9
+      internalID: -256711323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_12
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 5766
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f99ad5028e456ff45b6152451bc77a2a
+      internalID: -508389837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_13
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 5766
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02464331070576c48b82b39276087423
+      internalID: -1074201233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_14
+      rect:
+        serializedVersion: 2
+        x: 2596
+        y: 5766
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4456bd1b743af12408d99a1a27be0bb0
+      internalID: 765977689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4805
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ec37aa34fbf9634e80daa9382b2349b
+      internalID: -1620396118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_16
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 4805
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfed2662d921b18428bb2d7ff5de7a13
+      internalID: -961777401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_17
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 4805
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d00bf1f4c9a4d7440acb0cf736209450
+      internalID: -1358027202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_18
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 4805
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e69c0b0c31ad825479f5a4407465b3e5
+      internalID: -276492903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_19
+      rect:
+        serializedVersion: 2
+        x: 2596
+        y: 4805
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e1cbd8f2503274ca3c6511a8798108
+      internalID: 2033795552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3844
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fad038a9ae5a1a499348f2b7f83434a
+      internalID: -1854395088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_21
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 3844
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6d6d8466c0c36a4896d53ae3c17a968
+      internalID: 378194209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_22
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 3844
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c05f3da7225dd499305c5a982ac68a
+      internalID: -1475656114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_23
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 3844
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d3969a98be12b64090960983278b572
+      internalID: 1516146324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_24
+      rect:
+        serializedVersion: 2
+        x: 2596
+        y: 3844
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28ccd84031228674fb94f93c4e695015
+      internalID: 632189350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2883
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b2605a376f61c45aca7975acc795d7
+      internalID: -2049483553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_26
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 2883
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6cb033bc26e53b46b4356191f98b1c3
+      internalID: -614709094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_27
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 2883
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df2c82d4b8253944a92584f364603aff
+      internalID: -52853962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_28
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 2883
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8db9c8cbc5960648850868b73598376
+      internalID: 544528426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_29
+      rect:
+        serializedVersion: 2
+        x: 2596
+        y: 2883
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90d9e496819f0f04195df7bdf21f9033
+      internalID: -92929769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1922
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63dd91b060cf2784f8cbcc99da0e3e47
+      internalID: -252581178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_31
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 1922
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c50049c482eae8a4aaec730a074ebd38
+      internalID: 1912179958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_32
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 1922
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99b7ae3faecc44a44886e93bffe4ff9b
+      internalID: -282751036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_33
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 1922
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed951b1498b9fae4e8fa545681e67eb8
+      internalID: 1398363313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_34
+      rect:
+        serializedVersion: 2
+        x: 2596
+        y: 1922
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 107a234c59994c54790854701e48a354
+      internalID: -1732241022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 961
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2671108787f33374b8e68b5745c6ef09
+      internalID: 321788425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_36
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 961
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b43e92039813234c900a65a8709d845
+      internalID: 1245602170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_37
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 961
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b721456c33521c46a43194e72b84eb4
+      internalID: 1481836577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_38
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 961
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7737c11df7eac34b929f994aa6f4a58
+      internalID: -1255032857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_39
+      rect:
+        serializedVersion: 2
+        x: 2596
+        y: 961
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a7bdf0a86701248a02f47509101eed
+      internalID: -1613085831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd3f488cd74e1004eba13e11a69d63ca
+      internalID: 1796506024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_41
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 0
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bea3b166b3ea8a468e3794ac3820c5d
+      internalID: -1531906879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_42
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 0
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f8fb88e00c7763419a57981df697e27
+      internalID: -2027213892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_43
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 0
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc4eaf38b1a805409265cd72b2a7656
+      internalID: 423020631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-summon_44
+      rect:
+        serializedVersion: 2
+        x: 2596
+        y: 0
+        width: 649
+        height: 961
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f30e979bba4b5b44ba52f9634056764a
+      internalID: -463724557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6e01fc1b48f25774cae4b8309ea1cfcb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Enemy-coffee-summon_0: 516030303
+      Enemy-coffee-summon_1: 2029117102
+      Enemy-coffee-summon_10: 925540523
+      Enemy-coffee-summon_11: -256711323
+      Enemy-coffee-summon_12: -508389837
+      Enemy-coffee-summon_13: -1074201233
+      Enemy-coffee-summon_14: 765977689
+      Enemy-coffee-summon_15: -1620396118
+      Enemy-coffee-summon_16: -961777401
+      Enemy-coffee-summon_17: -1358027202
+      Enemy-coffee-summon_18: -276492903
+      Enemy-coffee-summon_19: 2033795552
+      Enemy-coffee-summon_2: -1226010675
+      Enemy-coffee-summon_20: -1854395088
+      Enemy-coffee-summon_21: 378194209
+      Enemy-coffee-summon_22: -1475656114
+      Enemy-coffee-summon_23: 1516146324
+      Enemy-coffee-summon_24: 632189350
+      Enemy-coffee-summon_25: -2049483553
+      Enemy-coffee-summon_26: -614709094
+      Enemy-coffee-summon_27: -52853962
+      Enemy-coffee-summon_28: 544528426
+      Enemy-coffee-summon_29: -92929769
+      Enemy-coffee-summon_3: -1992771655
+      Enemy-coffee-summon_30: -252581178
+      Enemy-coffee-summon_31: 1912179958
+      Enemy-coffee-summon_32: -282751036
+      Enemy-coffee-summon_33: 1398363313
+      Enemy-coffee-summon_34: -1732241022
+      Enemy-coffee-summon_35: 321788425
+      Enemy-coffee-summon_36: 1245602170
+      Enemy-coffee-summon_37: 1481836577
+      Enemy-coffee-summon_38: -1255032857
+      Enemy-coffee-summon_39: -1613085831
+      Enemy-coffee-summon_4: -647546862
+      Enemy-coffee-summon_40: 1796506024
+      Enemy-coffee-summon_41: -1531906879
+      Enemy-coffee-summon_42: -2027213892
+      Enemy-coffee-summon_43: 423020631
+      Enemy-coffee-summon_44: -463724557
+      Enemy-coffee-summon_5: 88176955
+      Enemy-coffee-summon_6: 1059433447
+      Enemy-coffee-summon_7: -44456906
+      Enemy-coffee-summon_8: 337590282
+      Enemy-coffee-summon_9: 100872157
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

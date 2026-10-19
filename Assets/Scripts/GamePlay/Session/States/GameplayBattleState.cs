@@ -19,6 +19,7 @@ namespace GamePlay.Session
         protected override bool AutoAdvanceOnFinish => true;
         private readonly List<GameObject> _spawnedEnemies = new();
 
+
         /// <summary>因可吸取而暂留在场上的尸体，等玩家用 F 吸，或阶段推进时统一回收</summary>
         private readonly List<GameObject> _pendingCorpses = new();
         private bool _hasError;
@@ -62,6 +63,14 @@ namespace GamePlay.Session
 
                 for (int i = 0; i < entry.Count; i++)
                 {
+                    // 场上已经摆着这只敌人（剧情 NPC）→ 直接接管，不再重复生成
+                    if (TryAdoptPassive(entry.Config))
+                    {
+                        spawned++;
+                        index++;
+                        continue;
+                    }
+
                     if (SpawnEnemy(entry.Config, ResolveSpawnPosition(anchors, index))) spawned++;
                     index++;
                 }
@@ -166,6 +175,29 @@ namespace GamePlay.Session
             return last.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f) * SpreadRadius;
         }
 
+        /// <summary>
+        /// 场上如果已经有这个配置的被动敌人（场景里摆好的剧情 NPC），就把它切进战斗并返回 true。
+        /// 方案 A：打完的就是站在那儿的那只，不销毁重生成，没有闪现。
+        /// </summary>
+        private bool TryAdoptPassive(EnemyConfig config)
+        {
+            var list = EnemyController.PassiveEnemies;
+            for (int i = 0; i < list.Count; i++)
+            {
+                var e = list[i];
+                if (e == null || e.config != config) continue;
+
+                e.EnterCombat();
+                e.OnDefeated += HandleEnemyDefeated;
+
+                _spawnedEnemies.Add(e.gameObject);
+                Debug.Log($"[战斗] 接管场上被动敌人 {e.name}（{config.Id}）");
+                return true;
+            }
+
+            return false;
+        }
+
         /// <summary>生成一只敌人；返回是否真的生成成功</summary>
         private bool SpawnEnemy(EnemyConfig enemyConfig, Vector3? spawnPosition)
         {
@@ -196,7 +228,11 @@ namespace GamePlay.Session
             }
 
             var enemy = go.GetComponent<EnemyController>();
-            if (enemy != null) enemy.OnDefeated += HandleEnemyDefeated;
+            if (enemy != null)
+            {
+                enemy.MarkSpawnedByFacade();     // 这是 Global.InstantiateUnpooled 生成的
+                enemy.OnDefeated += HandleEnemyDefeated;
+            }
 
             _spawnedEnemies.Add(go);
             return true;
@@ -248,7 +284,12 @@ namespace GamePlay.Session
             if (!go) return;
 
             var enemy = go.GetComponent<EnemyController>();
-            if (enemy != null) enemy.OnDefeated -= HandleEnemyDefeated;
+            if (enemy != null)
+            {
+                enemy.OnDefeated -= HandleEnemyDefeated;
+                enemy.ReleaseSelf();       // 门面生成的还池，场景摆的 Destroy
+                return;
+            }
 
             Global.Release(go);
         }
