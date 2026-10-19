@@ -13,7 +13,7 @@ namespace GamePlay.Enemy
     /// </summary>
     public class TestEnemySpawner : MonoBehaviour
     {
-        [SerializeField] private string _enemyAddress = "Prefab_Enemy_ManbaTea_防丢失新加版";
+        [SerializeField] private string _enemyAddress = "Prefab_Enemy_Guojiao";
         [SerializeField] private float _spawnOffsetX = 1.5f;
         [SerializeField] private LiquidConfig _debugLiquid;
 

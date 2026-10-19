@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "6_\u56FD\u7A96\u6218\u8D25\u5BF9\u8BDD"
   m_EditorClassIdentifier: 
   Id: Node_6
+  questText: 听国窖把话说完
   mode: 1
   refreshDialog: 1
   refreshBattle: 0

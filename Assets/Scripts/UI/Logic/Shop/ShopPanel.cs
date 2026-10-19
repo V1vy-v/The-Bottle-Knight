@@ -164,7 +164,6 @@ namespace UI
             // 标记为已拥有
             _currentSelectedProp.isHold = true;
 
-            Debug.Log($"<color=yellow>[ShopPanel] 成功兑换了: {_currentSelectedProp.name}！</color>");
 
             // 兑换成功后，可以选择刷新界面
             // RefreshShopItems(); 
@@ -173,7 +172,7 @@ namespace UI
         private void OnCloseBtn()
         {
             // TODO: 关闭界面逻辑
-            // Close(); 
+            Global.HideUI("ShopPanel");
         }
 
         private void OnLastBtn()

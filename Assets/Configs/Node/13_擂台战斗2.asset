@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "13_\u64C2\u53F0\u6218\u65972"
   m_EditorClassIdentifier: 
   Id: Node_13
+  questText: 鸡翅争霸赛 · 第二场
   Name: 
   mode: 3
   refreshDialog: 0

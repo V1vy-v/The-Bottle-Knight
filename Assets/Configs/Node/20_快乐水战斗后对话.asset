@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "20_\u5FEB\u4E50\u6C34\u6218\u6597\u540E\u5BF9\u8BDD"
   m_EditorClassIdentifier: 
   Id: Node_20
+  questText: 听快乐水把话说完
   mode: 1
   refreshDialog: 1
   refreshBattle: 0

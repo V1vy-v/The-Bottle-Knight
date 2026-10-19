@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "21_\u5438\u53D6\u5FEB\u4E50\u6C34\u73AF\u8282"
   m_EditorClassIdentifier: 
   Id: Node_21
+  questText: 吸取快乐水的液体，拿上它的信物
   mode: 0
   refreshDialog: 0
   refreshBattle: 0

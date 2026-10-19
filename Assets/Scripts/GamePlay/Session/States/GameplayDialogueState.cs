@@ -6,36 +6,39 @@ using System.Diagnostics;
 using UI;
 using UnityEngine;
 
-public sealed class GameplayDialogueState : GameplayModeStateBase
+namespace GamePlay.Session
 {
-    public override GameplayMode StateKey => GameplayMode.Dialogue;
-    protected override LocalInputType InputMap => LocalInputType.UI;
-
-    //完成后自动推进
-    protected override bool AutoAdvanceOnFinish => true;
-
-    public GameplayDialogueState(GameplayRoot root, StateMachine<GameplayMode> sm)
-        : base(root, sm) { }
-
-    public override void Enter()
+    public sealed class GameplayDialogueState : GameplayModeStateBase
     {
-        base.Enter();
+        public override GameplayMode StateKey => GameplayMode.Dialogue;
+        protected override LocalInputType InputMap => LocalInputType.UI;
 
-        DialogPanel.OnDialogueCompleted += OnCompleted;
+        //完成后自动推进
+        protected override bool AutoAdvanceOnFinish => true;
 
-        TextAsset text = Root.Dialog.CurrentDialogue;
-        Global.ShowUI("DialogPanel", new DialogPanelProperties { dialogText = text });
-    }
+        public GameplayDialogueState(GameplayRoot root, StateMachine<GameplayMode> sm)
+            : base(root, sm) { }
 
-    public override void Exit()
-    {
-        base.Exit();
-        DialogPanel.OnDialogueCompleted -= OnCompleted;
-        Global.HideUI("DialogPanel");
-    }
+        public override void Enter()
+        {
+            base.Enter();
 
-    private void OnCompleted()
-    {
-        MarkFinished();
+            DialogPanel.OnDialogueCompleted += OnCompleted;
+
+            TextAsset text = Root.Dialog.CurrentDialogue;
+            Global.ShowUI("DialogPanel", new DialogPanelProperties { dialogText = text });
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+            DialogPanel.OnDialogueCompleted -= OnCompleted;
+            Global.HideUI("DialogPanel");
+        }
+
+        private void OnCompleted()
+        {
+            MarkFinished();
+        }
     }
 }

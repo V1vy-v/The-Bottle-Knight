@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "2_\u77FF\u6CC9\u6C34\u6218\u6597"
   m_EditorClassIdentifier: 
   Id: Node_2
+  questText: 击败矿泉水
   Name: 
   mode: 3
   refreshDialog: 0

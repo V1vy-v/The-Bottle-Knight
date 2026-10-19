@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: "8_\u79BB\u5F00\u51B0\u7BB1"
   m_EditorClassIdentifier: 
   Id: Node_8
+  questText: 走上传送带，离开冰箱
   mode: 0
   refreshDialog: 0
   refreshBattle: 0

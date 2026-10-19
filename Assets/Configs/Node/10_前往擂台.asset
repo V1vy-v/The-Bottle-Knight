@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: "10_\u524D\u5F80\u64C2\u53F0"
   m_EditorClassIdentifier: 
   Id: Node_10
+  questText: 前往擂台，报名鸡翅争霸赛
   mode: 0
   refreshDialog: 0
   refreshBattle: 0
-  goalId: 
+  goalId: Node_10b
   dialogConfig: {fileID: 0}
   battleConfig: {fileID: 0}
   autoWinBattle: 0
-  nextNode: {fileID: 11400000, guid: f6d95f32b6e9fdc41b6906901ff5806a, type: 2}
+  nextNode: {fileID: 11400000, guid: b1b2c3d4e5f60718293a4b5c6d7e8f01, type: 2}
   currentStage: 1
   fadeTransition: 0
   teleportTargetName: 

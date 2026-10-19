@@ -100,12 +100,12 @@ TextureImporter:
       name: Enemy-water-death_0
       rect:
         serializedVersion: 2
-        x: 922
-        y: 4327
-        width: 490
-        height: 772
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 4136
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,12 +121,12 @@ TextureImporter:
       name: Enemy-water-death_1
       rect:
         serializedVersion: 2
-        x: 2315
-        y: 4327
-        width: 493
-        height: 772
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1412
+        y: 4136
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,12 +142,12 @@ TextureImporter:
       name: Enemy-water-death_2
       rect:
         serializedVersion: 2
-        x: 3742
-        y: 4317
-        width: 490
-        height: 765
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2824
+        y: 4136
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,12 +163,12 @@ TextureImporter:
       name: Enemy-water-death_3
       rect:
         serializedVersion: 2
-        x: 5148
-        y: 4320
-        width: 469
-        height: 779
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4236
+        y: 4136
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: Enemy-water-death_4
       rect:
         serializedVersion: 2
-        x: 6500
-        y: 4341
-        width: 458
-        height: 786
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5648
+        y: 4136
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,12 +205,12 @@ TextureImporter:
       name: Enemy-water-death_5
       rect:
         serializedVersion: 2
-        x: 795
-        y: 3335
-        width: 444
-        height: 789
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 3102
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -226,12 +226,12 @@ TextureImporter:
       name: Enemy-water-death_6
       rect:
         serializedVersion: 2
-        x: 2132
-        y: 3352
-        width: 431
-        height: 775
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1412
+        y: 3102
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -247,12 +247,12 @@ TextureImporter:
       name: Enemy-water-death_7
       rect:
         serializedVersion: 2
-        x: 3387
-        y: 3304
-        width: 452
-        height: 768
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2824
+        y: 3102
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -268,12 +268,12 @@ TextureImporter:
       name: Enemy-water-death_8
       rect:
         serializedVersion: 2
-        x: 4538
-        y: 3273
-        width: 624
-        height: 672
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4236
+        y: 3102
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -289,12 +289,12 @@ TextureImporter:
       name: Enemy-water-death_9
       rect:
         serializedVersion: 2
-        x: 5728
-        y: 3207
-        width: 748
-        height: 548
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5648
+        y: 3102
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -310,12 +310,12 @@ TextureImporter:
       name: Enemy-water-death_10
       rect:
         serializedVersion: 2
-        x: 5
-        y: 2146
-        width: 779
-        height: 361
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2068
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -331,12 +331,12 @@ TextureImporter:
       name: Enemy-water-death_11
       rect:
         serializedVersion: 2
-        x: 1415
-        y: 2080
-        width: 783
-        height: 410
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1412
+        y: 2068
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -352,12 +352,12 @@ TextureImporter:
       name: Enemy-water-death_12
       rect:
         serializedVersion: 2
-        x: 2829
-        y: 2094
-        width: 788
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2824
+        y: 2068
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -373,12 +373,12 @@ TextureImporter:
       name: Enemy-water-death_13
       rect:
         serializedVersion: 2
-        x: 4242
-        y: 2097
-        width: 793
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4236
+        y: 2068
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -394,12 +394,12 @@ TextureImporter:
       name: Enemy-water-death_14
       rect:
         serializedVersion: 2
-        x: 5655
-        y: 2097
-        width: 786
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5648
+        y: 2068
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -415,12 +415,12 @@ TextureImporter:
       name: Enemy-water-death_15
       rect:
         serializedVersion: 2
-        x: 9
-        y: 1063
-        width: 782
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1034
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -436,12 +436,12 @@ TextureImporter:
       name: Enemy-water-death_16
       rect:
         serializedVersion: 2
-        x: 1419
-        y: 1063
-        width: 779
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1412
+        y: 1034
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -457,12 +457,12 @@ TextureImporter:
       name: Enemy-water-death_17
       rect:
         serializedVersion: 2
-        x: 2832
-        y: 1063
-        width: 776
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2824
+        y: 1034
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -478,12 +478,12 @@ TextureImporter:
       name: Enemy-water-death_18
       rect:
         serializedVersion: 2
-        x: 4242
-        y: 1063
-        width: 772
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4236
+        y: 1034
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -499,12 +499,12 @@ TextureImporter:
       name: Enemy-water-death_19
       rect:
         serializedVersion: 2
-        x: 5655
-        y: 1063
-        width: 769
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5648
+        y: 1034
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -520,12 +520,12 @@ TextureImporter:
       name: Enemy-water-death_20
       rect:
         serializedVersion: 2
-        x: 9
-        y: 29
-        width: 765
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -541,12 +541,12 @@ TextureImporter:
       name: Enemy-water-death_21
       rect:
         serializedVersion: 2
-        x: 1419
-        y: 29
-        width: 765
-        height: 400
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1412
+        y: 0
+        width: 1412
+        height: 1034
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

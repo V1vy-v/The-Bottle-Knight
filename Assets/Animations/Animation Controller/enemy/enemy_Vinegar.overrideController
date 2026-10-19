@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: enemy_Vinegar
+  m_Controller: {fileID: 9100000, guid: 1092d6a97ef23e0418200519573886aa, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 9c31407faf571104eaa330f9922ee7ba, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c2d5a59828d2cbb409973c92aa58dfe7, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3e633cf161233dc4592cc573b74a355a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 27039b10d68d1434c895dd576ded5523, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 84f20679d7534764abbddf34e150d8e8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e496d4d44adc6a5468a98505116ac45b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 250be8e94f79d1c40af89c296f368ddc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e115feb35d362fe4fb281abdeca40a1b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a6c36bc1931a4924fa9ba864faa9f0ed, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a866ad06235d5e04c803475ce4e99721, type: 2}
