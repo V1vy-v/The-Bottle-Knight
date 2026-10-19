@@ -1,5 +1,8 @@
 using Framework;
 using GamePlay;
+using GamePlay.Configs;
+using GamePlay.Enemy;
+using GamePlay.Interaction;
 using GamePlay.Liquid;
 using GamePlay.Player;
 using GamePlay.Story;
@@ -45,10 +48,68 @@ namespace UI
         // 锁的物体。注意名字不能叫 _xxxLock —— Binding 里已经有一组同名的 RectTransform
         private GameObject _sprintLockGO, _skill1LockGO, _skill2LockGO, _toggleLockGO;
 
+        /// <summary>
+        /// 界面参数。HUD 是运行时挂出来的组件，预制体上只有 UIView，
+        /// 所以可调参数都在 HUDProperties 里（预制体 → UIView → 界面属性）
+        /// </summary>
+        private HUDProperties _cfg;
+
+        /// <summary>已拿到的道具图标，按需创建后复用</summary>
+        private readonly System.Collections.Generic.List<Image> _itemIcons = new();
+
+        /// <summary>MapRoot（遮罩），按名字从 HUD 下取；不依赖 binding 的 map 字段</summary>
+        private RectTransform _mapRoot;
+        /// <summary>MapRoot 下三张地图，按阶段切换显示</summary>
+        private readonly System.Collections.Generic.List<RectTransform> _maps = new();
+        private int _mapStage = -1;
+
+        /// <summary>本阶段开始时的主角位置 = 世界里对应「出生点在图上位置」的那个点</summary>
+        private Vector2 _mapAnchorWorld;
+        private bool _hasMapAnchor;
+        private float _mapAnchorReadyTime;
+
+        /// <summary>图上出生点相对图片中心的像素偏移（左下为原点换算成中心为原点）</summary>
+        private Vector2 _mapAnchorOffsetPx;
+        /// <summary>每世界单位占多少像素</summary>
+        private float _mapPxPerWorld = 1f;
+
+        /// <summary>运行期可调的覆盖宽度 / 出生点（调试时用按键微调，不用改资产重编译）</summary>
+        private float[] _coveredOverride;
+        private Vector2[] _uvOverride;
+
+        /// <summary>主角点（固定在遮罩中心）</summary>
+        private Image _playerMark;
+        /// <summary>敌人红点 / 交互感叹号，复用池</summary>
+        private readonly System.Collections.Generic.List<Image> _enemyDots = new();
+        private readonly System.Collections.Generic.List<Image> _interactMarks = new();
+
+        /// <summary>下次重扫敌人的时间（FindObjectsOfType 不能每帧）</summary>
+        private float _nextScan;
+
+        /// <summary>下次打印小地图校准信息的时间</summary>
+        private float _nextDebug;
+
+        /// <summary>已经按贴图校正过尺寸的那张地图</summary>
+        private RectTransform _fittedMap;
+
+        /// <summary>本阶段是否已经提示过长宽比不一致</summary>
+        private bool _aspectWarned;
+        private readonly System.Collections.Generic.List<Vector2> _enemyPositions = new();
+        private readonly System.Collections.Generic.List<Vector2> _interactPositions = new();
+
+        // ---- 参数取值：优先 HUDProperties，没配就用内置默认 ----
+        private Vector2 CfgItemIconSize => _cfg != null ? _cfg.itemIconSize : new Vector2(80f, 80f);
+        private Vector2 CfgPlayerMarkSize => _cfg != null ? _cfg.playerMarkSize : new Vector2(16f, 16f);
+        private Vector2 CfgEnemyDotSize => _cfg != null ? _cfg.enemyDotSize : new Vector2(14f, 14f);
+        private Vector2 CfgInteractSize => _cfg != null ? _cfg.interactMarkSize : new Vector2(22f, 22f);
+
         #region 生命周期
 
         protected override void Init()
         {
+            // 界面参数（可空，取不到就用内置默认）
+            _cfg = Properties as HUDProperties;
+
             // 血条已经由美术在预制体里配好 Filled（纵向），这里只取引用，不改它的设置
             _healthFill = ImageOf(_healthBar);
 
@@ -159,6 +220,343 @@ namespace UI
             // ---- 喷射（点按型，没有解锁条件）----
             float sprintRatio = Ratio(_player?.SprintCdRemain ?? 0f, _player?.SprintCdTotal ?? 0f);
             ApplySlot(_sprintIcon, _sprintMask, _sprintLockGO, true, sprintRatio);
+
+            // ---- 道具图标 / 小地图 ----
+            RefreshItems();
+            RefreshMap();
+        }
+
+        /// <summary>
+        /// 道具栏：把已拥有（PropConfig.isHold）的道具图标铺到 Content 里。
+        /// Content 上挂了 GridLayoutGroup，只管建/复用 Image，位置交给它排。
+        /// </summary>
+        private void RefreshItems()
+        {
+            if (_content == null) return;
+
+            ConfigManager cfg = ConfigManager.Instance;
+            PropConfigs all = cfg != null ? cfg.Props : null;
+            if (all == null) return;
+
+            int shown = 0;
+            for (int i = 0; i < all.allProps.Count; i++)
+            {
+                PropConfig prop = all.allProps[i];
+                if (prop == null || !prop.isHold || prop.sprite == null) continue;
+
+                Image icon = shown < _itemIcons.Count ? _itemIcons[shown] : CreateItemIcon();
+                if (icon == null) return;
+
+                icon.sprite = prop.sprite;
+                icon.gameObject.SetActive(true);
+                shown++;
+            }
+
+            // 多出来的先藏起来，不销毁（道具只会增加）
+            for (int i = shown; i < _itemIcons.Count; i++)
+            {
+                if (_itemIcons[i] != null) _itemIcons[i].gameObject.SetActive(false);
+            }
+        }
+
+        private Image CreateItemIcon()
+        {
+            var go = new GameObject("PropIcon", typeof(RectTransform), typeof(Image));
+            go.transform.SetParent(_content, false);
+
+            var rt = (RectTransform)go.transform;
+            rt.sizeDelta = CfgItemIconSize;
+
+            var image = go.GetComponent<Image>();
+            image.raycastTarget = false;
+            image.preserveAspect = true;
+
+            _itemIcons.Add(image);
+            return image;
+        }
+
+        /// <summary>
+        /// 小地图（雷达式）：
+        /// 遮罩 MapRoot 固定，按剧情阶段显示 MapRoot 下对应那张地图，
+        /// 地图反向平移让主角永远落在遮罩中心；主角点固定在中心，
+        /// 敌人画红点、可交互物画感叹号，都挂在地图下面跟着一起滑动。
+        /// </summary>
+        private void RefreshMap()
+        {
+            if (_player == null) return;
+
+            if (_mapRoot == null)
+            {
+                _mapRoot = transform.Find("MapRoot") as RectTransform;
+                if (_mapRoot == null)
+                {
+                    Debug.LogWarning("[HUD] 小地图：HUD 下找不到 MapRoot");
+                    return;
+                }
+
+                _maps.Clear();
+                for (int i = 0; i < _mapRoot.childCount; i++)
+                {
+                    if (_mapRoot.GetChild(i) is RectTransform rt) _maps.Add(rt);
+                }
+
+                // 主角点固定在遮罩中心，不跟地图滑动
+                _playerMark = CreateMark(_mapRoot, "PlayerMark", CfgPlayerMarkSize,
+                                         _cfg != null ? _cfg.playerMarkSprite : null, Color.white);
+            }
+
+            ApplyMapStage();
+
+            // 调试按键微调（[ ] 缩放，, . 左右，; ' 上下）
+            EnsureMapConfig();
+            PollMapTuning();
+
+            // 进本阶段后等一小会儿（转场传送完成）再记录锚点
+            if (!_hasMapAnchor && Time.unscaledTime >= _mapAnchorReadyTime && _player != null)
+            {
+                _mapAnchorWorld = _player.transform.position;
+                _hasMapAnchor = true;
+                Debug.Log($"[小地图] 记录出生锚点：世界=({_mapAnchorWorld.x:F1}, {_mapAnchorWorld.y:F1})");
+            }
+            if (!_hasMapAnchor) return;
+
+            RectTransform map = _mapStage >= 0 && _mapStage < _maps.Count ? _maps[_mapStage] : null;
+            if (map == null) return;
+
+            // 地图尺寸由贴图比例决定，免得手改 RectTransform 把高度写成 0
+            FitMapSize(map);
+
+            // 缩放：整张图覆盖 coveredWidth 个世界单位，所以每世界单位占 map.rect.width/coveredWidth 像素
+            float covered = CoveredWorldWidth(_mapStage);
+            _mapPxPerWorld = map.rect.width / Mathf.Max(0.001f, covered);
+
+            // 图上出生点相对图片中心的像素偏移
+            Vector2 sizePx = map.rect.size;
+            Vector2 spawnUv = SpawnUv(_mapStage);
+            _mapAnchorOffsetPx = (spawnUv - new Vector2(0.5f, 0.5f)) * sizePx;
+
+            Vector2 world = _player.transform.position;
+
+            // 钳制：图片边缘不要拖进遮罩中心。地图能覆盖的最大偏移 = 图片半宽
+            Vector2 half = sizePx * 0.5f;
+            Vector2 wanted = MapLocal(world);
+            Vector2 clamped = new Vector2(Mathf.Clamp(wanted.x, -half.x, half.x),
+                                          Mathf.Clamp(wanted.y, -half.y, half.y));
+            map.anchoredPosition = -clamped;
+
+            if (_cfg != null && _cfg.debugMapPosition && Time.unscaledTime >= _nextDebug)
+            {
+                _nextDebug = Time.unscaledTime + 1f;
+                Vector2 uv = new Vector2(clamped.x / sizePx.x + 0.5f, clamped.y / sizePx.y + 0.5f);
+                Debug.Log($"[小地图] 世界=({world.x:F1}, {world.y:F1})  " +
+                          $"图上位置=({uv.x:F2}, {uv.y:F2})  " +
+                          $"锚点=({_mapAnchorWorld.x:F1}, {_mapAnchorWorld.y:F1})  " +
+                          $"缩放={_mapPxPerWorld:F2}px/单位");
+            }
+
+            ScanMarkers();
+            PlacePool(map, _enemyDots, _enemyPositions, CfgEnemyDotSize,
+                      _cfg != null ? _cfg.enemyDotSprite : null, new Color(1f, 0.25f, 0.25f, 1f));
+            PlacePool(map, _interactMarks, _interactPositions, CfgInteractSize,
+                      _cfg != null ? _cfg.interactSprite : null, new Color(1f, 0.9f, 0.2f, 1f));
+        }
+
+        /// <summary>某个世界坐标在地图上的局部像素坐标（原点是图片中心）</summary>
+        private Vector2 MapLocal(Vector2 world)
+        {
+            return (world - _mapAnchorWorld) * _mapPxPerWorld + _mapAnchorOffsetPx;
+        }
+
+        /// <summary>出生点在这张图上的归一化位置</summary>
+        private Vector2 SpawnUv(int stageIndex)
+        {
+            EnsureMapConfig();
+            return _uvOverride[Mathf.Clamp(stageIndex, 0, _uvOverride.Length - 1)];
+        }
+
+        /// <summary>这张图整张覆盖多少世界单位宽度</summary>
+        private float CoveredWorldWidth(int stageIndex)
+        {
+            EnsureMapConfig();
+            float v = _coveredOverride[Mathf.Clamp(stageIndex, 0, _coveredOverride.Length - 1)];
+            return v > 10f ? v : 10f;
+        }
+
+        /// <summary>把资产里的配置读进运行期数组，之后可用调试按键微调</summary>
+        private void EnsureMapConfig()
+        {
+            if (_coveredOverride != null) return;
+
+            _coveredOverride = new float[3];
+            _uvOverride = new Vector2[3];
+
+            for (int i = 0; i < 3; i++)
+            {
+                _coveredOverride[i] = _cfg != null && _cfg.mapCoveredWorldWidth != null && i < _cfg.mapCoveredWorldWidth.Length
+                    ? _cfg.mapCoveredWorldWidth[i]
+                    : 150f;
+
+                _uvOverride[i] = _cfg != null && _cfg.mapSpawnUv != null && i < _cfg.mapSpawnUv.Length
+                    ? _cfg.mapSpawnUv[i]
+                    : new Vector2(0.5f, 0.5f);
+            }
+        }
+
+        /// <summary>
+        /// 调试用实时微调（只在 debugMapPosition 打开时生效）：
+        /// [ / ] 减/加覆盖宽度；, / . 左右挪出生点；; / ' 上下挪出生点。
+        /// </summary>
+        private void PollMapTuning()
+        {
+            if (_cfg == null || !_cfg.debugMapPosition) return;
+            if (_mapStage < 0 || _mapStage >= 3) return;
+
+            var kb = UnityEngine.InputSystem.Keyboard.current;
+            if (kb == null) return;
+
+            bool changed = false;
+
+            if (kb.leftBracketKey.wasPressedThisFrame) { _coveredOverride[_mapStage] -= 5f; changed = true; }
+            if (kb.rightBracketKey.wasPressedThisFrame) { _coveredOverride[_mapStage] += 5f; changed = true; }
+            if (kb.commaKey.wasPressedThisFrame) { _uvOverride[_mapStage] = _uvOverride[_mapStage] + new Vector2(-0.01f, 0f); changed = true; }
+            if (kb.periodKey.wasPressedThisFrame) { _uvOverride[_mapStage] = _uvOverride[_mapStage] + new Vector2(0.01f, 0f); changed = true; }
+            if (kb.semicolonKey.wasPressedThisFrame) { _uvOverride[_mapStage] = _uvOverride[_mapStage] + new Vector2(0f, -0.01f); changed = true; }
+            if (kb.quoteKey.wasPressedThisFrame) { _uvOverride[_mapStage] = _uvOverride[_mapStage] + new Vector2(0f, 0.01f); changed = true; }
+
+            if (!changed) return;
+
+            _coveredOverride[_mapStage] = Mathf.Clamp(_coveredOverride[_mapStage], 10f, 2000f);
+            Vector2 uv = _uvOverride[_mapStage];
+            uv.x = Mathf.Clamp01(uv.x);
+            uv.y = Mathf.Clamp01(uv.y);
+            _uvOverride[_mapStage] = uv;
+
+            Debug.Log($"[小地图调参] 第 {_mapStage} 张图  覆盖宽度={_coveredOverride[_mapStage]:F0}  " +
+                      $"出生点=({uv.x:F2}, {uv.y:F2})\n" +
+                      $"          满意后填进 Map Covered World Width[{_mapStage}] / Map Spawn Uv[{_mapStage}]");
+        }
+
+        /// <summary>
+        /// 按贴图的长宽比校正地图矩形：宽度保留美术设的值，高度按贴图比例算。
+        /// 手改 RectTransform 很容易把高度写成 1（纵向缩放就变 0，表现为「地图整体偏上/不动」）。
+        /// </summary>
+        private void FitMapSize(RectTransform map)
+        {
+            if (_fittedMap == map) return;
+
+            var image = map.GetComponent<Image>();
+            if (image == null || image.sprite == null)
+            {
+                Debug.LogWarning($"[HUD] 小地图：{map.name} 上没有 Image 或没设 Sprite");
+                return;
+            }
+
+            Rect spriteRect = image.sprite.rect;
+            if (spriteRect.width < 1f || spriteRect.height < 1f) return;
+
+            float w = map.rect.width >= 1f ? map.rect.width : spriteRect.width;
+            float h = w * spriteRect.height / spriteRect.width;
+
+            _fittedMap = map;
+            if (Mathf.Abs(map.rect.height - h) <= 1f) return;
+
+            map.sizeDelta = new Vector2(w, h);
+            Debug.Log($"[HUD] 小地图：{map.name} 高度按贴图比例校正为 {w:F0}×{h:F0}" +
+                      $"（贴图 {spriteRect.width:F0}×{spriteRect.height:F0}）");
+        }
+
+        /// <summary>按剧情阶段切换显示哪张地图（顺便记住它对应的世界范围）</summary>
+        private void ApplyMapStage()
+        {
+            NodeConfig node = Global.Get<GameplayRoot>()?.Story?.CurrentNode;
+            int stage = node != null ? (int)node.currentStage : 0;
+
+            // 0=冰箱 1=厨房 3=超市 → 三张图的下标
+            int index = stage <= 0 ? 0 : (stage == 1 ? 1 : 2);
+            if (_maps.Count > 0 && index >= _maps.Count) index = _maps.Count - 1;
+
+            if (index == _mapStage) return;
+
+            _mapStage = index;
+            for (int i = 0; i < _maps.Count; i++)
+                _maps[i].gameObject.SetActive(i == index);
+
+            _fittedMap = null;          // 换了地图，尺寸要重新校正
+            _aspectWarned = false;
+
+            // 每张图都要重新取出生锚点；等转场传送完再取，否则会记到传送前的位置
+            _hasMapAnchor = false;
+            _mapAnchorReadyTime = Time.unscaledTime + 1.2f;
+        }
+
+        /// <summary>每 0.3 秒扫一次场上的敌人与可交互物，记录世界坐标</summary>
+        private void ScanMarkers()
+        {
+            if (Time.unscaledTime < _nextScan) return;
+            _nextScan = Time.unscaledTime + 0.3f;
+
+            _enemyPositions.Clear();
+            _interactPositions.Clear();
+
+            foreach (EnemyController enemy in FindObjectsOfType<EnemyController>())
+            {
+                if (enemy == null) continue;
+
+                // 还会说话的剧情敌人挂感叹号，其余算敌人
+                if (enemy.NeedsTalk) _interactPositions.Add(enemy.transform.position);
+                else if (!enemy.IsDefeated) _enemyPositions.Add(enemy.transform.position);
+            }
+
+            foreach (ShopInteractable shop in FindObjectsOfType<ShopInteractable>())
+            {
+                if (shop != null && shop.CanInteract) _interactPositions.Add(shop.transform.position);
+            }
+        }
+
+        /// <summary>把一组世界坐标摆成地图子物体上的标记，池化复用</summary>
+        private void PlacePool(RectTransform map, System.Collections.Generic.List<Image> pool,
+                               System.Collections.Generic.List<Vector2> points,
+                               Vector2 size, Sprite sprite, Color color)
+        {
+            for (int i = 0; i < points.Count; i++)
+            {
+                Image mark;
+                if (i < pool.Count) mark = pool[i];
+                else
+                {
+                    mark = CreateMark(map, "Mark", size, sprite, color);
+                    if (mark == null) return;
+                    pool.Add(mark);
+                }
+
+                mark.sprite = sprite;
+                mark.rectTransform.SetParent(map, false);
+                mark.gameObject.SetActive(true);
+                mark.rectTransform.anchoredPosition = MapLocal(points[i]);
+            }
+
+            for (int i = points.Count; i < pool.Count; i++)
+            {
+                if (pool[i] != null) pool[i].gameObject.SetActive(false);
+            }
+        }
+
+        private Image CreateMark(RectTransform parent, string name, Vector2 size, Sprite sprite, Color color)
+        {
+            var go = new GameObject(name, typeof(RectTransform), typeof(Image));
+            go.transform.SetParent(parent, false);
+
+            var rt = (RectTransform)go.transform;
+            rt.sizeDelta = size;
+            rt.anchoredPosition = Vector2.zero;
+
+            var image = go.GetComponent<Image>();
+            image.raycastTarget = false;
+            image.sprite = sprite;          // 有美术图就用图，留空就是纯色方块
+            image.color = color;
+            image.enabled = true;
+
+            return image;
         }
 
         /// <summary>

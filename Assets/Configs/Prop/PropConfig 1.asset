@@ -18,3 +18,5 @@ MonoBehaviour:
   tips: "\u8FD9\u662F\u5438\u7BA1"
   price: 4
   isHold: 0
+  unlockRangedModule: 1
+  tipOnBuy: "按Q在近战与远战之间切换。"

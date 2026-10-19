@@ -62,3 +62,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4a95aa86fff34a118e5224b9e1b6b026, type: 2}
   - {fileID: 11400000, guid: b1b2c3d4e5f60718293a4b5c6d7e8f01, type: 2}
   _startNodeId: Node_0
+  _propConfigs: {fileID: 11400000, guid: 43bfffb9ec02a5e4793d775524ef1f76, type: 2}

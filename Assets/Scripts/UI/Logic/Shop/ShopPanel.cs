@@ -1,6 +1,8 @@
 ﻿﻿using Framework;
 using System;
 using System.Collections.Generic;
+using GamePlay;
+using GamePlay.Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -167,6 +169,16 @@ namespace UI
 
             // 标记为已拥有
             _currentSelectedProp.isHold = true;
+
+            // 购买效果：吸管解锁远战模组，并弹一次切换提示
+            if (_currentSelectedProp.unlockRangedModule)
+            {
+                GameObject playerGo = GameObject.FindGameObjectWithTag("Player");
+                if (playerGo != null) playerGo.GetComponent<PlayerCombat>()?.UnlockRangeModule();
+
+                if (!string.IsNullOrEmpty(_currentSelectedProp.tipOnBuy))
+                    TutorialTips.Show(_currentSelectedProp.tipOnBuy);
+            }
 
 
             // 兑换成功后，可以选择刷新界面

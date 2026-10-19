@@ -41,6 +41,13 @@ namespace GamePlay.Configs
         [Tooltip("新游戏从哪个节点开始，填 NodeConfig 的 Id")]
         [SerializeField] private string _startNodeId = "Node_0";
 
+        [Header("道具")]
+        [Tooltip("道具总表，HUD 道具栏与商店界面共用。留空则道具栏不显示")]
+        [SerializeField] private PropConfigs _propConfigs;
+
+        /// <summary>道具总表（可能为空）</summary>
+        public PropConfigs Props => _propConfigs;
+
         /// <summary>类型 -> (Id -> 配置)。同类型内 Id 必须唯一</summary>
         private readonly Dictionary<Type, Dictionary<string, ConfigBase>> _byType = new();
 
