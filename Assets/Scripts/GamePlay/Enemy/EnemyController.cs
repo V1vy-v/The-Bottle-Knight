@@ -12,9 +12,9 @@ namespace GamePlay.Enemy
     /// </summary>
     public class EnemyController : MonoBehaviour
     {
-        public event Action<float,float> OnWound;//受伤事件，供UI订阅
+        public event Action<float, float> OnWound;//受伤事件，供UI订阅
         [Header("配置表")]
-        public EnemyConfig config;  
+        public EnemyConfig config;
 
         [Header("运行时状态")]
         public EnemyRealState state = new EnemyRealState();
@@ -72,6 +72,11 @@ namespace GamePlay.Enemy
 
         private StateMachine<EnemyState> _fsm;
 
+        // ================= 【新增】受伤闪烁相关字段 =================
+        private Color _originalColor;
+        private Coroutine _hitFlashCoroutine;
+        // =============================================================
+
         private void Awake()
         {
             InitFromConfig();
@@ -82,9 +87,14 @@ namespace GamePlay.Enemy
             moveController = GetComponent<EnemyMoveController>();
             attackController = GetComponent<EnemyAttackController>();
 
+            // 【新增】缓存初始颜色
+            if (_sprite != null)
+                _originalColor = _sprite.color;
+
             if (moveController == null) return;
             if (animator == null) return;
         }
+
         private void InitFromConfig()
         {
             if (config == null)
@@ -93,7 +103,7 @@ namespace GamePlay.Enemy
             }
 
             state.baseHP = config.MaxHp;
-            state.CurrentHP = state.MaxHP;  
+            state.CurrentHP = state.MaxHP;
             state.baseAtk = config.Damage;
             state.baseMoveSpeed = config.MoveSpeed;
             //state.baseAttackRange = config.AttackRange;
@@ -131,7 +141,6 @@ namespace GamePlay.Enemy
             _fsm?.Update(Time.deltaTime);
         }
 
-
         private void FixedUpdate()
         {
             _fsm?.FixedUpdate(Time.fixedDeltaTime);
@@ -139,8 +148,6 @@ namespace GamePlay.Enemy
 
         /// <summary>
         /// 剧情敌人被玩家靠近：报目标推进流程，并把自己登记成这次遭遇的刷怪点。
-        /// 故意不登记 placeholder —— 战斗要接管的就是这只，不能把它隐藏掉。
-        /// 不做一次性锁：目标不匹配时白白烧掉，下次真需要就触发不了了。
         /// </summary>
         public void NotifyTalked()
         {
@@ -156,9 +163,7 @@ namespace GamePlay.Enemy
         }
 
         /// <summary>
-        /// 给剧情敌人生成一个大的对话触发区：和 InteractPoint 一样在 Interactable 层，
-        /// 但半径独立，避免吸取半径和对话半径绑死在一起。
-        /// 用运行期生成而不是写进预制体，是为了所有敌人预制体/场景实例都自动拥有，不用逐个手加。
+        /// 给剧情敌人生成一个大的对话触发区
         /// </summary>
         private void CreateTalkZone()
         {
@@ -184,29 +189,17 @@ namespace GamePlay.Enemy
         /// <summary>是否由实例门面生成。直接摆在场景里的剧情敌人是 false</summary>
         public bool SpawnedByFacade { get; private set; }
 
-        /// <summary>由 Global.Instantiate* 生成时调一次，之后 ReleaseSelf 才能交回门面</summary>
         public void MarkSpawnedByFacade()
         {
             SpawnedByFacade = true;
         }
 
-        /// <summary>
-        /// 统一销毁口。门面生成的交回门面（可能还池），场景里直接摆的直接 Destroy。
-        /// 场景实例没在 InstantiateManager 注册过，Release 只会打一条
-        /// 「not created by the instance facade」然后什么都不做。
-        /// InstantiateManager 也没有对外的手动注册 API，所以只能在这里分流。
-        /// </summary>
         public void ReleaseSelf()
         {
             if (SpawnedByFacade) Global.Release(gameObject);
             else Destroy(gameObject);
         }
 
-        /// <summary>
-        /// 切进战斗状态。战斗系统接管场上摆好的剧情敌人时调用。
-        /// 非战斗期间 EnemyDetectZone 的进入事件被忽略了，而玩家这时可能已经站在检测范围里 ——
-        /// 触发器不会重新回调，所以把检测碰撞体关掉再打开，让物理重新发一次进入事件。
-        /// </summary>
         public void EnterCombat()
         {
             CombatEnabled = true;
@@ -217,10 +210,6 @@ namespace GamePlay.Enemy
             StartCoroutine(RecheckDetectZones());
         }
 
-        /// <summary>
-        /// 隔一个物理步关掉再打开检测碰撞体，让 OnTriggerEnter2D 重新发一次。
-        /// 同一帧内 disable+enable 物理不保证重发，所以中间要 yield 一个 WaitForFixedUpdate。
-        /// </summary>
         private IEnumerator RecheckDetectZones()
         {
             var zones = GetComponentsInChildren<EnemyDetectZone>(true);
@@ -242,21 +231,16 @@ namespace GamePlay.Enemy
 
         //给状态类调用的工具方法
 
-        /// <summary>
-        /// 播放动画
-        /// </summary>
-        /// <param name="animationName"></param>
         public void PlayAnimation(string animationName)
         {
-            print("执行"+animationName+"动画");
+            print("执行" + animationName + "动画");
             if (animator == null) return;
             animator.CrossFade(Animator.StringToHash(animationName), 0.1f);
         }
 
-        /// <summary>移动至目标点</summary>
         public void MoveToPlayer()
         {
-            if(_player == null) return;
+            if (_player == null) return;
             moveController?.MoveTo(_player.transform.position);
         }
 
@@ -264,19 +248,12 @@ namespace GamePlay.Enemy
         {
             moveController?.SetSpeed(speed);
         }
-        /// <summary>
-        /// 随机移动(巡逻)
-        /// </summary>
-        /// <param name="distance"></param>
+
         public void RandomMove(float distance)
         {
             moveController.MoveToRandomDirection(distance);
         }
 
-        /// <summary>
-        /// 改变透明度，用于死亡渐隐
-        /// </summary>
-        /// <param name="alpha"></param>
         public void SetAlpha(float alpha)
         {
             if (_sprite == null) return;
@@ -291,8 +268,16 @@ namespace GamePlay.Enemy
             if (_fsm.CurrentState == EnemyState.Dead) return;
 
             state.CurrentHP -= damage;
-            OnWound?.Invoke(state.CurrentHP,state.MaxHP);
+            OnWound?.Invoke(state.CurrentHP, state.MaxHP);
             Debug.Log($"受到{damage}点伤害");
+
+            // ================= 【新增】触发受伤变红闪烁 =================
+            if (gameObject.activeInHierarchy)
+            {
+                if (_hitFlashCoroutine != null) StopCoroutine(_hitFlashCoroutine);
+                _hitFlashCoroutine = StartCoroutine(HitFlashRoutine());
+            }
+            // =============================================================
 
             if (state.CurrentHP <= 0)
             {
@@ -302,6 +287,43 @@ namespace GamePlay.Enemy
             else
             {
                 _fsm.ChangeState(EnemyState.Hurt);
+            }
+        }
+
+        // 受伤闪烁协程与对象池清理
+        private IEnumerator HitFlashRoutine()
+        {
+            if (_sprite == null) yield break;
+
+            // 变红（保留当前的透明度，防止打断死亡渐隐）
+            Color flashColor = Color.red;
+            flashColor.a = _sprite.color.a;
+            _sprite.color = flashColor;
+
+            // 等待 0.1 秒（可以根据手感调整）
+            yield return new WaitForSeconds(0.1f);
+
+            // 恢复原色（同样保留当前透明度）
+            Color restoreColor = _originalColor;
+            restoreColor.a = _sprite.color.a;
+            _sprite.color = restoreColor;
+
+            _hitFlashCoroutine = null;
+        }
+
+        private void OnDisable()
+        {
+            if (_hitFlashCoroutine != null)
+            {
+                StopCoroutine(_hitFlashCoroutine);
+                _hitFlashCoroutine = null;
+            }
+
+            if (_sprite != null)
+            {
+                Color restoreColor = _originalColor;
+                restoreColor.a = _sprite.color.a; // 保留当前的透明度
+                _sprite.color = restoreColor;
             }
         }
 
