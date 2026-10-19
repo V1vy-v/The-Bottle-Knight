@@ -326,9 +326,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eb61f71e78c57b46b93982be56763cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  img: {fileID: 7775794417776044297}
-  price: {fileID: 6488289941219448367}
-  tips: 
+  iconImage: {fileID: 7775794417776044297}
+  toggle: {fileID: 4379683309714617424}
+  priceText: {fileID: 6488289941219448367}
+  tooltipPrefab: {fileID: 7233221359541747937, guid: 844b429ecb456f64dbc529825b556f4a,
+    type: 3}
 --- !u!1 &9164043751011147373
 GameObject:
   m_ObjectHideFlags: 0
