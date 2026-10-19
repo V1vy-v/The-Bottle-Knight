@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Node_7
   questText: 走到国窖的尸体旁，吸取它的液体
+  tipText: 部分敌人被击败后，可以按F吸取其液体并获得对应形态或者被动能力。吸取的新液体会默认置入备用槽液体并替换其中液体（如有）。被动能力仅在备用槽内生效且不能被切换至当前槽。
   mode: 0
   refreshDialog: 0
   refreshBattle: 0

@@ -22,6 +22,12 @@ namespace GamePlay.Interaction
         /// <summary>吸取表现时长，播完才消失。表现是即时的就填 0</summary>
         [SerializeField] private float _absorbDuration = 0.6f;
 
+        /// <summary>
+        /// 强制吸进主槽，无视槽位状态。
+        /// 只给剧情强制的第一次吸取用（国窖），普通怪走 GetLiquid 进备用槽。
+        /// </summary>
+        [SerializeField] private bool _forceToMainSlot;
+
         private EnemyController _enemy;
         private bool _absorbed;
 
@@ -42,6 +48,11 @@ namespace GamePlay.Interaction
         // 约定：剧情 100 / 商店 50 / 吸取 10。三者位置重叠时按这个顺序取
         public int Priority => 10;
 
+        /// <summary>约等于原来的 1.5 查询半径 + 吸点碰撞体半径 3</summary>
+        public float InteractRadius => 4.5f;
+
+        public float PromptRadius => InteractRadius;      // 提示和交互同距离
+
         public Transform PromptAnchor => transform;
 
         public bool CanInteract =>
@@ -57,9 +68,8 @@ namespace GamePlay.Interaction
 
         public string GetPromptText(PlayerLiquids liquids)
         {
-            // 备用槽非空就吸不进去，先把原因说清楚，别让玩家以为按键坏了
-            if (liquids == null || liquids.StandbyLiquid != null) return "备用槽已满";
-            return "按 F 吸取";
+            // 备用槽有液体也会被替换掉，不再有「吸不进去」的情况
+            return liquids == null ? "备用槽已满" : "按 F 吸取";
         }
 
         public void Interact(GameObject player, PlayerLiquids liquids)
@@ -70,8 +80,12 @@ namespace GamePlay.Interaction
             var cfg = Liquid;
             if (cfg == null) return;
 
-            if (!liquids.GetLiquid(cfg))   // 二次确认：扫描间隔内玩家可能刚换了液体
-                return;
+            // 剧情强制（国窖）：直接塞主槽；其余走常规通道装备用槽
+            bool ok = _forceToMainSlot
+                ? liquids.ForceGetLiquid(cfg, LiquidTankType.Current)
+                : liquids.GetLiquid(cfg);      // 二次确认：扫描间隔内玩家可能刚换了液体
+
+            if (!ok) return;
 
             _absorbed = true;
             Global.Get<GameplayRoot>()?.ReportGoalReached("absorb");

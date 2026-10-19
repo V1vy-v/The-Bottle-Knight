@@ -1,3 +1,4 @@
+using GamePlay.Configs;
 using UnityEngine;
 
 namespace GamePlay.Player
@@ -7,12 +8,22 @@ namespace GamePlay.Player
     {
         private SpriteRenderer _sprite;
         private Animator _animator;
+
+        [Header("形态动画")]
+        [Tooltip("不装液体时的默认形态，留空则用预制体上原本的 Controller")]
         public AnimatorOverrideController AnimatorOverride;
+        [Tooltip("快乐水形态")] public AnimatorOverrideController ColaForm;
+        [Tooltip("国窖形态")] public AnimatorOverrideController GuoJiaoForm;
+        [Tooltip("雷碧形态")] public AnimatorOverrideController LeiBiForm;
+
+        /// <summary>预制体上原本的 Controller，没有对应形态时回退到它</summary>
+        private RuntimeAnimatorController _defaultController;
 
         private void Awake()
         {
             _sprite = GetComponent<SpriteRenderer>();
             _animator = GetComponent<Animator>();
+            _defaultController = _animator != null ? _animator.runtimeAnimatorController : null;
         }
 
         private static readonly int AnimWalk = Animator.StringToHash("Walk");
@@ -39,9 +50,30 @@ namespace GamePlay.Player
             if (Mathf.Abs(x) > 0.01f) 
                 _sprite.flipX = x < 0f; 
         }
-        public void ApplyForm(AnimatorOverrideController ov) 
-        { 
-            /* 换形态动画 */ 
+
+        /// <summary>
+        /// 按主槽液体切换形态动画。
+        /// 形态用的是 AnimatorOverrideController，基准状态机不变，
+        /// 所以 Walk / PrimaryAtk / Death 这些参数与状态名照旧可用。
+        /// 传 null 或没有对应形态的液体（料酒 / 冰美式 / 三拳）就回退默认。
+        /// </summary>
+        public void ApplyForm(LiquidType? type)
+        {
+            if (_animator == null) return;
+
+            AnimatorOverrideController target = type switch
+            {
+                LiquidType.Cola => ColaForm,
+                LiquidType.GuoJiao => GuoJiaoForm,
+                LiquidType.LeiBi => LeiBiForm,
+                _ => null,
+            };
+
+            if (target == null) target = AnimatorOverride;
+
+            RuntimeAnimatorController next = target != null ? target : _defaultController;
+            if (_animator.runtimeAnimatorController != next)
+                _animator.runtimeAnimatorController = next;
         }
     }
 }

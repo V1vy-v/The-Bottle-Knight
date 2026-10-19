@@ -70,12 +70,12 @@ namespace GamePlay.Player
             return true;
         }
         /// <summary>
-        /// 吸取液体，备用槽必须为空
+        /// 吸取液体：装进备用槽，槽里有液体就直接替换掉
+        /// （策划案：吸取的新液体会默认置入备用槽液体并替换其中液体）。
+        /// 要无视槽位塞主槽请用 ForceGetLiquid。
         /// </summary>
         public bool GetLiquid(LiquidConfig cfg)
         {
-            if (StandbyLiquid != null) return false;
-
             StandbyLiquid = LiquidFactory.Create(cfg, _stats);
             if (StandbyLiquid == null) { Debug.LogError($"[PlayerLiquids] 没有对应液体类: {cfg?.Id}"); return false; }
 

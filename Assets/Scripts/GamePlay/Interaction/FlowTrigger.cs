@@ -20,6 +20,8 @@ namespace GamePlay.Interaction
 
         [Tooltip("刷怪位置（一张占位贴图一个）。留空则用「自己 + 所有子物体」——把多余的占位贴图拖成自己的子物体即可")]
         [SerializeField] private Transform[] _spawnPoints;
+        /// <summary>触发后把自己隐藏（用于一次性剧情 NPC，如快乐水）</summary>
+        [SerializeField] private bool _hideAfterFire;
         private bool _fired;
 
         /// <summary>
@@ -62,6 +64,7 @@ namespace GamePlay.Interaction
             var root = Global.Get<GameplayRoot>();
             root?.ReportGoalReached(_goalId);
             if (_asEncounterAnchor) RegisterEncounter(root);
+            if (_hideAfterFire) gameObject.SetActive(false);
 
             Debug.Log($"[流程] 触发 {name}");
         }

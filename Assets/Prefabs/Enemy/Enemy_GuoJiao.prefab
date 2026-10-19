@@ -844,6 +844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _liquidOverride: {fileID: 0}
   _absorbDuration: 0.6
+  _forceToMainSlot: 1
 --- !u!114 &6678524252991320144
 MonoBehaviour:
   m_ObjectHideFlags: 0

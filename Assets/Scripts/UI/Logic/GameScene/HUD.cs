@@ -119,14 +119,27 @@ namespace UI
             // 任务栏不依赖主角，先刷
             RefreshQuest();
 
-            if (_stats == null) return;
+            LiquidBase main = _liquids?.CurrentLiquid;     // 主槽
+            LiquidBase standby = _liquids?.StandbyLiquid;  // 备用槽
+
+            // 还没拿到主角（HUD 先于主角出现）：四个位置都按未解锁显示，只留锁图标
+            if (_stats == null)
+            {
+                ApplySlot(_skill1Icon, _skill1Mask, _skill1LockGO, false, 0f);
+                ApplySlot(_skill2Icon, _skill2Mask, _skill2LockGO, false, 0f);
+                ApplySlot(_toggleIcon, _toggleMask, _toggleLockGO, false, 0f);
+                ApplySlot(_sprintIcon, _sprintMask, _sprintLockGO, false, 0f);
+                return;
+            }
 
             // ---- 血条 ----
             if (_healthFill != null)
                 _healthFill.fillAmount = _stats.MaxHp > 0f ? Mathf.Clamp01(_stats.Hp / _stats.MaxHp) : 0f;
 
-            LiquidBase main = _liquids?.CurrentLiquid;     // 主槽
-            LiquidBase standby = _liquids?.StandbyLiquid;  // 备用槽
+            // ---- 图标：按当前装配的液体换图（LiquidConfig.Icon）----
+            // 切换小球不跟液体图标走：它表示「现在能不能切换液体槽」，用的是固定图标
+            SetIcon(_skill1Icon, main);
+            SetIcon(_skill2Icon, standby);
 
             // ---- 主槽技能 ----
             ApplySlot(_skill1Icon, _skill1Mask, _skill1LockGO, main != null, UnavailableRatio(main));
@@ -201,11 +214,27 @@ namespace UI
             return total > 0f ? Mathf.Clamp01(remain / total) : 1f;
         }
 
-        /// <summary>刷新一个图标位：图标压暗 + 冷却扇形 + 锁定显隐</summary>
+        /// <summary>按液体配置换技能图标。配置里没填 Icon 就保留预制体上的占位图</summary>
+        private static void SetIcon(Image icon, LiquidBase liquid)
+        {
+            if (icon == null) return;
+
+            Sprite sprite = liquid?.Config?.Icon;
+            if (sprite != null && icon.sprite != sprite) icon.sprite = sprite;
+        }
+
+        /// <summary>
+        /// 刷新一个图标位。
+        /// 未解锁：只显示锁，图标与冷却扇形都隐藏；
+        /// 已解锁：锁消失，图标与扇形（有冷却时）才出现。
+        /// </summary>
         private static void ApplySlot(Image icon, Image cdMask, GameObject lockGO, bool unlocked, float unavailableRatio)
         {
             if (icon != null)
-                icon.color = unlocked ? Color.white : LockedTint;
+            {
+                icon.gameObject.SetActive(unlocked);
+                icon.color = Color.white;
+            }
 
             if (cdMask != null)
             {

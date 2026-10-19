@@ -9,12 +9,15 @@ namespace GamePlay.Player
     /// <summary>主角交互检测：找出身边最优的可交互物，供 F 键调用</summary>
     public class PlayerInteractor : MonoBehaviour
     {
-        [SerializeField] private float _radius = 1.5f;
+        [SerializeField] private float _queryRadius = 8f;      // 物理查询半径；实际可交互范围由各交互物的 InteractRadius 决定
         [SerializeField] private LayerMask _interactMask;
         [SerializeField] private float _scanInterval = 0.08f;
         private PlayerLiquids _liquids;
 
-        private readonly Collider2D[] _buffer = new Collider2D[16];
+        /// <summary>对话触发距离（约等于原来的 1.5 查询半径 + 8 米对话区）</summary>
+        private const float TalkRangeSqr = 9.5f * 9.5f;
+
+        private readonly Collider2D[] _buffer = new Collider2D[32];
 
         /// <summary>本次扫描命中的敌人（用来跟踪进入/离开，避免每帧重复报目标）</summary>
         private readonly HashSet<EnemyController> _present = new();
@@ -60,7 +63,7 @@ namespace GamePlay.Player
         #region 检测
         private void Scan()
         {
-            int n = Physics2D.OverlapCircleNonAlloc(transform.position, _radius, _buffer, _interactMask);
+            int n = Physics2D.OverlapCircleNonAlloc(transform.position, _queryRadius, _buffer, _interactMask);
             _bufferCount = n;
 
             IInteractable best = null;
@@ -79,6 +82,8 @@ namespace GamePlay.Player
                 if (it.PromptAnchor == null) continue;
 
                 float sqr = ((Vector2)it.PromptAnchor.position - self).sqrMagnitude;
+                float limit = it.PromptRadius;      // 提示按常驻范围算；真正交互时再收一次
+                if (sqr > limit * limit) continue;      // 出了它自己的交互范围就不算候选
                 if (it.Priority > bestPriority || (it.Priority == bestPriority && sqr < bestSqr))
                 {
                     best = it; bestPriority = it.Priority; bestSqr = sqr;
@@ -99,13 +104,21 @@ namespace GamePlay.Player
         private void TickTalk()
         {
             _present.Clear();
+            Vector2 self = transform.position;
+
             for (int i = 0; i < _bufferCount; i++)
             {
                 // 只认带 EnemyTalkZone 标记的那个碰撞体（大号对话区）
                 if (_buffer[i].GetComponent<EnemyTalkZone>() == null) continue;
 
                 var e = _buffer[i].GetComponentInParent<EnemyController>();
-                if (e != null) _present.Add(e);
+                if (e == null) continue;
+
+                // 物理查询半径放大到 8 之后，这里要自己按距离收一次，
+                // 否则隔着十几米也会触发对话
+                if (((Vector2)e.transform.position - self).sqrMagnitude > TalkRangeSqr) continue;
+
+                _present.Add(e);
             }
 
             foreach (var e in _present)
@@ -149,6 +162,11 @@ namespace GamePlay.Player
             // 接口引用不触发 Unity 的 == 重载，销毁后要显式判一次
             if (_current is not UnityEngine.Object obj || obj == null) return false;
             if (!_current.CanInteract) return false;
+
+            // 文字常驻，但真正交互必须靠近
+            float r = _current.InteractRadius;
+            if (r > 0f && ((Vector2)_current.PromptAnchor.position - (Vector2)transform.position).sqrMagnitude > r * r)
+                return false;
 
             _current.Interact(gameObject, _liquids);
 

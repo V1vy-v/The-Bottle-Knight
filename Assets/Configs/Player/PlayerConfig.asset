@@ -23,10 +23,10 @@ MonoBehaviour:
   SprintDamagePerTick: 4
   SprintTickInterval: 0.5
   SprintCartExtraDamage: 2
-  PrimaryAtkInterval: 0.8
-  MeleeDamage: 10
-  MeleeRange: 4
-  RangedDamage: 14
+  PrimaryAtkInterval: 0.25
+  MeleeDamage: 60
+  MeleeRange: 6
+  RangedDamage: 60
   RangedRange: 4.5
   AttackSpeed: 1
   ChangeLiquidCd: 10

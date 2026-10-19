@@ -45,5 +45,12 @@ namespace GamePlay.Story
         [Header("任务栏")]
         [Tooltip("进入本节点时 HUD 任务栏显示的目标文本；留空则隐藏任务栏。前缀「当前任务」由 HUD 代码统一拼")]
         public string questText;
+
+        [Tooltip("进入这个节点时弹一次教学提示，留空不弹")]
+        [TextArea(2, 6)] public string tipText;
+
+        [Header("解锁")]
+        [Tooltip("进入本节点时解锁远战模组（拿到吸管）。勾上后 Q 才能在近战/远战之间切换")]
+        public bool unlockRangedAttack;
     }
 }
