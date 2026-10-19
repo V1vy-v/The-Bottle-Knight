@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿using Framework;
+﻿﻿﻿﻿using Framework;
 using System.Collections.Generic;
 using GamePlay.Configs;
 using GamePlay.Session;
@@ -328,7 +328,11 @@ namespace GamePlay
         /// </summary>
         private void TeleportPlayer(string markerName)
         {
-            if (string.IsNullOrEmpty(markerName)) return;
+            if (string.IsNullOrEmpty(markerName))
+            {
+                Debug.Log("[GameplayRoot] 本节点没配 teleportTargetName，不传送");
+                return;
+            }
 
             if (!_player)
             {
@@ -336,7 +340,7 @@ namespace GamePlay
                 return;
             }
 
-            GameObject marker = GameObject.Find(markerName);
+            GameObject marker = FindMarker(markerName);
             if (marker == null)
             {
                 Debug.LogWarning($"[GameplayRoot] 场景里找不到传送目标 {markerName}");
@@ -356,7 +360,29 @@ namespace GamePlay
                 _player.transform.position = pos;
             }
 
-            Debug.Log($"[GameplayRoot] 主角已传送到 {markerName}");
+            Debug.Log($"[GameplayRoot] 主角已传送到 {markerName} -> {pos}");
+        }
+
+        /// <summary>
+        /// 按名字找传送标记。
+        /// GameObject.Find 只认激活中的物体；找到的是 DontDestroyOnLoad 之外的活动物体。
+        /// 找不到时再扫一遍全部（含未激活），避免标记被某个未激活的父物体带着一起失活。
+        /// </summary>
+        private static GameObject FindMarker(string markerName)
+        {
+            GameObject go = GameObject.Find(markerName);
+            if (go != null) return go;
+
+            Transform[] all = Resources.FindObjectsOfTypeAll<Transform>();
+            for (int i = 0; i < all.Length; i++)
+            {
+                Transform t = all[i];
+                if (t == null || t.name != markerName) continue;
+                if (!t.gameObject.scene.isLoaded) continue;    // 跳过预制体资产
+                return t.gameObject;
+            }
+
+            return null;
         }
 
         /// <summary>按节点声明刷新 Context。只刷数据，不切模式。</summary>

@@ -354,6 +354,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimatorOverride: {fileID: 0}
+  ColaForm: {fileID: 22100000, guid: 410c8017cd95cd44cba8d7487b23685a, type: 2}
+  GuoJiaoForm: {fileID: 22100000, guid: a4fcfc178b9027d49ad2bc9c478ebdbd, type: 2}
+  LeiBiForm: {fileID: 22100000, guid: 135ea5d77621101478493e67946b927b, type: 2}
 --- !u!114 &232163258093547753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac27dcf1653e6a4bb146301528c55aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 1.5
+  _queryRadius: 8
   _interactMask:
     serializedVersion: 2
     m_Bits: 2048

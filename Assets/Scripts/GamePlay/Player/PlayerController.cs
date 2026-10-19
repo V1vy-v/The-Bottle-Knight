@@ -1,5 +1,6 @@
-﻿using Framework;
+using Framework;
 using GamePlay.Configs;
+using GamePlay.Liquid;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -72,6 +73,18 @@ namespace GamePlay.Player
             _playerCombat.Init(_playerStats, _playerView, _playerLiquids);
             _playerLiquids.Init(_playerStats);
             _playerInteractor.Init(_playerLiquids);
+
+            // 形态动画跟着主槽液体走：吸取进主槽、Tab 切换都要换
+            _playerLiquids.OnChangeLiquid += RefreshForm;
+            _playerLiquids.OnGainLiquid += RefreshForm;
+            RefreshForm();
+        }
+
+        /// <summary>主槽液体变了就换形态动画</summary>
+        private void RefreshForm()
+        {
+            LiquidBase main = _playerLiquids?.CurrentLiquid;
+            _playerView.ApplyForm(main != null ? main.Config.Type : (LiquidType?)null);
         }
         private void Update()
         {

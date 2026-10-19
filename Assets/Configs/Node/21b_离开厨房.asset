@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "21b_\u79BB\u5F00\u53A8\u623F"
   m_EditorClassIdentifier: 
   Id: Node_21b
-  questText: 从厨房左侧的出口离开
+  questText: 从客厅右侧的门出去，前往超市
   mode: 0
   refreshDialog: 0
   refreshBattle: 0
