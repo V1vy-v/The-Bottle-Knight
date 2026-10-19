@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3176981748542200297}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9, z: 0}
+  m_LocalPosition: {x: -0.05, y: 5.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64,8 +64,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -4.3350396}
-  m_Size: {x: 5.9735885, y: 2.7572231}
+  m_Offset: {x: 0.07676098, y: -4.3350396}
+  m_Size: {x: 3.5683856, y: 2.7572234}
   m_Direction: 1
 --- !u!1 &5213897385145486336
 GameObject:
@@ -254,7 +254,7 @@ Transform:
   m_GameObject: {fileID: 7532208929054833747}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.15, y: 2.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -486,7 +486,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: d328f9649aedcc84787e72f7bec3c79c, type: 2}
-  currentHP: 0
+  _passiveAtStart: 0
+  _talkGoalId: 
+  _talkZoneRadius: 8
   idleDuration: 2
   patrolDuration: 5
   fadeDuration: 1
@@ -571,7 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ebba73151643fe47b76d43364049507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _liquidIdOverride: 
+  _liquidOverride: {fileID: 0}
   _absorbDuration: 0.6
 --- !u!114 &6678524252991320144
 MonoBehaviour:
@@ -650,6 +652,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 5.95, y: 11.56}
+  m_Offset: {x: 0, y: -0.5629233}
+  m_Size: {x: 3.4936094, y: 8.694212}
   m_Direction: 0

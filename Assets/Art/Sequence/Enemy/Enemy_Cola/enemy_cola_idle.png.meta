@@ -1,0 +1,796 @@
+fileFormatVersion: 2
+guid: 5a6e9aa1ec3ec3f4e88befa9d6c58b64
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: enemy_cola_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10596
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f81da2af691ef84aac87c25330ed252
+      internalID: -350664170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_1
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 10596
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6ce1d3293335674ea95e4c626f31f87
+      internalID: 566793938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_2
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 10596
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9829b12f7bfedd40aad8065c394ecbb
+      internalID: 1030505833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_3
+      rect:
+        serializedVersion: 2
+        x: 3012
+        y: 10596
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e807ca908a20d241b279409e650d00f
+      internalID: 1668467340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_4
+      rect:
+        serializedVersion: 2
+        x: 4016
+        y: 10596
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 703cc83aafd03fc44bfb8b72fff19ed8
+      internalID: 2093658810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8830
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fe03700fc30d7d49a206bf36012a0e6
+      internalID: 384183572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_6
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 8830
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 838a249899111ee49a36b070efcfa92c
+      internalID: -1973210134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_7
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 8830
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e37ef7b188bb25c43a5bd3a26691c00f
+      internalID: 1820193815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_8
+      rect:
+        serializedVersion: 2
+        x: 3012
+        y: 8830
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41bebf8030d03a843b25269b6f38864b
+      internalID: -329274434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_9
+      rect:
+        serializedVersion: 2
+        x: 4016
+        y: 8830
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b7c8b1687d3ec44da2aa61fb4cb58b1
+      internalID: -91057037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7064
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22e0524700854584290201630be72c5d
+      internalID: 471966672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_11
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 7064
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf5a7657d5e24d448afa204995dae06
+      internalID: 462264067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_12
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 7064
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa0464b33bad69449b1d91911a8533d5
+      internalID: -1009155788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_13
+      rect:
+        serializedVersion: 2
+        x: 3012
+        y: 7064
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88f021ca85d50fc43b024adb9289f799
+      internalID: 604866510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_14
+      rect:
+        serializedVersion: 2
+        x: 4016
+        y: 7064
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31589063486106e4cabc48726301d22c
+      internalID: -690733687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5298
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9daf2e418d0dfb4eba6e568b0ee9a2f
+      internalID: 1474325327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_16
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 5298
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6472f755f18ed347a86cc627426d513
+      internalID: -1623232074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_17
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 5298
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c32029b9661ba4418a940af1ee2de5e
+      internalID: -1399192876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_18
+      rect:
+        serializedVersion: 2
+        x: 3012
+        y: 5298
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f29f373ece17e4d97bbaee1f40a6bd
+      internalID: -750438871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_19
+      rect:
+        serializedVersion: 2
+        x: 4016
+        y: 5298
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f087eeb17920a374cae5925370700b7a
+      internalID: -523558065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3532
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d9f4f258c101934c81de3068e1f42b2
+      internalID: -1744845684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_21
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 3532
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1777b8f8f3cd54f4799f5d5e7f650506
+      internalID: -189213602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_22
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 3532
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fb1b33702fcdec4aa3a1b9ba9242296
+      internalID: 2024463185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_23
+      rect:
+        serializedVersion: 2
+        x: 3012
+        y: 3532
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da76d8c65f41c6c4197724cea6ae5e47
+      internalID: 693182355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_24
+      rect:
+        serializedVersion: 2
+        x: 4016
+        y: 3532
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 213b7c08b185b7b44b6ddd1faad52829
+      internalID: 250890079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1766
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6fd038ea4c687e47963484059b38d83
+      internalID: 2027778767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_26
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 1766
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb1df9f8bbf4bd04088e35275a761c67
+      internalID: 544819949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_27
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 1766
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ec738df29dd2e46bdd60721c566af7
+      internalID: -1504744390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_28
+      rect:
+        serializedVersion: 2
+        x: 3012
+        y: 1766
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c467b9130a1acdb4fbdb985dde2865d4
+      internalID: 898457914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_29
+      rect:
+        serializedVersion: 2
+        x: 4016
+        y: 1766
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 278573dbac998ed4da82e0aa5422739f
+      internalID: -1520173300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_idle_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1004
+        height: 1766
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1b21cec9e9360843896453ee4da60ee
+      internalID: 2102226611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 131e9ae73da9a0e4cbed46cf153fc032
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      enemy_cola_idle_0: -350664170
+      enemy_cola_idle_1: 566793938
+      enemy_cola_idle_10: 471966672
+      enemy_cola_idle_11: 462264067
+      enemy_cola_idle_12: -1009155788
+      enemy_cola_idle_13: 604866510
+      enemy_cola_idle_14: -690733687
+      enemy_cola_idle_15: 1474325327
+      enemy_cola_idle_16: -1623232074
+      enemy_cola_idle_17: -1399192876
+      enemy_cola_idle_18: -750438871
+      enemy_cola_idle_19: -523558065
+      enemy_cola_idle_2: 1030505833
+      enemy_cola_idle_20: -1744845684
+      enemy_cola_idle_21: -189213602
+      enemy_cola_idle_22: 2024463185
+      enemy_cola_idle_23: 693182355
+      enemy_cola_idle_24: 250890079
+      enemy_cola_idle_25: 2027778767
+      enemy_cola_idle_26: 544819949
+      enemy_cola_idle_27: -1504744390
+      enemy_cola_idle_28: 898457914
+      enemy_cola_idle_29: -1520173300
+      enemy_cola_idle_3: 1668467340
+      enemy_cola_idle_30: 2102226611
+      enemy_cola_idle_4: 2093658810
+      enemy_cola_idle_5: 384183572
+      enemy_cola_idle_6: -1973210134
+      enemy_cola_idle_7: 1820193815
+      enemy_cola_idle_8: -329274434
+      enemy_cola_idle_9: -91057037
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

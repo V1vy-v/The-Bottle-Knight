@@ -59,6 +59,7 @@ namespace GamePlay.Enemy
             }
 
             var enemy = _enemy.GetComponent<EnemyController>();
+            if (enemy != null) enemy.MarkSpawnedByFacade();
             if (enemy == null)
             {
                 Debug.LogError("[测试] 预制体上没有 EnemyController");

@@ -20,6 +20,13 @@ public class EnemyDetectZone : MonoBehaviour
     {
 
         if (!other.CompareTag("Player")) return;
+
+        if (_owner == null) return;
+
+        // 非战斗状态（剧情敌人）：不登记玩家，敌人就一直待在 Idle / Patrol。
+        // 对话触发不在这里做 —— 检测区的尺寸不可靠，改由 EnemyController 按距离判定。
+        if (!_owner.CombatEnabled) return;
+
         Debug.Log($"[{zoneType}] 检测到玩家: {other.name}, 位置: {other.transform.position}");
         switch (zoneType)
         {

@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: Node_10b
   questText: 鸡翅争霸赛 · 第一场
   mode: 1
-  refreshDialog: 0
+  refreshDialog: 1
   refreshBattle: 0
   goalId: 
   dialogConfig: {fileID: 4900000, guid: a1b2c3d4e5f60718293a4b5c6d7e8f01, type: 3}

@@ -64,8 +64,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -4.3350396}
-  m_Size: {x: 5.9735885, y: 2.7572231}
+  m_Offset: {x: 0.027896445, y: -7.682576}
+  m_Size: {x: 3.5745287, y: 2.310898}
   m_Direction: 1
 --- !u!1 &5213897385145486336
 GameObject:
@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: daf2a8e6f4eeb51489c3016b3a8ede8d, type: 2}
-  currentHP: 0
+  _passiveAtStart: 0
   idleDuration: 2
   patrolDuration: 5
   fadeDuration: 1
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ebba73151643fe47b76d43364049507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _liquidIdOverride: 
+  _liquidOverride: {fileID: 0}
   _absorbDuration: 0.6
 --- !u!114 &6678524252991320144
 MonoBehaviour:
@@ -650,6 +650,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 5.95, y: 11.56}
+  m_Offset: {x: 0, y: -1.8132527}
+  m_Size: {x: 3.941474, y: 6.371309}
   m_Direction: 0

@@ -294,6 +294,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: a871f4d8c15b05d4593f9c1025cd40a6, type: 2}
+  _passiveAtStart: 0
+  _talkGoalId: 
+  _talkZoneRadius: 8
   idleDuration: 2
   patrolDuration: 5
   fadeDuration: 1
@@ -457,8 +460,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -4.3350396}
-  m_Size: {x: 3.71, y: 4.07}
+  m_Offset: {x: -0.00000016294723, y: -5.3669014}
+  m_Size: {x: 4.0700006, y: 2.006282}
   m_Direction: 1
 --- !u!1 &5436200118686412436
 GameObject:

@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using GamePlay.Enemy;
 using GamePlay.Interaction;
 
 namespace GamePlay.Player
@@ -14,8 +16,13 @@ namespace GamePlay.Player
 
         private readonly Collider2D[] _buffer = new Collider2D[16];
 
+        /// <summary>本次扫描命中的敌人（用来跟踪进入/离开，避免每帧重复报目标）</summary>
+        private readonly HashSet<EnemyController> _present = new();
+        private readonly HashSet<EnemyController> _talked = new();
+
         private IInteractable _current;
         private float _elapsed;
+        private int _bufferCount;
 
         /// <summary>候选变化时触发，null 表示当前没有可交互目标</summary>
         public event Action<IInteractable> OnCandidateChanged;
@@ -54,6 +61,7 @@ namespace GamePlay.Player
         private void Scan()
         {
             int n = Physics2D.OverlapCircleNonAlloc(transform.position, _radius, _buffer, _interactMask);
+            _bufferCount = n;
 
             IInteractable best = null;
             int bestPriority = int.MinValue;
@@ -62,6 +70,9 @@ namespace GamePlay.Player
 
             for (int i = 0; i < n; i++)
             {
+                // 对话区不参与吸取判定：否则大号对话区会把吸取范围一起放大
+                if (_buffer[i].GetComponent<EnemyTalkZone>() != null) continue;
+
                 // 脚本可能和碰撞体不在同一物体上，所以向父级找
                 var it = _buffer[i].GetComponentInParent<IInteractable>();
                 if (it == null || !it.CanInteract) continue;
@@ -74,8 +85,40 @@ namespace GamePlay.Player
                 }
             }
 
+            TickTalk();
+
             SetCandidate(best);
             RefreshPrompt(best);
+        }
+
+        /// <summary>
+        /// 剧情敌人的对话触发。复用上面这次 OverlapCircle 的结果：
+        /// 敌人身上的 InteractPoint 就在 Interactable 层，所以只要它在范围内就能扫到。
+        /// 用本次/上次的集合做进入判定，玩家走开后会自动解除，不需要额外的退出回调。
+        /// </summary>
+        private void TickTalk()
+        {
+            _present.Clear();
+            for (int i = 0; i < _bufferCount; i++)
+            {
+                // 只认带 EnemyTalkZone 标记的那个碰撞体（大号对话区）
+                if (_buffer[i].GetComponent<EnemyTalkZone>() == null) continue;
+
+                var e = _buffer[i].GetComponentInParent<EnemyController>();
+                if (e != null) _present.Add(e);
+            }
+
+            foreach (var e in _present)
+            {
+                if (!_talked.Contains(e) && e.NeedsTalk)
+                {
+                    _talked.Add(e);
+                    e.NotifyTalked();
+                }
+            }
+
+            // 已经走开的，允许下次再触发
+            _talked.RemoveWhere(e => e == null || !_present.Contains(e));
         }
 
         private void SetCandidate(IInteractable it)

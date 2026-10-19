@@ -1,0 +1,620 @@
+fileFormatVersion: 2
+guid: 06ed01b1402549b4484ed7751ca57b1b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy-coffee-death_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4788
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 897e86156cf46b14fbbc511ada915708
+      internalID: 2116951592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_1
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 4788
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e6210ca210bad342a66b10b24150db3
+      internalID: 1488901908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_2
+      rect:
+        serializedVersion: 2
+        x: 3164
+        y: 4788
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4e109de01fb6e24fb269819aa13fcee
+      internalID: -1835433224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_3
+      rect:
+        serializedVersion: 2
+        x: 4746
+        y: 4788
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ae86780061177d48a6dcbe3c9f8a673
+      internalID: -982430083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_4
+      rect:
+        serializedVersion: 2
+        x: 6328
+        y: 4788
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d477cce7e4162f4383919d8edc9e100
+      internalID: -1911936221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3591
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7a9939b1febaff4fa5e333bcf9a53e0
+      internalID: -656382014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_6
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 3591
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42f21e98275f217459de3c057da0a5ef
+      internalID: -511921944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_7
+      rect:
+        serializedVersion: 2
+        x: 3164
+        y: 3591
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33bd571fc1ecc1044b70e29141f46da2
+      internalID: -736096021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_8
+      rect:
+        serializedVersion: 2
+        x: 4746
+        y: 3591
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0594014bbbaf661479e36452224814e3
+      internalID: 1570557818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_9
+      rect:
+        serializedVersion: 2
+        x: 6328
+        y: 3591
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a5e4c283fb2724488a1bbc239dadd7
+      internalID: -1006518590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2394
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91f272a8c4f0674ebd8cbbd8d35a191
+      internalID: -1621227147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_11
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 2394
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 565062b59ad19c440a393708478454eb
+      internalID: -2101788324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_12
+      rect:
+        serializedVersion: 2
+        x: 3164
+        y: 2394
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62abe8619650976418f85103be0abbcc
+      internalID: 2110490617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_13
+      rect:
+        serializedVersion: 2
+        x: 4746
+        y: 2394
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fbb7fdeb5eb42644a8abf7f5dd78c13
+      internalID: 1220638349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_14
+      rect:
+        serializedVersion: 2
+        x: 6328
+        y: 2394
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 490c306c4acc86148972e21b76403e4a
+      internalID: 1027770303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1197
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05498b93e6f320a4d9d07d6df7779e22
+      internalID: 827077440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_16
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 1197
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d6e7a2ea6104ec4aadbd560dfed8f6d
+      internalID: -1315170101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_17
+      rect:
+        serializedVersion: 2
+        x: 3164
+        y: 1197
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ad58eb6d35860543a9a756e7cfb3715
+      internalID: 1605214224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_18
+      rect:
+        serializedVersion: 2
+        x: 4746
+        y: 1197
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9be2c6b797046e34f927deafebf23e4f
+      internalID: 385336041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_19
+      rect:
+        serializedVersion: 2
+        x: 6328
+        y: 1197
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c5d07e9240fea14cbd2d08ba2671fe1
+      internalID: -1532099476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae917b13ec3b3549b9fe8019143aae0
+      internalID: -731242145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_21
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 0
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e60ca48a92b4a754a8a755cbdc1adc70
+      internalID: 1550360616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-coffee-death_22
+      rect:
+        serializedVersion: 2
+        x: 3164
+        y: 0
+        width: 1582
+        height: 1197
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6872249153fa6574bbdb4efa3bf5dc85
+      internalID: 104264711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: da249d01845029949a1e69ff80fa0ab0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Enemy-coffee-death_0: 2116951592
+      Enemy-coffee-death_1: 1488901908
+      Enemy-coffee-death_10: -1621227147
+      Enemy-coffee-death_11: -2101788324
+      Enemy-coffee-death_12: 2110490617
+      Enemy-coffee-death_13: 1220638349
+      Enemy-coffee-death_14: 1027770303
+      Enemy-coffee-death_15: 827077440
+      Enemy-coffee-death_16: -1315170101
+      Enemy-coffee-death_17: 1605214224
+      Enemy-coffee-death_18: 385336041
+      Enemy-coffee-death_19: -1532099476
+      Enemy-coffee-death_2: -1835433224
+      Enemy-coffee-death_20: -731242145
+      Enemy-coffee-death_21: 1550360616
+      Enemy-coffee-death_22: 104264711
+      Enemy-coffee-death_3: -982430083
+      Enemy-coffee-death_4: -1911936221
+      Enemy-coffee-death_5: -656382014
+      Enemy-coffee-death_6: -511921944
+      Enemy-coffee-death_7: -736096021
+      Enemy-coffee-death_8: 1570557818
+      Enemy-coffee-death_9: -1006518590
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

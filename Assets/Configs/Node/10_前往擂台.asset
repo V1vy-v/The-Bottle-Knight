@@ -17,7 +17,7 @@ MonoBehaviour:
   mode: 0
   refreshDialog: 0
   refreshBattle: 0
-  goalId: Node_10b
+  goalId: enter_arena
   dialogConfig: {fileID: 0}
   battleConfig: {fileID: 0}
   autoWinBattle: 0
