@@ -28,7 +28,6 @@ namespace GamePlay.Player
 
         private LineRenderer _rangeRenderer;
 
-        // 【新增】记录当前朝向（1为右，-1为左）
         private float _facingDir = 1f;
         private SpriteRenderer _spriteRenderer;
 
@@ -48,7 +47,6 @@ namespace GamePlay.Player
             _rangeRenderer.enabled = false;
             _rangeRenderer.sortingOrder = 999;
 
-            // 获取 SpriteRenderer 以防你是靠 flipX 翻转的
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
@@ -58,11 +56,9 @@ namespace GamePlay.Player
             _liquids?.StandbyLiquid?.TickSkill(Time.deltaTime);
             TickPrimaryAtk(Time.deltaTime);
 
-            // 每帧实时检测角色的朝向
             UpdateFacingDir();
         }
 
-        // 【新增】检测朝向，兼容 localScale 和 flipX
         private void UpdateFacingDir()
         {
             if (transform.lossyScale.x < 0)
@@ -75,7 +71,7 @@ namespace GamePlay.Player
 
         private Vector2 SearchForEnemy()
         {
-            return Vector2.zero;
+            return Vector2.zero; // 目前没用上，远程已经改成纯水平射击了
         }
 
         public void PrimaryAttack()
@@ -90,27 +86,48 @@ namespace GamePlay.Player
                 _view.PlayAttack(AttackModule.Melee);
                 float finalRadius = _stats.MeleeRange * (1f + _liquids.RangeBonus);
 
-                // 【修改点 1】实时计算带朝向的偏移量
                 Vector2 actualOffset = new Vector2(_primaryMeleeAtkOffset.x * _facingDir, _primaryMeleeAtkOffset.y);
                 Vector2 center = (Vector2)transform.position + actualOffset;
 
-                // 传入真实的偏移量
                 RangeAttack(actualOffset, finalRadius);
-
-                // 用真实的中心点画圈
                 StartCoroutine(DrawAttackRange(center, finalRadius));
             }
             else
             {
                 _view.PlayAttack(AttackModule.Ranged);
-                Vector2 dir = (SearchForEnemy() - (Vector2)transform.position).normalized;
 
-                if (dir == Vector2.zero) dir = new Vector2(_facingDir, 0f);
+                // 【核心修改】强制纯左右方向，彻底没有 Y 轴！
+                Vector2 dir = new Vector2(_facingDir, 0f);
 
-                // 【修改点 2】远程攻击的生成点偏移也跟随翻转
+                // 计算生成点偏移（同样根据朝向翻转）
                 Vector2 actualRangedOffset = new Vector2(_primaryRangedAtkOffset.x * _facingDir, _primaryRangedAtkOffset.y);
+                Vector2 spawnPos = (Vector2)transform.position + actualRangedOffset;
 
-                DirectionalAttack(dir, (Vector2)transform.position + actualRangedOffset, _liquids?.CurrentLiquid?.Config?.BulletPrefabRes, _stats.RangedDamage);
+                // 补全伤害计算（把你的基础伤害乘上液体加成）
+                float finalDmg = _stats.RangedDamage * (1f + _liquids.AtkBonus);
+
+                // 呼叫发射
+                DirectionalAttack(dir, spawnPos, _liquids?.CurrentLiquid?.Config?.BulletPrefabRes, finalDmg);
+            }
+        }
+
+        // 【完善】让子弹真正动起来
+        private void DirectionalAttack(Vector2 dir, Vector2 pos, string projectileRes, float dmg)
+        {
+            if (string.IsNullOrEmpty(projectileRes)) return;
+
+            // 实例化子弹
+            GameObject bulletGO = Global.Instantiate(projectileRes, new YooAsset.InstantiateOptions(true, _bulletRoot, false));
+            if (bulletGO == null) return;
+
+            // 设置世界坐标位置
+            bulletGO.transform.position = pos;
+
+            // 获取子弹身上的脚本并初始化
+            var bullet = bulletGO.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                bullet.Init(dir, dmg);
             }
         }
 
@@ -118,7 +135,6 @@ namespace GamePlay.Player
         {
             var cur = _liquids?.CurrentLiquid;
             if (cur == null) return;
-
             if (cur.TryUseSkill()) return;
 
             string reason = cur.IsSkillActive ? "持续中"
@@ -131,11 +147,7 @@ namespace GamePlay.Player
         public void SwitchModule()
         {
             if (!_isStrawGained) return;
-
-            if (_currentAtkModule == AttackModule.Melee)
-                _currentAtkModule = AttackModule.Ranged;
-            else
-                _currentAtkModule = AttackModule.Melee;
+            _currentAtkModule = _currentAtkModule == AttackModule.Melee ? AttackModule.Ranged : AttackModule.Melee;
         }
 
         public void UnlockRangeModule()
@@ -143,17 +155,9 @@ namespace GamePlay.Player
             _isStrawGained |= true;
         }
 
-        private void DirectionalAttack(Vector2 dir, Vector2 pos, string projectileRes, float dmg)
-        {
-            if (string.IsNullOrEmpty(projectileRes)) return;
-            Global.Instantiate(projectileRes, new YooAsset.InstantiateOptions(true, _bulletRoot, false));
-        }
-
         private void RangeAttack(Vector2 offset, float radius)
         {
             float dmg = _stats.MeleeDamage * (1f + _liquids.AtkBonus);
-
-            // 这里的 center 会自动应用传入的翻转后的 offset
             Vector2 center = (Vector2)transform.position + offset;
 
             Collider2D[] hits = Physics2D.OverlapCircleAll(center, radius, _enemyLayerMask);
@@ -173,10 +177,7 @@ namespace GamePlay.Player
                 hit = true;
             }
 
-            if (hit)
-            {
-                _liquids?.CurrentLiquid?.OnHitEnemy();
-            }
+            if (hit) _liquids?.CurrentLiquid?.OnHitEnemy();
         }
 
         private void TickPrimaryAtk(float delta)
