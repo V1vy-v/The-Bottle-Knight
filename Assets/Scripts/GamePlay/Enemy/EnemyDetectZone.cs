@@ -20,6 +20,10 @@ public class EnemyDetectZone : MonoBehaviour
     {
 
         if (!other.CompareTag("Player")) return;
+
+        // 非战斗状态（剧情敌人）：不登记玩家，敌人就一直待在 Idle / Patrol
+        if (_owner == null || !_owner.CombatEnabled) return;
+
         Debug.Log($"[{zoneType}] 检测到玩家: {other.name}, 位置: {other.transform.position}");
         switch (zoneType)
         {

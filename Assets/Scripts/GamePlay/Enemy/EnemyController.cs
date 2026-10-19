@@ -1,6 +1,7 @@
 ﻿using Framework;
 using GamePlay.Configs;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GamePlay.Enemy
@@ -16,6 +17,17 @@ namespace GamePlay.Enemy
 
         [Header("运行时状态")]
         public EnemyRealState state = new EnemyRealState();
+
+        [Header("剧情配置")]
+        [Tooltip("勾上则开局处于非战斗状态：只走 Idle/Patrol，不追人也不打人，等战斗系统接管")]
+        [SerializeField] private bool _passiveAtStart;
+
+        /// <summary>战斗是否已开启。关闭时 EnemyDetectZone 不登记玩家，敌人不会进 Chase/Attack</summary>
+        public bool CombatEnabled { get; private set; } = true;
+
+        /// <summary>场上所有还没进入战斗的敌人，战斗开始时按 config 接管</summary>
+        private static readonly List<EnemyController> _passives = new();
+        public static IReadOnlyList<EnemyController> PassiveEnemies => _passives;
 
         private float currentHP;
 
@@ -46,6 +58,7 @@ namespace GamePlay.Enemy
         private void Awake()
         {
             InitFromConfig();
+            CombatEnabled = !_passiveAtStart;
             animator = GetComponent<Animator>();
             _sprite = GetComponent<SpriteRenderer>();
             moveController = GetComponent<EnemyMoveController>();
@@ -85,6 +98,13 @@ namespace GamePlay.Enemy
             _fsm.RegisterState(new EnemyDeadState(this, _fsm));
 
             _fsm.ChangeState(EnemyState.Idle);
+
+            // 剧情敌人：登记进被动列表，等战斗接管
+            if (!CombatEnabled)
+            {
+                _passives.Remove(this);
+                _passives.Add(this);
+            }
         }
 
         private void Update()
@@ -95,6 +115,33 @@ namespace GamePlay.Enemy
         private void FixedUpdate()
         {
             _fsm?.FixedUpdate(Time.fixedDeltaTime);
+        }
+
+        private void OnDestroy()
+        {
+            _passives.Remove(this);
+        }
+
+        /// <summary>
+        /// 切进战斗状态。战斗系统接管场上摆好的剧情敌人时调用。
+        /// 非战斗期间 EnemyDetectZone 的进入事件被忽略了，而玩家这时可能已经站在检测范围里 ——
+        /// 触发器不会重新回调，所以把检测碰撞体关掉再打开，让物理重新发一次进入事件。
+        /// </summary>
+        public void EnterCombat()
+        {
+            CombatEnabled = true;
+            _passives.Remove(this);
+
+            var zones = GetComponentsInChildren<EnemyDetectZone>(true);
+            for (int i = 0; i < zones.Length; i++)
+            {
+                var col = zones[i].GetComponent<Collider2D>();
+                if (col == null) continue;
+                col.enabled = false;
+                col.enabled = true;
+            }
+
+            Debug.Log($"[敌人] {name} 进入战斗");
         }
 
         //给状态类调用的工具方法

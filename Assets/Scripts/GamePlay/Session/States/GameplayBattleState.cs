@@ -85,8 +85,9 @@ namespace GamePlay.Session
             if (Root.Story.CurrentNode != null && Root.Story.CurrentNode.autoWinBattle)
                 _autoWinRemain = AutoWinDelay;
 
-            // 用完即清，避免下一场复用
-            Root.ClearEncounter();
+            // 【刻意不清 EncounterAnchors】擂台是「一个触发器 → 连续多波战斗」，
+            // 第 2 波起没有新触发器，清了锚点就只能刷在预制体原点 (0,0)。
+            // 锚点改为在剧情阶段切换时由 GameplayRoot 统一清（见 ApplyNodeContext）。
         }
 
         protected override void Tick(float deltaTime)

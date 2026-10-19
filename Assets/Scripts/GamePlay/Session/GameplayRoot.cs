@@ -328,6 +328,7 @@ namespace GamePlay
             if (!_stageInitialized || _releasedStage != node.currentStage)
             {
                 _battleState?.ReleasePendingCorpses();
+                ClearEncounter();          // 跨阶段了，上一阶段的刷怪锚点作废
                 _releasedStage = node.currentStage;
                 _stageInitialized = true;
             }
