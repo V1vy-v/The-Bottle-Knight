@@ -34,6 +34,12 @@ MonoBehaviour:
   _buffConfigs: []
   _storyConfigs: []
   _nodeConfigs:
+  - {fileID: 11400000, guid: c1d2e3f4a5b60718293a4b5c6d7e8f27, type: 2}
+  - {fileID: 11400000, guid: c1d2e3f4a5b60718293a4b5c6d7e8f26, type: 2}
+  - {fileID: 11400000, guid: c1d2e3f4a5b60718293a4b5c6d7e8f25, type: 2}
+  - {fileID: 11400000, guid: c1d2e3f4a5b60718293a4b5c6d7e8f24, type: 2}
+  - {fileID: 11400000, guid: c1d2e3f4a5b60718293a4b5c6d7e8f23, type: 2}
+  - {fileID: 11400000, guid: c1d2e3f4a5b60718293a4b5c6d7e8f22, type: 2}
   - {fileID: 11400000, guid: 95ece988741095942ad6f22d8773f7bd, type: 2}
   - {fileID: 11400000, guid: 697dbafe8ebcc964bb6a49c60b49a0c8, type: 2}
   - {fileID: 11400000, guid: 38dfb510d09ac1b4080c2165f2e708f1, type: 2}

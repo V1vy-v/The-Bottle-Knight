@@ -1,4 +1,4 @@
-﻿using Framework;
+﻿﻿﻿using Framework;
 using System.Collections.Generic;
 using GamePlay.Configs;
 using GamePlay.Session;
@@ -141,6 +141,7 @@ namespace GamePlay
             _modeFsm.OnStateChange += OnModeChanged;
             _modeFsm.RegisterState(new GameplayFreeRoamState(this, _modeFsm));
             _modeFsm.RegisterState(new GameplayDialogueState(this, _modeFsm));
+            _modeFsm.RegisterState(new GameplayShopState(this, _modeFsm));
             _modeFsm.RegisterState(new GameplayCutsceneState(this, _modeFsm));
 
             // 留住引用，好在阶段推进 / 结束对局时回收暂留尸体
@@ -204,7 +205,12 @@ namespace GamePlay
         /// <summary>隐藏本次遭遇的占位物（战斗开始时调用）</summary>
         public void HideEncounterPlaceholder()
         {
-            if (_encounterPlaceholder != null) _encounterPlaceholder.SetActive(false);
+            if (_encounterPlaceholder == null) return;
+
+            // 只关渲染，不要 SetActive(false)：占位物自己往往就是触发器，
+            // 关掉 GameObject 会让它不再响应 OnTriggerEnter2D —— 擂台要打 4 轮就会卡在第 2 轮。
+            foreach (var sr in _encounterPlaceholder.GetComponentsInChildren<SpriteRenderer>(true))
+                sr.enabled = false;
         }
 
         /// <summary>清掉本次遭遇的登记，避免下一场复用</summary>

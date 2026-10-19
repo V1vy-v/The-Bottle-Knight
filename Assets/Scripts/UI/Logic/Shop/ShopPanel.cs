@@ -1,4 +1,5 @@
-﻿using Framework;
+﻿﻿using Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,9 @@ namespace UI
         private const int MaxDisplayCount = 8; // 一页最多显示 8 个
         private int _currentPageIndex = 0;     // 当前页码（从 0 开始）
         private int _totalPages = 0;           // 总页数
+
+        /// <summary>商店界面关闭（GameplayShopState 据此回到漫游）</summary>
+        public static event Action OnShopClosed;
 
         private ShopPanelProperties ShopProps => Properties as ShopPanelProperties;
 
@@ -172,6 +176,7 @@ namespace UI
         private void OnCloseBtn()
         {
             // TODO: 关闭界面逻辑
+            OnShopClosed?.Invoke();
             Global.HideUI("ShopPanel");
         }
 

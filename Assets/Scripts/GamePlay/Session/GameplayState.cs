@@ -9,5 +9,6 @@ namespace GamePlay.Session
         Battle = 3,
         Pause = 4,
         GameOver = 5,
+        Shop = 6,
     }
 }

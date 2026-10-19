@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74807c75f37db974e98ca729d3361545, type: 3}
+  m_Name: "16b_\u8FD4\u56DE\u64C2\u53F0"
+  m_EditorClassIdentifier: 
+  Id: Node_16b
+  questText: 回到擂台区，打第四场
+  mode: 0
+  refreshDialog: 0
+  refreshBattle: 0
+  goalId: enter_arena
+  dialogConfig: {fileID: 0}
+  battleConfig: {fileID: 0}
+  autoWinBattle: 0
+  nextNode: {fileID: 11400000, guid: 473510e697ab7f04ba5b49ec501edc26, type: 2}
+  currentStage: 1
+  fadeTransition: 0
+  teleportTargetName: 
