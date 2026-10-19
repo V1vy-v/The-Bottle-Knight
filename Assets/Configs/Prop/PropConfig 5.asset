@@ -15,6 +15,6 @@ MonoBehaviour:
   Id: 
   Name: 
   sprite: {fileID: -1522167715, guid: 25596659def39c347b043dd37debda89, type: 3}
-  tips: 
+  tips: "\u7EA2\u592A\u72FC\u4E13\u6B66"
   price: 5
   isHold: 0
