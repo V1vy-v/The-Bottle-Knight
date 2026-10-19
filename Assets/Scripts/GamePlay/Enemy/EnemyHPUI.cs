@@ -5,8 +5,10 @@ using UnityEngine.UI;
 public class PlayerHPUI : MonoBehaviour
 {
     [SerializeField] private Image image;
+    [SerializeField] private Image bkImg;
 
     private EnemyController enemyController;
+
     private void Awake()
     {
         if (image == null) return;
@@ -61,5 +63,10 @@ public class PlayerHPUI : MonoBehaviour
 
         float percent = max > 0 ? (float)current / max : 0f;
         image.fillAmount = Mathf.Clamp01(percent);
+
+        if (bkImg != null)
+        {
+            bkImg.gameObject.SetActive(current > 0);
+        }
     }
 }

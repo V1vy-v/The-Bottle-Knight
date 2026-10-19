@@ -28,6 +28,10 @@ namespace GamePlay.Player
 
         private LineRenderer _rangeRenderer;
 
+        // 【新增】记录当前朝向（1为右，-1为左）
+        private float _facingDir = 1f;
+        private SpriteRenderer _spriteRenderer;
+
         public void Init(PlayerStats stats, PlayerView view, PlayerLiquids liquids)
         {
             _stats = stats;
@@ -42,8 +46,10 @@ namespace GamePlay.Player
             _rangeRenderer.endWidth = 0.1f;
             _rangeRenderer.useWorldSpace = true;
             _rangeRenderer.enabled = false;
-            // 为了好看，可以设置一下默认不遮挡
             _rangeRenderer.sortingOrder = 999;
+
+            // 获取 SpriteRenderer 以防你是靠 flipX 翻转的
+            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
         private void Update()
@@ -51,6 +57,20 @@ namespace GamePlay.Player
             _liquids?.CurrentLiquid?.TickSkill(Time.deltaTime);
             _liquids?.StandbyLiquid?.TickSkill(Time.deltaTime);
             TickPrimaryAtk(Time.deltaTime);
+
+            // 每帧实时检测角色的朝向
+            UpdateFacingDir();
+        }
+
+        // 【新增】检测朝向，兼容 localScale 和 flipX
+        private void UpdateFacingDir()
+        {
+            if (transform.lossyScale.x < 0)
+                _facingDir = -1f;
+            else if (_spriteRenderer != null && _spriteRenderer.flipX)
+                _facingDir = -1f;
+            else
+                _facingDir = 1f;
         }
 
         private Vector2 SearchForEnemy()
@@ -70,16 +90,27 @@ namespace GamePlay.Player
                 _view.PlayAttack(AttackModule.Melee);
                 float finalRadius = _stats.MeleeRange * (1f + _liquids.RangeBonus);
 
-                RangeAttack(_primaryMeleeAtkOffset, finalRadius);
+                // 【修改点 1】实时计算带朝向的偏移量
+                Vector2 actualOffset = new Vector2(_primaryMeleeAtkOffset.x * _facingDir, _primaryMeleeAtkOffset.y);
+                Vector2 center = (Vector2)transform.position + actualOffset;
 
-                Vector2 center = (Vector2)transform.position + _primaryMeleeAtkOffset;
+                // 传入真实的偏移量
+                RangeAttack(actualOffset, finalRadius);
+
+                // 用真实的中心点画圈
                 StartCoroutine(DrawAttackRange(center, finalRadius));
             }
             else
             {
                 _view.PlayAttack(AttackModule.Ranged);
                 Vector2 dir = (SearchForEnemy() - (Vector2)transform.position).normalized;
-                DirectionalAttack(dir, (Vector2)transform.position + _primaryRangedAtkOffset, _liquids?.CurrentLiquid?.Config?.BulletPrefabRes, _stats.RangedDamage);
+
+                if (dir == Vector2.zero) dir = new Vector2(_facingDir, 0f);
+
+                // 【修改点 2】远程攻击的生成点偏移也跟随翻转
+                Vector2 actualRangedOffset = new Vector2(_primaryRangedAtkOffset.x * _facingDir, _primaryRangedAtkOffset.y);
+
+                DirectionalAttack(dir, (Vector2)transform.position + actualRangedOffset, _liquids?.CurrentLiquid?.Config?.BulletPrefabRes, _stats.RangedDamage);
             }
         }
 
@@ -111,6 +142,7 @@ namespace GamePlay.Player
         {
             _isStrawGained |= true;
         }
+
         private void DirectionalAttack(Vector2 dir, Vector2 pos, string projectileRes, float dmg)
         {
             if (string.IsNullOrEmpty(projectileRes)) return;
@@ -120,6 +152,8 @@ namespace GamePlay.Player
         private void RangeAttack(Vector2 offset, float radius)
         {
             float dmg = _stats.MeleeDamage * (1f + _liquids.AtkBonus);
+
+            // 这里的 center 会自动应用传入的翻转后的 offset
             Vector2 center = (Vector2)transform.position + offset;
 
             Collider2D[] hits = Physics2D.OverlapCircleAll(center, radius, _enemyLayerMask);
@@ -129,18 +163,10 @@ namespace GamePlay.Player
 
             foreach (var col in hits)
             {
-
                 var enemy = col.GetComponentInParent<EnemyController>();
 
-                if (enemy == null)
-                {
-                    continue;
-                }
-
-                if (damagedEnemies.Contains(enemy))
-                {
-                    continue;
-                }
+                if (enemy == null) continue;
+                if (damagedEnemies.Contains(enemy)) continue;
 
                 enemy.ApplyDamage(dmg);
                 damagedEnemies.Add(enemy);
