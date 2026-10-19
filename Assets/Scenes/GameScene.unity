@@ -7562,6 +7562,7 @@ MonoBehaviour:
   _goalId: Node_9
   _asEncounterAnchor: 0
   _spawnPoints: []
+  _hideAfterFire: 1
 --- !u!61 &424283721
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11359,7 +11360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafb95b8a9095ed40a9d12c1a37d0295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prompt: "\u6309 F \u6253\u5F00\u62BD\u5C49\u5546\u5E97"
+  _prompt: "\u65E0\u76D6\u8005\u5546\u5E97"
   _requireNodeId: 
 --- !u!1 &771000021
 GameObject:

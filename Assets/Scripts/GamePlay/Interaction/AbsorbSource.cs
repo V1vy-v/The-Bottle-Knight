@@ -42,6 +42,11 @@ namespace GamePlay.Interaction
         // 约定：剧情 100 / 商店 50 / 吸取 10。三者位置重叠时按这个顺序取
         public int Priority => 10;
 
+        /// <summary>约等于原来的 1.5 查询半径 + 吸点碰撞体半径 3</summary>
+        public float InteractRadius => 4.5f;
+
+        public float PromptRadius => InteractRadius;      // 提示和交互同距离
+
         public Transform PromptAnchor => transform;
 
         public bool CanInteract =>

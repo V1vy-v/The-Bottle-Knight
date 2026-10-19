@@ -12,6 +12,12 @@ namespace GamePlay.Interaction
         /// <summary>候选重叠时的取舍权重，大者优先。剧情 > 商店 > 吸取</summary>
         int Priority { get; }
 
+        /// <summary>可交互的最远距离（按 PromptAnchor 到主角的距离算）。决定提示显示与 F 键是否生效</summary>
+        float InteractRadius { get; }
+
+        /// <summary>提示文字的显示距离，可以比 InteractRadius 大得多（用于常驻名字）</summary>
+        float PromptRadius { get; }
+
         /// <summary>提示文案，如「按 F 打开抽屉」；返回 null 表示不显示提示</summary>
         string GetPromptText(PlayerLiquids liquids);
 

@@ -628,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43e6158650b39ef478424ca645d32eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config: {fileID: 11400000, guid: 669a4ce948cf7be489bece2dc1410699, type: 2}
+  config: {fileID: 11400000, guid: f59fdebf0f6fa16479366d37214d296f, type: 2}
   _passiveAtStart: 0
   idleDuration: 2
   patrolDuration: 5

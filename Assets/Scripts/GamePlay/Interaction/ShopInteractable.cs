@@ -14,14 +14,22 @@ namespace GamePlay.Interaction
     public class ShopInteractable : MonoBehaviour, IInteractable
     {
         [Header("提示")]
-        [SerializeField] private string _prompt = "按 F 打开商店";
+        [SerializeField] private string _prompt = "无盖者商店";
 
         [Header("前置条件")]
         [Tooltip("为空表示随时可交互；填了的话要求当前节点 Id 等于它才能开")]
         [SerializeField] private string _requireNodeId = "";
 
+        /// <summary>走进这个距离就显示提示、可以按 F</summary>
+        [SerializeField] private float _interactRadius = 2.5f;
+        [SerializeField] private float _promptRadius = 15f;
+
         /// <summary>无盖者商店的优先级：剧情 > 商店 > 吸取（AbsorbSource 是 10）</summary>
         public int Priority => 50;
+
+        public float InteractRadius => _interactRadius;
+
+        public float PromptRadius => _promptRadius;      // 名字常驻：站很远也能看到
 
         public Transform PromptAnchor => transform;
 

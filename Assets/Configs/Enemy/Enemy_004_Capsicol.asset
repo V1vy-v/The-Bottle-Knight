@@ -15,8 +15,8 @@ MonoBehaviour:
   Id: Enemy_004_Capsicol
   Name: "\u8FA3\u6912\u6CB9"
   Tier: 1
-  MaxHp: 200
-  Damage: 0
+  MaxHp: 80
+  Damage: 15
   MoveSpeed: 0
   AttackCooldown: 1.5
   HurtStunTime: 0.3
