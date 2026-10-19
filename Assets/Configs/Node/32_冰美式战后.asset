@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74807c75f37db974e98ca729d3361545, type: 3}
+  m_Name: 32_冰美式战后
+  m_EditorClassIdentifier: 
+  Id: Node_32
+  questText: 冰柜区已清空
+  mode: 1
+  refreshDialog: 1
+  refreshBattle: 0
+  goalId: 
+  dialogConfig: {fileID: 4900000, guid: 18af2a86cd25473ea0575fea27e4c7c6, type: 3}
+  battleConfig: {fileID: 0}
+  autoWinBattle: 0
+  nextNode: {fileID: 11400000, guid: 430a97a2f3c3465ea2db375a817780ed, type: 2}
+  currentStage: 3
+  fadeTransition: 0
+  teleportTargetName: 
