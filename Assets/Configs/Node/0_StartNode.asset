@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Node_0
   questText: 沿路往前走，看看是谁拦在门口
+  tipText: WASD移动，J攻击，F交互，Esc暂停。
   mode: 0
   refreshDialog: 0
   refreshBattle: 0

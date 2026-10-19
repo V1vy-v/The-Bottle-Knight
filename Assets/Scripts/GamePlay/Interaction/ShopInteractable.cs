@@ -20,8 +20,12 @@ namespace GamePlay.Interaction
         [Tooltip("为空表示随时可交互；填了的话要求当前节点 Id 等于它才能开")]
         [SerializeField] private string _requireNodeId = "";
 
-        /// <summary>走进这个距离就显示提示、可以按 F</summary>
-        [SerializeField] private float _interactRadius = 2.5f;
+        /// <summary>
+        /// 按 F 生效的距离，从本物体的轴心算起（不是从碰撞体边沿）。
+        /// 抽屉那种大块物体（碰撞体 12 米宽）要填到大于它的一半尺寸，
+        /// 否则玩家站在边沿看得到提示却按不动。
+        /// </summary>
+        [SerializeField] private float _interactRadius = 8f;
         [SerializeField] private float _promptRadius = 15f;
 
         /// <summary>无盖者商店的优先级：剧情 > 商店 > 吸取（AbsorbSource 是 10）</summary>

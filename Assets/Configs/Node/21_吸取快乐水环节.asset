@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Node_21
   questText: 吸取快乐水的液体，拿上它的信物
+  tipText: 当技能栏上方显示切换键时，可以Tab切换已吸取的形态。当技能栏上方显示技能时，说明被动生效，不能切换形态。
   mode: 0
   refreshDialog: 0
   refreshBattle: 0

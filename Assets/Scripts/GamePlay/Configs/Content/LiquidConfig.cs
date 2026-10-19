@@ -30,6 +30,10 @@ namespace GamePlay.Configs
         public LiquidKind Kind = LiquidKind.Active;
         public bool CanBeMain = true;           // 能否作主形态（冰美式 / 料酒 false）
 
+        [Header("表现")]
+        [Tooltip("技能栏上显示的图标。国窖 / 快乐水 / 三拳 / 雷碧 / 冰美式 / 料酒 各一张")]
+        public Sprite Icon;
+
 
         [Header("普攻 / 弹幕")]
         public int Damage;                      // 普攻或弹幕伤害

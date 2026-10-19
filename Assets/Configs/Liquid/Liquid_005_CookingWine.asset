@@ -17,6 +17,7 @@ MonoBehaviour:
   Type: 3
   Kind: 2
   CanBeMain: 0
+  Icon: {fileID: 1839435659, guid: e5752046916cc7d47aea898f20f9ecd4, type: 3}
   Damage: 0
   AttackInterval: 0
   BulletPrefabRes: 

@@ -1,4 +1,4 @@
-﻿using Framework;
+using Framework;
 using GamePlay.Configs;
 using GamePlay.Enemy;
 using GamePlay.Interaction;
@@ -36,6 +36,13 @@ namespace GamePlay.Session
         public override void Enter()
         {
             base.Enter();
+
+            // 从暂停回来：敌人、数量统计、暂留尸体都还在，什么都不要重置
+            if (_suspended)
+            {
+                _suspended = false;
+                return;
+            }
 
             _hasError = false;
             _spawnedEnemies.Clear();
@@ -143,9 +150,20 @@ namespace GamePlay.Session
             base.CheckStateChange();
         }
 
+        /// <summary>被暂停挂起：场上敌人保留，回来接着打，不要重新生成</summary>
+        private bool _suspended;
+
         public override void Exit()
         {
             base.Exit();
+
+            // 只是被暂停（Esc 菜单）：敌人、计数、尸体统统留着，回来继续这一场
+            if (Root.PendingMode == GameplayMode.Pause)
+            {
+                _suspended = true;
+                return;
+            }
+
             ClearAllEnemies();
         }
 

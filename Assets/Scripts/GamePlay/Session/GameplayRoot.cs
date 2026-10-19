@@ -1,4 +1,4 @@
-﻿﻿﻿using Framework;
+﻿﻿﻿﻿﻿﻿using Framework;
 using System.Collections.Generic;
 using GamePlay.Configs;
 using GamePlay.Session;
@@ -27,7 +27,18 @@ namespace GamePlay
         public GameplayMode CurrentMode => _modeFsm?.CurrentState ?? default;
 
         #region 生命周期
-        public override void Update(float deltaTime) => _modeFsm?.Update(deltaTime);
+        public override void Update(float deltaTime)
+        {
+            _modeFsm?.Update(deltaTime);
+
+            // Esc：打开 / 关掉菜单（Esc 没进 PlayerInputActions，直接读键盘）
+            var keyboard = UnityEngine.InputSystem.Keyboard.current;
+            if (keyboard != null && keyboard.escapeKey.wasPressedThisFrame)
+            {
+                if (CurrentMode == GameplayMode.Pause) Resume();
+                else Pause();
+            }
+        }
         public override void FixedUpdate(float fixedDeltaTime) => _modeFsm?.FixedUpdate(fixedDeltaTime);
         public override void LateUpdate() => _modeFsm?.LateUpdate();
         #endregion
@@ -39,6 +50,7 @@ namespace GamePlay
         /// </summary>
         public void StartNewGame()
         {
+            TutorialTips.Clear();
             var configs = ConfigManager.Instance;
             if (configs == null || !configs.TryGetStartNode(out NodeConfig startNode))
             {
@@ -58,6 +70,9 @@ namespace GamePlay
             SpawnPlayer();
 
             _modeFsm.ChangeState(startNode.mode);
+
+            // 首个节点不走 EnterNodeImmediate，提示要在这里单独补一次
+            TutorialTips.Show(startNode.tipText);
             Global.Get<CameraManager>()?.SetTarget(_player.transform);
         }
 
@@ -85,6 +100,8 @@ namespace GamePlay
             SpawnPlayer();
 
             _modeFsm.ChangeState(savedNode.mode);
+
+            TutorialTips.Show(savedNode.tipText);
         }
 
         public void EndGame()
@@ -154,7 +171,17 @@ namespace GamePlay
 
         #region 局内切换
 
-        public void ChangeMode(GameplayMode mode) => _modeFsm?.ChangeState(mode);
+        /// <summary>
+        /// 正在切换到的模式。状态机是先 Exit 旧状态再进新状态，
+        /// 旧状态在 Exit 里拿不到「我要去哪」，只能从这里问。
+        /// </summary>
+        public GameplayMode PendingMode { get; private set; }
+
+        public void ChangeMode(GameplayMode mode)
+        {
+            PendingMode = mode;
+            _modeFsm?.ChangeState(mode);
+        }
 
         /// <summary>暂停。只在自由行动与战斗中允许。</summary>
         public void Pause()
@@ -285,6 +312,14 @@ namespace GamePlay
             ApplyNodeContext(node, isFirstNode: false);
 
             ChangeMode(node.mode);
+
+            // 拿到吸管：解锁远战模组（Q 才能真正切换）
+            if (node.unlockRangedAttack && _player != null)
+                _player.GetComponent<GamePlay.Player.PlayerCombat>()?.UnlockRangeModule();
+
+            // 节点的教学提示
+            if (!string.IsNullOrEmpty(node.tipText))
+                TutorialTips.Show(node.tipText);      // 进队列，避免被下一条瞬间顶掉
         }
 
         /// <summary>
