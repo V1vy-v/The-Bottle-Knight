@@ -94,6 +94,10 @@ namespace UI
 
         /// <summary>本阶段是否已经提示过长宽比不一致</summary>
         private bool _aspectWarned;
+
+        /// <summary>瓶盖数量显示</summary>
+        private TextMeshProUGUI _capsLabel;
+        private int _capsCache = int.MinValue;
         private readonly System.Collections.Generic.List<Vector2> _enemyPositions = new();
         private readonly System.Collections.Generic.List<Vector2> _interactPositions = new();
 
@@ -112,6 +116,9 @@ namespace UI
 
             // 血条已经由美术在预制体里配好 Filled（纵向），这里只取引用，不改它的设置
             _healthFill = ImageOf(_healthBar);
+
+            // 瓶盖数字：MoneyRoot/NumTxt 上的 TMP
+            _capsLabel = _numTxt != null ? _numTxt.GetComponent<TextMeshProUGUI>() : null;
 
             // 任务栏绑定给的是 RectTransform，文字在 TextMeshProUGUI 上
             _questLabel = _questTxt != null ? _questTxt.GetComponent<TextMeshProUGUI>() : null;
@@ -196,6 +203,13 @@ namespace UI
             // ---- 血条 ----
             if (_healthFill != null)
                 _healthFill.fillAmount = _stats.MaxHp > 0f ? Mathf.Clamp01(_stats.Hp / _stats.MaxHp) : 0f;
+
+            // ---- 瓶盖 ----
+            if (_capsLabel != null && _stats.Caps != _capsCache)
+            {
+                _capsCache = _stats.Caps;
+                _capsLabel.text = _stats.Caps.ToString();
+            }
 
             // ---- 图标：按当前装配的液体换图（LiquidConfig.Icon）----
             // 切换小球不跟液体图标走：它表示「现在能不能切换液体槽」，用的是固定图标
@@ -652,10 +666,15 @@ namespace UI
 
         private void AcquirePlayer()
         {
-            // 主角身上有 "Player" tag（EnemyDetectZone 也是靠它认人的）。
-            // 用 GetComponentInParent 是因为 tag 可能挂在带碰撞体的子物体上。
-            GameObject tagged = GameObject.FindGameObjectWithTag(PlayerTag);
-            _player = tagged != null ? tagged.GetComponentInParent<PlayerController>() : null;
+            // 优先问 GameplayRoot 要（最可靠）；拿不到再用 tag 兜底
+            GameObject owner = Global.Get<GameplayRoot>()?.Player;
+            _player = owner != null ? owner.GetComponent<PlayerController>() : null;
+
+            if (_player == null)
+            {
+                GameObject tagged = GameObject.FindGameObjectWithTag(PlayerTag);
+                _player = tagged != null ? tagged.GetComponentInParent<PlayerController>() : null;
+            }
 
             _playerGO = _player != null ? _player.gameObject : null;
             _stats = _player?.PlayerStats;

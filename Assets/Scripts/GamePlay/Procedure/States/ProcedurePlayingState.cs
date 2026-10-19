@@ -23,6 +23,7 @@ namespace GamePlay.Procedure
 
             // 新游戏和读档两条分支都要显示 HUD，所以放在 if 外面
             Global.ShowUI("HUD");
+            Global.Get<Framework.SubSystems.AudioManager>()?.PlayBGM("BGM_Kitchen");
         }
 
         public override void Exit()

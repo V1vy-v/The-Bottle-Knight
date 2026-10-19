@@ -48,10 +48,14 @@ public class EnemyMoveController : MonoBehaviour
         }
     }
 
+    /// <summary>停住：清掉速度与路径，否则死亡后还会因为惯性滑一段</summary>
     public void Stop()
     {
-        if (_agent != null)
-            _agent.isStopped = true;
+        if (_agent == null) return;
+
+        _agent.isStopped = true;
+        _agent.velocity = Vector3.zero;
+        _agent.ResetPath();
     }
 
     public bool HasReachedDestination()

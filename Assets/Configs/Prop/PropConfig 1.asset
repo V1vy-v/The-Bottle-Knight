@@ -15,8 +15,8 @@ MonoBehaviour:
   Id: 
   Name: 
   sprite: {fileID: 1861313348, guid: 25596659def39c347b043dd37debda89, type: 3}
-  tips: "\u8FD9\u662F\u5438\u7BA1"
-  price: 4
+  tips: "吸管：解锁 Q 远战模组（近战 / 远战切换）"
+  price: 0
   isHold: 0
   unlockRangedModule: 1
   tipOnBuy: "按Q在近战与远战之间切换。"

@@ -1,5 +1,6 @@
-﻿using Framework;
+using Framework;
 using GamePlay.Configs;
+using GamePlay.Player;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -249,6 +250,12 @@ namespace GamePlay.Enemy
             moveController?.SetSpeed(speed);
         }
 
+        /// <summary>立即停住（清速度与路径）。死亡时用，避免尸体惯性滑走</summary>
+        public void StopMove()
+        {
+            moveController?.Stop();
+        }
+
         public void RandomMove(float distance)
         {
             moveController.MoveToRandomDirection(distance);
@@ -350,6 +357,19 @@ namespace GamePlay.Enemy
         {
             if (IsDefeated) return;
             IsDefeated = true;
+
+            // 掉落瓶盖
+            if (config != null && config.CapDrop > 0)
+            {
+                GameObject playerGo = Global.Get<GameplayRoot>()?.Player;
+                PlayerController pc = playerGo != null ? playerGo.GetComponent<PlayerController>() : null;
+                if (pc != null && pc.PlayerStats != null)
+                {
+                    pc.PlayerStats.Caps += config.CapDrop;
+                    Debug.Log($"[瓶盖] 获得 {config.CapDrop} 个，共 {pc.PlayerStats.Caps}");
+                }
+            }
+
             OnDefeated?.Invoke(this);
         }
         public void Attack()

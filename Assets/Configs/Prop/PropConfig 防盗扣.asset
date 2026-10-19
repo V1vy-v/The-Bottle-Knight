@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce832b748168d943ac7dfac432d8cc3, type: 3}
+  m_Name: PropConfig 防盗扣
+  m_EditorClassIdentifier: 
+  Id: 
+  Name: 
+  sprite: {fileID: 0}
+  tips: 防盗扣：生命每下降 1/4 触发电磁脉冲，造成 10 点范围伤害、击退并短暂眩晕（BOSS 免疫眩晕击退但吃伤害）
+  price: 1
+  isHold: 0
+  unlockRangedModule: 0
+  tipOnBuy: 

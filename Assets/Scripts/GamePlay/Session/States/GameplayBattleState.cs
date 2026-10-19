@@ -44,7 +44,10 @@ namespace GamePlay.Session
                 return;
             }
 
+            Global.Get<Framework.SubSystems.AudioManager>()?.PlayBGM("Combat_Light");
+
             _hasError = false;
+            _victoryRewarded = false;
             _spawnedEnemies.Clear();
 
             BattleConfig config = Root.Battle.CurrentBattle;
@@ -141,6 +144,7 @@ namespace GamePlay.Session
             }
             else if (Root.Battle.IsVictory)
             {
+                GrantVictoryCaps();
                 MarkFinished();
             }
 
@@ -148,6 +152,30 @@ namespace GamePlay.Session
             // 不调的话 MarkFinished() 只是把一个没人读的布尔值置真，战斗赢了也切不走模式。
             // 对照 GameplayDialogueState —— 它不重写本方法，所以继承基类逻辑、能正常推进。
             base.CheckStateChange();
+        }
+
+        /// <summary>本场是否已经发过胜利奖励（防止每帧重复发）</summary>
+        private bool _victoryRewarded;
+
+        /// <summary>胜利奖励瓶盖（擂台每轮 1 个）</summary>
+        private void GrantVictoryCaps()
+        {
+            if (_victoryRewarded) return;
+            _victoryRewarded = true;
+
+            Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("victory");
+
+            BattleConfig config = Root.Battle.CurrentBattle;
+            if (config == null || config.VictoryCaps <= 0) return;
+
+            GameObject playerGo = Root.Player;
+            GamePlay.Player.PlayerController pc = playerGo != null
+                ? playerGo.GetComponent<GamePlay.Player.PlayerController>() : null;
+
+            if (pc == null || pc.PlayerStats == null) return;
+
+            pc.PlayerStats.Caps += config.VictoryCaps;
+            Debug.Log($"[瓶盖] 战斗胜利奖励 {config.VictoryCaps} 个，共 {pc.PlayerStats.Caps}");
         }
 
         /// <summary>被暂停挂起：场上敌人保留，回来接着打，不要重新生成</summary>
@@ -165,6 +193,9 @@ namespace GamePlay.Session
             }
 
             ClearAllEnemies();
+
+            // 战斗结束（胜利/失败/跳过）都要把 BGM 切回当前阶段
+            Root.PlayStageBgm();
         }
 
         #endregion

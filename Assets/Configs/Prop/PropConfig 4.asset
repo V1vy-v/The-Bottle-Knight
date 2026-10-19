@@ -15,6 +15,6 @@ MonoBehaviour:
   Id: 
   Name: 
   sprite: {fileID: 794985039, guid: 25596659def39c347b043dd37debda89, type: 3}
-  tips: "\u4FDD\u9C9C\u819C\u6765\u7684"
+  tips: "保鲜膜：每 10 秒获得护盾，可挡 1 次伤害"
   price: 1
   isHold: 0

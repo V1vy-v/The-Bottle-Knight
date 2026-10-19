@@ -15,8 +15,8 @@ MonoBehaviour:
   Id: Enemy_011_Coffee
   Name: "\u5496\u5561"
   Tier: 0
-  MaxHp: 20
-  Damage: 10
+  MaxHp: 30
+  Damage: 8
   MoveSpeed: 5
   AttackCooldown: 1.5
   HurtStunTime: 0.3

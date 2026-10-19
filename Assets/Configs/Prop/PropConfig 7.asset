@@ -15,6 +15,6 @@ MonoBehaviour:
   Id: 
   Name: 
   sprite: {fileID: -661500404, guid: 25596659def39c347b043dd37debda89, type: 3}
-  tips: "\u716E\u7A00\u996D"
-  price: 0
+  tips: "篮球：国窖 K 变为高额小范围火伤肘击"
+  price: 2
   isHold: 0

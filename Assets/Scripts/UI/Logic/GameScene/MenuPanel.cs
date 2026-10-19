@@ -41,8 +41,8 @@ namespace UI
             if (_quit != null) _quit.onClick.AddListener(QuitToMenu);
             if (_saveAndExit != null) _saveAndExit.onClick.AddListener(QuitToMenu);
 
-            // 设置面板还没做，先置灰免得点了没反应
-            if (_setting != null) _setting.interactable = false;
+            // 设置面板已接入（音量），按钮恢复正常可点
+            if (_setting != null) _setting.interactable = true;
         }
 
         protected override void RemoveListener()
@@ -76,8 +76,9 @@ namespace UI
 
         private void OpenSetting()
         {
-            // 设置面板还没做（目前只有音量设置，音频也还没接入），按钮已置灰
-            Debug.LogWarning("[MenuPanel] 设置面板还没做");
+            // 设置面板与菜单共用同一套 UI，叠在菜单上层
+            Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("UI_Open");
+            Global.ShowUI("SettingPanel");
         }
 
         private void QuitToMenu()

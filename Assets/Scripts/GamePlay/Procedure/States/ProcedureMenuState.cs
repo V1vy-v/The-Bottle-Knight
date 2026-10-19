@@ -24,6 +24,7 @@ namespace GamePlay.Procedure
 
             Global.Get<LocalInputManager>().SwitchMap(LocalInputType.UI);
             Global.ShowUI("BeginPanel");
+            Global.Get<Framework.SubSystems.AudioManager>()?.PlayBGM("BGM_Menu");
         }
 
         #endregion

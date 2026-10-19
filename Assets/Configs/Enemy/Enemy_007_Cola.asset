@@ -15,15 +15,15 @@ MonoBehaviour:
   Id: Enemy_007_Cola
   Name: "\u5FEB\u4E50\u6C34"
   Tier: 3
-  MaxHp: 20
-  Damage: 10
+  MaxHp: 800
+  Damage: 18
   MoveSpeed: 5
   AttackCooldown: 1.5
   HurtStunTime: 0.3
   IdleDuration: 2
   PatrolDuration: 5
   FadeDuration: 1
-  CapDrop: 0
+  CapDrop: 2
   CanAbsorb: 1
   AbsorbLiquid: {fileID: 11400000, guid: 284e43984c876dc448ab434dca2387b9, type: 2}
   ImmuneKnockback: 0

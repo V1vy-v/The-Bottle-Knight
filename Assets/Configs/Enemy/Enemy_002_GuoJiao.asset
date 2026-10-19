@@ -15,15 +15,15 @@ MonoBehaviour:
   Id: Enemy_002_GuoJiao
   Name: "\u56FD\u7A96"
   Tier: 3
-  MaxHp: 20
-  Damage: 10
+  MaxHp: 800
+  Damage: 15
   MoveSpeed: 5
   AttackCooldown: 1.5
   HurtStunTime: 0.3
   IdleDuration: 2
   PatrolDuration: 5
   FadeDuration: 1
-  CapDrop: 0
+  CapDrop: 2
   CanAbsorb: 1
   AbsorbLiquid: {fileID: 11400000, guid: c29dec9d9c9137a41a26fc6081437d01, type: 2}
   ImmuneKnockback: 0

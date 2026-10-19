@@ -15,6 +15,6 @@ MonoBehaviour:
   Id: 
   Name: 
   sprite: {fileID: -51095248, guid: 25596659def39c347b043dd37debda89, type: 3}
-  tips: "\u50CF\u6253\u86CB\u673A"
+  tips: "打蛋器：攻速 +15%"
   price: 1
   isHold: 0

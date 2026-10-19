@@ -1,6 +1,0 @@
-Event	ID	Name			Wwise Object Path	Notes
-	3211564518	Play_Test_Sound			\Default Work Unit\Play_Test_Sound	
-
-In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	259519279	Test_Sound	D:\LRF\Projects\2026-TapTap-Spotlight-GameJam-Project\Taptap_Wwise\.cache\Windows\SFX\狗叫1－xh20070511_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Test_Sound		36200
-

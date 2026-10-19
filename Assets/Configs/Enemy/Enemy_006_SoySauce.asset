@@ -15,8 +15,8 @@ MonoBehaviour:
   Id: Enemy_006_SoySauce
   Name: "\u9171\u6CB9"
   Tier: 0
-  MaxHp: 20
-  Damage: 10
+  MaxHp: 50
+  Damage: 8
   MoveSpeed: 5
   AttackCooldown: 1.5
   HurtStunTime: 0.3

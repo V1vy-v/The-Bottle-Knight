@@ -1,4 +1,4 @@
-﻿using Framework;
+using Framework;
 using GamePlay.Procedure;
 using UnityEngine;
 
@@ -60,9 +60,8 @@ namespace UI
 
         private void OnSettingBtn()
         {
-            // TODO: _settingBtn 点击后的逻辑
-            //Global.ShowUI("SettingPanel");
-            Global.ShowUI("ShopPanel");
+            Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("UI_Open");
+            Global.ShowUI("SettingPanel");
         }
 
         #endregion

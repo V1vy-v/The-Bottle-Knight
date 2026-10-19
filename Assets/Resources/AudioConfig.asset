@@ -12,29 +12,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f8c8112f6b64942bdd215f76329546, type: 3}
   m_Name: AudioConfig
   m_EditorClassIdentifier: 
-  banks:
-  - bank:
-      idInternal: 0
-      valueGuidInternal: 
-      WwiseObjectReference: {fileID: 11400000, guid: bbf39b42e1ca81f4e9634bab8599a572,
-        type: 2}
-    loadOnStart: 1
-  events:
-  - key: Test_Sound
-    evt:
-      idInternal: 0
-      valueGuidInternal: 
-      WwiseObjectReference: {fileID: 11400000, guid: 8aa27f48b94f41e40a7098d099c8199d,
-        type: 2}
-  masterVolume:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
-  musicVolume:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
-  sfxVolume:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+  entries:
+  - key: BGM_Menu
+    clip: {fileID: 8300000, guid: a951cb7108d700047a4c32279c045268, type: 3}
+    loop: 1
+    volume: 1
+  - key: BGM_Kitchen
+    clip: {fileID: 8300000, guid: d8eda1fb975e56643b4eed7242e57a98, type: 3}
+    loop: 1
+    volume: 1
+  - key: BGM_stealth
+    clip: {fileID: 8300000, guid: 50f0ffd1aefacb44d8ec1725bf18b527, type: 3}
+    loop: 1
+    volume: 1
+  - key: BGM_Tutorial
+    clip: {fileID: 8300000, guid: 515c03fba316fa5429da8584918aa236, type: 3}
+    loop: 1
+    volume: 1
+  - key: Combat_Light
+    clip: {fileID: 8300000, guid: 8d49b65ac148d6a4791fdefe4cf56426, type: 3}
+    loop: 1
+    volume: 1
+  - key: Combat_Boss
+    clip: {fileID: 8300000, guid: d01e49774fbdb814d8f774738acaaf68, type: 3}
+    loop: 1
+    volume: 1
+  - key: victory
+    clip: {fileID: 8300000, guid: 431d4bb771c01d74594379da01116f45, type: 3}
+    loop: 0
+    volume: 1
+  - key: dead
+    clip: {fileID: 8300000, guid: 7a6002f22cd733541b28465c95be8c49, type: 3}
+    loop: 0
+    volume: 1
+  - key: SFX_Boss_Intro
+    clip: {fileID: 8300000, guid: 3fba93b06282a4642964275497e530ab, type: 3}
+    loop: 0
+    volume: 1
+  - key: UI_Open
+    clip: {fileID: 8300000, guid: 32dcc0174c90fa44597a4aa2eb72e76f, type: 3}
+    loop: 0
+    volume: 1
+  - key: UI_close
+    clip: {fileID: 8300000, guid: c6ca01e92d8f9f3468cf1514346f403f, type: 3}
+    loop: 0
+    volume: 1
+  - key: UI_Hover
+    clip: {fileID: 8300000, guid: 91b8c2045adc17a44a9f39e8db5f1a49, type: 3}
+    loop: 0
+    volume: 1
+  - key: UI_Error
+    clip: {fileID: 8300000, guid: bcbfe65e2ac5bb245b6159200f8473b6, type: 3}
+    loop: 0
+    volume: 1
+  - key: SFX_Flow_GameStart
+    clip: {fileID: 8300000, guid: 9cc3f053c079c964189b671d71bb487b, type: 3}
+    loop: 0
+    volume: 1
+  - key: SFX_Flow_LevelClear
+    clip: {fileID: 8300000, guid: b54e948a4b2942d43ab8072c0453065d, type: 3}
+    loop: 0
+    volume: 1
+  - key: SFX_Flow_Retry
+    clip: {fileID: 8300000, guid: 7cdc168cb2e227341a1c0d80fb966d98, type: 3}
+    loop: 0
+    volume: 1
+  masterVolume: 0.8
+  musicVolume: 0.5
+  sfxVolume: 0.8

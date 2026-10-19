@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Battle_001_Water
   Name: Battle_Water
+  VictoryCaps: 0
   Enemies:
   - Config: {fileID: 11400000, guid: 669a4ce948cf7be489bece2dc1410699, type: 2}
     Count: 2

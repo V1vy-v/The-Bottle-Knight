@@ -20,6 +20,10 @@ namespace GamePlay.Interaction
         [Tooltip("为空表示随时可交互；填了的话要求当前节点 Id 等于它才能开")]
         [SerializeField] private string _requireNodeId = "";
 
+        [Header("本店商品")]
+        [Tooltip("这家店卖哪些道具。留空 = 卖 PropConfigs 里的全部道具")]
+        [SerializeField] private System.Collections.Generic.List<PropConfig> _goods = new();
+
         /// <summary>
         /// 按 F 生效的距离，从本物体的轴心算起（不是从碰撞体边沿）。
         /// 抽屉那种大块物体（碰撞体 12 米宽）要填到大于它的一半尺寸，
@@ -62,6 +66,9 @@ namespace GamePlay.Interaction
         public void Interact(GameObject player, PlayerLiquids liquids)
         {
             if (!CanInteract) return;
+
+            // 告诉商店面板这家店卖什么（空 = 卖全部）
+            UI.ShopPanel.PendingGoods = _goods != null && _goods.Count > 0 ? _goods : null;
 
             // 交给状态机处理：切 InputMap、显示界面、关闭后回漫游
             Global.Get<GameplayRoot>()?.ChangeMode(GameplayMode.Shop);

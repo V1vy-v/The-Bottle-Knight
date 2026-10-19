@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: Enemy_008_Vinegar
   Name: "\u918B"
   Tier: 0
-  MaxHp: 20
+  MaxHp: 60
   Damage: 10
   MoveSpeed: 5
   AttackCooldown: 1.5

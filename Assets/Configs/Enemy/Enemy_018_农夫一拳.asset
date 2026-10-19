@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: "Enemy_018_\u519C\u592B\u4E00\u62F3"
   Name: "\u519C\u592B\u4E00\u62F3"
   Tier: 0
-  MaxHp: 20
+  MaxHp: 45
   Damage: 10
   MoveSpeed: 5
   AttackCooldown: 1.5

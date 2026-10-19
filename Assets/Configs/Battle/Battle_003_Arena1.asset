@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Battle_003_Arena1
   Name: "\u64C2\u53F01"
+  VictoryCaps: 1
   Enemies:
   - Config: {fileID: 11400000, guid: f59fdebf0f6fa16479366d37214d296f, type: 2}
     Count: 2

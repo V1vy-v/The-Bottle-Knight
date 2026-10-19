@@ -15,15 +15,15 @@ MonoBehaviour:
   Id: Enemy_005_CookingWine
   Name: "\u6599\u9152"
   Tier: 2
-  MaxHp: 20
-  Damage: 10
+  MaxHp: 600
+  Damage: 15
   MoveSpeed: 5
   AttackCooldown: 1.5
   HurtStunTime: 0.3
   IdleDuration: 2
   PatrolDuration: 5
   FadeDuration: 1
-  CapDrop: 0
+  CapDrop: 2
   CanAbsorb: 1
   AbsorbLiquid: {fileID: 11400000, guid: f4c5893168b13e04a9fa6c7e48cce570, type: 2}
   ImmuneKnockback: 0

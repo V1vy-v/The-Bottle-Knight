@@ -15,6 +15,6 @@ MonoBehaviour:
   Id: 
   Name: 
   sprite: {fileID: -1638010348, guid: 25596659def39c347b043dd37debda89, type: 3}
-  tips: "\u65E0\u9650\u624B\u5957()"
-  price: 5
+  tips: "手套：免疫火路、亡语等持续伤害"
+  price: 1
   isHold: 0

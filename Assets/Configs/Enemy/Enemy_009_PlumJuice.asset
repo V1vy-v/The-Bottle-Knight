@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Enemy_009_PlumJuice
   Name: "\u9178\u6885\u6C64"
-  Tier: 0
-  MaxHp: 20
-  Damage: 10
+  Tier: 1
+  MaxHp: 200
+  Damage: 15
   MoveSpeed: 5
   AttackCooldown: 1.5
   HurtStunTime: 0.3
   IdleDuration: 2
   PatrolDuration: 5
   FadeDuration: 1
-  CapDrop: 0
+  CapDrop: 1
   CanAbsorb: 0
   AbsorbLiquid: {fileID: 0}
   ImmuneKnockback: 0

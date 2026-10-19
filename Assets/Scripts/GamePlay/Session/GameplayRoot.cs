@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using Framework;
+﻿﻿using Framework;
 using System.Collections.Generic;
 using GamePlay.Configs;
 using GamePlay.Session;
@@ -25,6 +25,9 @@ namespace GamePlay
         public DialogContext Dialog => _dialogContext;
         public BattleContext Battle => _battleContext;
         public GameplayMode CurrentMode => _modeFsm?.CurrentState ?? default;
+
+        /// <summary>当前局内的主角实例（可能为空：未生成或已销毁）</summary>
+        public GameObject Player => _player;
 
         #region 生命周期
         public override void Update(float deltaTime)
@@ -320,6 +323,27 @@ namespace GamePlay
             // 节点的教学提示
             if (!string.IsNullOrEmpty(node.tipText))
                 TutorialTips.Show(node.tipText);      // 进队列，避免被下一条瞬间顶掉
+
+            // 战斗节点由 GameplayBattleState 自己切战斗曲，其它节点按阶段放 BGM
+            if (node.mode != GameplayMode.Battle)
+                PlayStageBgm();
+        }
+
+        /// <summary>
+        /// 按当前剧情阶段播放背景音乐。
+        /// 战斗结束后也靠它把 BGM 从战斗曲切回来。
+        /// </summary>
+        public void PlayStageBgm()
+        {
+            NodeConfig node = _storyContext?.CurrentNode;
+            string key = node == null ? "BGM_Kitchen" : node.currentStage switch
+            {
+                StoryStage.Fridge => "BGM_Tutorial",
+                StoryStage.Supermarket => "BGM_stealth",
+                _ => "BGM_Kitchen",
+            };
+
+            Framework.Global.Get<Framework.SubSystems.AudioManager>()?.PlayBGM(key);
         }
 
         /// <summary>

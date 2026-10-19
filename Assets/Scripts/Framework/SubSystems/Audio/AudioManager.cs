@@ -1,148 +1,144 @@
-using AK.Wwise;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
-using WwiseEvent = AK.Wwise.Event;
 
 namespace Framework.SubSystems
 {
     /// <summary>
-    /// 全局音频管理器，提供音频控制功能
+    /// 全局音频管理器（原生 AudioSource 实现，不依赖 Wwise）。
+    /// BGM 走一条常驻的循环音源，音效走 PlayOneShot。
     /// </summary>
     public class AudioManager : SubSystemBase
     {
-        private readonly Dictionary<string, WwiseEvent> _events = new();
+        private readonly Dictionary<string, AudioEntry> _entries = new();
 
-        private Transform _container;
         private AudioConfig _config;
-        private bool _banksLoaded;
+        private Transform _container;
+        private AudioSource _bgmSource;
+        private AudioSource _sfxSource;
+
+        private string _currentBgmKey;
 
         #region 属性
         public override int Priority => (int)SubSystemPriority.AudioManager;
+
+        /// <summary>当前正在播的 BGM 键，没有则为空</summary>
+        public string CurrentBgmKey => _currentBgmKey;
         #endregion
 
-        #region 音量管理
-        /// <summary>
-        /// 检查Wwise是否初始化，并延迟加载配置中的 Bank
-        /// </summary>
-        /// <returns></returns>
-        private bool EnsureBanksLoaded()
-        {
-            if (_banksLoaded) return true;
-            if (!AkSoundEngine.IsInitialized()) return false;
+        #region 播放
 
-            foreach (AudioBankEntry entry in _config.Banks)
+        /// <summary>
+        /// 播放一条音频。配置里 loop = true 的当作 BGM（会顶掉上一首），否则当作一次性音效。
+        /// </summary>
+        public void Play(string key, float volumeScale = 1f)
+        {
+            if (string.IsNullOrEmpty(key)) return;
+
+            if (!_entries.TryGetValue(key, out AudioEntry entry) || entry.clip == null)
             {
-                if (entry.loadOnStart && entry.bank != null)
-                    entry.bank.Load();
+                Debug.LogWarning($"[AudioManager] 音频未配置或丢失: {key}");
+                return;
             }
 
-            _banksLoaded = true;
-            return true;
+            if (entry.loop) PlayBGM(key, volumeScale);
+            else PlaySfx(entry, volumeScale);
         }
 
-        /// <summary>
-        /// 根据配置键找到 AK.Wwise.Event，在指定 GameObject 上发送 Event，返回 Playing ID
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="emitter"></param>
-        /// <returns></returns>
-        public uint Play(string key, GameObject emitter = null)
+        /// <summary>播一次性音效（可叠放）</summary>
+        public void PlaySfx(string key, float volumeScale = 1f)
         {
-            if (!EnsureBanksLoaded())
-                return AkSoundEngine.AK_INVALID_PLAYING_ID;
-
-            if (!_events.TryGetValue(key, out WwiseEvent evt) || !evt.IsValid())
+            if (string.IsNullOrEmpty(key)) return;
+            if (!_entries.TryGetValue(key, out AudioEntry entry) || entry.clip == null)
             {
-                Debug.LogError($"[AudioManager] Event 未配置或无效: {key}");
-                return AkSoundEngine.AK_INVALID_PLAYING_ID;
+                Debug.LogWarning($"[AudioManager] 音效未配置或丢失: {key}");
+                return;
             }
 
-            GameObject target = emitter ? emitter : _container.gameObject;
-            return evt.Post(target);
+            PlaySfx(entry, volumeScale);
         }
 
-        /// <summary>
-        /// 设置全局 Wwise State，例如战斗、探索、暂停状态
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="emitter"></param>
-        /// <param name="fadeMs"></param>
-        public void Stop(string key, GameObject emitter = null, int fadeMs = 0)
+        private void PlaySfx(AudioEntry entry, float volumeScale)
         {
-            if (!AkSoundEngine.IsInitialized()) return;
-            if (!_events.TryGetValue(key, out WwiseEvent evt) || !evt.IsValid()) return;
+            if (_sfxSource == null) return;
 
-            GameObject target = emitter ? emitter : _container.gameObject;
-            evt.Stop(target, fadeMs);
+            float v = Mathf.Clamp01(entry.volume <= 0f ? 1f : entry.volume) * volumeScale;
+            _sfxSource.PlayOneShot(entry.clip, v);
         }
 
-        /// <summary>
-        /// 设置全局 Wwise State
-        /// </summary>
-        /// <param name="state"></param>
-        public void SetState(State state)
+        /// <summary>切 BGM。同一首重复调用不会重播。</summary>
+        public void PlayBGM(string key, float volumeScale = 1f)
         {
-            if (state != null && state.IsValid())
-                state.SetValue();
+            if (_bgmSource == null) return;
+            if (_currentBgmKey == key && _bgmSource.isPlaying) return;
+
+            if (!_entries.TryGetValue(key, out AudioEntry entry) || entry.clip == null)
+            {
+                Debug.LogWarning($"[AudioManager] BGM 未配置或丢失: {key}");
+                return;
+            }
+
+            _currentBgmKey = key;
+            _bgmSource.clip = entry.clip;
+            _bgmSource.loop = true;
+            _bgmSource.volume = BgmVolume(entry, volumeScale);
+            _bgmSource.Play();
+
+            Debug.Log($"[AudioManager] 播放 BGM: {key}（音量 {_bgmSource.volume:F2}）");
         }
 
-        /// <summary>
-        /// 在指定 GameObject 上设置 Switch，例如地面材质、角色形态或武器类型
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="emitter"></param>
-        public void SetSwitch(Switch value, GameObject emitter)
+        /// <summary>停止 BGM</summary>
+        public void StopBGM()
         {
-            if (value == null || !value.IsValid()) return;
-
-            GameObject target = emitter ? emitter : _container.gameObject;
-            value.SetValue(target);
+            _currentBgmKey = null;
+            if (_bgmSource != null) _bgmSource.Stop();
         }
 
-        /// <summary>
-        /// 设置 Game Parameter, 传入 emitter 时作用于该对象，否则设置全局值
-        /// </summary>
-        /// <param name="rtpc"></param>
-        /// <param name="value"></param>
-        /// <param name="emitter"></param>
-        public void SetRTPC(RTPC rtpc, float value, GameObject emitter = null)
+        /// <summary>停止某条音频（只对 BGM 有意义，音效是一次性的）</summary>
+        public void Stop(string key)
         {
-            if (rtpc == null || !rtpc.IsValid()) return;
-
-            if (emitter)
-                rtpc.SetValue(emitter, value);
-            else
-                rtpc.SetGlobalValue(value);
+            if (_currentBgmKey == key) StopBGM();
         }
 
-        /// <summary>
-        /// 调整主音量大小
-        /// </summary>
+        #endregion
+
+        #region 音量
+
+        private float BgmVolume(AudioEntry entry, float volumeScale)
+        {
+            float cfg = _config != null ? _config.MasterVolume * _config.MusicVolume : 1f;
+            float local = entry.volume <= 0f ? 1f : entry.volume;
+            return Mathf.Clamp01(cfg * local * volumeScale);
+        }
+
+        private void ApplySfxVolume()
+        {
+            if (_sfxSource == null) return;
+            float cfg = _config != null ? _config.MasterVolume * _config.SfxVolume : 1f;
+            _sfxSource.volume = Mathf.Clamp01(cfg);
+        }
+
+        /// <summary>总音量 0~1</summary>
         public void ChangeMasterVolume(float volume)
         {
-            SetRTPC(_config.MasterVolume, volume);
+            AudioListener.volume = Mathf.Clamp01(volume);
         }
 
-        /// <summary>
-        /// 调整音乐大小
-        /// </summary>
+        /// <summary>音乐音量 0~1（乘在配置的基础音量上）</summary>
         public void ChangeMusicVolume(float volume)
         {
-            SetRTPC(_config.MusicVolume, volume);
+            if (_bgmSource != null) _bgmSource.volume = Mathf.Clamp01(volume);
         }
 
-        /// <summary>
-        /// 调整音效大小
-        /// </summary>
+        /// <summary>音效音量 0~1</summary>
         public void ChangeSfxVolume(float volume)
         {
-            SetRTPC(_config.SfxVolume, volume);
+            if (_sfxSource != null) _sfxSource.volume = Mathf.Clamp01(volume);
         }
 
         #endregion
 
         #region 生命周期
+
         public override void Init()
         {
             _config = AudioConfig.Instance;
@@ -152,36 +148,45 @@ namespace Framework.SubSystems
                 return;
             }
 
-            foreach (AudioEventEntry entry in _config.Events)
+            _entries.Clear();
+            foreach (AudioEntry entry in _config.Entries)
             {
-                if (!string.IsNullOrEmpty(entry.key) && entry.evt != null)
-                    _events[entry.key] = entry.evt;
+                if (string.IsNullOrEmpty(entry.key) || entry.clip == null) continue;
+                _entries[entry.key] = entry;
             }
 
-            _container = new GameObject("[AudioManager]").transform;
-            Object.DontDestroyOnLoad(_container.gameObject);
-            _container.gameObject.AddComponent<AkGameObj>();
+            var go = new GameObject("[AudioManager]");
+            Object.DontDestroyOnLoad(go);
+            _container = go.transform;
+
+            // 本工程原来是 Wwise，场景里没有任何 AudioListener。
+            // 只有 AudioSource 没有 Listener 等于完全静音，所以这里补一个。
+            if (Object.FindObjectOfType<AudioListener>() == null)
+                go.AddComponent<AudioListener>();
+
+            _bgmSource = go.AddComponent<AudioSource>();
+            _bgmSource.playOnAwake = false;
+            _bgmSource.loop = true;
+            _bgmSource.spatialBlend = 0f;
+            _bgmSource.volume = _config.MasterVolume * _config.MusicVolume;
+
+            _sfxSource = go.AddComponent<AudioSource>();
+            _sfxSource.playOnAwake = false;
+            _sfxSource.spatialBlend = 0f;
+            ApplySfxVolume();
+
+            Debug.Log($"[AudioManager] 已加载 {_entries.Count} 条音频");
         }
 
         public override void Destroy()
         {
-            if (AkSoundEngine.IsInitialized() && _container)
-                AkSoundEngine.StopAll(_container.gameObject);
+            if (_container != null) Object.Destroy(_container.gameObject);
 
-            if (_banksLoaded && _config != null)
-            {
-                foreach (AudioBankEntry entry in _config.Banks)
-                {
-                    if (entry.loadOnStart && entry.bank != null)
-                        entry.bank.Unload();
-                }
-            }
-
-            if (_container)
-                Object.Destroy(_container.gameObject);
-
-            _events.Clear();
+            _entries.Clear();
             _container = null;
+            _bgmSource = null;
+            _sfxSource = null;
+            _currentBgmKey = null;
         }
 
         #endregion

@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Enemy_013_RedBull
   Name: "\u7EA2\u725B"
-  Tier: 0
-  MaxHp: 20
-  Damage: 10
+  Tier: 1
+  MaxHp: 250
+  Damage: 15
   MoveSpeed: 5
   AttackCooldown: 1.5
   HurtStunTime: 0.3
   IdleDuration: 2
   PatrolDuration: 5
   FadeDuration: 1
-  CapDrop: 0
+  CapDrop: 1
   CanAbsorb: 0
   AbsorbLiquid: {fileID: 0}
   ImmuneKnockback: 0

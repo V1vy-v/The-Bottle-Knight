@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GamePlay.Configs
@@ -16,6 +16,10 @@ namespace GamePlay.Configs
     {
         [Header("敌人列表")]
         public List<EnemySpawnEntry> Enemies = new();
+
+        [Header("奖励")]
+        [Tooltip("胜利后额外奖励的瓶盖（擂台每轮 1 个；BOSS 战自身有掉落，一般填 0）")]
+        public int VictoryCaps;
 
         /// <summary>总敌人数</summary>
         public int TotalCount

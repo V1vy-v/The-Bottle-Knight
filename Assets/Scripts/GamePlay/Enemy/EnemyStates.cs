@@ -1,4 +1,4 @@
-﻿/*
+/*
  * 怪物状态机状态
  */
 using Framework;
@@ -242,6 +242,7 @@ namespace GamePlay.Enemy
         public override void Enter()
         {
             Enemy.ChangeSpeed();
+            Enemy.StopMove();          // 清速度与路径，否则 NavMeshAgent 会带着惯性滑一段
             Enemy.PlayAnimation("Dead");
             _deadTimer = 0f;
             _settled = false;

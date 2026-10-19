@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Enemy_015_IceCafe
   Name: "\u51B0\u7F8E\u5F0F"
-  Tier: 0
-  MaxHp: 20
-  Damage: 10
+  Tier: 3
+  MaxHp: 600
+  Damage: 20
   MoveSpeed: 5
   AttackCooldown: 1.5
   HurtStunTime: 0.3
   IdleDuration: 2
   PatrolDuration: 5
   FadeDuration: 1
-  CapDrop: 0
+  CapDrop: 2
   CanAbsorb: 0
   AbsorbLiquid: {fileID: 0}
   ImmuneKnockback: 0

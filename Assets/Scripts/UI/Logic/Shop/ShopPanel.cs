@@ -1,4 +1,4 @@
-﻿﻿using Framework;
+﻿﻿﻿using Framework;
 using System;
 using System.Collections.Generic;
 using GamePlay;
@@ -19,6 +19,12 @@ namespace UI
 
         /// <summary>商店界面关闭（GameplayShopState 据此回到漫游）</summary>
         public static event Action OnShopClosed;
+
+        /// <summary>
+        /// 本店卖什么。由触发商店的 ShopInteractable 写入；
+        /// 为 null 或空表示这家店卖全部道具。
+        /// </summary>
+        public static System.Collections.Generic.List<PropConfig> PendingGoods;
 
         private ShopPanelProperties ShopProps => Properties as ShopPanelProperties;
 
@@ -62,6 +68,17 @@ namespace UI
         {
             // 每次打开界面刷新显示
             RefreshShopItems();
+            RefreshCaps();
+        }
+
+        /// <summary>右下角瓶盖数量</summary>
+        private void RefreshCaps()
+        {
+            if (_txtNum == null) return;
+
+            GameObject owner = Global.Get<GameplayRoot>()?.Player;
+            PlayerController pc = owner != null ? owner.GetComponent<PlayerController>() : null;
+            _txtNum.text = (pc != null && pc.PlayerStats != null ? pc.PlayerStats.Caps : 0).ToString();
         }
 
         #endregion
@@ -99,8 +116,15 @@ namespace UI
                 Debug.LogWarning("[ShopPanel] 找不到 ToggleGroup，无法实现单选效果！请检查 Content 节点。");
             }
 
-            List<PropConfig> allProps = ShopProps.AllProps.allProps;
+            // 本店商品：ShopInteractable 指定了就用它，否则卖全部
+            List<PropConfig> allProps = PendingGoods != null && PendingGoods.Count > 0
+                ? PendingGoods
+                : ShopProps.AllProps.allProps;
             int totalCount = allProps.Count;
+
+            // 页数跟着本店商品走
+            _totalPages = Mathf.Max(1, Mathf.CeilToInt((float)totalCount / MaxDisplayCount));
+            if (_currentPageIndex >= _totalPages) _currentPageIndex = _totalPages - 1;
 
             int startIndex = _currentPageIndex * MaxDisplayCount;
             int endIndex = Mathf.Min(startIndex + MaxDisplayCount, totalCount);
@@ -160,21 +184,36 @@ namespace UI
                 return;
             }
 
-            // TODO: 对接玩家金币系统 (示例代码)
-            // if (PlayerData.Instance.Gold < _currentSelectedProp.price) {
-            //     Debug.Log("金币不足！");
-            //     return;
-            // }
-            // PlayerData.Instance.Gold -= _currentSelectedProp.price;
+            // 扣瓶盖：不够就买不了
+            GameObject ownerGo = Global.Get<GameplayRoot>()?.Player;
+            PlayerController owner = ownerGo != null ? ownerGo.GetComponent<PlayerController>() : null;
+            PlayerStats ownerStats = owner != null ? owner.PlayerStats : null;
+
+            if (ownerStats == null)
+            {
+                Debug.LogWarning("[ShopPanel] 找不到主角，购买失败");
+                return;
+            }
+
+            if (ownerStats.Caps < _currentSelectedProp.price)
+            {
+                Debug.LogWarning($"[ShopPanel] 瓶盖不足：需要 {_currentSelectedProp.price}，现有 {ownerStats.Caps}");
+                Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("UI_Error");
+                return;
+            }
+
+            ownerStats.Caps -= _currentSelectedProp.price;
+            RefreshCaps();
 
             // 标记为已拥有
             _currentSelectedProp.isHold = true;
 
+            Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("UI_Hover");
+
             // 购买效果：吸管解锁远战模组，并弹一次切换提示
             if (_currentSelectedProp.unlockRangedModule)
             {
-                GameObject playerGo = GameObject.FindGameObjectWithTag("Player");
-                if (playerGo != null) playerGo.GetComponent<PlayerCombat>()?.UnlockRangeModule();
+                if (ownerGo != null) ownerGo.GetComponent<PlayerCombat>()?.UnlockRangeModule();
 
                 if (!string.IsNullOrEmpty(_currentSelectedProp.tipOnBuy))
                     TutorialTips.Show(_currentSelectedProp.tipOnBuy);
@@ -188,6 +227,7 @@ namespace UI
         private void OnCloseBtn()
         {
             // TODO: 关闭界面逻辑
+            Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("UI_close");
             OnShopClosed?.Invoke();
             Global.HideUI("ShopPanel");
         }

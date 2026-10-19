@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: "Enemy_016_\u519C\u592B\u4E09\u62F3"
   Name: "\u519C\u592B\u4E09\u62F3"
-  Tier: 0
-  MaxHp: 20
-  Damage: 10
+  Tier: 3
+  MaxHp: 1000
+  Damage: 20
   MoveSpeed: 5
   AttackCooldown: 1.5
   HurtStunTime: 0.3
   IdleDuration: 2
   PatrolDuration: 5
   FadeDuration: 1
-  CapDrop: 0
+  CapDrop: 2
   CanAbsorb: 0
   AbsorbLiquid: {fileID: 0}
   ImmuneKnockback: 0

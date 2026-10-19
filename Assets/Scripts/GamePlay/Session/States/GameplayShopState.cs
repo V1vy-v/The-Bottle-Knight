@@ -24,6 +24,7 @@ namespace GamePlay.Session
             base.Enter();
 
             ShopPanel.OnShopClosed += HandleShopClosed;
+            Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("UI_Open");
             Global.ShowUI("ShopPanel");
         }
 

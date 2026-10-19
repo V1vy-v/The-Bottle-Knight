@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Enemy_003_LeiBi
   Name: "\u96F7\u78A7"
-  Tier: 0
-  MaxHp: 20
-  Damage: 10
+  Tier: 3
+  MaxHp: 800
+  Damage: 18
   MoveSpeed: 5
   AttackCooldown: 1.5
   HurtStunTime: 0.3
   IdleDuration: 2
   PatrolDuration: 5
   FadeDuration: 1
-  CapDrop: 0
+  CapDrop: 2
   CanAbsorb: 1
   AbsorbLiquid: {fileID: 11400000, guid: 6e5994aa972e9264ea3fb24e684b2fbd, type: 2}
   ImmuneKnockback: 0

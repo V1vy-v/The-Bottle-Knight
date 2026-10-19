@@ -1,4 +1,4 @@
-﻿using GamePlay.Configs;
+﻿﻿using GamePlay.Configs;
 using UnityEngine;
 
 namespace GamePlay.Player
@@ -14,6 +14,9 @@ namespace GamePlay.Player
         public float Hp;
         public float MaxHp;
         public bool IsDead;
+
+        /// <summary>瓶盖数量</summary>
+        public int Caps;
 
         // 移动
         public float MoveSpeed;
@@ -50,6 +53,8 @@ namespace GamePlay.Player
         {
             MaxHp = config.MaxHp;
             Hp = MaxHp;
+
+            Caps = config.StartCaps;
 
             MoveSpeed = config.MoveSpeed;
             SprintSpeed = config.SprintSpeed;

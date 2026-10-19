@@ -10,6 +10,10 @@ namespace GamePlay.Configs
         [Header("生命")]
         public float MaxHp = 100f;
 
+        [Header("经济")]
+        [Tooltip("开局瓶盖数量")]
+        public int StartCaps = 10;
+
         [Header("移动")]
         public float MoveSpeed = 15f;
         public float SprintSpeed = 40f;         // 点按喷射时的移动速度
