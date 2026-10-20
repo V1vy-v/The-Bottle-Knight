@@ -137,9 +137,8 @@ namespace GamePlay.Player
             }
             else
             {
-                _view.PlayAttack(AttackModule.Ranged);
-
-            if (!_isStrawGained) return;
+                // 远程模式不放普攻动作：开枪只走子弹表现，播放「攻击」动画会显得像在近战挥管子
+                if (!_isStrawGained) return;
 
                 // 吸管朝向：朝左时把吸管 X 轴翻转，子弹才会从「管口」而不是「管尾」出来
                 if (_strawTransform != null)
