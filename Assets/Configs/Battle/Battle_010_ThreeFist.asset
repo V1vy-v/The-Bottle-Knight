@@ -18,3 +18,5 @@ MonoBehaviour:
   Enemies:
   - Config: {fileID: 11400000, guid: 12aeba5f9d3ad1848893d7fd77ac6600, type: 2}
     Count: 1
+  SpawnAnchorName: 
+  BgmKey: Combat_Boss

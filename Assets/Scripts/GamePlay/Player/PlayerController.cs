@@ -45,6 +45,21 @@ namespace GamePlay.Player
         private float _sprintRemain;
         private float _sprintCdRemain;
 
+        /// <summary>死亡已上报（避免每帧重复切 GameOver）</summary>
+        private bool _deathReported;
+
+        /// <summary>战败重试：原地复活，回满血</summary>
+        public void Revive()
+        {
+            if (_playerStats == null) return;
+
+            _playerStats.IsDead = false;
+            _playerStats.Hp = _playerStats.MaxHp;
+            _deathReported = false;
+
+            if (_rb != null) _rb.velocity = Vector2.zero;
+        }
+
 
         #region 生命周期
         private void Awake()
@@ -88,6 +103,19 @@ namespace GamePlay.Player
         }
         private void Update()
         {
+            // 数值组件是纯 C# 类，死亡只体现在 IsDead 上。
+            // 这里上报一次，由 GameplayRoot 切到 GameOver（重试 / 回菜单都在那边处理）。
+            if (_playerStats != null && _playerStats.IsDead)
+            {
+                if (!_deathReported)
+                {
+                    _deathReported = true;
+                    if (_rb != null) _rb.velocity = Vector2.zero;
+                    Global.Get<GameplayRoot>()?.NotifyPlayerDead();
+                }
+                return;
+            }
+
             _moveValue = _inputProvider.PlayerActions.Move.ReadValue<Vector2>();
             //移动动画
             if (_moveValue == Vector2.zero)
@@ -110,6 +138,13 @@ namespace GamePlay.Player
         }
         private void FixedUpdate()
         {
+            // 死了就别再动（死亡/重试的停顿期间）
+            if (_playerStats == null || _playerStats.IsDead)
+            {
+                if (_rb != null) _rb.velocity = Vector2.zero;
+                return;
+            }
+
             //移动逻辑。喷射期间换成喷射速度（点按型，按一下冲 SprintDuration 秒）
             float speed = _sprintRemain > 0f ? _playerStats.SprintSpeed : _playerStats.MoveSpeed;
             _rb.velocity = _moveValue * speed * (1f + _playerLiquids.MoveSpeedBonus);

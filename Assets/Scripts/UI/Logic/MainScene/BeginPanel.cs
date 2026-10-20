@@ -48,8 +48,8 @@ namespace UI
 
         private void OnBeginBtn()
         {
-            // TODO: _beginBtn 点击后的逻辑
-            ProcedureCore.Instance.RequestPlay();
+            // 走 RequestNewGame：通关回菜单后再点开始，才不会掉进 ContinueGame（还没有存档）
+            ProcedureCore.Instance.RequestNewGame();
         }
 
         private void OnQuitBtn()

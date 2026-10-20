@@ -23,5 +23,5 @@ MonoBehaviour:
   autoWinBattle: 0
   nextNode: {fileID: 11400000, guid: e85424c38ae042dda628916748ddc18f, type: 2}
   currentStage: 3
-  fadeTransition: 0
-  teleportTargetName: 
+  fadeTransition: 1
+  teleportTargetName: '[IceCafeSpawn]'

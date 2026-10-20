@@ -1,4 +1,4 @@
-﻿using Framework;
+﻿﻿using Framework;
 using GamePlay.Enemy;
 using GamePlay.Liquid;
 using System.Collections;
@@ -23,6 +23,7 @@ namespace GamePlay.Player
         [SerializeField] private Transform _bulletRoot;
 
         private bool _isStrawGained = false;
+        private Transform _strawTransform;      // 吸管子物体，拿到吸管后显示
         private AttackModule _currentAtkModule = AttackModule.Melee;
         private float _elapsed;
 
@@ -96,12 +97,17 @@ namespace GamePlay.Player
             {
                 _view.PlayAttack(AttackModule.Ranged);
 
+            if (!_isStrawGained) return;
+
                 // 【核心修改】强制纯左右方向，彻底没有 Y 轴！
                 Vector2 dir = new Vector2(_facingDir, 0f);
 
                 // 计算生成点偏移（同样根据朝向翻转）
                 Vector2 actualRangedOffset = new Vector2(_primaryRangedAtkOffset.x * _facingDir, _primaryRangedAtkOffset.y);
-                Vector2 spawnPos = (Vector2)transform.position + actualRangedOffset;
+                // 子弹从吸管口出生；没吸管时用原来的偏移
+                Vector2 spawnPos = _strawTransform != null
+                    ? (Vector2)_strawTransform.position
+                    : (Vector2)transform.position + actualRangedOffset;
 
                 // 补全伤害计算（把你的基础伤害乘上液体加成）
                 float finalDmg = _stats.RangedDamage * (1f + _liquids.AtkBonus);
@@ -153,6 +159,22 @@ namespace GamePlay.Player
         public void UnlockRangeModule()
         {
             _isStrawGained |= true;
+
+            if (_strawTransform == null)
+            {
+                Transform found = transform.Find(Straw);
+                if (found == null)
+                {
+                    foreach (Transform child in GetComponentsInChildren<Transform>(true))
+                    {
+                        if (child.name == Straw) { found = child; break; }
+                    }
+                }
+                _strawTransform = found;
+            }
+
+            if (_strawTransform != null)
+                _strawTransform.gameObject.SetActive(true);
         }
 
         private void RangeAttack(Vector2 offset, float radius)
