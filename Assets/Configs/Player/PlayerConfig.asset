@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Player_001
   Name: "\u521D\u59CB\u4E3B\u89D2"
-  MaxHp: 100
+  MaxHp: 1000
+  StartCaps: 10
   MoveSpeed: 20
   SprintSpeed: 40
-  SprintCd: 1
-  SprintMaxHold: 6
   SprintDuration: 0.2
+  SprintCd: 1
   SprintDamagePerTick: 4
   SprintTickInterval: 0.5
   SprintCartExtraDamage: 2
   PrimaryAtkInterval: 0.8
-  MeleeDamage: 20
+  MeleeDamage: 2000
   MeleeRange: 1.5
   RangedDamage: 14
   RangedRange: 4.5
