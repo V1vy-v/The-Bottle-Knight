@@ -540,7 +540,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 1633826345, guid: a9a06372cd009e84784f8b23ddf6065a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 8.322917, y: 11.490001}
@@ -571,8 +571,8 @@ MonoBehaviour:
   fadeDuration: 1
   playerInDetectRange: 0
   playerInAttackRange: 0
-  _detectRadius: 14
-  _attackRadius: 3.2
+  _detectRadius: 20
+  _attackRadius: 6
 --- !u!114 &1087925263789081635
 MonoBehaviour:
   m_ObjectHideFlags: 0

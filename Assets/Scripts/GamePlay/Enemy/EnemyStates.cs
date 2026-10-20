@@ -1,7 +1,8 @@
-/*
+﻿/*
  * 怪物状态机状态
  */
 using Framework;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 namespace GamePlay.Enemy
 {
@@ -139,12 +140,13 @@ namespace GamePlay.Enemy
             if (!_hasAttacked)
             {
                 _preAttackTimer += deltaTime;
-                if (_preAttackTimer >= 1.0f) // 停留 1 秒后发动攻击
+                if (_preAttackTimer >= 0.2f) // 停留 1 秒后发动攻击
                 {
                     _hasAttacked = true;
                     _attackTimer = 0f;
 
                     Enemy.PlayAnimation("Attack");
+                    Debug.Log("触发攻击111");
                     Enemy.Attack();
                 }
                 return; 
