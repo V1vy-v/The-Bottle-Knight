@@ -245,136 +245,54 @@ namespace UI
 
         #region 近战 / 远战 状态
 
-        private RectTransform _atkSlot;
-        private Image _atkSlotIcon;
-        private GameObject _atkSlotLock;
-        private TextMeshProUGUI _atkModeLabel;
-        private string _atkModeCache;
+        private GameObject _changeModeRoot;
+        private GameObject _meleeModeIcon;
+        private GameObject _rangedModeIcon;
 
         /// <summary>
-        /// 攻击模组槽位：预制体里没有这一格（只有切液体的 Toggle），
-        /// 所以运行时克隆一份 Toggle 槽，保证描边 / 锁 / 尺寸和其它槽完全一致，
-        /// 摆到 Toggle 正上方。图标可由 HUDProperties 换（近战 / 远战各一张）。
+        /// 近战 / 远战指示：ChangeMode 下有两个子物体「近战」「远程」，
+        /// 当前是什么模组就只显示哪一个，另一个隐藏（不再有锁的概念）。
+        /// 走 ChangeMode 自身的开关即可，父物体隐藏时子物体自然不显示。
         /// </summary>
-        private void EnsureAtkModuleSlot()
-        {
-            if (_atkSlot != null) return;
-            if (_toggleImg == null) return;
-
-            RectTransform source = _toggleImg.parent as RectTransform;
-            if (source == null) return;
-
-            GameObject clone = Instantiate(source.gameObject, source.parent);
-            clone.name = "AtkModuleSlot";
-
-            _atkSlot = (RectTransform)clone.transform;
-
-            // 摆在「切换液体」上面一格（间距按槽位自身高度算，换分辨率也不会叠）
-            float gap = source.rect.height + 16f;
-            _atkSlot.anchoredPosition = source.anchoredPosition + new Vector2(0f, gap);
-
-            _atkSlotIcon = clone.GetComponentInChildren<Image>(true);
-
-            Transform lockT = clone.transform.Find("Lock");
-            if (lockT == null)
-            {
-                for (int i = 0; i < clone.transform.childCount; i++)
-                {
-                    Transform c = clone.transform.GetChild(i);
-                    if (c.name.StartsWith("Lock")) { lockT = c; break; }
-                }
-            }
-            _atkSlotLock = lockT != null ? lockT.gameObject : null;
-
-            // 近战/远战没有冷却，冷却遮罩藏掉
-            Transform cd = clone.transform.Find("CdMask");
-            if (cd != null) cd.gameObject.SetActive(false);
-        }
-
-        private void EnsureAtkModeLabel()
-        {
-            if (_atkModeLabel != null) return;
-
-            Transform parent = _atkSlot != null ? _atkSlot : _toggleImg;
-            if (parent == null) return;
-
-            var go = new GameObject("AtkModeLabel", typeof(RectTransform));
-            var rt = (RectTransform)go.transform;
-            rt.SetParent(parent, false);
-            rt.anchorMin = new Vector2(0.5f, 0.5f);
-            rt.anchorMax = new Vector2(0.5f, 0.5f);
-            rt.pivot = new Vector2(0.5f, 0.5f);
-            rt.anchoredPosition = new Vector2(0f, -(_atkSlot != null ? _atkSlot.rect.height * 0.5f + 22f : 72f));
-            rt.sizeDelta = new Vector2(160f, 40f);
-
-            _atkModeLabel = go.AddComponent<TextMeshProUGUI>();
-            if (_capsLabel != null) _atkModeLabel.font = _capsLabel.font;
-            _atkModeLabel.fontSize = 26f;
-            _atkModeLabel.alignment = TextAlignmentOptions.Center;
-            _atkModeLabel.raycastTarget = false;
-            _atkModeLabel.text = string.Empty;
-        }
-
         private void RefreshAtkMode()
         {
-            EnsureAtkModuleSlot();
-            EnsureAtkModeLabel();
+            if (_changeModeRoot == null)
+            {
+                if (_cfg != null && _cfg.changeModeRoot != null)
+                    _changeModeRoot = _cfg.changeModeRoot;
+                else
+                    _changeModeRoot = FindChildByName(transform, "ChangeMode")?.gameObject;
+
+                if (_changeModeRoot != null)
+                {
+                    _meleeModeIcon = FindChildByName(_changeModeRoot.transform, "近战")?.gameObject;
+                    _rangedModeIcon = FindChildByName(_changeModeRoot.transform, "远程")?.gameObject;
+                }
+            }
+
+            if (_changeModeRoot == null) return;
 
             PlayerCombat combat = _playerGO != null ? _playerGO.GetComponent<PlayerCombat>() : null;
-
-            bool unlocked = combat != null && combat.CanSwitchModule;
             bool ranged = combat != null && combat.CurrentModule == AttackModule.Ranged;
 
-            // ---- 槽位图标 / 锁 ----
-            if (_atkSlotLock != null) _atkSlotLock.SetActive(combat != null && !unlocked);
+            _changeModeRoot.SetActive(combat != null);
 
-            if (_atkSlotIcon != null)
+            if (_meleeModeIcon != null) _meleeModeIcon.SetActive(combat != null && !ranged);
+            if (_rangedModeIcon != null) _rangedModeIcon.SetActive(combat != null && ranged);
+        }
+
+        /// <summary>按名字递归找子物体（预制体层级由美术调，不用写死路径）</summary>
+        private static Transform FindChildByName(Transform root, string childName)
+        {
+            if (root == null) return null;
+            if (root.name == childName) return root;
+
+            for (int i = 0; i < root.childCount; i++)
             {
-                Sprite want = null;
-                if (_cfg != null) want = ranged ? _cfg.rangedModuleSprite : _cfg.meleeModuleSprite;
-                if (want != null) _atkSlotIcon.sprite = want;
-
-                // 没配美术图时用颜色区分：近战白 / 远战青蓝 / 未解锁压暗
-                if (combat == null) _atkSlotIcon.color = new Color(1f, 1f, 1f, 0f);
-                else if (!unlocked) _atkSlotIcon.color = LockedTint;
-                else if (ranged) _atkSlotIcon.color = new Color(0.55f, 0.9f, 1f, 1f);
-                else _atkSlotIcon.color = Color.white;
+                Transform found = FindChildByName(root.GetChild(i), childName);
+                if (found != null) return found;
             }
-
-            // ---- 文字 ----
-            if (_atkModeLabel == null) return;
-
-            string text;
-            Color color;
-
-            if (combat == null)
-            {
-                text = string.Empty;
-                color = Color.white;
-            }
-            else if (!unlocked)
-            {
-                text = "近战";                                  // 还没拿吸管
-                color = new Color(1f, 1f, 1f, 0.6f);
-            }
-            else if (ranged)
-            {
-                text = "远战";
-                color = new Color(0.4f, 0.95f, 1f, 1f);         // 青蓝：远战
-            }
-            else
-            {
-                text = "近战";
-                color = Color.white;
-            }
-
-            if (text != _atkModeCache)
-            {
-                _atkModeCache = text;
-                _atkModeLabel.text = text;
-            }
-
-            _atkModeLabel.color = color;
+            return null;
         }
 
         #endregion

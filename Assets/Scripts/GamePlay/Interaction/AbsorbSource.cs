@@ -117,6 +117,10 @@ namespace GamePlay.Interaction
 
             _absorbed = true;
             Global.Get<GameplayRoot>()?.ReportGoalReached("absorb");
+
+            // 吸取音：循环播，持续到吸取动作结束
+            Framework.Global.Get<Framework.SubSystems.AudioManager>()?.PlayLoop("SFX_Player_Siphon");
+
             StartCoroutine(AbsorbRoutine());
         }
 
@@ -130,6 +134,9 @@ namespace GamePlay.Interaction
                 yield return new WaitForSeconds(_absorbDuration);
 
             OnAbsorbed?.Invoke(this);      // 剧情侧在这里开门 / 解锁出口
+
+            // 吸取音收尾
+            Framework.Global.Get<Framework.SubSystems.AudioManager>()?.StopLoop("SFX_Player_Siphon");
 
             // 敌人可能是门面生成的（要还池），也可能是场景里直接摆的剧情敌人（要 Destroy）
             var enemy = GetComponent<EnemyController>();

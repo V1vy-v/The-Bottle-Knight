@@ -28,14 +28,28 @@ namespace GamePlay.Player
 
         private static readonly int AnimWalk = Animator.StringToHash("Walk");
         private static readonly int AnimAtk = Animator.StringToHash("PrimaryAtk");
+        private static readonly int AnimRanged = Animator.StringToHash("RangedAtk");
         private static readonly int AnimDeath = Animator.StringToHash("Death");
 
-        public void PlayAttack(AttackModule module) 
-        { 
-            //区分远程和近战攻击
+        /// <summary>Animator 里有没有某个参数（没有就安静地退回近战动画，不报错）</summary>
+        private bool HasParam(int hash)
+        {
+            if (_animator == null) return false;
+            AnimatorControllerParameter[] ps = _animator.parameters;
+            for (int i = 0; i < ps.Length; i++)
+            {
+                if (ps[i].nameHash == hash) return true;
+            }
+            return false;
+        }
 
-            _animator.SetTrigger(AnimAtk);  
-            /* 音效一起 */ 
+        public void PlayAttack(AttackModule module) 
+        {
+            // 远近战分开：远程优先走 RangedAtk 触发器；Animator 还没配就退回 PrimaryAtk
+            if (module == AttackModule.Ranged && HasParam(AnimRanged))
+                _animator.SetTrigger(AnimRanged);
+            else
+                _animator.SetTrigger(AnimAtk);
         }
         public void PlayDeath()
         { 

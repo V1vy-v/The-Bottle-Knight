@@ -52,6 +52,12 @@ namespace UI
         public Sprite meleeModuleSprite;
         [Tooltip("远战状态图标。留空同上")]
         public Sprite rangedModuleSprite;
+        [Tooltip("HUD 预制体里的 ChangeMode 物体（可选）。留空按名字自动找")]
+        public GameObject changeModeRoot;
+        [Tooltip("ChangeMode 下的图标 Image（可选）。留空自动找子物体 \"Image\"")]
+        public UnityEngine.UI.Image changeModeIcon;
+        [Tooltip("ChangeMode 下的锁节点（可选）。留空自动找子物体 \"Lock\"；没拿吸管时显示")]
+        public GameObject changeModeLock;
 
         [Header("小地图 · 标记外观")]
         [Tooltip("主角标记（固定在遮罩中心）。留空用纯白方块")]

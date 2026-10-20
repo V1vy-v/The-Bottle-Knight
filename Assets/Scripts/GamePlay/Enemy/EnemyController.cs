@@ -37,6 +37,9 @@ namespace GamePlay.Enemy
         [Tooltip("对话触发半径。会生成一个这个大小的交互层碰撞体（吸取用的是预制体上那个小的 InteractPoint）")]
         [SerializeField] private float _talkZoneRadius = 8f;
 
+        /// <summary>上一次播受击音的时间，用来做最小间隔</summary>
+        private float _lastHurtSfxTime = -10f;
+
         /// <summary>Interactable 层。该层碰撞矩阵为空，只能用 Physics2D 查询扫到</summary>
         private const int InteractableLayer = 11;
 
@@ -251,7 +254,7 @@ namespace GamePlay.Enemy
         [SerializeField] private float _detectRadius = 14f;
 
         [Tooltip("进入攻击状态的距离")]
-        [SerializeField] private float _attackRadius = 3.2f;
+        [SerializeField] private float _attackRadius = 6.5f;
 
         /// <summary>攻击距离，攻击结算时用</summary>
         public float AttackRadius => _attackRadius;
@@ -471,6 +474,14 @@ namespace GamePlay.Enemy
             OnWound?.Invoke(state.CurrentHP, state.MaxHP);
             Debug.Log($"受到{damage}点伤害");
 
+            // 受击音：三个变体随机；0.12 秒内只响一次，避免多段攻击糊成噪音
+            if (Time.time - _lastHurtSfxTime >= 0.12f)
+            {
+                _lastHurtSfxTime = Time.time;
+                int pick = UnityEngine.Random.Range(1, 4);
+                Framework.Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("SFX_Enemy_Hurt" + pick);
+            }
+
             // ================= 【新增】触发受伤变红闪烁 =================
             if (gameObject.activeInHierarchy)
             {
@@ -567,6 +578,9 @@ namespace GamePlay.Enemy
                 {
                     pc.PlayerStats.Caps += config.CapDrop;
                     Debug.Log($"[瓶盖] 获得 {config.CapDrop} 个，共 {pc.PlayerStats.Caps}");
+
+                    // 掉瓶盖音：金属叮当
+                    Framework.Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("SFX_Player_CapPickup");
                 }
             }
 

@@ -25,8 +25,8 @@ namespace GamePlay.Session
 
             DialogPanel.OnDialogueCompleted += OnCompleted;
 
-            // 对话弹出音（策划案的 UI_Dialog_Appear 还没导入，先用面板打开音顶上）
-            Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("UI_Open");
+            // 对话弹出音（NPC 交谈音）
+            Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("UI_NPC");
 
             TextAsset text = Root.Dialog.CurrentDialogue;
             Global.ShowUI("DialogPanel", new DialogPanelProperties { dialogText = text });

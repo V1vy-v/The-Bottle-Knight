@@ -161,6 +161,30 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 841497c7cc79c2a4081cbc536f1d363d, type: 3}
     loop: 0
     volume: 1
-  masterVolume: 0.8
+  - key: SFX_Player_Siphon
+    clip: {fileID: 8300000, guid: 156df3fc5209ecd418cc57d07c07b2ec, type: 3}
+    loop: 1
+    volume: 1
+  - key: SFX_Player_CapPickup
+    clip: {fileID: 8300000, guid: d17f21b2d1ffcfc4c8f1d1aa1dda615c, type: 3}
+    loop: 0
+    volume: 1
+  - key: SFX_Enemy_Hurt1
+    clip: {fileID: 8300000, guid: 7c1d9a4e2b8f46c1a3d5e7b9c0f2a4d6, type: 3}
+    loop: 0
+    volume: 1
+  - key: SFX_Enemy_Hurt2
+    clip: {fileID: 8300000, guid: 8e2f5b1c9d3a47d4b6e8f0a2c5d7b9e3, type: 3}
+    loop: 0
+    volume: 1
+  - key: SFX_Enemy_Hurt3
+    clip: {fileID: 8300000, guid: 9a3b6c2d8e4f51e5a7b9c1d3e5f7a9b2, type: 3}
+    loop: 0
+    volume: 1
+  - key: UI_NPC
+    clip: {fileID: 8300000, guid: 5e7942431cb6e9a4e9bb168e4daf81bd, type: 3}
+    loop: 0
+    volume: 1
+  masterVolume: 0.7
   musicVolume: 0.5
-  sfxVolume: 0.8
+  sfxVolume: 0.5

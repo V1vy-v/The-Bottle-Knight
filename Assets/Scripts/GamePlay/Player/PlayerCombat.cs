@@ -141,6 +141,14 @@ namespace GamePlay.Player
 
             if (!_isStrawGained) return;
 
+                // 吸管朝向：朝左时把吸管 X 轴翻转，子弹才会从「管口」而不是「管尾」出来
+                if (_strawTransform != null)
+                {
+                    Vector3 s = _strawTransform.localScale;
+                    s.x = Mathf.Abs(s.x) * _facingDir;
+                    _strawTransform.localScale = s;
+                }
+
                 // 【核心修改】强制纯左右方向，彻底没有 Y 轴！
                 Vector2 dir = new Vector2(_facingDir, 0f);
 
