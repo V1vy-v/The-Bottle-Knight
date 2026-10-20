@@ -24,4 +24,4 @@ MonoBehaviour:
   nextNode: {fileID: 11400000, guid: f92775ea6ef1d1f498254889aa66a62f, type: 2}
   currentStage: 1
   fadeTransition: 1
-  teleportTargetName: [DrawerSpawn]
+  teleportTargetName: '[DrawerSpawn]'
