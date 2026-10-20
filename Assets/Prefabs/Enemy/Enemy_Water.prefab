@@ -374,7 +374,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 101.45, y: 1}
+  m_Size: {x: 55, y: 1}
   m_Direction: 0
 --- !u!1 &7797547946047395402
 GameObject:
@@ -564,12 +564,15 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 669a4ce948cf7be489bece2dc1410699, type: 2}
   _passiveAtStart: 0
   _talkGoalId: 
+  _startDefeated: 0
   _talkZoneRadius: 8
   idleDuration: 2
   patrolDuration: 5
   fadeDuration: 1
   playerInDetectRange: 0
   playerInAttackRange: 0
+  _detectRadius: 14
+  _attackRadius: 3.2
 --- !u!114 &1087925263789081635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,6 +585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ee8f410d2c40740982e2a08323363e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WallMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!195 &5615342215365378578
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -651,6 +657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _liquidOverride: {fileID: 0}
   _absorbDuration: 0.6
+  _forceToMainSlot: 0
 --- !u!114 &6678524252991320144
 MonoBehaviour:
   m_ObjectHideFlags: 0
