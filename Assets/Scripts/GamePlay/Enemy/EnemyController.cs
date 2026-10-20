@@ -203,6 +203,11 @@ namespace GamePlay.Enemy
 
         private void Start()
         {
+            // 场景里直接摆的剧情敌人：记下原位，战败重试时复位用
+            HomePosition = transform.position;
+            if (!SpawnedByFacade && !string.IsNullOrEmpty(_talkGoalId) && !StoryNpcs.Contains(this))
+                StoryNpcs.Add(this);
+
             _fsm = new StateMachine<EnemyState>();
             _fsm.RegisterState(new EnemyIdleState(this, _fsm));
             _fsm.RegisterState(new EnemyPatrolState(this, _fsm));
@@ -381,6 +386,7 @@ namespace GamePlay.Enemy
         private void OnDestroy()
         {
             _passives.Remove(this);
+            StoryNpcs.Remove(this);
         }
 
         /// <summary>是否由实例门面生成。直接摆在场景里的剧情敌人是 false</summary>
@@ -393,8 +399,40 @@ namespace GamePlay.Enemy
 
         public void ReleaseSelf()
         {
-            if (SpawnedByFacade) Global.Release(gameObject);
-            else Destroy(gameObject);
+            if (SpawnedByFacade)
+            {
+                Global.Release(gameObject);
+                return;
+            }
+
+            // 场景里的剧情敌人不销毁：只隐藏。销毁了就再也没法给「战败重试」复位，
+            // 玩家一死回来会发现 NPC 没了，流程卡死。
+            if (!string.IsNullOrEmpty(_talkGoalId))
+            {
+                gameObject.SetActive(false);
+                return;
+            }
+
+            Destroy(gameObject);
+        }
+
+        /// <summary>场上所有「场景剧情敌人」（国窖 / 矿泉水 这类直接摆的场景 NPC）</summary>
+        public static readonly List<EnemyController> StoryNpcs = new();
+
+        /// <summary>场景里的原始位置，复位用</summary>
+        public Vector3 HomePosition { get; private set; }
+
+        /// <summary>把所有剧情敌人复位成被动、满血、站原位（战败重试用）</summary>
+        public static void RestoreAllStoryNpcs()
+        {
+            for (int i = 0; i < StoryNpcs.Count; i++)
+            {
+                EnemyController npc = StoryNpcs[i];
+                if (npc == null) continue;
+
+                if (!npc.gameObject.activeSelf) npc.gameObject.SetActive(true);
+                npc.RestoreAsStoryNpc(npc.HomePosition);
+            }
         }
 
         /// <summary>

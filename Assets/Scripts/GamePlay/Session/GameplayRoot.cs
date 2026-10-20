@@ -569,6 +569,10 @@ namespace GamePlay
             // 1. 收掉上一场刷出来的敌人（含 BOSS 尸体）
             _battleState?.ForceClearAll();
 
+            // 1b. 场景剧情敌人（国窖 / 矿泉水）全部复位：被接管过、被隐藏过都要回来，
+            //     否则回退到「和它对话之前」的节点时会没有东西可触发，流程卡死
+            GamePlay.Enemy.EnemyController.RestoreAllStoryNpcs();
+
             // 2. 占位贴图复原：开打时整组被关掉了渲染，不复原的话重打时 BOSS 是隐形的
             ShowPlaceholder(_encounterPlaceholder);
             ClearEncounter();
