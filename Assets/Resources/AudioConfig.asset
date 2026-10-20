@@ -77,6 +77,90 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 7cdc168cb2e227341a1c0d80fb966d98, type: 3}
     loop: 0
     volume: 1
+  - key: UI_Hover_1
+    clip: {fileID: 8300000, guid: bf2759f94da31fc47a2cc7aedba0ae3e, type: 3}
+    loop: 0
+    volume: 1
+  - key: UI_Hover_2
+    clip: {fileID: 8300000, guid: 62a0f3b7c7c6c554992cd293818df152, type: 3}
+    loop: 0
+    volume: 1
+  - key: AMB_ColdStorage
+    clip: {fileID: 8300000, guid: a5b83bd22409aa6419f54eec50d382e8, type: 3}
+    loop: 1
+    volume: 0.6
+  - key: AMB_Kitchen
+    clip: {fileID: 8300000, guid: b8952294a13f47440addb321e7fef048, type: 3}
+    loop: 1
+    volume: 0.6
+  - key: AMB_Supermarket
+    clip: {fileID: 8300000, guid: 5f0d753e4e5c48c47aa7e7969f774d57, type: 3}
+    loop: 1
+    volume: 0.6
+  - key: SFX_Player_Death
+    clip: {fileID: 8300000, guid: 0439296d0c072fd4084d39d04ab64448, type: 3}
+    loop: 0
+    volume: 1
+  - key: SFX_Player_Hurt
+    clip: {fileID: 8300000, guid: 4a0d491603503f040b78ba503a27d3c2, type: 3}
+    loop: 0
+    volume: 1
+  - key: SFX_Player_Hurt_1
+    clip: {fileID: 8300000, guid: 1bc3cac61e26fc3459b58651ec9c4073, type: 3}
+    loop: 0
+    volume: 1
+  - key: SFX_Player_Hurt_2
+    clip: {fileID: 8300000, guid: 69e2c1015691ae34daf61f807900bb37, type: 3}
+    loop: 0
+    volume: 1
+  - key: SFX_Player_Melee_1
+    clip: {fileID: 8300000, guid: 4c3f9158ba38e3f488265febca07f27c, type: 3}
+    loop: 0
+    volume: 1
+  - key: SFX_Player_Melee_2
+    clip: {fileID: 8300000, guid: 6605fe408bd406c46847d98dc90fcda2, type: 3}
+    loop: 0
+    volume: 1
+  - key: SFX_Player_Melee_3
+    clip: {fileID: 8300000, guid: c47249328fb82c944a873a764015e084, type: 3}
+    loop: 0
+    volume: 1
+  - key: SFX_Player_Move
+    clip: {fileID: 8300000, guid: 79565ca207c69154b90fe7604f4a07d9, type: 3}
+    loop: 1
+    volume: 0.8
+  - key: SFX_Player_Move_1
+    clip: {fileID: 8300000, guid: 4389ea96121bf1640976ec5adde03a3a, type: 3}
+    loop: 1
+    volume: 0.8
+  - key: SFX_Player_Move_2
+    clip: {fileID: 8300000, guid: 80ce5423fd73f42498338065bdeda107, type: 3}
+    loop: 1
+    volume: 0.8
+  - key: SFX_Player_Move_3
+    clip: {fileID: 8300000, guid: a2fa53fe0e2c1054990ba21dab04685c, type: 3}
+    loop: 1
+    volume: 0.8
+  - key: SFX_Player_Move_4
+    clip: {fileID: 8300000, guid: 725c16e2d84ddc645b475b328c0c5b58, type: 3}
+    loop: 1
+    volume: 0.8
+  - key: SFX_Player_Move_5
+    clip: {fileID: 8300000, guid: 2fce0e0034b356e40893deec05c252a0, type: 3}
+    loop: 1
+    volume: 0.8
+  - key: SFX_Player_Move_6
+    clip: {fileID: 8300000, guid: c08047e5d3449cd439ef46db8075d56c, type: 3}
+    loop: 1
+    volume: 0.8
+  - key: SFX_Player_Spray
+    clip: {fileID: 8300000, guid: 5cd0262c90ecf9847b3d8aae96bcec2d, type: 3}
+    loop: 1
+    volume: 1
+  - key: SFX_Player_SwitchLiquid
+    clip: {fileID: 8300000, guid: 841497c7cc79c2a4081cbc536f1d363d, type: 3}
+    loop: 0
+    volume: 1
   masterVolume: 0.8
   musicVolume: 0.5
   sfxVolume: 0.8

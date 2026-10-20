@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -95,18 +95,678 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7600
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4df608e838afeec459059d7d0f2f6479
+      internalID: 927025606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_1
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 7600
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f34b929a91a362442b81e0fa05abea89
+      internalID: 3893376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_2
+      rect:
+        serializedVersion: 2
+        x: 2680
+        y: 7600
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fac38cdf123a4954cad61f40113e3625
+      internalID: -811247761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_3
+      rect:
+        serializedVersion: 2
+        x: 4020
+        y: 7600
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35d798052020b8141877e2825d869e5e
+      internalID: -2064719195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_4
+      rect:
+        serializedVersion: 2
+        x: 5360
+        y: 7600
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31950eb7dbb693244b5f7a224a602fa1
+      internalID: -1789535526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6080
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eeede39cdda4eb4597f37f12a4d2b5d
+      internalID: 963086395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_6
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 6080
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba826119c30db7e438a6493b9a11ebb4
+      internalID: 387214285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_7
+      rect:
+        serializedVersion: 2
+        x: 2680
+        y: 6080
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b5d8ff1606561e4eac18b91b01f0521
+      internalID: -1177256715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_8
+      rect:
+        serializedVersion: 2
+        x: 4020
+        y: 6080
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f7978663dc1dfe498cb06ad3f3e3458
+      internalID: -1547126275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_9
+      rect:
+        serializedVersion: 2
+        x: 5360
+        y: 6080
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2312ccc8cecac854893cb9db5efdc5d2
+      internalID: -1540517157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4560
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fbc420423e6fab4cbdf6b3a0054a65f
+      internalID: 1687680084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_11
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 4560
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4baef3f107e634f44b483ada5af9e791
+      internalID: -54552939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_12
+      rect:
+        serializedVersion: 2
+        x: 2680
+        y: 4560
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2710d7f6e7747b4aaccea4baef8f044
+      internalID: -949895419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_13
+      rect:
+        serializedVersion: 2
+        x: 4020
+        y: 4560
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d82274125ed6a34ba6832dc8c68a593
+      internalID: -1293095947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_14
+      rect:
+        serializedVersion: 2
+        x: 5360
+        y: 4560
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 060c184bb01c8be4f9b5ddc08231ab7b
+      internalID: 2072015128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3040
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75418840ec411804e85a5a2420be8a89
+      internalID: 750170017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_16
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 3040
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bc473b20cc2477478974cc1746f0253
+      internalID: 527274037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_17
+      rect:
+        serializedVersion: 2
+        x: 2680
+        y: 3040
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 467becc984025a24e8c0e3626e956cae
+      internalID: 1377918300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_18
+      rect:
+        serializedVersion: 2
+        x: 4020
+        y: 3040
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0508acd331363514099c74ae1f3c3067
+      internalID: 532666554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_19
+      rect:
+        serializedVersion: 2
+        x: 5360
+        y: 3040
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4ede96a2fafb3e48a007ce2b0eb8ef2
+      internalID: -2115098086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1520
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540b4e47d5c593b408970f7efd0eaf01
+      internalID: 1930360035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_21
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 1520
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f13a869c525611409e4227d015da149
+      internalID: -2137622746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_22
+      rect:
+        serializedVersion: 2
+        x: 2680
+        y: 1520
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da4c78e523f59274089a029d80dbde5a
+      internalID: -1560083269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_23
+      rect:
+        serializedVersion: 2
+        x: 4020
+        y: 1520
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8745ecb136c81624d98080ecde72dc2b
+      internalID: -949906601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_24
+      rect:
+        serializedVersion: 2
+        x: 5360
+        y: 1520
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 195930b54ae82504fb990fdd67da77e0
+      internalID: 731242020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e5b9e3d122a26e45a57406e1d1c35c7
+      internalID: 1012304865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_26
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 0
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5b6a3e5d37f7f24ab88bbec9591c6bc
+      internalID: 745971480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_27
+      rect:
+        serializedVersion: 2
+        x: 2680
+        y: 0
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaebf0709cf40864fa8b255057586290
+      internalID: -1686498567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_28
+      rect:
+        serializedVersion: 2
+        x: 4020
+        y: 0
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9d6f1b9c92d154d971aea45f5bb9bc
+      internalID: -2067826888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-attack_29
+      rect:
+        serializedVersion: 2
+        x: 5360
+        y: 0
+        width: 1340
+        height: 1520
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4103e302eb74b64fb68086b2db36dec
+      internalID: 813130360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 429a2dd945a416e4fabcd6d8f3bdbfe9
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      enemy-sanquan-attack_0: 927025606
+      enemy-sanquan-attack_1: 3893376
+      enemy-sanquan-attack_10: 1687680084
+      enemy-sanquan-attack_11: -54552939
+      enemy-sanquan-attack_12: -949895419
+      enemy-sanquan-attack_13: -1293095947
+      enemy-sanquan-attack_14: 2072015128
+      enemy-sanquan-attack_15: 750170017
+      enemy-sanquan-attack_16: 527274037
+      enemy-sanquan-attack_17: 1377918300
+      enemy-sanquan-attack_18: 532666554
+      enemy-sanquan-attack_19: -2115098086
+      enemy-sanquan-attack_2: -811247761
+      enemy-sanquan-attack_20: 1930360035
+      enemy-sanquan-attack_21: -2137622746
+      enemy-sanquan-attack_22: -1560083269
+      enemy-sanquan-attack_23: -949906601
+      enemy-sanquan-attack_24: 731242020
+      enemy-sanquan-attack_25: 1012304865
+      enemy-sanquan-attack_26: 745971480
+      enemy-sanquan-attack_27: -1686498567
+      enemy-sanquan-attack_28: -2067826888
+      enemy-sanquan-attack_29: 813130360
+      enemy-sanquan-attack_3: -2064719195
+      enemy-sanquan-attack_4: -1789535526
+      enemy-sanquan-attack_5: 963086395
+      enemy-sanquan-attack_6: 387214285
+      enemy-sanquan-attack_7: -1177256715
+      enemy-sanquan-attack_8: -1547126275
+      enemy-sanquan-attack_9: -1540517157
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

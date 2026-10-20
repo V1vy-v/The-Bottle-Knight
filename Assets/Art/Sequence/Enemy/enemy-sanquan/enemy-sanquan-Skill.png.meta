@@ -1,0 +1,862 @@
+fileFormatVersion: 2
+guid: 03035e452a939fb4483691eb2b68fb10
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11274
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eefb88e3f62ac341ad5a66a5344625d
+      internalID: -1499262656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_1
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 11274
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2501f0c959eb6f540ae638783167c68f
+      internalID: 962266340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_2
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 11274
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51538314040961945b50ee2534c52f72
+      internalID: 1513542859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_3
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 11274
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da75ddd63e56d2d48aed28b295c6d255
+      internalID: -444064037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_4
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 11274
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 580ee2d54b312f3498c349b3d057f1da
+      internalID: 872265493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9395
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85dfa494afac0b64db8a7734af3c3390
+      internalID: 1659834241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_6
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 9395
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0be8dd6744fd2e845bf0516a9d08894b
+      internalID: -259778812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_7
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 9395
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9f01022cd4c6bd4c97acd9035845c54
+      internalID: 387389100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_8
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 9395
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c5028cb3d9e9584f86648b63a9d3189
+      internalID: 1711980627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_9
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 9395
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66af0d5bd608c9c49a673f3ea7e090cf
+      internalID: 524585868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7516
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 990d01ca348fc944d9ad90bd5ca9d4d9
+      internalID: 2127891954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_11
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 7516
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32c712125f2a17141abfff3c8f914408
+      internalID: 153916887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_12
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 7516
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb66b781e9c55b2419f9ab04224603f0
+      internalID: 1806760471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_13
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 7516
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe08120bcf56e9e4c848963c184f3157
+      internalID: 934264658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_14
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 7516
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf2b7683b17b7454884b264c5f230264
+      internalID: 1835245298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5637
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fab5a024b9fc2ba49a53e8db27cec823
+      internalID: 2099916687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_16
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5637
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7940dcc1087b6424588891b43b795a01
+      internalID: -869256687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_17
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5637
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98cdbd43b43294b498c0f61ca92d88b9
+      internalID: 1474030841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_18
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 5637
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2666913aa94b0145810b89ae733be8c
+      internalID: -1590598495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_19
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 5637
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06d40cda95f13c147b2b44c35e79cb52
+      internalID: 320878287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3758
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab81e45f44cc65e4d9fa936eee88f139
+      internalID: 836748969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_21
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3758
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b6dec387fc5a29478873d521ee3e2f7
+      internalID: 442398887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_22
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3758
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3069c689134fc4478d021783a21adbd
+      internalID: 379721654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_23
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 3758
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6924d1631676170488517c5f3bba9eb7
+      internalID: 1920598412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_24
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 3758
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47897dcf962308f4c8105418f332dccc
+      internalID: 1770347614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1879
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b600f0c9258241a47a1ff8119dfff96c
+      internalID: 2080908927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_26
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1879
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a06342c20a78ea7458c3048290709012
+      internalID: 1245553850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_27
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1879
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced5919e8b2701d4a96c761e958e0f09
+      internalID: 833423439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_28
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 1879
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f80cd94593c8540a02a49bd01b5273
+      internalID: -2119516682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_29
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 1879
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09aa9fe3b3583a444801825cdfb21d55
+      internalID: 367882514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb0c89b95a8db1540bac95f9539454a5
+      internalID: 1768648591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_31
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b46b8c26526b554aa5bf08a74f335e5
+      internalID: 926805803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_32
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ce6111ed87434947a81b038579b9464
+      internalID: 725547982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-Skill_33
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 1920
+        height: 1879
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 305c0e1c26472094a8236b3ff515efbd
+      internalID: 1225419856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c11c099ad86434e44bc0b1603e0be14f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      enemy-sanquan-Skill_0: -1499262656
+      enemy-sanquan-Skill_1: 962266340
+      enemy-sanquan-Skill_10: 2127891954
+      enemy-sanquan-Skill_11: 153916887
+      enemy-sanquan-Skill_12: 1806760471
+      enemy-sanquan-Skill_13: 934264658
+      enemy-sanquan-Skill_14: 1835245298
+      enemy-sanquan-Skill_15: 2099916687
+      enemy-sanquan-Skill_16: -869256687
+      enemy-sanquan-Skill_17: 1474030841
+      enemy-sanquan-Skill_18: -1590598495
+      enemy-sanquan-Skill_19: 320878287
+      enemy-sanquan-Skill_2: 1513542859
+      enemy-sanquan-Skill_20: 836748969
+      enemy-sanquan-Skill_21: 442398887
+      enemy-sanquan-Skill_22: 379721654
+      enemy-sanquan-Skill_23: 1920598412
+      enemy-sanquan-Skill_24: 1770347614
+      enemy-sanquan-Skill_25: 2080908927
+      enemy-sanquan-Skill_26: 1245553850
+      enemy-sanquan-Skill_27: 833423439
+      enemy-sanquan-Skill_28: -2119516682
+      enemy-sanquan-Skill_29: 367882514
+      enemy-sanquan-Skill_3: -444064037
+      enemy-sanquan-Skill_30: 1768648591
+      enemy-sanquan-Skill_31: 926805803
+      enemy-sanquan-Skill_32: 725547982
+      enemy-sanquan-Skill_33: 1225419856
+      enemy-sanquan-Skill_4: 872265493
+      enemy-sanquan-Skill_5: 1659834241
+      enemy-sanquan-Skill_6: -259778812
+      enemy-sanquan-Skill_7: 387389100
+      enemy-sanquan-Skill_8: 1711980627
+      enemy-sanquan-Skill_9: 524585868
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

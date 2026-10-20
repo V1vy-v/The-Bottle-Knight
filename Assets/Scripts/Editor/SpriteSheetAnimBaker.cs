@@ -33,6 +33,15 @@ namespace Framework.Editor
         /// <summary>这两个动作循环，其余（sprint / atk / dead）不循环</summary>
         private static readonly HashSet<string> LoopActions = new HashSet<string> { "idle", "walk" };
 
+        /// <summary>
+        /// 形态别名：图集名里的形态 → 实际要产出的 clip 形态。
+        /// coffee 那批素材实际是冰美式，产物统一成 enemy_icecafe_*，和 enemy_IceCafe 控制器对齐。
+        /// </summary>
+        private static readonly Dictionary<string, string> FormAliases = new Dictionary<string, string>
+        {
+            { "coffee", "icecafe" },
+        };
+
         [MenuItem("Tools/聚光灯/烘焙主角序列帧动画")]
         public static void BakePlayer()
         {
@@ -52,7 +61,7 @@ namespace Framework.Editor
 
             var sheets = AssetDatabase.FindAssets("t:Texture2D", new[] { sheetRoot })
                 .Select(AssetDatabase.GUIDToAssetPath)
-                .Where(path => System.IO.Path.GetFileNameWithoutExtension(path).StartsWith(owner + "_"))
+                .Where(path => NormalizeName(System.IO.Path.GetFileNameWithoutExtension(path)).StartsWith(owner + "_"))
                 .OrderBy(path => path)
                 .ToList();
 
@@ -62,13 +71,24 @@ namespace Framework.Editor
 
             foreach (string sheetPath in sheets)
             {
-                string clipName = System.IO.Path.GetFileNameWithoutExtension(sheetPath);
+                // 美术命名可能是 Enemy-coffee-idle / enemy-sanquan-Death，
+                // 统一成 enemy_coffee_idle / enemy_sanquan_dead 再配对
+                string clipName = NormalizeName(System.IO.Path.GetFileNameWithoutExtension(sheetPath));
 
                 if (!TrySplit(clipName, owner, out string form, out string action))
                 {
                     skipped.Add($"{sheetPath}（文件名不符合 {owner}_<form>_<action>）");
                     continue;
                 }
+
+                // 动作别名归一（boxing/attack → atk，death → dead），保证和已有敌人 clip 同名
+                action = CanonicalAction(action);
+
+                // 形态别名（coffee → icecafe），图集不改名也能产出正确命名的 clip
+                if (FormAliases.TryGetValue(form, out string formAlias))
+                    form = formAlias;
+
+                clipName = $"{owner}_{form}_{action}";
 
                 List<Sprite> sprites = LoadSprites(sheetPath);
                 if (sprites.Count == 0)
@@ -98,6 +118,28 @@ namespace Framework.Editor
 
             Debug.Log($"[烘焙-{owner}] 完成：{baked} 个 Animation，共 {frames} 帧" +
                       (skipped.Count > 0 ? $"，{skipped.Count} 项被跳过" : string.Empty));
+        }
+
+        /// <summary>统一命名：小写，连字符与空格换成下划线（兼容美术的 Enemy-coffee-idle 写法）</summary>
+        private static string NormalizeName(string name)
+        {
+            if (string.IsNullOrEmpty(name)) return string.Empty;
+            return name.ToLowerInvariant().Replace('-', '_').Replace(' ', '_');
+        }
+
+        /// <summary>动作别名归一：保证和已有敌人 clip（idle/walk/atk/sprint/dead）同名</summary>
+        private static string CanonicalAction(string action)
+        {
+            switch (action)
+            {
+                case "boxing":
+                case "attack":
+                    return "atk";
+                case "death":
+                    return "dead";
+                default:
+                    return action;
+            }
         }
 
         /// <summary>把 player_cola_idle 拆成 form=cola、action=idle</summary>

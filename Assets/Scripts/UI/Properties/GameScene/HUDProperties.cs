@@ -37,6 +37,16 @@ namespace UI
             300f,       // 超市
         };
 
+        [Tooltip("尺寸 3，顺序同上。每张图【整张】覆盖多少世界单位高度。\n" +
+                 "填了就用它单独算 Y 的缩放（贴图长宽比和世界区域不一致时，标记不会上下漂）；\n" +
+                 "填 0 = 不单独算，退回用宽度的缩放（要求贴图比例恰好等于世界比例）。")]
+        public float[] mapCoveredWorldHeight =
+        {
+            0f,
+            0f,
+            0f,
+        };
+
         [Header("小地图 · 标记外观")]
         [Tooltip("主角标记（固定在遮罩中心）。留空用纯白方块")]
         public Sprite playerMarkSprite;

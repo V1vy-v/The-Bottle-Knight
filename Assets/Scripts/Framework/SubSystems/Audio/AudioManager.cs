@@ -15,14 +15,21 @@ namespace Framework.SubSystems
         private Transform _container;
         private AudioSource _bgmSource;
         private AudioSource _sfxSource;
+        private AudioSource _ambientSource;
+        private AudioSource _loopSource;
 
         private string _currentBgmKey;
+        private string _currentAmbientKey;
+        private string _currentLoopKey;
 
         #region 属性
         public override int Priority => (int)SubSystemPriority.AudioManager;
 
         /// <summary>当前正在播的 BGM 键，没有则为空</summary>
         public string CurrentBgmKey => _currentBgmKey;
+
+        /// <summary>当前正在播的环境音键，没有则为空</summary>
+        public string CurrentAmbienceKey => _currentAmbientKey;
         #endregion
 
         #region 播放
@@ -99,6 +106,65 @@ namespace Framework.SubSystems
             if (_currentBgmKey == key) StopBGM();
         }
 
+        /// <summary>切环境音（独立音源，和 BGM 分层叠放）。同一首重复调用不会重播。</summary>
+        public void PlayAmbience(string key, float volumeScale = 1f)
+        {
+            if (_ambientSource == null) return;
+            if (_currentAmbientKey == key && _ambientSource.isPlaying) return;
+
+            if (!_entries.TryGetValue(key, out AudioEntry entry) || entry.clip == null)
+            {
+                Debug.LogWarning($"[AudioManager] 环境音未配置或丢失: {key}");
+                return;
+            }
+
+            _currentAmbientKey = key;
+            _ambientSource.clip = entry.clip;
+            _ambientSource.loop = true;
+            _ambientSource.volume = BgmVolume(entry, volumeScale);
+            _ambientSource.Play();
+
+            Debug.Log($"[AudioManager] 播放环境音: {key}");
+        }
+
+        /// <summary>停止环境音</summary>
+        public void StopAmbience()
+        {
+            _currentAmbientKey = null;
+            if (_ambientSource != null) _ambientSource.Stop();
+        }
+
+        /// <summary>
+        /// 播放/替换一条「状态型循环音效」（跑动、喷射这类跟着玩家动作起停的声音）。
+        /// 传入的 key 变了就换曲子，相同则继续播。
+        /// </summary>
+        public void PlayLoop(string key, float volumeScale = 1f)
+        {
+            if (_loopSource == null) return;
+            if (_currentLoopKey == key && _loopSource.isPlaying) return;
+
+            if (!_entries.TryGetValue(key, out AudioEntry entry) || entry.clip == null)
+            {
+                Debug.LogWarning($"[AudioManager] 循环音效未配置或丢失: {key}");
+                return;
+            }
+
+            _currentLoopKey = key;
+            _loopSource.clip = entry.clip;
+            _loopSource.loop = true;
+            _loopSource.volume = SfxVolume(entry, volumeScale);
+            _loopSource.Play();
+        }
+
+        /// <summary>停止循环音效。传 key 时只有当前正是它才会停。</summary>
+        public void StopLoop(string key = null)
+        {
+            if (key != null && _currentLoopKey != key) return;
+
+            _currentLoopKey = null;
+            if (_loopSource != null) _loopSource.Stop();
+        }
+
         #endregion
 
         #region 音量
@@ -117,6 +183,13 @@ namespace Framework.SubSystems
             _sfxSource.volume = Mathf.Clamp01(cfg);
         }
 
+        private float SfxVolume(AudioEntry entry, float volumeScale)
+        {
+            float cfg = _config != null ? _config.MasterVolume * _config.SfxVolume : 1f;
+            float local = entry.volume <= 0f ? 1f : entry.volume;
+            return Mathf.Clamp01(cfg * local * volumeScale);
+        }
+
         /// <summary>总音量 0~1</summary>
         public void ChangeMasterVolume(float volume)
         {
@@ -127,12 +200,14 @@ namespace Framework.SubSystems
         public void ChangeMusicVolume(float volume)
         {
             if (_bgmSource != null) _bgmSource.volume = Mathf.Clamp01(volume);
+            if (_ambientSource != null) _ambientSource.volume = Mathf.Clamp01(volume * 0.6f);
         }
 
         /// <summary>音效音量 0~1</summary>
         public void ChangeSfxVolume(float volume)
         {
             if (_sfxSource != null) _sfxSource.volume = Mathf.Clamp01(volume);
+            if (_loopSource != null) _loopSource.volume = Mathf.Clamp01(volume * 0.8f);
         }
 
         #endregion
@@ -175,6 +250,20 @@ namespace Framework.SubSystems
             _sfxSource.spatialBlend = 0f;
             ApplySfxVolume();
 
+            // 环境音（和 BGM 分层）
+            _ambientSource = go.AddComponent<AudioSource>();
+            _ambientSource.playOnAwake = false;
+            _ambientSource.loop = true;
+            _ambientSource.spatialBlend = 0f;
+            _ambientSource.volume = _config.MasterVolume * _config.MusicVolume * 0.6f;
+
+            // 状态型循环音效（跑动 / 喷射）
+            _loopSource = go.AddComponent<AudioSource>();
+            _loopSource.playOnAwake = false;
+            _loopSource.loop = true;
+            _loopSource.spatialBlend = 0f;
+            _loopSource.volume = _config.MasterVolume * _config.SfxVolume * 0.8f;
+
             Debug.Log($"[AudioManager] 已加载 {_entries.Count} 条音频");
         }
 
@@ -186,7 +275,11 @@ namespace Framework.SubSystems
             _container = null;
             _bgmSource = null;
             _sfxSource = null;
+            _ambientSource = null;
+            _loopSource = null;
             _currentBgmKey = null;
+            _currentAmbientKey = null;
+            _currentLoopKey = null;
         }
 
         #endregion

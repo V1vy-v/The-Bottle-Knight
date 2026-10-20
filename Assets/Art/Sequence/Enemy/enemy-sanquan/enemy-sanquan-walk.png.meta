@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -95,18 +95,458 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4629
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4a4e60be60717a4e8007124f8fd6a46
+      internalID: 1734230833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_1
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 4629
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08a0d0972f7abbc4e800d61b858bcd56
+      internalID: -608331732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_2
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 4629
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1245f2f2380b11a4da70ed89fd8f89db
+      internalID: 1228134752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_3
+      rect:
+        serializedVersion: 2
+        x: 3528
+        y: 4629
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eece3cb8b6fcb894fbfb3fb7b57d19e1
+      internalID: 1855243637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_4
+      rect:
+        serializedVersion: 2
+        x: 4704
+        y: 4629
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b27d69aa5d5a4b84596c2e7b7fe6b279
+      internalID: -1529846004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3086
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e73b59281fe69d4c957f2249a1ca17b
+      internalID: 1837199239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_6
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 3086
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baa16b9bdefa4c849a90df8e9b05f7ec
+      internalID: -1738561554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_7
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 3086
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 545a56bcd393c234da109136e953420b
+      internalID: -1736914637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_8
+      rect:
+        serializedVersion: 2
+        x: 3528
+        y: 3086
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5f404a723b7e9b4f9168b8abd14e7c4
+      internalID: 1689777803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_9
+      rect:
+        serializedVersion: 2
+        x: 4704
+        y: 3086
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 472667bcbae609544b1dbe83c5945cdc
+      internalID: -760181737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1543
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec5fdb0a8a4acb641b7a0124c10f3121
+      internalID: 938200599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_11
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 1543
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bbf23e113f968b468b0fcecb05da42c
+      internalID: -229158980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_12
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 1543
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9962c2f8645d00c4cb3e0818584dc4ac
+      internalID: -899220902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_13
+      rect:
+        serializedVersion: 2
+        x: 3528
+        y: 1543
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8807c52adce682448bfe52de754eb78
+      internalID: 509682226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_14
+      rect:
+        serializedVersion: 2
+        x: 4704
+        y: 1543
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f81eff9a1b3ce0948bb30fc6369ae8e8
+      internalID: 1439113129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f3182412153b304881d6759f547aa4e
+      internalID: -787663011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_16
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 0
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db9694fa893e2554e83e332bcb012dbc
+      internalID: 2117038491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_17
+      rect:
+        serializedVersion: 2
+        x: 2352
+        y: 0
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f70bef38d297b445aa976e8f3e1e643
+      internalID: 858457916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_18
+      rect:
+        serializedVersion: 2
+        x: 3528
+        y: 0
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7096688669aba9459e50c62b87e5916
+      internalID: -1459108710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-walk_19
+      rect:
+        serializedVersion: 2
+        x: 4704
+        y: 0
+        width: 1176
+        height: 1543
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec88f43101e5c134c98b8f8f77670e6b
+      internalID: 1253909885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6dbb1d96b0cd89c4fa2e6cf367e89c23
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      enemy-sanquan-walk_0: 1734230833
+      enemy-sanquan-walk_1: -608331732
+      enemy-sanquan-walk_10: 938200599
+      enemy-sanquan-walk_11: -229158980
+      enemy-sanquan-walk_12: -899220902
+      enemy-sanquan-walk_13: 509682226
+      enemy-sanquan-walk_14: 1439113129
+      enemy-sanquan-walk_15: -787663011
+      enemy-sanquan-walk_16: 2117038491
+      enemy-sanquan-walk_17: 858457916
+      enemy-sanquan-walk_18: -1459108710
+      enemy-sanquan-walk_19: 1253909885
+      enemy-sanquan-walk_2: 1228134752
+      enemy-sanquan-walk_3: 1855243637
+      enemy-sanquan-walk_4: -1529846004
+      enemy-sanquan-walk_5: 1837199239
+      enemy-sanquan-walk_6: -1738561554
+      enemy-sanquan-walk_7: -1736914637
+      enemy-sanquan-walk_8: 1689777803
+      enemy-sanquan-walk_9: -760181737
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

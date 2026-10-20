@@ -99,9 +99,84 @@ namespace GamePlay.Enemy
             if (_sprite != null)
                 _originalColor = _sprite.color;
 
+            ForceBodySetup();
+
             if (moveController == null) return;
             if (animator == null) return;
         }
+
+        /// <summary>
+        /// 敌人本体碰撞体保持实体（继续和 Obstacle 挡住墙），
+        /// 只把「玩家本体 ↔ 敌人本体」这一对碰撞体设为互相忽略。
+        /// 这样玩家和敌人不会互相顶开，但敌人照样撞墙、照样和玩家发生 Trigger 侦测。
+        /// </summary>
+        private void ForceBodySetup()
+        {
+            Transform body = transform.Find("MoveCollider");
+            if (body != null)
+            {
+                _bodyCollider = body.GetComponent<Collider2D>();
+                if (_bodyCollider != null)
+                {
+                    _bodyCollider.isTrigger = false;   // 曾经误设成 Trigger 的预制体（Enemy_OnLong）也纠正回来
+                    _bodyRadius = Mathf.Max(0.2f, Mathf.Min(_bodyCollider.bounds.extents.x, _bodyCollider.bounds.extents.y));
+                    if (moveController != null) moveController.BodyRadius = _bodyRadius;
+                }
+            }
+
+            ApplyBodyIgnore();      // 玩家此刻可能还没生成，Update 里会继续重试
+        }
+
+        /// <summary>让玩家本体和这个敌人的本体互相穿过（其余碰撞关系不变）</summary>
+        private void ApplyBodyIgnore()
+        {
+            if (_bodyIgnored) return;
+
+            Collider2D playerBody = ResolvePlayerBody();
+            if (playerBody == null) return;
+
+            if (_bodyCollider == null)
+            {
+                _bodyIgnored = true;
+                return;
+            }
+
+            if (!Physics2D.GetIgnoreCollision(playerBody, _bodyCollider))
+                Physics2D.IgnoreCollision(playerBody, _bodyCollider, true);
+
+            _bodyIgnored = true;
+        }
+
+        /// <summary>玩家本体碰撞体（Player/MoveCollider）。缓存起来，掉帧时不用每帧找。</summary>
+        private static Collider2D ResolvePlayerBody()
+        {
+            if (_playerBody != null) return _playerBody;
+
+            var root = Framework.Global.Get<GameplayRoot>();
+            GameObject player = root != null ? root.Player : null;
+            if (player == null) return null;
+
+            Transform body = player.transform.Find("MoveCollider");
+            if (body == null)
+            {
+                Collider2D[] cols = player.GetComponentsInChildren<Collider2D>(true);
+                for (int i = 0; i < cols.Length; i++)
+                {
+                    if (cols[i] != null && !cols[i].isTrigger) { body = cols[i].transform; break; }
+                }
+            }
+
+            _playerBody = body != null ? body.GetComponent<Collider2D>() : null;
+            return _playerBody;
+        }
+
+        private static Collider2D _playerBody;
+        private Collider2D _bodyCollider;
+        private bool _bodyIgnored;
+        private float _bodyRadius = 0.8f;
+
+        /// <summary>本体碰撞半径，直线追击时用来探墙</summary>
+        public float BodyRadius => _bodyRadius;
 
         private void InitFromConfig()
         {
@@ -153,9 +228,93 @@ namespace GamePlay.Enemy
 
         private void Update()
         {
+            if (!_bodyIgnored) ApplyBodyIgnore();     // 玩家比敌人晚生成时，这里补上
             if (_aiPaused) return;
+            TickSenses();
             _fsm?.Update(Time.deltaTime);
         }
+
+        /// <summary>战败重试时把场上的敌人回满血（已经倒下/被清掉的不管）</summary>
+        public void ResetToFull()
+        {
+            if (IsDefeated) return;
+
+            state.CurrentHP = state.MaxHP;
+            OnWound?.Invoke(state.CurrentHP, state.MaxHP);
+        }
+
+        #region 感知（距离兜底）
+
+        [Header("感知距离")]
+        [Tooltip("发现玩家的距离。预制体上的侦测碰撞体是一条约 1 单位高的细带，玩家站在地面上常常碰不到，" +
+                 "所以这里按距离再判一次，两个结果取并集")]
+        [SerializeField] private float _detectRadius = 14f;
+
+        [Tooltip("进入攻击状态的距离")]
+        [SerializeField] private float _attackRadius = 3.2f;
+
+        /// <summary>攻击距离，攻击结算时用</summary>
+        public float AttackRadius => _attackRadius;
+
+        /// <summary>最近一次攻击结算的时间（防止同一次攻击既吃距离结算又吃碰撞体结算）</summary>
+        public float LastAttackTime { get; private set; } = -10f;
+
+        private Transform _cachedPlayer;
+
+        /// <summary>当前锁定的玩家（给攻击结算用）</summary>
+        public Transform PlayerTarget => _cachedPlayer;
+
+        private void TickSenses()
+        {
+            if (!CombatEnabled)
+            {
+                playerInDetectRange = false;
+                playerInAttackRange = false;
+                return;
+            }
+
+            Transform p = _cachedPlayer;
+            if (p == null)
+            {
+                var root = Framework.Global.Get<GameplayRoot>();
+                p = root != null && root.Player != null ? root.Player.transform : null;
+            }
+
+            if (p == null)
+            {
+                playerInDetectRange = false;
+                playerInAttackRange = false;
+                return;
+            }
+
+            _cachedPlayer = p;
+            SetPlayerTarget(p);          // 追击状态要靠它拿目标；碰撞体感知没触发时这里是唯一来源
+
+            float d = Vector2.Distance(transform.position, p.position);
+            playerInDetectRange = d <= _detectRadius;
+            playerInAttackRange = d <= _attackRadius;
+        }
+
+        /// <summary>
+        /// 攻击命中结算（距离版）。预制体上的 Attack 碰撞体只有 21×1，玩家站地面时基本碰不到，
+        /// 由 EnemyAttackController 在出手那一帧直接调这里。
+        /// </summary>
+        public void TryDealDirectHit()
+        {
+            LastAttackTime = Time.time;
+
+            Transform p = _cachedPlayer;
+            if (p == null) return;
+
+            if (Vector2.Distance(transform.position, p.position) > _attackRadius + 1f) return;
+
+            var pc = p.GetComponent<GamePlay.Player.PlayerController>();
+            if (pc?.PlayerStats == null) return;
+
+            pc.PlayerStats.ApplyDamage((int)state.baseAtk);
+        }
+
+        #endregion
 
         private void FixedUpdate()
         {

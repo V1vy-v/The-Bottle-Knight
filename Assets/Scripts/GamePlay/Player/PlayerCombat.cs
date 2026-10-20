@@ -28,6 +28,11 @@ namespace GamePlay.Player
         private const string Straw = "吸管_0";
         private AttackModule _currentAtkModule = AttackModule.Melee;
         private float _elapsed;
+        /// <summary>近战连击段数（1~3），用来轮流播三段不同的击打音</summary>
+        private int _meleeComboIndex;
+        /// <summary>上一拳的时间，停手超过 ComboResetTime 就重走第一段</summary>
+        private float _lastMeleeTime = -10f;
+        private const float ComboResetTime = 1.2f;
 
         private LineRenderer _rangeRenderer;
 
@@ -113,6 +118,15 @@ namespace GamePlay.Player
             if (_currentAtkModule == AttackModule.Melee)
             {
                 _view.PlayAttack(AttackModule.Melee);
+
+                // 近战三段连击音：左拳 → 右拳 → 瓶顶，按顺序循环
+                // 停手超过 ComboResetTime 就从第一段重新开始
+                if (Time.time - _lastMeleeTime > ComboResetTime) _meleeComboIndex = 0;
+                _lastMeleeTime = Time.time;
+
+                _meleeComboIndex = _meleeComboIndex % 3 + 1;
+                Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("SFX_Player_Melee_" + _meleeComboIndex);
+
                 float finalRadius = _stats.MeleeRange * (1f + _liquids.RangeBonus);
 
                 Vector2 actualOffset = new Vector2(_primaryMeleeAtkOffset.x * _facingDir, _primaryMeleeAtkOffset.y);
@@ -176,7 +190,13 @@ namespace GamePlay.Player
                           : cur is GuoJiao gj ? $"红温 {gj.RageRatio:P0}"
                           : "不可用";
             Debug.Log($"[技能] 释放失败：{cur.Config?.Name} —— {reason}");
+
+            // 技能放不出来给个拒绝音，别让玩家以为按键没响应
+            Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("UI_Error");
         }
+
+        /// <summary>远战解锁了没（UI 判断能不能切）</summary>
+        public bool CanSwitchModule => _isStrawGained;
 
         public void SwitchModule()
         {

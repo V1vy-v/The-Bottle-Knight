@@ -70,11 +70,14 @@ namespace UI
 
         /// <summary>图上出生点相对图片中心的像素偏移（左下为原点换算成中心为原点）</summary>
         private Vector2 _mapAnchorOffsetPx;
-        /// <summary>每世界单位占多少像素</summary>
+        /// <summary>每世界单位占多少像素（X）</summary>
         private float _mapPxPerWorld = 1f;
+        /// <summary>每世界单位占多少像素（Y）。没配覆盖高度时等于 X 的缩放</summary>
+        private float _mapPxPerWorldY = 1f;
 
-        /// <summary>运行期可调的覆盖宽度 / 出生点（调试时用按键微调，不用改资产重编译）</summary>
+        /// <summary>运行期可调的覆盖宽度 / 覆盖高度 / 出生点（调试时用按键微调，不用改资产重编译）</summary>
         private float[] _coveredOverride;
+        private float[] _coveredHeightOverride;
         private Vector2[] _uvOverride;
 
         /// <summary>主角点（固定在遮罩中心）</summary>
@@ -343,6 +346,10 @@ namespace UI
             float covered = CoveredWorldWidth(_mapStage);
             _mapPxPerWorld = map.rect.width / Mathf.Max(0.001f, covered);
 
+            // Y 轴单独算：贴图长宽比和世界区域长宽比不一定一致，用同一个缩放会让标记上下漂移
+            float coveredH = CoveredWorldHeight(_mapStage);
+            _mapPxPerWorldY = coveredH > 1f ? map.rect.height / coveredH : _mapPxPerWorld;
+
             // 图上出生点相对图片中心的像素偏移
             Vector2 sizePx = map.rect.size;
             Vector2 spawnUv = SpawnUv(_mapStage);
@@ -377,7 +384,9 @@ namespace UI
         /// <summary>某个世界坐标在地图上的局部像素坐标（原点是图片中心）</summary>
         private Vector2 MapLocal(Vector2 world)
         {
-            return (world - _mapAnchorWorld) * _mapPxPerWorld + _mapAnchorOffsetPx;
+            return new Vector2(
+                (world.x - _mapAnchorWorld.x) * _mapPxPerWorld + _mapAnchorOffsetPx.x,
+                (world.y - _mapAnchorWorld.y) * _mapPxPerWorldY + _mapAnchorOffsetPx.y);
         }
 
         /// <summary>出生点在这张图上的归一化位置</summary>
@@ -395,12 +404,20 @@ namespace UI
             return v > 10f ? v : 10f;
         }
 
+        /// <summary>这张图整张覆盖多少世界单位高度。<=0 表示没配，退回用 X 的缩放（要求贴图比例恰好等于世界比例）</summary>
+        private float CoveredWorldHeight(int stageIndex)
+        {
+            EnsureMapConfig();
+            return _coveredHeightOverride[Mathf.Clamp(stageIndex, 0, _coveredHeightOverride.Length - 1)];
+        }
+
         /// <summary>把资产里的配置读进运行期数组，之后可用调试按键微调</summary>
         private void EnsureMapConfig()
         {
             if (_coveredOverride != null) return;
 
             _coveredOverride = new float[3];
+            _coveredHeightOverride = new float[3];
             _uvOverride = new Vector2[3];
 
             for (int i = 0; i < 3; i++)
@@ -408,6 +425,10 @@ namespace UI
                 _coveredOverride[i] = _cfg != null && _cfg.mapCoveredWorldWidth != null && i < _cfg.mapCoveredWorldWidth.Length
                     ? _cfg.mapCoveredWorldWidth[i]
                     : 150f;
+
+                _coveredHeightOverride[i] = _cfg != null && _cfg.mapCoveredWorldHeight != null && i < _cfg.mapCoveredWorldHeight.Length
+                    ? _cfg.mapCoveredWorldHeight[i]
+                    : 0f;
 
                 _uvOverride[i] = _cfg != null && _cfg.mapSpawnUv != null && i < _cfg.mapSpawnUv.Length
                     ? _cfg.mapSpawnUv[i]

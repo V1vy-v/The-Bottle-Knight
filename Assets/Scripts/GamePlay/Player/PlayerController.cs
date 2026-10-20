@@ -41,6 +41,10 @@ namespace GamePlay.Player
 
         private Vector2 _moveValue;
 
+        /// <summary>当前移动音状态，用来判断要不要换音源（避免每帧重播）</summary>
+        private enum FootstepState { None, Move, Spray }
+        private FootstepState _footstepState = FootstepState.None;
+
         // 点按型喷射：_sprintRemain = 本次喷射还剩多久，_sprintCdRemain = 冷却还剩多久
         private float _sprintRemain;
         private float _sprintCdRemain;
@@ -135,6 +139,43 @@ namespace GamePlay.Player
             if (_sprintRemain > 0f) _sprintRemain = Mathf.Max(0f, _sprintRemain - Time.deltaTime);
             if (_sprintCdRemain > 0f) _sprintCdRemain = Mathf.Max(0f, _sprintCdRemain - Time.deltaTime);
 
+            // 脚步 / 喷射的循环音（状态变了才动音源，避免每帧重播）
+            UpdateFootstepAudio(_moveValue != Vector2.zero);
+        }
+
+        /// <summary>
+        /// 移动循环音：站着无声、走路循环脚步声、喷射期间换成喷射音。
+        /// 只在状态切换时调用音源，音频本身是 loop 的，会一直循环播放。
+        /// </summary>
+        private void UpdateFootstepAudio(bool moving)
+        {
+            var audio = Global.Get<Framework.SubSystems.AudioManager>();
+            if (audio == null) return;
+
+            FootstepState want = _sprintRemain > 0f
+                ? FootstepState.Spray
+                : (moving ? FootstepState.Move : FootstepState.None);
+
+            if (want == _footstepState) return;      // 状态没变，保持当前循环，不要重启
+            _footstepState = want;
+
+            switch (want)
+            {
+                case FootstepState.Move:
+                    audio.StopLoop("SFX_Player_Spray");
+                    audio.PlayLoop("SFX_Player_Move");
+                    break;
+
+                case FootstepState.Spray:
+                    audio.StopLoop("SFX_Player_Move");
+                    audio.PlayLoop("SFX_Player_Spray");
+                    break;
+
+                default:
+                    audio.StopLoop("SFX_Player_Move");
+                    audio.StopLoop("SFX_Player_Spray");
+                    break;
+            }
         }
         private void FixedUpdate()
         {
@@ -190,8 +231,8 @@ namespace GamePlay.Player
             _sprintRemain = _playerStats.SprintDuration;
             _sprintCdRemain = _playerStats.SprintCd;
 
-            // TODO 喷射动画 / 音效 / 伤害。PlayerView 目前没有喷射接口，
-            //      Animator 里也没有「喷射」状态，加的时候一起补。
+            // 喷射音由 UpdateFootstepAudio 统一处理（循环播，冲完自动切回脚步/静音）
+            UpdateFootstepAudio(true);
         }
         private void OnSwitchModule(InputAction.CallbackContext ctx)
         {
@@ -200,7 +241,11 @@ namespace GamePlay.Player
 
         private void OnSwitchLiquid(InputAction.CallbackContext ctx)
         {
+            // 只有真的切成功了才出声音：冷却中 / 只有一个槽位时静默
+            if (!_playerLiquids.CanChangeLiquid) return;
+
             _playerLiquids.ChangeLiquid();
+            Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("SFX_Player_SwitchLiquid");
         }
 
         private void OnPour(InputAction.CallbackContext context)

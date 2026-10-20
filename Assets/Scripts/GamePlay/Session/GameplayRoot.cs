@@ -378,6 +378,8 @@ namespace GamePlay
             // 战斗节点由 GameplayBattleState 自己切战斗曲，其它节点按阶段放 BGM
             if (node.mode != GameplayMode.Battle)
                 PlayStageBgm();
+
+            SaveCheckpoint(node);
         }
 
         /// <summary>
@@ -394,7 +396,17 @@ namespace GamePlay
                 _ => "BGM_Kitchen",
             };
 
-            Framework.Global.Get<Framework.SubSystems.AudioManager>()?.PlayBGM(key);
+            var audio = Framework.Global.Get<Framework.SubSystems.AudioManager>();
+            audio?.PlayBGM(key);
+
+            // 环境音和 BGM 分层叠放（冰箱冷气 / 厨房市井 / 超市空调）
+            string ambience = node == null ? "AMB_Kitchen" : node.currentStage switch
+            {
+                StoryStage.Fridge => "AMB_ColdStorage",
+                StoryStage.Supermarket => "AMB_Supermarket",
+                _ => "AMB_Kitchen",
+            };
+            audio?.PlayAmbience(ambience);
         }
 
         /// <summary>
@@ -499,8 +511,29 @@ namespace GamePlay
         /// <summary>重试请求进行中：挡住重复请求</summary>
         private bool _retrying;
 
+        /// <summary>正在按存档点回退：此时进节点不要覆盖存档点</summary>
+        private bool _restoringCheckpoint;
+
+        /// <summary>存档点：最近一次「自由行走」节点的 Id 与当时主角位置</summary>
+        private string _checkpointNodeId;
+        private Vector3 _checkpointPos;
+
         /// <summary>结局演出进行中</summary>
         private bool _ending;
+
+        /// <summary>
+        /// 记录存档点。只在自由行走节点记 —— 战斗中死掉要回到「进战斗之前那一步」，
+        /// 比如雷碧那场，回去后要重新踩触发器才会再打一次。
+        /// </summary>
+        private void SaveCheckpoint(NodeConfig node)
+        {
+            if (_restoringCheckpoint) return;
+            if (node == null || node.mode != GameplayMode.FreeRoam) return;
+            if (_player == null) return;
+
+            _checkpointNodeId = node.Id;
+            _checkpointPos = _player.transform.position;
+        }
 
         /// <summary>
         /// 主角死亡。由 PlayerController 每帧检查后上报 —— 数值组件是纯 C# 类，
@@ -515,38 +548,114 @@ namespace GamePlay
         }
 
         /// <summary>
-        /// 战败重试：清掉战场 → 回满血 → 黑屏 → 重新进入当前节点。
-        /// 不整局重开，超市 BOSS 战死了只重打这一场，前面的进度都保留。
+        /// 战败重试：清战场 → 占位贴图复原 → 场上敌人回满血 → 触发器重新武装 → 主角复活
+        /// → 黑屏 → 回到上一个自由行走的节点与位置。
+        /// 这样雷碧这种「踩触发器开打」的战斗，死后必须重新踩一次才会再打。
         /// </summary>
-        public void RetryCurrentNode()
+        public void RetryFromCheckpoint()
         {
             if (_retrying) return;
 
-            NodeConfig node = _storyContext?.CurrentNode;
+            _retrying = true;
+
+            // 1. 收掉上一场刷出来的敌人（含 BOSS 尸体）
+            _battleState?.ForceClearAll();
+
+            // 2. 占位贴图复原：开打时整组被关掉了渲染，不复原的话重打时 BOSS 是隐形的
+            ShowPlaceholder(_encounterPlaceholder);
+            ClearEncounter();
+
+            // 3. 场上敌人回满血
+            HealAllEnemies();
+
+            // 4. 触发器重新武装（雷碧那场必须能再踩一次）
+            RearmFlowTriggers();
+
+            // 5. 主角复活
+            _player?.GetComponent<GamePlay.Player.PlayerController>()?.Revive();
+
+            NodeConfig node = ResolveCheckpointNode();
             if (node == null)
             {
-                Debug.LogWarning("[GameplayRoot] 重试时没有当前节点，直接回主菜单");
+                Debug.LogWarning("[GameplayRoot] 没有可回退的节点，直接回主菜单");
+                _retrying = false;
                 EndStory();
                 return;
             }
 
-            _retrying = true;
-            _battleState?.ForceClearAll();
-
-            _player?.GetComponent<GamePlay.Player.PlayerController>()?.Revive();
-
-            if (ScreenFader.Instance != null)
+            void Apply()
             {
-                ScreenFader.Instance.Play(() =>
-                {
-                    _retrying = false;
-                    EnterNodeImmediate(node);
-                });
-                return;
+                TeleportTo(_checkpointPos);
+
+                _restoringCheckpoint = true;
+                EnterNodeImmediate(node);
+                _restoringCheckpoint = false;
+
+                _retrying = false;
+                Debug.Log($"[GameplayRoot] 已回退到节点 {node.name}，位置 {_checkpointPos}");
             }
 
-            _retrying = false;
-            EnterNodeImmediate(node);
+            if (ScreenFader.Instance != null) ScreenFader.Instance.Play(Apply);
+            else Apply();
+        }
+
+        /// <summary>兼容旧调用：现在等同于回退到存档点</summary>
+        public void RetryCurrentNode() => RetryFromCheckpoint();
+
+        private NodeConfig ResolveCheckpointNode()
+        {
+            var configs = ConfigManager.Instance;
+            if (configs != null && !string.IsNullOrEmpty(_checkpointNodeId) &&
+                configs.TryGetNode(_checkpointNodeId, out NodeConfig node) && node != null)
+                return node;
+
+            return _storyContext?.CurrentNode;
+        }
+
+        /// <summary>把场上还没倒下的敌人血量刷满</summary>
+        private static void HealAllEnemies()
+        {
+            var enemies = UnityEngine.Object.FindObjectsByType<GamePlay.Enemy.EnemyController>(
+                FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+
+            for (int i = 0; i < enemies.Length; i++)
+                if (enemies[i] != null) enemies[i].ResetToFull();
+        }
+
+        /// <summary>把所有流程触发器重置成「未触发」，让回退后能重新踩</summary>
+        private static void RearmFlowTriggers()
+        {
+            var triggers = UnityEngine.Object.FindObjectsByType<GamePlay.Interaction.FlowTrigger>(
+                FindObjectsInactive.Include, FindObjectsSortMode.None);
+
+            for (int i = 0; i < triggers.Length; i++)
+                if (triggers[i] != null) triggers[i].Rearm();
+        }
+
+        /// <summary>恢复占位贴图的渲染（<see cref="HidePlaceholder"/> 的逆操作）</summary>
+        public void ShowPlaceholder(GameObject placeholder)
+        {
+            if (placeholder == null) return;
+
+            foreach (var sr in placeholder.GetComponentsInChildren<SpriteRenderer>(true))
+                sr.enabled = true;
+        }
+
+        /// <summary>把主角放到指定坐标（黑屏之后调用）</summary>
+        private void TeleportTo(Vector3 pos)
+        {
+            if (_player == null) return;
+
+            var rb = _player.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.velocity = Vector2.zero;
+                rb.position = pos;
+            }
+            else
+            {
+                _player.transform.position = pos;
+            }
         }
 
         /// <summary>流程走到最后一个节点（NodeConfig.endOfStory）：黑屏回主菜单。</summary>

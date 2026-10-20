@@ -26,6 +26,12 @@ namespace GamePlay.Interaction
         private bool _fired;
 
         /// <summary>
+        /// 战败回退到上一个节点后重新武装：不清的话玩家再走过来时 <see cref="_fired"/> 还是 true，
+        /// 触发器不会再响应，雷碧那场就永远打不开了。
+        /// </summary>
+        public void Rearm() => _fired = false;
+
+        /// <summary>
         /// 登记遭遇点。刷怪位置优先用 _spawnPoints；留空则用「自己 + 所有子物体」，
         /// 也就是每张占位贴图一个位置（把多余的占位贴图拖成自己的子物体即可）。
         /// 战斗开始时隐藏的是自己这个物体，所以子物体里的贴图会一起消失。
@@ -80,6 +86,16 @@ namespace GamePlay.Interaction
             if (_hideAfterFire) gameObject.SetActive(false);
 
             Debug.Log($"[流程] 触发 {name}");
+        }
+
+        /// <summary>
+        /// 战败回退时主角可能被直接放到触发器里面，那样只有 Enter 事件不会再来一次。
+        /// 这里补 Stay：未触发过就按进入处理，触发过的直接跳过。
+        /// </summary>
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (_fired) return;
+            OnTriggerEnter2D(other);
         }
     }
 }

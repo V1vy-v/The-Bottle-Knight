@@ -28,6 +28,9 @@ public class EnemyAtkDetect : MonoBehaviour
         // 对话 / 商店期间 AI 被冻结，这时不该再结算伤害
         if (_owner != null && _owner.IsAiPaused) return;
 
+        // 同一次出手已经按距离结算过了，避免碰撞体再补一刀
+        if (_owner != null && Time.time - _owner.LastAttackTime < 0.25f) return;
+
         PlayerController controller = collision.GetComponentInParent<PlayerController>();
         if (controller == null)
         {

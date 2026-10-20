@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -95,18 +95,725 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9108
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3518762d32bed0849a18d43b7e847bab
+      internalID: 1462626094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_1
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 9108
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abcef2fe4b9977c4ebf53c09091ccceb
+      internalID: -1160348064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_2
+      rect:
+        serializedVersion: 2
+        x: 2372
+        y: 9108
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e346e477a4088794c99798ffc6e4234a
+      internalID: 1652910860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_3
+      rect:
+        serializedVersion: 2
+        x: 3558
+        y: 9108
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66754dd65512ecf4db6f7d3a47ff6c3a
+      internalID: 1932201070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_4
+      rect:
+        serializedVersion: 2
+        x: 4744
+        y: 9108
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b30913bab5e8d8f48b330a12497b1815
+      internalID: -377069080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7590
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aacf093a747188a4d9635df48cb805a4
+      internalID: -496755900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_6
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 7590
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40f68c0ab5eb9d349815bd87c052c75c
+      internalID: -1182469970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_7
+      rect:
+        serializedVersion: 2
+        x: 2372
+        y: 7590
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fdbf071e3d34a3459cc362f57f82607
+      internalID: -1050665289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_8
+      rect:
+        serializedVersion: 2
+        x: 3558
+        y: 7590
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b9e5b36b6200b44db6b0c6a8d74c869
+      internalID: -1510141790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_9
+      rect:
+        serializedVersion: 2
+        x: 4744
+        y: 7590
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed78fad1e447c4f4ea3151606eed0bb0
+      internalID: 314870248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6072
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5541ec2ab77cce428e815e41da10a34
+      internalID: -1236158509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_11
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 6072
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62910729b04042d438857b038dd0bc48
+      internalID: 401907938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_12
+      rect:
+        serializedVersion: 2
+        x: 2372
+        y: 6072
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a79e1b7f37b7c8049a59eb48eaee48b0
+      internalID: 113490362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_13
+      rect:
+        serializedVersion: 2
+        x: 3558
+        y: 6072
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1186db46299d7948b8fff5a119de187
+      internalID: -812498076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_14
+      rect:
+        serializedVersion: 2
+        x: 4744
+        y: 6072
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ffb9122ad852a44a8534129f8c7cc18
+      internalID: 944865971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4554
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac2c795cf39721f40a9d37ccb78d5518
+      internalID: -594889250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_16
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 4554
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b9eaec26793ffb4981ce45c16ad536d
+      internalID: 1080375215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_17
+      rect:
+        serializedVersion: 2
+        x: 2372
+        y: 4554
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8185e64e03b8fd946aef3e624129d39d
+      internalID: -1000631966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_18
+      rect:
+        serializedVersion: 2
+        x: 3558
+        y: 4554
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0de169ac2ecb062479b91df3dc043300
+      internalID: 861967348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_19
+      rect:
+        serializedVersion: 2
+        x: 4744
+        y: 4554
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 480d20d6629999f4892383e08c0ad024
+      internalID: 839431298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3036
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 172098064ce117c419329a2eb22ff939
+      internalID: -21135601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_21
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 3036
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 543bf4bff901af6428d8833302932f68
+      internalID: -936587372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_22
+      rect:
+        serializedVersion: 2
+        x: 2372
+        y: 3036
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e277aa6af98a55a4f8ff30743ee8bcf3
+      internalID: -1261864687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_23
+      rect:
+        serializedVersion: 2
+        x: 3558
+        y: 3036
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32828b6dffbdbd49905425452e01803
+      internalID: 892634764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_24
+      rect:
+        serializedVersion: 2
+        x: 4744
+        y: 3036
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd718fda81f9168488a3ed994bd25080
+      internalID: 1027102339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1518
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1412e915f17c6b4e841345f11b24a40
+      internalID: 680609201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_26
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 1518
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b3cb99586cf0441b42dc7937b974c3
+      internalID: -247526599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_27
+      rect:
+        serializedVersion: 2
+        x: 2372
+        y: 1518
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25f2796cf8ebd06408f3cb7bd796e1a9
+      internalID: 623178512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_28
+      rect:
+        serializedVersion: 2
+        x: 3558
+        y: 1518
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a8302926e316164c91fd67de390cfaa
+      internalID: -263139983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_29
+      rect:
+        serializedVersion: 2
+        x: 4744
+        y: 1518
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7d859ffc20ca514384d837d30105ee4
+      internalID: -1043438391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9671ed3c6bad3574b9bbdd3f8aac1134
+      internalID: -1103178556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy-sanquan-idle_31
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 0
+        width: 1186
+        height: 1518
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63b3df1d89ca5564288d20e09e936157
+      internalID: 64128661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8fcc3bfe63f0d044685b359034781f66
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      enemy-sanquan-idle_0: 1462626094
+      enemy-sanquan-idle_1: -1160348064
+      enemy-sanquan-idle_10: -1236158509
+      enemy-sanquan-idle_11: 401907938
+      enemy-sanquan-idle_12: 113490362
+      enemy-sanquan-idle_13: -812498076
+      enemy-sanquan-idle_14: 944865971
+      enemy-sanquan-idle_15: -594889250
+      enemy-sanquan-idle_16: 1080375215
+      enemy-sanquan-idle_17: -1000631966
+      enemy-sanquan-idle_18: 861967348
+      enemy-sanquan-idle_19: 839431298
+      enemy-sanquan-idle_2: 1652910860
+      enemy-sanquan-idle_20: -21135601
+      enemy-sanquan-idle_21: -936587372
+      enemy-sanquan-idle_22: -1261864687
+      enemy-sanquan-idle_23: 892634764
+      enemy-sanquan-idle_24: 1027102339
+      enemy-sanquan-idle_25: 680609201
+      enemy-sanquan-idle_26: -247526599
+      enemy-sanquan-idle_27: 623178512
+      enemy-sanquan-idle_28: -263139983
+      enemy-sanquan-idle_29: -1043438391
+      enemy-sanquan-idle_3: 1932201070
+      enemy-sanquan-idle_30: -1103178556
+      enemy-sanquan-idle_31: 64128661
+      enemy-sanquan-idle_32: -1338470970
+      enemy-sanquan-idle_33: -494079399
+      enemy-sanquan-idle_34: 1025501434
+      enemy-sanquan-idle_4: -377069080
+      enemy-sanquan-idle_5: -496755900
+      enemy-sanquan-idle_6: -1182469970
+      enemy-sanquan-idle_7: -1050665289
+      enemy-sanquan-idle_8: -1510141790
+      enemy-sanquan-idle_9: 314870248
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

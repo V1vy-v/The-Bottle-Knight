@@ -1,4 +1,4 @@
-﻿﻿using GamePlay.Configs;
+using GamePlay.Configs;
 using UnityEngine;
 
 namespace GamePlay.Player
@@ -94,6 +94,10 @@ namespace GamePlay.Player
 
             //动画与音效
         }
+        /// <summary>受击音最小间隔（秒）：持续伤害时避免变成机关枪</summary>
+        private const float HurtSfxInterval = 0.18f;
+        private float _lastHurtSfxTime = -10f;
+
         /// <summary>
         /// 玩家受到伤害
         /// </summary>
@@ -110,7 +114,16 @@ namespace GamePlay.Player
             {
                 IsDead = true;
                 //死亡动画与音效
+                Framework.Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("SFX_Player_Death");
+            }
+            else if (Time.time - _lastHurtSfxTime >= HurtSfxInterval)
+            {
+                _lastHurtSfxTime = Time.time;
 
+                // 受击音：三个变体随机，避免每次同一个
+                int pick = UnityEngine.Random.Range(0, 3);
+                string hurtKey = pick == 0 ? "SFX_Player_Hurt" : (pick == 1 ? "SFX_Player_Hurt_1" : "SFX_Player_Hurt_2");
+                Framework.Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx(hurtKey);
             }
 
         }

@@ -8,4 +8,12 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: enemy_IceCafe
   m_Controller: {fileID: 9100000, guid: 1092d6a97ef23e0418200519573886aa, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 3e633cf161233dc4592cc573b74a355a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ae8a3a7a6311db040b346d2de700788f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a6c36bc1931a4924fa9ba864faa9f0ed, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 970fa8f4ef518fd488b98318a0d60284, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 9c31407faf571104eaa330f9922ee7ba, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5110735284695ed4c98730a26c8b24ce, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 84f20679d7534764abbddf34e150d8e8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 497ec0eaf8d3ba74d8547099c5e76d33, type: 2}

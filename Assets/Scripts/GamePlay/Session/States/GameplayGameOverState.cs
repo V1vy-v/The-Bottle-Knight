@@ -28,7 +28,8 @@ namespace GamePlay.Session
             _remain = RetryDelay;
             _requested = false;
 
-            Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("dead");
+            // 死亡音已经在 PlayerStats.ApplyDamage 里播过 SFX_Player_Death，
+            // 这里不再叠一条，避免两段声音打架
         }
 
         protected override void Tick(float deltaTime)
@@ -39,7 +40,10 @@ namespace GamePlay.Session
             if (_remain > 0f) return;
 
             _requested = true;
-            Root.RetryCurrentNode();
+            Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("SFX_Flow_Retry");
+
+            // 回到上一个自由行走的节点 + 上一处出生点：踩触发器开打的战斗（如雷碧）要重新踩一次
+            Root.RetryFromCheckpoint();
         }
     }
 }
