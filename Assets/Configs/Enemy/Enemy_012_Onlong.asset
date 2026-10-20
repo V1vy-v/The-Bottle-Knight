@@ -30,4 +30,4 @@ MonoBehaviour:
   ImmuneStun: 0
   DebuffDurationScale: 1
   DebuffChanceScale: 1
-  PrefabLocation: Prefab_Enemy_OrangeJuice
+  PrefabLocation: Prefab_Enemy_OnLong

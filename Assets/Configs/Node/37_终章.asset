@@ -25,3 +25,4 @@ MonoBehaviour:
   currentStage: 3
   fadeTransition: 0
   teleportTargetName: 
+  endOfStory: 1

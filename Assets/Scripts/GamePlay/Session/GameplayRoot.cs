@@ -1,4 +1,4 @@
-﻿﻿using Framework;
+using Framework;
 using System.Collections.Generic;
 using GamePlay.Configs;
 using GamePlay.Session;
@@ -71,6 +71,10 @@ namespace GamePlay
 
             BuildModeFsm();
             SpawnPlayer();
+
+            // 起始节点配了传送点就立刻传送（跳过前面流程时必须）
+            if (!string.IsNullOrEmpty(startNode.teleportTargetName))
+                TeleportPlayer(startNode.teleportTargetName);
 
             _modeFsm.ChangeState(startNode.mode);
 
@@ -235,11 +239,18 @@ namespace GamePlay
         /// <summary>隐藏本次遭遇的占位物（战斗开始时调用）</summary>
         public void HideEncounterPlaceholder()
         {
-            if (_encounterPlaceholder == null) return;
+            HidePlaceholder(_encounterPlaceholder);
+        }
 
-            // 只关渲染，不要 SetActive(false)：占位物自己往往就是触发器，
-            // 关掉 GameObject 会让它不再响应 OnTriggerEnter2D —— 擂台要打 4 轮就会卡在第 2 轮。
-            foreach (var sr in _encounterPlaceholder.GetComponentsInChildren<SpriteRenderer>(true))
+        /// <summary>
+        /// 只关渲染，不要 SetActive(false)：占位物自己往往就是触发器，
+        /// 关掉 GameObject 会让它不再响应 OnTriggerEnter2D —— 擂台要打 4 轮就会卡在第 2 轮。
+        /// </summary>
+        public void HidePlaceholder(GameObject placeholder)
+        {
+            if (placeholder == null) return;
+
+            foreach (var sr in placeholder.GetComponentsInChildren<SpriteRenderer>(true))
                 sr.enabled = false;
         }
 
@@ -270,6 +281,13 @@ namespace GamePlay
 
             if (!_storyContext.TryMoveNext(out var next))
             {
+                // 最后一个节点：标了 endOfStory 就收尾回主菜单
+                if (_storyContext.CurrentNode != null && _storyContext.CurrentNode.endOfStory)
+                {
+                    EndStory();
+                    return;
+                }
+
                 Debug.Log("[GameplayRoot] 节点流程已到末端");
                 return;
             }
@@ -303,7 +321,8 @@ namespace GamePlay
                 return;
             }
 
-            TeleportPlayer(node.teleportTargetName);
+            // 没有黑屏转场的节点不传送 —— 中途强行拉玩家位置会看到瞬移。
+            // 起始节点的传送由 StartNewGame 单独处理（方便跳过前段直接测某个节点）。
             EnterNodeImmediate(node);
         }
 
@@ -435,6 +454,78 @@ namespace GamePlay
         {
             _battleContext?.Clear();
             ChangeMode(GameplayMode.FreeRoam);
+        }
+
+        #endregion
+
+        #region 战败与结局
+
+        /// <summary>重试请求进行中：挡住重复请求</summary>
+        private bool _retrying;
+
+        /// <summary>结局演出进行中</summary>
+        private bool _ending;
+
+        /// <summary>
+        /// 主角死亡。由 PlayerController 每帧检查后上报 —— 数值组件是纯 C# 类，
+        /// 拿不到子系统，所以「死了以后怎么办」统一放在这里。
+        /// </summary>
+        public void NotifyPlayerDead()
+        {
+            if (CurrentMode == GameplayMode.GameOver) return;
+
+            Debug.Log("[GameplayRoot] 主角死亡，进入 GameOver");
+            ChangeMode(GameplayMode.GameOver);
+        }
+
+        /// <summary>
+        /// 战败重试：清掉战场 → 回满血 → 黑屏 → 重新进入当前节点。
+        /// 不整局重开，超市 BOSS 战死了只重打这一场，前面的进度都保留。
+        /// </summary>
+        public void RetryCurrentNode()
+        {
+            if (_retrying) return;
+
+            NodeConfig node = _storyContext?.CurrentNode;
+            if (node == null)
+            {
+                Debug.LogWarning("[GameplayRoot] 重试时没有当前节点，直接回主菜单");
+                EndStory();
+                return;
+            }
+
+            _retrying = true;
+            _battleState?.ForceClearAll();
+
+            _player?.GetComponent<GamePlay.Player.PlayerController>()?.Revive();
+
+            if (ScreenFader.Instance != null)
+            {
+                ScreenFader.Instance.Play(() =>
+                {
+                    _retrying = false;
+                    EnterNodeImmediate(node);
+                });
+                return;
+            }
+
+            _retrying = false;
+            EnterNodeImmediate(node);
+        }
+
+        /// <summary>流程走到最后一个节点（NodeConfig.endOfStory）：黑屏回主菜单。</summary>
+        public void EndStory()
+        {
+            if (_ending) return;
+            _ending = true;
+
+            Debug.Log("[GameplayRoot] 流程结束，回主菜单");
+            Framework.Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("SFX_Flow_LevelClear");
+
+            if (ScreenFader.Instance != null)
+                ScreenFader.Instance.Play(() => Procedure.ProcedureCore.Instance?.RequestMenu());
+            else
+                Procedure.ProcedureCore.Instance?.RequestMenu();
         }
 
         #endregion

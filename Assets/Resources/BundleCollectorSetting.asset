@@ -59,6 +59,14 @@ MonoBehaviour:
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 
+      - CollectPath: Assets/Prefabs/Bullet
+        CollectorGUID: 
+        CollectorType: 0
+        AddressRuleName: AddressByGroupAndFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
     - GroupName: Config
       GroupDesc: "SO\u914D\u7F6E\u6587\u4EF6\u5206\u7EC4"
       AssetTags: 

@@ -24,10 +24,10 @@ MonoBehaviour:
   PatrolDuration: 5
   FadeDuration: 1
   CapDrop: 2
-  CanAbsorb: 0
-  AbsorbLiquid: {fileID: 0}
+  CanAbsorb: 1
+  AbsorbLiquid: {fileID: 11400000, guid: f57efb3b12f8ca74b91c4bdf6d0fb0ee, type: 2}
   ImmuneKnockback: 0
   ImmuneStun: 0
   DebuffDurationScale: 1
   DebuffChanceScale: 1
-  PrefabLocation: Prefab_Enemy_OrangeJuice
+  PrefabLocation: Prefab_Enemy_IceCafe

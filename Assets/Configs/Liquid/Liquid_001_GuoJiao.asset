@@ -20,7 +20,7 @@ MonoBehaviour:
   Icon: {fileID: -1774912950, guid: a1444c1d5dc8c1d4d9594cb6ae9a7cd4, type: 3}
   Damage: 0
   AttackInterval: 0
-  BulletPrefabRes: 
+  BulletPrefabRes: Prefab_橙汁子弹
   SkillDamage: 50
   SkillCd: 0
   SkillDuration: 5

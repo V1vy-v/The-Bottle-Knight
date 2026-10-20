@@ -18,10 +18,10 @@ MonoBehaviour:
   refreshDialog: 1
   refreshBattle: 0
   goalId: 
-  dialogConfig: {fileID: 4900000, guid: ad28a30fe8c4475cb157ac31203ccd95, type: 3}
+  dialogConfig: {fileID: 4900000, guid: 3f7c1a9b6e2d4c8f9a0b1c2d3e4f5a6b, type: 3}
   battleConfig: {fileID: 0}
   autoWinBattle: 0
-  nextNode: {fileID: 11400000, guid: 7ac1c2803441416c8c72db4dd47fe34a, type: 2}
+  nextNode: {fileID: 11400000, guid: 072a8655cafc4ca7bac9e419afccd048, type: 2}
   currentStage: 3
   fadeTransition: 1
-  teleportTargetName: [SupermarketSpawn]
+  teleportTargetName: '[SupermarketSpawn]'

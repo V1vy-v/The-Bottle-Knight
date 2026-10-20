@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
@@ -36,6 +36,9 @@ public class DiaLogController : MonoBehaviour
 
     /// <summary>对话文本按行分割</summary>
     private string[] dialogRows;
+
+    /// <summary>所有对话行的最大下标 + 1。越过它就当对话结束 —— end 行的下标写错时不至于卡死</summary>
+    private int _maxRowIndex;
 
     private void Awake()
     {
@@ -98,6 +101,15 @@ public class DiaLogController : MonoBehaviour
         ClearOptionButtons();
 
         dialogRows = content.Replace("\r", "").Split('\n');
+        _maxRowIndex = 0;
+        for (int i = 0; i < dialogRows.Length; i++)
+        {
+            string[] cells = dialogRows[i].Split(',');
+            if (cells.Length < 2) continue;
+            if (cells[0] != "#" && cells[0] != "&") continue;
+            if (int.TryParse(cells[1], out int idx) && idx + 1 > _maxRowIndex) _maxRowIndex = idx + 1;
+        }
+
         ShowDiaLogRow();
     }
 
@@ -138,6 +150,14 @@ public class DiaLogController : MonoBehaviour
     public void ShowDiaLogRow()
     {
         if (dialogRows == null || dialogRows.Length == 0) return;
+
+        // 兜底：已经走过所有对话行 → 直接结束。
+        // 原来只认 end 行的下标，end 行写错（比如 3 行对话写成 end,2）就会永远停在最后一句。
+        if (dialogIndex >= _maxRowIndex)
+        {
+            OnDialogueEnd?.Invoke();
+            return;
+        }
 
         for (int i = 0; i < dialogRows.Length; i++)
         {

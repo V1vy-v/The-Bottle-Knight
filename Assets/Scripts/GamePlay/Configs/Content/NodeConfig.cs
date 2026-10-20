@@ -1,4 +1,4 @@
-﻿using GamePlay.Configs;
+using GamePlay.Configs;
 using GamePlay.Session;
 using UnityEngine;
 
@@ -52,5 +52,9 @@ namespace GamePlay.Story
         [Header("解锁")]
         [Tooltip("进入本节点时解锁远战模组（拿到吸管）。勾上后 Q 才能在近战/远战之间切换")]
         public bool unlockRangedAttack;
+
+        [Header("结局")]
+        [Tooltip("本节点是最后一个节点：它的目标完成后黑屏回主菜单。不勾则流程停在末端（开发期防误触）")]
+        public bool endOfStory;
     }
 }

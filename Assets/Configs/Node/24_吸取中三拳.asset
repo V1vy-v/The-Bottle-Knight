@@ -24,4 +24,4 @@ MonoBehaviour:
   nextNode: {fileID: 11400000, guid: c0064df177a44e4a9c0a05c3948cb28e, type: 2}
   currentStage: 3
   fadeTransition: 0
-  teleportTargetName: 
+  teleportTargetName: '[SupermarketSpawn]'

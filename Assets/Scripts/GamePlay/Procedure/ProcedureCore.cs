@@ -88,6 +88,17 @@ namespace GamePlay.Procedure
             RequestScene(ProcedureState.Playing, GlobalConstants.GAME_SCENE_NAME);
         }
 
+        /// <summary>
+        /// 开始新的一局。菜单里的「开始」必须走这里 ——
+        /// 直接 RequestPlay 的话，通关回菜单后 IsNewGame 已经是 false，
+        /// 会走进 ContinueGame（目前还没有存档，等于开局失败）。
+        /// </summary>
+        public void RequestNewGame()
+        {
+            IsNewGame = true;
+            RequestPlay();
+        }
+
         #endregion
 
         #region 生命周期

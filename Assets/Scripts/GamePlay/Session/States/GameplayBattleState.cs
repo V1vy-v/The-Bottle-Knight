@@ -58,12 +58,13 @@ namespace GamePlay.Session
                 return;
             }
 
-            // 先全部生成，统计真正成功的数量。
-            // 不能用 config.TotalCount —— 它只统计 Config != null，
-            // PrefabLocation 为空或实例化失败时不会扣掉；计数高于场上敌人，
-            // AliveEnemyCount 就归不了零，IsVictory 永远 false，玩家卡在战斗态出不来。
-            // 刷怪位置按顺序分配：一张占位贴图对应一只敌人；位置不够时围绕最后一个位置散开
-            var anchors = Root.EncounterAnchors;
+            // 战斗曲：BOSS 战在配置里填 Combat_Boss，留空就用通用战斗曲
+            if (!string.IsNullOrEmpty(config.BgmKey))
+                Global.Get<Framework.SubSystems.AudioManager>()?.PlayBGM(config.BgmKey);
+
+            // 刷怪位置按顺序分配：一张占位贴图对应一只敌人；位置不够时围绕最后一个位置散开。
+            // 来源优先级：BattleConfig.SpawnAnchorName（场景锚点）> 剧情触发器登记的遭遇点 > 围绕主角散开
+            var anchors = ResolveAnchors(config);
             int spawned = 0;
             int index = 0;
 
@@ -205,10 +206,69 @@ namespace GamePlay.Session
         /// <summary>超出占位贴图数量时，多出来的敌人围绕最后一个位置散开，避免叠在一起</summary>
         private const float SpreadRadius = 1.5f;
 
-        /// <summary>按序号取刷怪位置；没有位置就返回 null，表示用预制体自身坐标</summary>
-        private static Vector3? ResolveSpawnPosition(IReadOnlyList<Transform> anchors, int index)
+        /// <summary>一个锚点都没有时，敌人绕主角散开的半径</summary>
+        private const float FallbackRadius = 6f;
+
+        /// <summary>
+        /// 解析本场战斗的刷怪位置，优先级：
+        /// 1. BattleConfig.SpawnAnchorName 指定的场景锚点（自己 + 所有子物体 = 一张贴图一个位置，同时隐藏贴图）；
+        /// 2. 剧情触发器 / 剧情 NPC 登记的遭遇点（FlowTrigger / EnemyController.NotifyTalked）；
+        /// 3. 都没有 —— 返回空，由 ResolveSpawnPosition 围绕主角散开。
+        /// 第 3 条是保险：以前没有锚点会刷在预制体原点 (0,0)，表现为「BOSS 生成在场景原点」。
+        /// </summary>
+        private List<Transform> ResolveAnchors(BattleConfig config)
         {
-            if (anchors == null || anchors.Count == 0) return null;
+            if (config != null && !string.IsNullOrEmpty(config.SpawnAnchorName))
+            {
+                GameObject marker = FindSceneObject(config.SpawnAnchorName);
+                if (marker != null)
+                {
+                    var points = new List<Transform> { marker.transform };
+                    for (int i = 0; i < marker.transform.childCount; i++)
+                        points.Add(marker.transform.GetChild(i));
+
+                    Root.HidePlaceholder(marker);      // 锚点下面通常是占位贴图，开打就藏
+                    return points;
+                }
+
+                Debug.LogWarning($"[GameplayBattleState] {config.Id} 找不到刷怪锚点 {config.SpawnAnchorName}，" +
+                                 "按主角周围散开（不用上一场残留的遭遇点）");
+                return null;
+            }
+
+            if (Root.EncounterAnchors.Count > 0)
+                return new List<Transform>(Root.EncounterAnchors);
+
+            return null;
+        }
+
+        /// <summary>按名字找场景里的物体（只认已加载场景，不会找到预制体资产）</summary>
+        private static GameObject FindSceneObject(string objectName)
+        {
+            GameObject go = GameObject.Find(objectName);
+            if (go != null) return go;
+
+            Transform[] all = Resources.FindObjectsOfTypeAll<Transform>();
+            for (int i = 0; i < all.Length; i++)
+            {
+                Transform t = all[i];
+                if (t == null || t.name != objectName) continue;
+                if (!t.gameObject.scene.isLoaded) continue;
+                return t.gameObject;
+            }
+
+            return null;
+        }
+
+        /// <summary>按序号取刷怪位置；没有锚点时围绕主角散开（黄金角，数量多也不会叠）</summary>
+        private Vector3? ResolveSpawnPosition(IReadOnlyList<Transform> anchors, int index)
+        {
+            if (anchors == null || anchors.Count == 0)
+            {
+                Vector3 center = Root.Player != null ? Root.Player.transform.position : Vector3.zero;
+                float angle = index * 137.5f * Mathf.Deg2Rad;
+                return center + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f) * FallbackRadius;
+            }
 
             if (index < anchors.Count)
             {
@@ -220,8 +280,8 @@ namespace GamePlay.Session
             if (last == null) return null;
 
             int extra = index - anchors.Count + 1;
-            float angle = Mathf.PI * 2f * extra / Mathf.Max(2, extra + 1);
-            return last.position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0f) * SpreadRadius;
+            float spread = Mathf.PI * 2f * extra / Mathf.Max(2, extra + 1);
+            return last.position + new Vector3(Mathf.Cos(spread), Mathf.Sin(spread), 0f) * SpreadRadius;
         }
 
         /// <summary>
@@ -321,6 +381,21 @@ namespace GamePlay.Session
                 ReleaseEnemy(_pendingCorpses[i]);
 
             _pendingCorpses.Clear();
+        }
+
+        /// <summary>
+        /// 战败重试用：把本场生成的敌人连同暂留的尸体一起清干净，
+        /// 让重进战斗时是「第一次打」的状态，而不是上一把的残局。
+        /// </summary>
+        public void ForceClearAll()
+        {
+            ReleasePendingCorpses();
+
+            for (int i = 0; i < _spawnedEnemies.Count; i++)
+                ReleaseEnemy(_spawnedEnemies[i]);
+
+            _spawnedEnemies.Clear();
+            _autoWinRemain = 0f;
         }
 
         /// <summary>

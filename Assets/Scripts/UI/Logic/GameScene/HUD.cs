@@ -93,7 +93,6 @@ namespace UI
         private RectTransform _fittedMap;
 
         /// <summary>本阶段是否已经提示过长宽比不一致</summary>
-        private bool _aspectWarned;
 
         /// <summary>瓶盖数量显示</summary>
         private TextMeshProUGUI _capsLabel;
@@ -496,7 +495,6 @@ namespace UI
                 _maps[i].gameObject.SetActive(i == index);
 
             _fittedMap = null;          // 换了地图，尺寸要重新校正
-            _aspectWarned = false;
 
             // 每张图都要重新取出生锚点；等转场传送完再取，否则会记到传送前的位置
             _hasMapAnchor = false;

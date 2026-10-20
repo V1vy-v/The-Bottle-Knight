@@ -18,3 +18,5 @@ MonoBehaviour:
   Enemies:
   - Config: {fileID: 11400000, guid: 49f9301d78fb9eb4aaf8d944615435ab, type: 2}
     Count: 1
+  SpawnAnchorName: '[IceCafeArena]'
+  BgmKey: Combat_Boss
