@@ -101,7 +101,7 @@ Transform:
   m_GameObject: {fileID: 3176981748542200297}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.34, z: 0}
+  m_LocalPosition: {x: 0.4, y: 1.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -140,7 +140,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -4.3350396}
-  m_Size: {x: 3.71, y: 4.07}
+  m_Size: {x: 5.23, y: 7.34}
   m_Direction: 1
 --- !u!1 &5213897385145486336
 GameObject:
@@ -329,7 +329,7 @@ Transform:
   m_GameObject: {fileID: 7532208929054833747}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.82, z: 0}
+  m_LocalPosition: {x: 0.59, y: -4.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -369,7 +369,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 5.11
 --- !u!1 &7682352815799139336
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _liquidOverride: {fileID: 0}
   _absorbDuration: 0.6
+  _forceToMainSlot: 0
 --- !u!114 &6678524252991320144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,7 +703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 8.98}
+  m_AnchoredPosition: {x: 0.53, y: 8.98}
   m_SizeDelta: {x: 10, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5192833987806910417
@@ -808,7 +809,7 @@ Transform:
   m_GameObject: {fileID: 9063726205476373459}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.92, z: 0}
+  m_LocalPosition: {x: 0.33, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -847,7 +848,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 4.04, y: 8.06}
+  m_Size: {x: 7.45, y: 13.24}
   m_Direction: 0
 --- !u!1 &9195204600551544620
 GameObject:
