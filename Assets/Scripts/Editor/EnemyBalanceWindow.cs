@@ -67,9 +67,11 @@ namespace Framework.Editor
         {
             foreach (EnemyConfig cfg in LoadAll())
             {
+                int tier = (int)cfg.Tier;
+
                 float scale = 1f;
-                if (cfg.Tier >= 3) scale = _bossScale;
-                else if (cfg.Tier == 2 && !_onlyTier3) scale = _eliteScale;
+                if (tier == 3) scale = _bossScale;                       // Boss
+                else if (tier == 2 && !_onlyTier3) scale = _eliteScale;  // MiniBoss（料酒）
                 else continue;
 
                 if (Mathf.Approximately(scale, 1f)) continue;
@@ -77,7 +79,7 @@ namespace Framework.Editor
                 Undo.RecordObject(cfg, "调整敌人血量");
                 cfg.MaxHp = Mathf.Max(1f, cfg.MaxHp * scale);
                 EditorUtility.SetDirty(cfg);
-                Debug.Log($"[血量] {cfg.Name}（Tier{cfg.Tier}）→ {cfg.MaxHp}");
+                Debug.Log($"[血量] {cfg.Name}（Tier{tier}）→ {cfg.MaxHp}");
             }
 
             AssetDatabase.SaveAssets();
@@ -86,7 +88,7 @@ namespace Framework.Editor
         private void ListCurrent()
         {
             foreach (EnemyConfig cfg in LoadAll())
-                Debug.Log($"[血量] {cfg.Id}  Tier{cfg.Tier}  HP={cfg.MaxHp}");
+                Debug.Log($"[血量] {cfg.Id}  Tier{(int)cfg.Tier}  HP={cfg.MaxHp}");
         }
     }
 }

@@ -15,6 +15,7 @@ namespace GamePlay.Player
         [Tooltip("快乐水形态")] public AnimatorOverrideController ColaForm;
         [Tooltip("国窖形态")] public AnimatorOverrideController GuoJiaoForm;
         [Tooltip("雷碧形态")] public AnimatorOverrideController LeiBiForm;
+        [Tooltip("三拳形态")] public AnimatorOverrideController SanQuanForm;
 
         /// <summary>预制体上原本的 Controller，没有对应形态时回退到它</summary>
         private RuntimeAnimatorController _defaultController;
@@ -57,7 +58,7 @@ namespace GamePlay.Player
         }
         public void SetMoving(bool v) 
         { 
-            _animator.SetBool(AnimWalk, v);
+            _animator.SetBool(AnimWalk, v); 
         }
         public void SetFacing(float x) 
         { 
@@ -69,7 +70,7 @@ namespace GamePlay.Player
         /// 按主槽液体切换形态动画。
         /// 形态用的是 AnimatorOverrideController，基准状态机不变，
         /// 所以 Walk / PrimaryAtk / Death 这些参数与状态名照旧可用。
-        /// 传 null 或没有对应形态的液体（料酒 / 冰美式 / 三拳）就回退默认。
+        /// 传 null 或没有对应形态的液体（料酒 / 冰美式）就回退默认。
         /// </summary>
         public void ApplyForm(LiquidType? type)
         {
@@ -80,6 +81,7 @@ namespace GamePlay.Player
                 LiquidType.Cola => ColaForm,
                 LiquidType.GuoJiao => GuoJiaoForm,
                 LiquidType.LeiBi => LeiBiForm,
+                LiquidType.SanQuan => SanQuanForm,
                 _ => null,
             };
 
