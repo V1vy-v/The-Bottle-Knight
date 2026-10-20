@@ -20,7 +20,7 @@ MonoBehaviour:
   Icon: {fileID: -1210289519, guid: e5752046916cc7d47aea898f20f9ecd4, type: 3}
   Damage: 0
   AttackInterval: 0
-  BulletPrefabRes: 
+  BulletPrefabRes: Prefab_山泉子弹
   SkillDamage: 0
   SkillCd: 0
   SkillDuration: 0
