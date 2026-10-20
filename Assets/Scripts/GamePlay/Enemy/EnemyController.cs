@@ -1,4 +1,4 @@
-using Framework;
+﻿using Framework;
 using GamePlay.Configs;
 using GamePlay.Player;
 using System;
@@ -59,7 +59,7 @@ namespace GamePlay.Enemy
 
         private float currentHP;
 
-        public float CurrentHP => currentHP;
+        public float CurrentHP => state.CurrentHP;
 
         //AI
         public float idleDuration;    //待机持续时间
@@ -251,10 +251,10 @@ namespace GamePlay.Enemy
         [Header("感知距离")]
         [Tooltip("发现玩家的距离。预制体上的侦测碰撞体是一条约 1 单位高的细带，玩家站在地面上常常碰不到，" +
                  "所以这里按距离再判一次，两个结果取并集")]
-        [SerializeField] private float _detectRadius = 14f;
+        [SerializeField] private float _detectRadius = 25f;
 
         [Tooltip("进入攻击状态的距离")]
-        [SerializeField] private float _attackRadius = 6.5f;
+        [SerializeField] private float _attackRadius = 13f;
 
         /// <summary>攻击距离，攻击结算时用</summary>
         public float AttackRadius => _attackRadius;
@@ -495,13 +495,13 @@ namespace GamePlay.Enemy
                 state.CurrentHP = 0;
                 _fsm.ChangeState(EnemyState.Dead);
             }
-            else if (config != null && config.SurrenderHpRatio > 0f &&
-                     state.CurrentHP <= state.MaxHP * config.SurrenderHpRatio)
-            {
-                // 剧情让步：国窖血量到 30% 就红温认输（不能击杀），按战败收场
-                Debug.Log($"[Enemy] {name} 血量 {state.CurrentHP:F0}/{state.MaxHP:F0}，认输");
-                ForceDefeated();
-            }
+            //else if (config != null && config.SurrenderHpRatio > 0f &&
+            //         state.CurrentHP <= state.MaxHP * config.SurrenderHpRatio)
+            //{
+            //    // 剧情让步：国窖血量到 30% 就红温认输（不能击杀），按战败收场
+            //    Debug.Log($"[Enemy] {name} 血量 {state.CurrentHP:F0}/{state.MaxHP:F0}，认输");
+            //    ForceDefeated();
+            //}
             else
             {
                 _fsm.ChangeState(EnemyState.Hurt);
@@ -550,6 +550,7 @@ namespace GamePlay.Enemy
         /// </summary>
         public void ForceDefeated()
         {
+            Debug.LogError("【死亡触发】ForceDefeated 被调用了！看看报错堆栈是谁调的");
             if (_fsm == null) return;
             state.CurrentHP = 0;
             _fsm.ChangeState(EnemyState.Dead);

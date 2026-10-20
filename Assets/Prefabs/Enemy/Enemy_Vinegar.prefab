@@ -380,8 +380,8 @@ MonoBehaviour:
   fadeDuration: 1
   playerInDetectRange: 0
   playerInAttackRange: 0
-  _detectRadius: 14
-  _attackRadius: 3.2
+  _detectRadius: 20
+  _attackRadius: 6
 --- !u!114 &8757412322984077449
 MonoBehaviour:
   m_ObjectHideFlags: 0
