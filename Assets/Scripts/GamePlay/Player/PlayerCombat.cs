@@ -198,6 +198,9 @@ namespace GamePlay.Player
         /// <summary>远战解锁了没（UI 判断能不能切）</summary>
         public bool CanSwitchModule => _isStrawGained;
 
+        /// <summary>当前攻击模组（近战 / 远战），给 HUD 显示用</summary>
+        public AttackModule CurrentModule => _currentAtkModule;
+
         public void SwitchModule()
         {
             if (!_isStrawGained) return;

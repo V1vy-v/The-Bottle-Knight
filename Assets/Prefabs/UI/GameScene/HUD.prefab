@@ -1774,7 +1774,11 @@ MonoBehaviour:
         mapCoveredWorldWidth:
         - 195.12
         - 195.12
-        - 113.82
+        - 340
+        mapCoveredWorldHeight:
+        - 0
+        - 0
+        - 180
         playerMarkSprite: {fileID: 0}
         enemyDotSprite: {fileID: 0}
         interactSprite: {fileID: 0}

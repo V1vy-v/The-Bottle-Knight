@@ -239,8 +239,145 @@ namespace UI
 
             // ---- 道具图标 / 小地图 ----
             RefreshItems();
+            RefreshAtkMode();
             RefreshMap();
         }
+
+        #region 近战 / 远战 状态
+
+        private RectTransform _atkSlot;
+        private Image _atkSlotIcon;
+        private GameObject _atkSlotLock;
+        private TextMeshProUGUI _atkModeLabel;
+        private string _atkModeCache;
+
+        /// <summary>
+        /// 攻击模组槽位：预制体里没有这一格（只有切液体的 Toggle），
+        /// 所以运行时克隆一份 Toggle 槽，保证描边 / 锁 / 尺寸和其它槽完全一致，
+        /// 摆到 Toggle 正上方。图标可由 HUDProperties 换（近战 / 远战各一张）。
+        /// </summary>
+        private void EnsureAtkModuleSlot()
+        {
+            if (_atkSlot != null) return;
+            if (_toggleImg == null) return;
+
+            RectTransform source = _toggleImg.parent as RectTransform;
+            if (source == null) return;
+
+            GameObject clone = Instantiate(source.gameObject, source.parent);
+            clone.name = "AtkModuleSlot";
+
+            _atkSlot = (RectTransform)clone.transform;
+
+            // 摆在「切换液体」上面一格（间距按槽位自身高度算，换分辨率也不会叠）
+            float gap = source.rect.height + 16f;
+            _atkSlot.anchoredPosition = source.anchoredPosition + new Vector2(0f, gap);
+
+            _atkSlotIcon = clone.GetComponentInChildren<Image>(true);
+
+            Transform lockT = clone.transform.Find("Lock");
+            if (lockT == null)
+            {
+                for (int i = 0; i < clone.transform.childCount; i++)
+                {
+                    Transform c = clone.transform.GetChild(i);
+                    if (c.name.StartsWith("Lock")) { lockT = c; break; }
+                }
+            }
+            _atkSlotLock = lockT != null ? lockT.gameObject : null;
+
+            // 近战/远战没有冷却，冷却遮罩藏掉
+            Transform cd = clone.transform.Find("CdMask");
+            if (cd != null) cd.gameObject.SetActive(false);
+        }
+
+        private void EnsureAtkModeLabel()
+        {
+            if (_atkModeLabel != null) return;
+
+            Transform parent = _atkSlot != null ? _atkSlot : _toggleImg;
+            if (parent == null) return;
+
+            var go = new GameObject("AtkModeLabel", typeof(RectTransform));
+            var rt = (RectTransform)go.transform;
+            rt.SetParent(parent, false);
+            rt.anchorMin = new Vector2(0.5f, 0.5f);
+            rt.anchorMax = new Vector2(0.5f, 0.5f);
+            rt.pivot = new Vector2(0.5f, 0.5f);
+            rt.anchoredPosition = new Vector2(0f, -(_atkSlot != null ? _atkSlot.rect.height * 0.5f + 22f : 72f));
+            rt.sizeDelta = new Vector2(160f, 40f);
+
+            _atkModeLabel = go.AddComponent<TextMeshProUGUI>();
+            if (_capsLabel != null) _atkModeLabel.font = _capsLabel.font;
+            _atkModeLabel.fontSize = 26f;
+            _atkModeLabel.alignment = TextAlignmentOptions.Center;
+            _atkModeLabel.raycastTarget = false;
+            _atkModeLabel.text = string.Empty;
+        }
+
+        private void RefreshAtkMode()
+        {
+            EnsureAtkModuleSlot();
+            EnsureAtkModeLabel();
+
+            PlayerCombat combat = _playerGO != null ? _playerGO.GetComponent<PlayerCombat>() : null;
+
+            bool unlocked = combat != null && combat.CanSwitchModule;
+            bool ranged = combat != null && combat.CurrentModule == AttackModule.Ranged;
+
+            // ---- 槽位图标 / 锁 ----
+            if (_atkSlotLock != null) _atkSlotLock.SetActive(combat != null && !unlocked);
+
+            if (_atkSlotIcon != null)
+            {
+                Sprite want = null;
+                if (_cfg != null) want = ranged ? _cfg.rangedModuleSprite : _cfg.meleeModuleSprite;
+                if (want != null) _atkSlotIcon.sprite = want;
+
+                // 没配美术图时用颜色区分：近战白 / 远战青蓝 / 未解锁压暗
+                if (combat == null) _atkSlotIcon.color = new Color(1f, 1f, 1f, 0f);
+                else if (!unlocked) _atkSlotIcon.color = LockedTint;
+                else if (ranged) _atkSlotIcon.color = new Color(0.55f, 0.9f, 1f, 1f);
+                else _atkSlotIcon.color = Color.white;
+            }
+
+            // ---- 文字 ----
+            if (_atkModeLabel == null) return;
+
+            string text;
+            Color color;
+
+            if (combat == null)
+            {
+                text = string.Empty;
+                color = Color.white;
+            }
+            else if (!unlocked)
+            {
+                text = "近战";                                  // 还没拿吸管
+                color = new Color(1f, 1f, 1f, 0.6f);
+            }
+            else if (ranged)
+            {
+                text = "远战";
+                color = new Color(0.4f, 0.95f, 1f, 1f);         // 青蓝：远战
+            }
+            else
+            {
+                text = "近战";
+                color = Color.white;
+            }
+
+            if (text != _atkModeCache)
+            {
+                _atkModeCache = text;
+                _atkModeLabel.text = text;
+            }
+
+            _atkModeLabel.color = color;
+        }
+
+        #endregion
 
         /// <summary>
         /// 道具栏：把已拥有（PropConfig.isHold）的道具图标铺到 Content 里。
@@ -452,6 +589,11 @@ namespace UI
 
             if (kb.leftBracketKey.wasPressedThisFrame) { _coveredOverride[_mapStage] -= 5f; changed = true; }
             if (kb.rightBracketKey.wasPressedThisFrame) { _coveredOverride[_mapStage] += 5f; changed = true; }
+
+            // PageUp / PageDown：按比例粗调整体缩放（一次 ±10%），差得远时用这个快
+            if (kb.pageUpKey.wasPressedThisFrame) { _coveredOverride[_mapStage] *= 1.1f; changed = true; }
+            if (kb.pageDownKey.wasPressedThisFrame) { _coveredOverride[_mapStage] /= 1.1f; changed = true; }
+
             if (kb.commaKey.wasPressedThisFrame) { _uvOverride[_mapStage] = _uvOverride[_mapStage] + new Vector2(-0.01f, 0f); changed = true; }
             if (kb.periodKey.wasPressedThisFrame) { _uvOverride[_mapStage] = _uvOverride[_mapStage] + new Vector2(0.01f, 0f); changed = true; }
             if (kb.semicolonKey.wasPressedThisFrame) { _uvOverride[_mapStage] = _uvOverride[_mapStage] + new Vector2(0f, -0.01f); changed = true; }

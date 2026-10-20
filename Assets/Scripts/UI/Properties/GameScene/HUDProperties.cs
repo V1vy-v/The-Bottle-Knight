@@ -47,6 +47,12 @@ namespace UI
             0f,
         };
 
+        [Header("攻击模组（近战 / 远战）")]
+        [Tooltip("近战状态图标。留空则沿用槽位本身的图，只改颜色")]
+        public Sprite meleeModuleSprite;
+        [Tooltip("远战状态图标。留空同上")]
+        public Sprite rangedModuleSprite;
+
         [Header("小地图 · 标记外观")]
         [Tooltip("主角标记（固定在遮罩中心）。留空用纯白方块")]
         public Sprite playerMarkSprite;
