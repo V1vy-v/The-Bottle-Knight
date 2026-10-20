@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 
   Name: 
-  sprite: {fileID: 1335124142, guid: 25596659def39c347b043dd37debda89, type: 3}
+  sprite: {fileID: -661500404, guid: 25596659def39c347b043dd37debda89, type: 3}
   tips: "高压锅：技能冷却 -15%"
   price: 2
   isHold: 0
+  SkillCdReduction: 0.15

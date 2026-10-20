@@ -18,3 +18,6 @@ MonoBehaviour:
   tips: "平底锅：攻击附带眩晕（小怪 50% / 精英 25%，BOSS 免疫）"
   price: 2
   isHold: 0
+  StunChanceMinion: 0.5
+  StunChanceElite: 0.25
+  StunDuration: 1.2

@@ -127,6 +127,7 @@ namespace GamePlay.Interaction
             }
 
             _absorbed = true;
+            if (_enemy != null) _enemy.MarkAbsorbed();     // 剧情已过：战败重试时不再把它复活
             Global.Get<GameplayRoot>()?.ReportGoalReached("absorb");
 
             // 吸取音：循环播，持续到吸取动作结束

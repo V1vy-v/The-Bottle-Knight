@@ -76,6 +76,33 @@ namespace Framework
         }
         
         /// <summary>
+        /// 强制重入某个状态：即使已经是当前状态，也会走一遍 Exit → Enter。
+        /// <para>
+        /// 用在「同一个模式连续进入不同节点」的场合（对话 → 对话、战斗 → 下一轮、漫游 → 漫游）。
+        /// 普通 <see cref="ChangeState"/> 对相同状态会直接跳过，导致 Enter 里的“刷新界面 / 重置计数”不执行，
+        /// 表现就是第二个对话不显示、界面停在上一个的内容上。
+        /// </para>
+        /// </summary>
+        public void RestartState(TEnum state)
+        {
+            if (!_states.TryGetValue(state, out IState<TEnum> stateState))
+            {
+                Debug.LogError($"[{GetType()}] state not exists : {state}");
+                return;
+            }
+
+            if (_current != stateState)
+            {
+                ChangeState(state);
+                return;
+            }
+
+            _current.Exit();
+            OnStateChange?.Invoke(state, state);
+            _current.Enter();
+        }
+
+        /// <summary>
         /// 执行状态切换
         /// </summary>
         private void Transit(IState<TEnum> state)

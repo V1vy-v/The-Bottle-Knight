@@ -18,3 +18,5 @@ MonoBehaviour:
   tips: "保鲜膜：每 10 秒获得护盾，可挡 1 次伤害"
   price: 1
   isHold: 0
+  ShieldInterval: 10
+  ShieldMax: 1

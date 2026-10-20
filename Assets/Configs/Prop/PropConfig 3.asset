@@ -18,3 +18,4 @@ MonoBehaviour:
   tips: "手套：免疫火路、亡语等持续伤害"
   price: 1
   isHold: 0
+  ImmuneDot: 1

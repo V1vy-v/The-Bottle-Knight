@@ -41,5 +41,11 @@ namespace GamePlay.Configs
 
         [Header("液体切换 Tab")]
         public float ChangeLiquidCd = 10f;      // 冷却
+
+        [Header("脱战回血")]
+        [Tooltip("站着不动且不在战斗中时，每秒回复多少点生命")]
+        public float RegenPerSecond = 10f;
+        [Tooltip("最近一次受伤后，要隔多久才开始回血（秒）")]
+        public float RegenDelay = 3f;
     }
 }

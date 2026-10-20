@@ -61,6 +61,10 @@ namespace GamePlay.Player
             _playerStats.Hp = _playerStats.MaxHp;
             _deathReported = false;
 
+            // 死亡动画是 Trigger，复活要把动画机拉回默认状态
+            _playerView?.ResetAnimator();
+            _playerView?.SetMoving(false);
+
             if (_rb != null) _rb.velocity = Vector2.zero;
         }
 
@@ -115,12 +119,28 @@ namespace GamePlay.Player
                 {
                     _deathReported = true;
                     if (_rb != null) _rb.velocity = Vector2.zero;
+
+                    // 死亡表现：动画 + 停止移动输入
+                    _playerView?.PlayDeath();
+                    _playerView?.SetMoving(false);
+
                     Global.Get<GameplayRoot>()?.NotifyPlayerDead();
                 }
                 return;
             }
 
+            // 保鲜膜：按间隔补护盾层
+            _playerStats?.TickShield(Time.deltaTime);
+
             _moveValue = _inputProvider.PlayerActions.Move.ReadValue<Vector2>();
+
+            // 脱战回血：站着不动、且不在战斗/结算里才慢慢回
+            var mode = Global.Get<GameplayRoot>()?.CurrentMode ?? GamePlay.Session.GameplayMode.FreeRoam;
+            bool idleAndSafe = _moveValue == Vector2.zero
+                               && mode != GamePlay.Session.GameplayMode.Battle
+                               && mode != GamePlay.Session.GameplayMode.GameOver;
+            _playerStats?.TickRegen(Time.deltaTime, idleAndSafe);
+
             //移动动画
             if (_moveValue == Vector2.zero)
             {

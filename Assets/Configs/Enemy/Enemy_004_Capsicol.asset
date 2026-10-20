@@ -17,7 +17,7 @@ MonoBehaviour:
   Tier: 1
   MaxHp: 100
   Damage: 15
-  MoveSpeed: 0
+  MoveSpeed: 1
   AttackCooldown: 1.5
   HurtStunTime: 0.3
   IdleDuration: 2

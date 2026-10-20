@@ -1,4 +1,4 @@
-﻿﻿﻿using Framework;
+﻿using Framework;
 using System;
 using System.Collections.Generic;
 using GamePlay;
@@ -207,6 +207,9 @@ namespace UI
 
             // 标记为已拥有
             _currentSelectedProp.isHold = true;
+
+            // 立刻重算道具增益（伤害 / 攻速 / 冷却 / 护盾 / 眩晕…）
+            ownerStats.RecalcProps(GamePlay.Configs.ConfigManager.Instance != null ? GamePlay.Configs.ConfigManager.Instance.Props : null);
 
             Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("UI_Hover");
 

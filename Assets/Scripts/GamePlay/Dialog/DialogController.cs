@@ -23,6 +23,9 @@ public class DiaLogController : MonoBehaviour
     private string _fullLine;            // 当前这一句的完整内容
     private Coroutine _typingCoroutine;  // 打字协程的引用，方便打断
 
+    /// <summary>本次对话是否已经结束（防止一键跳过与自动结束重复触发）</summary>
+    private bool _ended;
+
     private Image spriteLeft;    // 角色A立绘
     private Image spriteRight;   // 角色B立绘
     private TMP_Text nameText;   // 角色名字 text
@@ -98,6 +101,7 @@ public class DiaLogController : MonoBehaviour
 
         FinishTyping();
         dialogIndex = 0;
+        _ended = false;
         ClearOptionButtons();
 
         dialogRows = content.Replace("\r", "").Split('\n');
@@ -155,7 +159,7 @@ public class DiaLogController : MonoBehaviour
         // 原来只认 end 行的下标，end 行写错（比如 3 行对话写成 end,2）就会永远停在最后一句。
         if (dialogIndex >= _maxRowIndex)
         {
-            OnDialogueEnd?.Invoke();
+            RaiseEnd();
             return;
         }
 
@@ -181,11 +185,38 @@ public class DiaLogController : MonoBehaviour
             }
             else if (cells[0] == "end" && int.Parse(cells[1]) == dialogIndex)
             {
-                OnDialogueEnd?.Invoke();
+                RaiseEnd();
                 print("对话结束");
                 break;
             }
         }
+    }
+
+    /// <summary>统一出口：一次对话只发一次结束事件</summary>
+    private void RaiseEnd()
+    {
+        if (_ended) return;
+        _ended = true;
+        OnDialogueEnd?.Invoke();
+    }
+
+    /// <summary>
+    /// 一键跳过整段对话（空格）：停打字、清选项、直接判定结束。
+    /// 结束后由 DialogPanel 通知流程推进到下一节点。
+    /// </summary>
+    public void SkipAll()
+    {
+        if (dialogRows == null || dialogRows.Length == 0) return;
+        if (_ended) return;
+
+        FinishTyping();
+        ClearOptionButtons();
+
+        // 让索引走到末尾，避免句柄还停在中间行上
+        dialogIndex = _maxRowIndex;
+
+        RaiseEnd();
+        print("对话跳过");
     }
 
     public void OnClickNext()

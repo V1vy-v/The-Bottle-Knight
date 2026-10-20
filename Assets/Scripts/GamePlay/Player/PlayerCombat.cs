@@ -111,7 +111,7 @@ namespace GamePlay.Player
         public void PrimaryAttack()
         {
             if (_elapsed > 0) return;
-            _elapsed = _stats.PrimaryAtkInterval / (1f + _liquids.AttackSpeedBonus);
+            _elapsed = _stats.PrimaryAtkInterval / (1f + _liquids.AttackSpeedBonus + _stats.AttackSpeedBonus);
 
             if (_liquids?.CurrentLiquid?.Attack() == true) return;
 
@@ -159,7 +159,7 @@ namespace GamePlay.Player
                     : (Vector2)transform.position + actualRangedOffset;
 
                 // 补全伤害计算（把你的基础伤害乘上液体加成）
-                float finalDmg = _stats.RangedDamage * (1f + _liquids.AtkBonus);
+                float finalDmg = _stats.RangedDamage * (1f + _liquids.AtkBonus) * _stats.DamageMultiplier;
 
                 // 呼叫发射
                 DirectionalAttack(dir, spawnPos, _liquids?.CurrentLiquid?.Config?.BulletPrefabRes, finalDmg);
@@ -224,7 +224,7 @@ namespace GamePlay.Player
 
         private void RangeAttack(Vector2 offset, float radius)
         {
-            float dmg = _stats.MeleeDamage * (1f + _liquids.AtkBonus);
+            float dmg = _stats.MeleeDamage * (1f + _liquids.AtkBonus) * _stats.DamageMultiplier;
             Vector2 center = (Vector2)transform.position + offset;
 
             Collider2D[] hits = Physics2D.OverlapCircleAll(center, radius, _enemyLayerMask);
@@ -240,11 +240,27 @@ namespace GamePlay.Player
                 if (damagedEnemies.Contains(enemy)) continue;
 
                 enemy.ApplyDamage(dmg);
+                TryStun(enemy);
                 damagedEnemies.Add(enemy);
                 hit = true;
             }
 
             if (hit) _liquids?.CurrentLiquid?.OnHitEnemy();
+        }
+
+        /// <summary>平底锅：普攻附带眩晕。BOSS 由 EnemyController 自己按 ImmuneStun 拒绝。</summary>
+        private void TryStun(EnemyController enemy)
+        {
+            if (enemy == null || _stats == null) return;
+
+            float chance = (enemy.config != null && enemy.config.Tier >= GamePlay.Configs.EnemyTier.MiniBoss)
+                ? _stats.StunChanceElite
+                : _stats.StunChanceMinion;
+
+            if (chance <= 0f) return;
+            if (UnityEngine.Random.value > chance) return;
+
+            enemy.ApplyStun(_stats.StunDuration);
         }
 
         private void TickPrimaryAtk(float delta)

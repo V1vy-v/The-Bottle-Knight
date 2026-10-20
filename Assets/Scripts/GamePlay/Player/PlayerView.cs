@@ -53,8 +53,20 @@ namespace GamePlay.Player
                 _animator.SetTrigger(AnimAtk);
         }
         public void PlayDeath()
-        { 
-            _animator.SetTrigger(AnimDeath); 
+        {
+            if (_animator == null) return;
+            // 动画机里没配 Death 参数就只靠音效，别让 SetTrigger 刷警告
+            if (!HasParam(AnimDeath)) return;
+
+            _animator.SetTrigger(AnimDeath);
+        }
+
+        /// <summary>复活时把动画机拉回默认状态：死亡是 Trigger，不重置会一直停在倒地帧</summary>
+        public void ResetAnimator()
+        {
+            if (_animator == null) return;
+            _animator.Rebind();
+            _animator.Update(0f);
         }
         public void SetMoving(bool v) 
         { 

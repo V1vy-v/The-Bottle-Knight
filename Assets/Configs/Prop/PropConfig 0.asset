@@ -18,3 +18,4 @@ MonoBehaviour:
   tips: "调味罐：伤害 +20%"
   price: 1
   isHold: 0
+  DamageBonus: 0.2

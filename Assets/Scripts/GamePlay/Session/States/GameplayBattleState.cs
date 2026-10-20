@@ -366,6 +366,19 @@ namespace GamePlay.Session
                 var absorb = go.GetComponent<AbsorbSource>();
                 var _ec = go.GetComponent<EnemyController>();
                 Debug.Log($"[战斗清理] {go.name} absorb={absorb != null} enemy={_ec != null} defeated={_ec != null && _ec.IsDefeated} cfg={(_ec != null && _ec.config != null ? _ec.config.name : "null")} canAbsorb={_ec != null && _ec.config != null && _ec.config.CanAbsorb} awaiting={absorb != null && absorb.IsAwaitingAbsorb}");
+
+                // 场景剧情敌人「还没被打倒」就退出战斗（玩家战败 / 按了暂停退出 / 切模式）：
+                // 必须复位成被动状态，不能隐藏也不能销毁 —— 否则玩家重试后场上没有它，流程卡死。
+                if (_ec != null && _adoptedEnemies.Contains(go) && !_ec.IsDefeated)
+                {
+                    _ec.OnDefeated -= HandleEnemyDefeated;
+                    Vector3 home = _adoptedHome.TryGetValue(go, out Vector3 pos) ? pos : _ec.HomePosition;
+                    _ec.RestoreAsStoryNpc(home);
+                    continue;
+                }
+
+                // 可吸取且还没被吸的尸体，留给剧情阶段 —— 玩家可能还没走过去按 F。
+                // 这条分支故意不退订：尸体还活着，后面可能还会触发事件。
                 if (absorb != null && absorb.IsAwaitingAbsorb)
                 {
                     _pendingCorpses.Add(go);
@@ -375,6 +388,8 @@ namespace GamePlay.Session
                 ReleaseEnemy(go);
             }
             _spawnedEnemies.Clear();
+            _adoptedEnemies.Clear();
+            _adoptedHome.Clear();
         }
 
         /// <summary>
@@ -396,7 +411,26 @@ namespace GamePlay.Session
         /// </summary>
         public void ForceClearAll()
         {
-            ReleasePendingCorpses();
+            // 暂留尸体：可吸取的「场景剧情 BOSS」（国窖这种）要复位成可再战；
+            // 其余（矿泉水这种 CanAbsorb=0 的杂兵）照常回收 —— 它们不该在重试后刷新。
+            for (int i = 0; i < _pendingCorpses.Count; i++)
+            {
+                GameObject corpse = _pendingCorpses[i];
+                if (!corpse) continue;
+
+                var corpseEnemy = corpse.GetComponent<EnemyController>();
+                if (corpseEnemy != null && !corpseEnemy.SpawnedByFacade
+                    && corpseEnemy.config != null && corpseEnemy.config.CanAbsorb
+                    && !corpseEnemy.WasAbsorbed)
+                {
+                    corpseEnemy.OnDefeated -= HandleEnemyDefeated;
+                    corpseEnemy.RestoreAsStoryNpc(corpseEnemy.HomePosition);
+                    continue;
+                }
+
+                ReleaseEnemy(corpse);
+            }
+            _pendingCorpses.Clear();
 
             for (int i = 0; i < _spawnedEnemies.Count; i++)
             {

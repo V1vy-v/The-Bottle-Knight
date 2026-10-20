@@ -41,7 +41,7 @@ namespace GamePlay.Liquid
                 {
                     IsSkillActive = false;
                     OnSkillEnd();
-                    _cdRemain = Config.SkillCd;
+                    _cdRemain = Config.SkillCd * (Stats != null ? Stats.SkillCdMultiplier : 1f);
                 }
             }
             else if (_cdRemain > 0f)
@@ -52,7 +52,7 @@ namespace GamePlay.Liquid
             if (!IsSkillActive) return;
             IsSkillActive = false;
             OnSkillEnd();
-            _cdRemain = Config.SkillCd;
+            _cdRemain = Config.SkillCd * (Stats != null ? Stats.SkillCdMultiplier : 1f);
         }
 
         protected virtual bool CanUseSkill() => true;

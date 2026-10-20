@@ -142,6 +142,9 @@ public class Bullet : MonoBehaviour, IPoolable
             _hitEnemies.Add(enemy);
             enemy.ApplyDamage(_damage);
 
+            // 平底锅：远程命中也吃眩晕
+            TryStun(enemy);
+
             if (!isPierce) TriggerHit();
             return;
         }
@@ -152,6 +155,25 @@ public class Bullet : MonoBehaviour, IPoolable
         {
             TriggerHit();
         }
+    }
+
+    /// <summary>平底锅：远程命中也吃眩晕（数据从主角身上取）</summary>
+    private void TryStun(EnemyController enemy)
+    {
+        if (enemy == null || enemy.config == null) return;
+
+        var root = Global.Get<GamePlay.GameplayRoot>();
+        var stats = root != null && root.Player != null ? root.Player.GetComponent<GamePlay.Player.PlayerController>()?.PlayerStats : null;
+        if (stats == null) return;
+
+        float chance = enemy.config.Tier >= GamePlay.Configs.EnemyTier.MiniBoss
+            ? stats.StunChanceElite
+            : stats.StunChanceMinion;
+
+        if (chance <= 0f) return;
+        if (UnityEngine.Random.value > chance) return;
+
+        enemy.ApplyStun(stats.StunDuration);
     }
 
     /// <summary>刹车、播击中动画、关碰撞、延时还池</summary>

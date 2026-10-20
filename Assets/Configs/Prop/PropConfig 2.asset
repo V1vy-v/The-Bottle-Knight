@@ -18,3 +18,4 @@ MonoBehaviour:
   tips: "打蛋器：攻速 +15%"
   price: 1
   isHold: 0
+  AttackSpeedBonus: 0.15

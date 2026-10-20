@@ -56,6 +56,7 @@ namespace GamePlay
         {
             TutorialTips.Clear();
             ResetProps();      // 道具的「已购买」存在 SO 上，会跨局残留，新开一局先清掉
+            GamePlay.Enemy.EnemyController.ResetCapRewards();   // 瓶盖奖励按「一局一次」重新算
             var configs = ConfigManager.Instance;
             if (configs == null || !configs.TryGetStartNode(out NodeConfig startNode))
             {
@@ -204,6 +205,16 @@ namespace GamePlay
         {
             PendingMode = mode;
             _modeFsm?.ChangeState(mode);
+        }
+
+        /// <summary>
+        /// 进入新节点时用：即使模式没变也强制重入一次状态。
+        /// 否则「对话 → 对话」这种连续同模式节点会沿用旧状态，新节点内容不会刷新（表现为卡在上一段对话）。
+        /// </summary>
+        public void ChangeModeForNode(GameplayMode mode)
+        {
+            PendingMode = mode;
+            _modeFsm?.RestartState(mode);
         }
 
         /// <summary>暂停。只在自由行动与战斗中允许。</summary>
@@ -373,7 +384,7 @@ namespace GamePlay
 
             ApplyNodeContext(node, isFirstNode: false);
 
-            ChangeMode(node.mode);
+            ChangeModeForNode(node.mode);
 
             // 拿到吸管：解锁远战模组（Q 才能真正切换）
             if (node.unlockRangedAttack && _player != null)
@@ -388,6 +399,10 @@ namespace GamePlay
                 PlayStageBgm();
 
             SaveCheckpoint(node);
+
+            // 战斗节点记下开打位置，战败重试就地从这里重开这一场
+            if (node.mode == GameplayMode.Battle && _player != null)
+                _battleEntryPos = _player.transform.position;
         }
 
         /// <summary>
@@ -526,6 +541,9 @@ namespace GamePlay
         private string _checkpointNodeId;
         private Vector3 _checkpointPos;
 
+        /// <summary>进入当前战斗节点时主角的位置（战斗内阵亡就地重打，不用跑回去）</summary>
+        private Vector3 _battleEntryPos;
+
         /// <summary>结局演出进行中</summary>
         private bool _ending;
 
@@ -567,11 +585,9 @@ namespace GamePlay
             _retrying = true;
 
             // 1. 收掉上一场刷出来的敌人（含 BOSS 尸体）
+            //    ForceClearAll 里只复位「本次战斗接管过的」剧情敌人；
+            //    不要在这里无差别复活所有剧情 NPC —— 那样已经打完的矿泉水 / 国窖会重新出现。
             _battleState?.ForceClearAll();
-
-            // 1b. 场景剧情敌人（国窖 / 矿泉水）全部复位：被接管过、被隐藏过都要回来，
-            //     否则回退到「和它对话之前」的节点时会没有东西可触发，流程卡死
-            GamePlay.Enemy.EnemyController.RestoreAllStoryNpcs();
 
             // 2. 占位贴图复原：开打时整组被关掉了渲染，不复原的话重打时 BOSS 是隐形的
             ShowPlaceholder(_encounterPlaceholder);
@@ -586,7 +602,27 @@ namespace GamePlay
             // 5. 主角复活
             _player?.GetComponent<GamePlay.Player.PlayerController>()?.Revive();
 
-            NodeConfig node = ResolveCheckpointNode();
+            // 6. 决定回到哪个节点：
+            //    死在战斗里 → 只重打「当前这场」，前面的进度和已经打死的敌人都不重来；
+            //    死在漫游里（被巡逻怪打死之类）→ 退回上一个自由行走的节点。
+            NodeConfig node;
+            Vector3 respawnPos;
+
+            bool diedInBattle = _storyContext?.CurrentNode != null
+                                && _storyContext.CurrentNode.mode == GameplayMode.Battle;
+
+            if (diedInBattle)
+            {
+                node = _storyContext.CurrentNode;
+                respawnPos = _battleEntryPos;
+                Debug.Log($"[GameplayRoot] 战斗内阵亡：只重打当前这场（{node.name}），不回退前面的节点");
+            }
+            else
+            {
+                node = ResolveCheckpointNode();
+                respawnPos = _checkpointPos;
+            }
+
             if (node == null)
             {
                 Debug.LogWarning("[GameplayRoot] 没有可回退的节点，直接回主菜单");
@@ -597,7 +633,7 @@ namespace GamePlay
 
             void Apply()
             {
-                TeleportTo(_checkpointPos);
+                TeleportTo(respawnPos);
 
                 _restoringCheckpoint = true;
                 EnterNodeImmediate(node);

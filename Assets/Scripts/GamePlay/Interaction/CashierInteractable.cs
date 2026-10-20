@@ -53,6 +53,12 @@ namespace GamePlay.Interaction
 
             if (_gift != null) _gift.isHold = true;
 
+            // 赠品也要立刻生效
+            var pc = player != null ? player.GetComponent<PlayerController>() : null;
+            pc?.PlayerStats?.RecalcProps(GamePlay.Configs.ConfigManager.Instance != null
+                ? GamePlay.Configs.ConfigManager.Instance.Props
+                : null);
+
             Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("UI_Hover");
 
             if (!string.IsNullOrEmpty(_tip))

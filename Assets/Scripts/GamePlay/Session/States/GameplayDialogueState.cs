@@ -29,6 +29,13 @@ namespace GamePlay.Session
             Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("UI_NPC");
 
             TextAsset text = Root.Dialog.CurrentDialogue;
+            if (text == null)
+            {
+                UnityEngine.Debug.LogWarning($"[对话] 节点 {Root.Story?.CurrentNode?.name} 没有对话文本，直接跳过");
+                MarkFinished();
+                return;
+            }
+
             Global.ShowUI("DialogPanel", new DialogPanelProperties { dialogText = text });
         }
 
@@ -37,6 +44,17 @@ namespace GamePlay.Session
             base.Exit();
             DialogPanel.OnDialogueCompleted -= OnCompleted;
             Global.HideUI("DialogPanel");
+        }
+
+        /// <summary>空格一键跳过整段对话</summary>
+        protected override void Tick(float deltaTime)
+        {
+            var keyboard = UnityEngine.InputSystem.Keyboard.current;
+            if (keyboard != null && keyboard.spaceKey.wasPressedThisFrame)
+            {
+                UnityEngine.Debug.Log("[对话] 空格跳过");
+                DialogPanel.SkipCurrent();
+            }
         }
 
         private void OnCompleted()

@@ -422,6 +422,11 @@ namespace GamePlay.Enemy
         /// <summary>场景里的原始位置，复位用</summary>
         public Vector3 HomePosition { get; private set; }
 
+        /// <summary>是否已经被玩家吸取过（剧情已过）。复位时不能把它复活，否则「打完的 BOSS 又站起来」。</summary>
+        public bool WasAbsorbed { get; private set; }
+
+        public void MarkAbsorbed() => WasAbsorbed = true;
+
         /// <summary>把所有剧情敌人复位成被动、满血、站原位（战败重试用）</summary>
         public static void RestoreAllStoryNpcs()
         {
@@ -429,6 +434,9 @@ namespace GamePlay.Enemy
             {
                 EnemyController npc = StoryNpcs[i];
                 if (npc == null) continue;
+
+                // 已经吸掉、剧情翻篇的不复活：避免"已经打完的敌人重生"以及反复刷金币
+                if (npc.WasAbsorbed) continue;
 
                 if (!npc.gameObject.activeSelf) npc.gameObject.SetActive(true);
                 npc.RestoreAsStoryNpc(npc.HomePosition);
@@ -629,6 +637,30 @@ namespace GamePlay.Enemy
             _fsm.ChangeState(EnemyState.Dead);
         }
 
+        /// <summary>平底锅：眩晕（BOSS / 配置里勾了 ImmuneStun 的免疫）</summary>
+        public void ApplyStun(float seconds)
+        {
+            if (seconds <= 0f) return;
+            if (IsDefeated) return;
+            if (config != null && config.ImmuneStun) return;
+
+            StopMove();
+            SetAiPaused(true);
+            if (_stunRoutine != null) StopCoroutine(_stunRoutine);
+            _stunRoutine = StartCoroutine(StunRoutine(seconds));
+        }
+
+        private Coroutine _stunRoutine;
+
+        private IEnumerator StunRoutine(float seconds)
+        {
+            yield return new WaitForSeconds(seconds);
+            _stunRoutine = null;
+
+            // 死了就一直冻着；否则恢复 AI（对话 / 商店的冻结由模式切换负责）
+            if (!IsDefeated) SetAiPaused(false);
+        }
+
         public void SetPlayerTarget(Transform player)
         {
             _player = player;
@@ -638,6 +670,12 @@ namespace GamePlay.Enemy
             _player = null;
         }
 
+        /// <summary>本局已经发过瓶盖的敌人配置 Id。战败重试后同一只 BOSS 再打一次不会重复给，防刷金币。</summary>
+        private static readonly HashSet<string> _rewardedOnce = new();
+
+        /// <summary>新开一局时清空（剧情重来，奖励重新算）</summary>
+        public static void ResetCapRewards() => _rewardedOnce.Clear();
+
         public void NotifyDefeated()
         {
             if (IsDefeated) return;
@@ -646,15 +684,26 @@ namespace GamePlay.Enemy
             // 掉落瓶盖。开局即倒地的剧情单位（中三拳）不走这里，改成吸取时结算
             if (!_startDefeated && config != null && config.CapDrop > 0)
             {
-                GameObject playerGo = Global.Get<GameplayRoot>()?.Player;
-                PlayerController pc = playerGo != null ? playerGo.GetComponent<PlayerController>() : null;
-                if (pc != null && pc.PlayerStats != null)
-                {
-                    pc.PlayerStats.Caps += config.CapDrop;
-                    Debug.Log($"[瓶盖] 获得 {config.CapDrop} 个，共 {pc.PlayerStats.Caps}");
+                // 同一配置只结算一次：玩家战败重试后 BOSS 会重新刷出来，
+                // 不拦的话反复「打一半→故意送死→再打」就能无限刷金币。
+                bool firstTime = string.IsNullOrEmpty(config.Id) || _rewardedOnce.Add(config.Id);
 
-                    // 掉瓶盖音：金属叮当
-                    Framework.Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("SFX_Player_CapPickup");
+                if (!firstTime)
+                {
+                    Debug.Log($"[瓶盖] {config.Id} 本局已发放过，不重复给");
+                }
+                else
+                {
+                    GameObject playerGo = Global.Get<GameplayRoot>()?.Player;
+                    PlayerController pc = playerGo != null ? playerGo.GetComponent<PlayerController>() : null;
+                    if (pc != null && pc.PlayerStats != null)
+                    {
+                        pc.PlayerStats.Caps += config.CapDrop;
+                        Debug.Log($"[瓶盖] 获得 {config.CapDrop} 个，共 {pc.PlayerStats.Caps}");
+
+                        // 掉瓶盖音：金属叮当
+                        Framework.Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("SFX_Player_CapPickup");
+                    }
                 }
             }
 
