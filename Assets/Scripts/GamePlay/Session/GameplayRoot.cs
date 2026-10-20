@@ -1,4 +1,4 @@
-﻿﻿using Framework;
+﻿﻿﻿using Framework;
 using System.Collections.Generic;
 using GamePlay.Configs;
 using GamePlay.Session;
@@ -71,6 +71,10 @@ namespace GamePlay
 
             BuildModeFsm();
             SpawnPlayer();
+
+            // 起始节点配了传送点就立刻传送（跳过前面流程时必须）
+            if (!string.IsNullOrEmpty(startNode.teleportTargetName))
+                TeleportPlayer(startNode.teleportTargetName);
 
             _modeFsm.ChangeState(startNode.mode);
 
