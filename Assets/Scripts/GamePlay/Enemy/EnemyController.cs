@@ -1,4 +1,4 @@
-﻿using Framework;
+using Framework;
 using GamePlay.Configs;
 using GamePlay.Player;
 using System;
@@ -395,6 +395,41 @@ namespace GamePlay.Enemy
         {
             if (SpawnedByFacade) Global.Release(gameObject);
             else Destroy(gameObject);
+        }
+
+        /// <summary>
+        /// 战败重试时用：把被战斗接管的「场景剧情敌人」放回被动、满血、站原位。
+        /// 这类敌人是直接摆在场景里的，<see cref="ReleaseSelf"/> 会把它 Destroy 掉，
+        /// 玩家一死重进，场上就再也没有它，流程（和它的对话触发）直接卡死。
+        /// </summary>
+        public void RestoreAsStoryNpc(Vector3 originalPosition)
+        {
+            // 位置复位（NavMeshAgent 会覆盖 transform，先关再开）
+            var agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+            if (agent != null) agent.enabled = false;
+            transform.position = originalPosition;
+            if (agent != null) agent.enabled = true;
+
+            IsDefeated = false;
+            _aiPaused = false;
+            _bodyIgnored = false;
+
+            state.CurrentHP = state.MaxHP;
+            OnWound?.Invoke(state.CurrentHP, state.MaxHP);
+
+            SetAlpha(1f);
+            if (_sprite != null) _sprite.color = _originalColor;
+
+            if (moveController != null) moveController.SetSpeed(0);
+            _fsm?.ChangeState(EnemyState.Idle);
+
+            // 变回「等玩家走近就对话」的被动剧情敌人
+            CombatEnabled = false;
+            _passives.Remove(this);
+            _passives.Add(this);
+            CreateTalkZone();
+
+            Debug.Log($"[敌人] {name} 已复位为剧情敌人（HP {state.CurrentHP}/{state.MaxHP}）");
         }
 
         public void EnterCombat()

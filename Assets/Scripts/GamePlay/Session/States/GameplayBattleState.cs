@@ -19,6 +19,10 @@ namespace GamePlay.Session
         protected override bool AutoAdvanceOnFinish => true;
         private readonly List<GameObject> _spawnedEnemies = new();
 
+        /// <summary>本场接管的「场景剧情敌人」（不能销毁，重试时要复位）及其原始位置</summary>
+        private readonly List<GameObject> _adoptedEnemies = new();
+        private readonly Dictionary<GameObject, Vector3> _adoptedHome = new();
+
 
         /// <summary>因可吸取而暂留在场上的尸体，等玩家用 F 吸，或阶段推进时统一回收</summary>
         private readonly List<GameObject> _pendingCorpses = new();
@@ -301,6 +305,8 @@ namespace GamePlay.Session
                 e.OnDefeated += HandleEnemyDefeated;
 
                 _spawnedEnemies.Add(e.gameObject);
+                _adoptedEnemies.Add(e.gameObject);
+                _adoptedHome[e.gameObject] = e.transform.position;
                 Debug.Log($"[战斗] 接管场上被动敌人 {e.name}（{config.Id}）");
                 return true;
             }
@@ -393,9 +399,30 @@ namespace GamePlay.Session
             ReleasePendingCorpses();
 
             for (int i = 0; i < _spawnedEnemies.Count; i++)
-                ReleaseEnemy(_spawnedEnemies[i]);
+            {
+                GameObject go = _spawnedEnemies[i];
+                if (!go) continue;
+
+                // 场景剧情敌人（国窖这种）：不能销毁，复位成被动 + 满血 + 原位，
+                // 否则玩家战败重进后场上没有它，对话触发不了，流程卡死
+                if (_adoptedEnemies.Contains(go))
+                {
+                    var adopted = go.GetComponent<EnemyController>();
+                    if (adopted != null)
+                    {
+                        adopted.OnDefeated -= HandleEnemyDefeated;
+                        Vector3 home = _adoptedHome.TryGetValue(go, out Vector3 pos) ? pos : go.transform.position;
+                        adopted.RestoreAsStoryNpc(home);
+                        continue;
+                    }
+                }
+
+                ReleaseEnemy(go);
+            }
 
             _spawnedEnemies.Clear();
+            _adoptedEnemies.Clear();
+            _adoptedHome.Clear();
             _autoWinRemain = 0f;
         }
 
