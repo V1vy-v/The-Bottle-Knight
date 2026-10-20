@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace GamePlay.Configs
 {
@@ -41,6 +41,11 @@ namespace GamePlay.Configs
         public bool ImmuneStun;                 // BOSS 免疫眩晕
         public float DebuffDurationScale = 1f;  // BOSS 0.5：冰冻 / 酒雾持续减半
         public float DebuffChanceScale = 1f;    // BOSS 0.5：概率减半
+
+        [Header("剧情让步")]
+        [Tooltip("血量降到这个比例就直接认输（按战败处理，战斗结束）。0 = 不认输。\n" +
+                 "例：国窖 0.3 —— 策划案里「血量 30% 时红温认输，不能击杀」")]
+        public float SurrenderHpRatio = 0f;
 
         [Header("装配")]
         public string PrefabLocation;           // YooAsset 地址，弱引用；不在此处直接引用 prefab

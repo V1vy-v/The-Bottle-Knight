@@ -30,4 +30,5 @@ MonoBehaviour:
   ImmuneStun: 0
   DebuffDurationScale: 1
   DebuffChanceScale: 1
+  SurrenderHpRatio: 0.3
   PrefabLocation: Prefab_Enemy_GuoJiao

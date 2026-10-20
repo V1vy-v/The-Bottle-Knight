@@ -484,6 +484,13 @@ namespace GamePlay.Enemy
                 state.CurrentHP = 0;
                 _fsm.ChangeState(EnemyState.Dead);
             }
+            else if (config != null && config.SurrenderHpRatio > 0f &&
+                     state.CurrentHP <= state.MaxHP * config.SurrenderHpRatio)
+            {
+                // 剧情让步：国窖血量到 30% 就红温认输（不能击杀），按战败收场
+                Debug.Log($"[Enemy] {name} 血量 {state.CurrentHP:F0}/{state.MaxHP:F0}，认输");
+                ForceDefeated();
+            }
             else
             {
                 _fsm.ChangeState(EnemyState.Hurt);
