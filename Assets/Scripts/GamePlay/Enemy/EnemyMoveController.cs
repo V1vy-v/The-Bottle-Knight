@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 /// <summary>
@@ -104,9 +104,18 @@ public class EnemyMoveController : MonoBehaviour
         _directTarget = null;
         if (_agent == null) return;
 
-        _agent.isStopped = true;
-        _agent.velocity = Vector3.zero;
-        _agent.ResetPath();
+        // 【关键修复】必须判断它是否在 NavMesh 上
+        if (_agent.isOnNavMesh)
+        {
+            _agent.isStopped = true;
+            _agent.velocity = Vector3.zero;
+            _agent.ResetPath();
+        }
+        else
+        {
+            // 如果没在网格上，说明它本来就没动，直接清空速度即可（或者直接 return）
+            _agent.velocity = Vector3.zero;
+        }
     }
 
     public bool HasReachedDestination()
