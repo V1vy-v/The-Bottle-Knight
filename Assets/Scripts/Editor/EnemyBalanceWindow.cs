@@ -70,8 +70,9 @@ namespace Framework.Editor
                 int tier = (int)cfg.Tier;
 
                 float scale = 1f;
-                if (tier == 3) scale = _bossScale;                       // Boss
-                else if (tier == 2 && !_onlyTier3) scale = _eliteScale;  // MiniBoss（料酒）
+                // 用枚举比，别再写 3 / 2 这种魔数（早前这里直接拿 enum 和 int 比较，编译不过）
+                if (cfg.Tier == EnemyTier.Boss) scale = _bossScale;
+                else if (cfg.Tier == EnemyTier.MiniBoss && !_onlyTier3) scale = _eliteScale;  // 料酒
                 else continue;
 
                 if (Mathf.Approximately(scale, 1f)) continue;

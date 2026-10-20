@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -95,18 +95,678 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: enemy_cola_attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8525
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5b8428bd34f71844add0743265f6575
+      internalID: 1551595207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_1
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 8525
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47f0ea7a00d00f6409086dd3729c4548
+      internalID: 1326608147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_2
+      rect:
+        serializedVersion: 2
+        x: 2036
+        y: 8525
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d09df1e13e72a8a44b18308d7d5bcfe5
+      internalID: -92604759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_3
+      rect:
+        serializedVersion: 2
+        x: 3054
+        y: 8525
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c29919d6f698ba745b5a7c8bd42cec73
+      internalID: -183130537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_4
+      rect:
+        serializedVersion: 2
+        x: 4072
+        y: 8525
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c17ef2d94bf794f9166fe455660204
+      internalID: -1966998929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6820
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 991144a4a649f204ab5c28f29d701801
+      internalID: 262659804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_6
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 6820
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90d002181464e834db4401bb13d9e0a2
+      internalID: -743274124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_7
+      rect:
+        serializedVersion: 2
+        x: 2036
+        y: 6820
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89c242bafcec2f24f84525c8298cf6b5
+      internalID: 1769391014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_8
+      rect:
+        serializedVersion: 2
+        x: 3054
+        y: 6820
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a33f4272520434d87eaf2a102db0db
+      internalID: -1352001159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_9
+      rect:
+        serializedVersion: 2
+        x: 4072
+        y: 6820
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 709a231dfaa94054ebe551a21f9ce28a
+      internalID: 621667427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5115
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0715b22fec9547845b7331341350b070
+      internalID: -175213306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_11
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 5115
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c06ee9b6efae7e49b0a5836fba39e5e
+      internalID: -1893511585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_12
+      rect:
+        serializedVersion: 2
+        x: 2036
+        y: 5115
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91c1d8de3fee3084a9fef9dedba5439a
+      internalID: 1323679081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_13
+      rect:
+        serializedVersion: 2
+        x: 3054
+        y: 5115
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1be9c1f98033e9408850bc990db2cf9
+      internalID: -933050077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_14
+      rect:
+        serializedVersion: 2
+        x: 4072
+        y: 5115
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dda07a4ae660fe24dab48e717bd45ee8
+      internalID: 334784185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3410
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4631d64a6d0b24c4a8d79b2891486293
+      internalID: -690430199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_16
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 3410
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d2a90c15c62feb4ca7eca4afdf88301
+      internalID: 2524166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_17
+      rect:
+        serializedVersion: 2
+        x: 2036
+        y: 3410
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be1023c368db39f47b51bd02af14f6d8
+      internalID: 365610880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_18
+      rect:
+        serializedVersion: 2
+        x: 3054
+        y: 3410
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84c7662eb69c8da4283777ec834b7775
+      internalID: 1097287193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_19
+      rect:
+        serializedVersion: 2
+        x: 4072
+        y: 3410
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d1b458efe8ed054d9d72834e8f7a45e
+      internalID: -1694741138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1705
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b35f7612f89a2f459eb4e4491995388
+      internalID: 1368215849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_21
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 1705
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 723259240c924b94eb744ee7438f498d
+      internalID: 936960249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_22
+      rect:
+        serializedVersion: 2
+        x: 2036
+        y: 1705
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d78e7ad1c5a24459a75625de5fbfa0
+      internalID: -1618884734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_23
+      rect:
+        serializedVersion: 2
+        x: 3054
+        y: 1705
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956c6f523e73b8540acf5d679513fe72
+      internalID: 1261020655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_24
+      rect:
+        serializedVersion: 2
+        x: 4072
+        y: 1705
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dca9dbd7ce2df1349bbdc16741082b0e
+      internalID: -960489204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bda452d7e3758904e821f1600e683f41
+      internalID: 681280935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_26
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 0
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33d9b8e6a27a30948afb1139df78bebf
+      internalID: 1862530560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_27
+      rect:
+        serializedVersion: 2
+        x: 2036
+        y: 0
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aec0bf42743739d478dcf8fd32f99863
+      internalID: 1992501261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_28
+      rect:
+        serializedVersion: 2
+        x: 3054
+        y: 0
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 710bf34b0053e3c4da47f800d582b98e
+      internalID: -245442361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_cola_attack_29
+      rect:
+        serializedVersion: 2
+        x: 4072
+        y: 0
+        width: 1018
+        height: 1705
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c20e2163619c7af40a5250ce321f2261
+      internalID: 1756896697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 70aa1464e67d33049b7ef13aec2faefe
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      enemy_cola_attack_0: 1551595207
+      enemy_cola_attack_1: 1326608147
+      enemy_cola_attack_10: -175213306
+      enemy_cola_attack_11: -1893511585
+      enemy_cola_attack_12: 1323679081
+      enemy_cola_attack_13: -933050077
+      enemy_cola_attack_14: 334784185
+      enemy_cola_attack_15: -690430199
+      enemy_cola_attack_16: 2524166
+      enemy_cola_attack_17: 365610880
+      enemy_cola_attack_18: 1097287193
+      enemy_cola_attack_19: -1694741138
+      enemy_cola_attack_2: -92604759
+      enemy_cola_attack_20: 1368215849
+      enemy_cola_attack_21: 936960249
+      enemy_cola_attack_22: -1618884734
+      enemy_cola_attack_23: 1261020655
+      enemy_cola_attack_24: -960489204
+      enemy_cola_attack_25: 681280935
+      enemy_cola_attack_26: 1862530560
+      enemy_cola_attack_27: 1992501261
+      enemy_cola_attack_28: -245442361
+      enemy_cola_attack_29: 1756896697
+      enemy_cola_attack_3: -183130537
+      enemy_cola_attack_4: -1966998929
+      enemy_cola_attack_5: 262659804
+      enemy_cola_attack_6: -743274124
+      enemy_cola_attack_7: 1769391014
+      enemy_cola_attack_8: -1352001159
+      enemy_cola_attack_9: 621667427
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

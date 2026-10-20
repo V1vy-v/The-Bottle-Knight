@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: "Enemy_016_\u519C\u592B\u4E09\u62F3"
   Name: "\u519C\u592B\u4E09\u62F3"
   Tier: 3
-  MaxHp: 1000
+  MaxHp: 500
   Damage: 20
   MoveSpeed: 5
   AttackCooldown: 1.5
@@ -30,4 +30,5 @@ MonoBehaviour:
   ImmuneStun: 0
   DebuffDurationScale: 1
   DebuffChanceScale: 1
-  PrefabLocation: Prefab_Enemy_农夫三拳
+  SurrenderHpRatio: 0
+  PrefabLocation: "Prefab_Enemy_\u519C\u592B\u4E09\u62F3"

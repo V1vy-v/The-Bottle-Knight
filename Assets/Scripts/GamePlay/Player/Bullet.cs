@@ -32,6 +32,7 @@ public class Bullet : MonoBehaviour, IPoolable
 
     private Animator _animator;
     private Collider2D _collider;
+    private Rigidbody2D _body;
 
     // 防止一个怪物有多个碰撞体导致瞬间重复扣血
     private HashSet<EnemyController> _hitEnemies = new HashSet<EnemyController>();
@@ -40,6 +41,18 @@ public class Bullet : MonoBehaviour, IPoolable
     {
         _animator = GetComponentInChildren<Animator>();
         _collider = GetComponent<Collider2D>();
+
+        // 触发事件要求碰撞双方至少有一个 Rigidbody2D。
+        // 敌人是 NavMesh 驱动的、身上没有刚体，子弹自己也必须有，否则永远打不到人。
+        _body = GetComponent<Rigidbody2D>();
+        if (_body == null) _body = gameObject.AddComponent<Rigidbody2D>();
+
+        _body.bodyType = RigidbodyType2D.Kinematic;
+        _body.gravityScale = 0f;
+        _body.freezeRotation = true;
+        _body.simulated = true;
+        _body.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        _body.interpolation = RigidbodyInterpolation2D.Interpolate;
     }
 
     /// <summary>初始化子弹</summary>
@@ -58,6 +71,13 @@ public class Bullet : MonoBehaviour, IPoolable
         // 让子弹贴图朝向飞行方向
         transform.right = _direction;
 
+        // 用刚体速度飞：transform 位移对 Kinematic 刚体不会及时同步碰撞，容易漏判
+        if (_body != null)
+        {
+            _body.velocity = _direction * speed;
+            _body.position = transform.position;
+        }
+
         if (_animator != null) _animator.Play(flyAnimName);
     }
 
@@ -72,6 +92,7 @@ public class Bullet : MonoBehaviour, IPoolable
         _hitRemain = -1f;
         _hitEnemies.Clear();
 
+        if (_body != null) _body.velocity = Vector2.zero;
         if (_collider != null) _collider.enabled = true;
     }
 
@@ -97,7 +118,15 @@ public class Bullet : MonoBehaviour, IPoolable
             return;
         }
 
-        transform.Translate(_direction * speed * Time.deltaTime, Space.World);
+        // 有刚体就靠速度飞（物理会同步碰撞）；万一刚体被去掉，退回 transform 位移
+        if (_body != null)
+        {
+            if (_body.velocity.sqrMagnitude < 0.01f) _body.velocity = _direction * speed;
+        }
+        else
+        {
+            transform.Translate(_direction * speed * Time.deltaTime, Space.World);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -132,6 +161,7 @@ public class Bullet : MonoBehaviour, IPoolable
         _isHit = true;
 
         if (_animator != null) _animator.Play(hitAnimName);
+        if (_body != null) _body.velocity = Vector2.zero;
         if (_collider != null) _collider.enabled = false;
 
         _hitRemain = hitDestroyDelay;
@@ -143,6 +173,8 @@ public class Bullet : MonoBehaviour, IPoolable
         _isInitialized = false;
         _isHit = false;
         _hitRemain = -1f;
+
+        if (_body != null) _body.velocity = Vector2.zero;
 
         var manager = Global.Get<InstantiateManager>();
         if (manager != null)

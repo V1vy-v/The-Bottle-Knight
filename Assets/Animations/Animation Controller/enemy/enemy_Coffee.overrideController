@@ -8,4 +8,12 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: enemy_Coffee
   m_Controller: {fileID: 9100000, guid: 1092d6a97ef23e0418200519573886aa, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 9c31407faf571104eaa330f9922ee7ba, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d982b01739de37f48bc7f904995252ed, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3e633cf161233dc4592cc573b74a355a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1b831d9ca6e9c014ab90bbd753607c37, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 84f20679d7534764abbddf34e150d8e8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 686e7488fed32414d9eb81f0dacd0c2d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a6c36bc1931a4924fa9ba864faa9f0ed, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 542246b5336b1d14282ed3f3062d3d1a, type: 2}

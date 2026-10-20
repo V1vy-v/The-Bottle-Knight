@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: Enemy_015_IceCafe
   Name: "\u51B0\u7F8E\u5F0F"
-  Tier: 3
-  MaxHp: 600
+  Tier: 2
+  MaxHp: 200
   Damage: 20
   MoveSpeed: 5
   AttackCooldown: 1.5
@@ -30,4 +30,5 @@ MonoBehaviour:
   ImmuneStun: 0
   DebuffDurationScale: 1
   DebuffChanceScale: 1
+  SurrenderHpRatio: 0
   PrefabLocation: Prefab_Enemy_IceCafe

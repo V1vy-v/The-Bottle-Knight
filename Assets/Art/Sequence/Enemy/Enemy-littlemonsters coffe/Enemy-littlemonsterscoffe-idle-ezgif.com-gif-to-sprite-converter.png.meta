@@ -1,0 +1,819 @@
+fileFormatVersion: 2
+guid: 8d6ebb76761e932488aa10b9fff2bb18
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4734
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 926cb90bf18073a4e920b5f2365929b1
+      internalID: 1063573391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_1
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 4734
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abac64999f732494682d035708d822ad
+      internalID: 551137909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_2
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 4734
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27e38b3a729b2a94a915d60b43e56a79
+      internalID: -1489053117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_3
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 4734
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 177407d52f909f044b4b2ce41249fd0a
+      internalID: -529853462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_4
+      rect:
+        serializedVersion: 2
+        x: 2336
+        y: 4734
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a7f507626da2bf4b8e7e26fbcf61c27
+      internalID: 323161463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3945
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06dfa6196774f0b48a9d5edf53f98c27
+      internalID: -1575643765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_6
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 3945
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 816bc9dbe6e992b4c91ca7596b52034f
+      internalID: -1094837652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_7
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 3945
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 102b3ed85ee7e094eb7af6611dd55557
+      internalID: -1334348881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_8
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 3945
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6467a8d473f7a0c4fbdef02d0e82a27b
+      internalID: 1964756338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_9
+      rect:
+        serializedVersion: 2
+        x: 2336
+        y: 3945
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 946a79f0a54d3dc4e8e9fbde9a19033a
+      internalID: 9043168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3156
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eba2d16862fe854498a44455a38713f8
+      internalID: 2004673743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_11
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 3156
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5937d0c307e59e49a3354c9bc68fa76
+      internalID: 207367214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_12
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 3156
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79613333c75b8974ba831ef332470270
+      internalID: 1116285539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_13
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 3156
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79744c9f7e008e841a1941b9341fafa9
+      internalID: -2144668390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_14
+      rect:
+        serializedVersion: 2
+        x: 2336
+        y: 3156
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc71062415f3bb4b87ecb2212ffc056
+      internalID: -1660816846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2367
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8536a683fe276434e82f3c228cbc7ec9
+      internalID: 1638938409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_16
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 2367
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1697cc6fc845c4547902f1da3c867639
+      internalID: 1640855793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_17
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 2367
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee6d0f88eac392b428120470c6e16b16
+      internalID: 1994800510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_18
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 2367
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a37ef03aea48ee479f0c39715bd1bf2
+      internalID: 49743693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_19
+      rect:
+        serializedVersion: 2
+        x: 2336
+        y: 2367
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e88bafd5ff030054c872d5bc002a1a9f
+      internalID: 1863947877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1578
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82996c1e301f2314e8660a5b49f1d3b2
+      internalID: 698089113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_21
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 1578
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 901df9140453a6c4ca6488cb7c8eeead
+      internalID: 1886248254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_22
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 1578
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fcc2b6568b9b2042bfa6531a18968ad
+      internalID: -1658237057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_23
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 1578
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 294af034a166ee94b940496ced9b3d7b
+      internalID: 2030607985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_24
+      rect:
+        serializedVersion: 2
+        x: 2336
+        y: 1578
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e13cec4a724da8a44bccda94b4e21731
+      internalID: 89949838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 789
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46574837abc576045bc3b22958543ccf
+      internalID: -1340112126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_26
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 789
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3271827d3088a0047ac8622af24cd1cd
+      internalID: 2089719064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_27
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 789
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e42a814ca42506c40b0c5f4f7ce7be9a
+      internalID: -1057146165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_28
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 789
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 588bb2ae8b2463144a3b9cb0af6f7a95
+      internalID: -545005577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_29
+      rect:
+        serializedVersion: 2
+        x: 2336
+        y: 789
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a015100a8261524784819a35310dde7
+      internalID: -1121703687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 035bbd43d0add664cbe1626f34bcfa8d
+      internalID: -2007758878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_31
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 0
+        width: 584
+        height: 789
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 705c2350acd06a945986c968fbce9732
+      internalID: 1064458903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: e92ad3bd76068684bb8f1432522e1047
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_0: 1063573391
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_1: 551137909
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_10: 2004673743
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_11: 207367214
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_12: 1116285539
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_13: -2144668390
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_14: -1660816846
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_15: 1638938409
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_16: 1640855793
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_17: 1994800510
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_18: 49743693
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_19: 1863947877
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_2: -1489053117
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_20: 698089113
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_21: 1886248254
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_22: -1658237057
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_23: 2030607985
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_24: 89949838
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_25: -1340112126
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_26: 2089719064
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_27: -1057146165
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_28: -545005577
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_29: -1121703687
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_3: -529853462
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_30: -2007758878
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_31: 1064458903
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_32: -1509224542
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_4: 323161463
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_5: -1575643765
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_6: -1094837652
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_7: -1334348881
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_8: 1964756338
+      littlemonsterscoffe-idle-ezgif.com-gif-to-sprite-converter_9: 9043168
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

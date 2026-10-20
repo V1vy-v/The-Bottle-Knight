@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0.8580704, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -228,7 +228,7 @@ MonoBehaviour:
   kind: 0
   controllerTypeName: UI.LoadingPanel, Assembly-CSharp
   properties:
-    rid: 8922294332411871232
+    rid: 6728704864491929600
   animIn: {fileID: 0}
   animOut: {fileID: 0}
   bindings:
@@ -237,8 +237,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8922294332411871232
-      type: {class: PanelProperties, ns: Framework, asm: Assembly-CSharp}
+    - rid: 6728704864491929600
+      type: {class: LoadingPanelProperties, ns: UI, asm: Assembly-CSharp}
       data:
         priority: 0
 --- !u!1 &8784299729208217261

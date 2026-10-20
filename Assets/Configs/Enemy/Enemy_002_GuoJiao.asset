@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: Enemy_002_GuoJiao
   Name: "\u56FD\u7A96"
   Tier: 3
-  MaxHp: 800
+  MaxHp: 400
   Damage: 15
   MoveSpeed: 5
   AttackCooldown: 1.5

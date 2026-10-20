@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: Enemy_007_Cola
   Name: "\u5FEB\u4E50\u6C34"
   Tier: 3
-  MaxHp: 800
+  MaxHp: 400
   Damage: 18
   MoveSpeed: 5
   AttackCooldown: 1.5
@@ -30,4 +30,5 @@ MonoBehaviour:
   ImmuneStun: 0
   DebuffDurationScale: 1
   DebuffChanceScale: 1
+  SurrenderHpRatio: 0
   PrefabLocation: Prefab_Enemy_Cola

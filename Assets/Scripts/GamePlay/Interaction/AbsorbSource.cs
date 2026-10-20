@@ -79,8 +79,16 @@ namespace GamePlay.Interaction
         /// </summary>
         private static bool NodeAllowsAbsorb()
         {
-            NodeConfig node = Global.Get<GameplayRoot>()?.Story?.CurrentNode;
-            return node != null && node.goalId == "absorb";
+            var root = Global.Get<GameplayRoot>();
+            NodeConfig node = root?.Story?.CurrentNode;
+            if (node == null) return false;
+
+            if (node.goalId == "absorb") return true;
+
+            // 刚在吸取节点吸掉一份、流程已经推进到下一个漫游节点：
+            // 场上剩下的可吸尸体（例如擂台里打死的料酒）仍然允许吸。
+            // 不然「先吸可乐 → 立刻推进节点」会把另一具尸体直接废掉。
+            return node.mode == GamePlay.Session.GameplayMode.FreeRoam && root.PreviousNodeWasAbsorb;
         }
 
         public string GetPromptText(PlayerLiquids liquids)
@@ -97,8 +105,11 @@ namespace GamePlay.Interaction
             var cfg = Liquid;
             if (cfg == null) return;
 
-            // 剧情强制（国窖）：直接塞主槽；其余走常规通道装备用槽
-            bool ok = _forceToMainSlot
+            // 剧情强制（国窖 / 三拳）：直接塞主槽，保证立刻切到对应形态
+            // 三拳是 MainPassive 主形态，走备用槽的话外观和被动都不会生效
+            bool forceMain = _forceToMainSlot || cfg.Type == GamePlay.Configs.LiquidType.SanQuan;
+
+            bool ok = forceMain
                 ? liquids.ForceGetLiquid(cfg, LiquidTankType.Current)
                 : liquids.GetLiquid(cfg);      // 二次确认：扫描间隔内玩家可能刚换了液体
 

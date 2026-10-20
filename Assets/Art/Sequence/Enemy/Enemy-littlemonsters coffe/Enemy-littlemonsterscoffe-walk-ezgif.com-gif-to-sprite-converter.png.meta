@@ -1,0 +1,601 @@
+fileFormatVersion: 2
+guid: 613463466254363498d71aad96c4b903
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3144
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be716a615bbb4e428fb4598189192d2
+      internalID: 599494136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_1
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 3144
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc562c3a69c5c9b4ba2f66e8e340b28f
+      internalID: 1765391592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_2
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 3144
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62211ef79080b3144b3fafc2626b3893
+      internalID: 422366437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_3
+      rect:
+        serializedVersion: 2
+        x: 1722
+        y: 3144
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa4a46ec8f20ab49b2ff36002082256
+      internalID: -959677106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_4
+      rect:
+        serializedVersion: 2
+        x: 2296
+        y: 3144
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cab60934a4b59c4f8d1035253b4ae3d
+      internalID: -733029085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2358
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6729b7419d801a64bb597e72c085652d
+      internalID: 738795212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_6
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 2358
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd72b1c0146477c41bdeb2ec655b8ad8
+      internalID: 1015592393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_7
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 2358
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afdfa64c986104442a21e50d33b34d5d
+      internalID: 508109450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_8
+      rect:
+        serializedVersion: 2
+        x: 1722
+        y: 2358
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 852e21353724fd34ab298d5159c998d4
+      internalID: -1824660700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_9
+      rect:
+        serializedVersion: 2
+        x: 2296
+        y: 2358
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e7b0f34897249b4a862bdbf332b7f35
+      internalID: 690122512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1572
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e103d94699c975646a8c090d29b5d186
+      internalID: 1986586915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_11
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 1572
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0baf4c90c6d7cb4408b42b848f8fd6b8
+      internalID: 476197508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_12
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 1572
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aef7252a14a4334282430147ed449ae
+      internalID: -358668285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_13
+      rect:
+        serializedVersion: 2
+        x: 1722
+        y: 1572
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddf4cef4e3b66934b8341997e5f384ce
+      internalID: -780876338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_14
+      rect:
+        serializedVersion: 2
+        x: 2296
+        y: 1572
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e49c4b5bf29c95a4ba56893fdc681f3f
+      internalID: 2050413211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 786
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a3ba64edd8de2e4c998f5a22fb53671
+      internalID: -849615146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_16
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 786
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c339b2fcc4da6594eb71ef3d7c1bd3e6
+      internalID: 74231073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_17
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 786
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58bf4529904d256499679275b488794a
+      internalID: 643919286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_18
+      rect:
+        serializedVersion: 2
+        x: 1722
+        y: 786
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1198d01a6d8c5bf43a744a46f000b728
+      internalID: 1834612019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_19
+      rect:
+        serializedVersion: 2
+        x: 2296
+        y: 786
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dd9dcdc3777be64985fb0557eeda4f9
+      internalID: 1198269338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae6343058463254f9cad8b8bce9e0d9
+      internalID: -32001363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_21
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 0
+        width: 574
+        height: 786
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be0ceef4d2dc44c42a2e17c15bc519a9
+      internalID: 1839702317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1f8925779864d7f43bf2814293ebc986
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_0: 599494136
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_1: 1765391592
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_10: 1986586915
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_11: 476197508
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_12: -358668285
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_13: -780876338
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_14: 2050413211
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_15: -849615146
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_16: 74231073
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_17: 643919286
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_18: 1834612019
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_19: 1198269338
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_2: 422366437
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_20: -32001363
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_21: 1839702317
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_22: -1342123350
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_23: -1197034532
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_24: 535383319
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_3: -959677106
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_4: -733029085
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_5: 738795212
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_6: 1015592393
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_7: 508109450
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_8: -1824660700
+      Enemy-littlemonsterscoffe-walk-ezgif.com-gif-to-sprite-converter_9: 690122512
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

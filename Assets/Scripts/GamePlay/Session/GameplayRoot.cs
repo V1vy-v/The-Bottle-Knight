@@ -358,9 +358,17 @@ namespace GamePlay
             EnterNodeImmediate(node);
         }
 
+        /// <summary>上一个节点（进节点时记录，用于「刚离开吸取节点」这类判断）</summary>
+        private NodeConfig _previousNode;
+
+        /// <summary>上一个节点是不是「等吸取」节点</summary>
+        public bool PreviousNodeWasAbsorb => _previousNode != null && _previousNode.goalId == "absorb";
+
         /// <summary>真正的切换：刷 Context + 切模式</summary>
         private void EnterNodeImmediate(NodeConfig node)
         {
+            _previousNode = _storyContext?.CurrentNode;
+
             _storyContext?.JumpTo(node);
 
             ApplyNodeContext(node, isFirstNode: false);

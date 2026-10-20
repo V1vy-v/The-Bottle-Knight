@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: Enemy_005_CookingWine
   Name: "\u6599\u9152"
   Tier: 2
-  MaxHp: 600
+  MaxHp: 300
   Damage: 15
   MoveSpeed: 5
   AttackCooldown: 1.5
@@ -30,4 +30,5 @@ MonoBehaviour:
   ImmuneStun: 0
   DebuffDurationScale: 1
   DebuffChanceScale: 1
+  SurrenderHpRatio: 0
   PrefabLocation: Prefab_Enemy_CookingWine
