@@ -30,7 +30,7 @@ namespace GamePlay.Interaction
         /// 否则玩家站在边沿看得到提示却按不动。
         /// </summary>
         [SerializeField] private float _interactRadius = 8f;
-        [SerializeField] private float _promptRadius = 15f;
+        [SerializeField] private float _promptRadius = 99999f;
 
         /// <summary>无盖者商店的优先级：剧情 > 商店 > 吸取（AbsorbSource 是 10）</summary>
         public int Priority => 50;

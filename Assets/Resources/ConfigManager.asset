@@ -76,5 +76,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 962e4a50ec5340a4a34d5921062cefd3, type: 2}
   - {fileID: 11400000, guid: 4b9af503b60f440c9922cfcba2154fd5, type: 2}
   - {fileID: 11400000, guid: 7ab6dba4cbf14ba68d4d0576bd5e1b63, type: 2}
-  _startNodeId: Node_0
+  _startNodeId: Node_22
   _propConfigs: {fileID: 11400000, guid: 43bfffb9ec02a5e4793d775524ef1f76, type: 2}

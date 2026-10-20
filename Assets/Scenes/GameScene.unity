@@ -11307,7 +11307,7 @@ MonoBehaviour:
   _prompt: "\u65E0\u76D6\u8005\u5546\u5E97"
   _requireNodeId: 
   _interactRadius: 8
-  _promptRadius: 15
+  _promptRadius: 99999
   _goods:
   - {fileID: 11400000, guid: 120a9df7d100bab4e9e07c4a43a8ff63, type: 2}
   - {fileID: 11400000, guid: 777ea9bd3f2f76a46bcd192d6ce97c4a, type: 2}

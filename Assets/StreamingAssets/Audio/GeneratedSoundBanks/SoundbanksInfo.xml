@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" SchemaVersion="16" SoundBankVersion="134">
-  <RootPaths>
-    <ProjectRoot>..</ProjectRoot>
-    <SourceFilesRoot>../.cache/Windows</SourceFilesRoot>
-    <SoundBanksRoot>.</SoundBanksRoot>
-  </RootPaths>
+  <RootPaths><ProjectRoot>..</ProjectRoot><SourceFilesRoot>../.cache/Windows</SourceFilesRoot><SoundBanksRoot>.</SoundBanksRoot></RootPaths>
   <SoundBanks />
 </SoundBanksInfo>
