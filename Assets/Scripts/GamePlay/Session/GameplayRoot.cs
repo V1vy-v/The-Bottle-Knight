@@ -1,6 +1,7 @@
 using Framework;
 using System.Collections.Generic;
 using GamePlay.Configs;
+using GamePlay.Enemy;
 using GamePlay.Session;
 using GamePlay.Story;
 using System;
@@ -54,6 +55,7 @@ namespace GamePlay
         public void StartNewGame()
         {
             TutorialTips.Clear();
+            ResetProps();      // 道具的「已购买」存在 SO 上，会跨局残留，新开一局先清掉
             var configs = ConfigManager.Instance;
             if (configs == null || !configs.TryGetStartNode(out NodeConfig startNode))
             {
@@ -81,6 +83,20 @@ namespace GamePlay
             // 首个节点不走 EnterNodeImmediate，提示要在这里单独补一次
             TutorialTips.Show(startNode.tipText);
             Global.Get<CameraManager>()?.SetTarget(_player.transform);
+        }
+
+        /// <summary>
+        /// 清掉道具的「已拥有」标记。
+        /// PropConfig 是 ScriptableObject，isHold 写在资产上，通关回菜单再开新局时会残留，
+        /// 表现为「一开局 HUD 上就有上一局买齐的道具」。新局开始重置一次即可。
+        /// </summary>
+        private static void ResetProps()
+        {
+            PropConfigs props = ConfigManager.Instance != null ? ConfigManager.Instance.Props : null;
+            if (props == null) return;
+
+            for (int i = 0; i < props.allProps.Count; i++)
+                if (props.allProps[i] != null) props.allProps[i].isHold = false;
         }
 
         /// <summary>
@@ -204,6 +220,22 @@ namespace GamePlay
         {
             if (to == GameplayMode.Pause && from != GameplayMode.Pause)
                 _resumeMode = from;
+
+            // 对话 / 商店 / 暂停 / 结算期间玩家动不了，敌人也必须停手 ——
+            // 否则超市里巡逻怪会在看对话时把人打死。
+            bool freeze = to is GameplayMode.Dialogue or GameplayMode.Shop
+                             or GameplayMode.Pause or GameplayMode.GameOver or GameplayMode.Cutscene;
+            SetAllEnemiesPaused(freeze);
+        }
+
+        /// <summary>统一冻结 / 解冻场上所有敌人的 AI（尸体不受影响，渐隐照常播）</summary>
+        private static void SetAllEnemiesPaused(bool paused)
+        {
+            EnemyController[] enemies = UnityEngine.Object.FindObjectsByType<EnemyController>(
+                FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+
+            for (int i = 0; i < enemies.Length; i++)
+                enemies[i].SetAiPaused(paused);
         }
 
         #endregion
@@ -404,6 +436,10 @@ namespace GamePlay
             }
 
             Debug.Log($"[GameplayRoot] 主角已传送到 {markerName} -> {pos}");
+
+            // 换区域了：上一片区域登记的刷怪锚点作废，
+            // 否则下一场没配锚点的战斗会刷在上一片区域（比如从下路传到冰柜区后还刷在下路）
+            ClearEncounter();
         }
 
         /// <summary>

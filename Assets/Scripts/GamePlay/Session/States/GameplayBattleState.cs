@@ -44,8 +44,6 @@ namespace GamePlay.Session
                 return;
             }
 
-            Global.Get<Framework.SubSystems.AudioManager>()?.PlayBGM("Combat_Light");
-
             _hasError = false;
             _victoryRewarded = false;
             _spawnedEnemies.Clear();
@@ -59,8 +57,11 @@ namespace GamePlay.Session
             }
 
             // 战斗曲：BOSS 战在配置里填 Combat_Boss，留空就用通用战斗曲
-            if (!string.IsNullOrEmpty(config.BgmKey))
-                Global.Get<Framework.SubSystems.AudioManager>()?.PlayBGM(config.BgmKey);
+            string bgmKey = string.IsNullOrEmpty(config.BgmKey) ? "Combat_Light" : config.BgmKey;
+            var audio = Global.Get<Framework.SubSystems.AudioManager>();
+            if (bgmKey == "Combat_Boss")
+                audio?.PlaySfx("SFX_Boss_Intro");      // BOSS 登场吼声，和战斗曲一起起，制造压迫感
+            audio?.PlayBGM(bgmKey);
 
             // 刷怪位置按顺序分配：一张占位贴图对应一只敌人；位置不够时围绕最后一个位置散开。
             // 来源优先级：BattleConfig.SpawnAnchorName（场景锚点）> 剧情触发器登记的遭遇点 > 围绕主角散开

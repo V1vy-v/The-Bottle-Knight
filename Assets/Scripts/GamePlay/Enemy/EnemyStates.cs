@@ -248,6 +248,13 @@ namespace GamePlay.Enemy
             _settled = false;
             _released = false;
 
+            // 开局就倒地的剧情单位（被击晕的中三拳）：美术本来就是「躺着」，不要渐隐
+            if (Enemy.StartedDefeated)
+            {
+                Enemy.SetAlpha(1f);
+                _settled = true;
+            }
+
             // 通知外部「这只已经死了」—— GameplayBattleState 订阅后转发给 BattleContext
             Enemy.NotifyDefeated();
         }

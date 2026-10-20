@@ -2,6 +2,7 @@ using Framework;
 using GamePlay.Configs;
 using GamePlay.Player;
 using GamePlay.Enemy;
+using GamePlay.Story;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -55,16 +56,32 @@ namespace GamePlay.Interaction
 
         public Transform PromptAnchor => transform;
 
-        public bool CanInteract =>
-            !_absorbed
-            && _enemy != null
+        public bool CanInteract => !_absorbed && NodeAllowsAbsorb() && CanBeAbsorbed;
+
+        /// <summary>
+        /// 还留在场上等人吸取（战斗结束时据此决定是否暂留尸体）。
+        /// 注意：这里<b>不</b>看节点 —— 战斗刚结束时节点已经推进到「战后对话」，
+        /// 若按节点判断会把尸体当场清掉，玩家走到吸取节点时就没东西可吸了。
+        /// </summary>
+        public bool IsAwaitingAbsorb => !_absorbed && CanBeAbsorbed;
+
+        /// <summary>结构上可被吸取（倒地 + 配置允许 + 有液体）</summary>
+        private bool CanBeAbsorbed =>
+            _enemy != null
             && _enemy.config != null
             && _enemy.config.CanAbsorb
             && _enemy.IsDefeated
             && Liquid != null;
 
-        /// <summary>还留在场上等人吸取（战斗结束时据此决定是否暂留尸体）</summary>
-        public bool IsAwaitingAbsorb => CanInteract;
+        /// <summary>
+        /// 只有「当前节点就是在等吸取」时才允许按 F。
+        /// 否则玩家可以先跑到尸体边把剧情道具吃掉，对话节点再进场时就没东西可吸 —— 流程卡死。
+        /// </summary>
+        private static bool NodeAllowsAbsorb()
+        {
+            NodeConfig node = Global.Get<GameplayRoot>()?.Story?.CurrentNode;
+            return node != null && node.goalId == "absorb";
+        }
 
         public string GetPromptText(PlayerLiquids liquids)
         {
@@ -86,6 +103,17 @@ namespace GamePlay.Interaction
                 : liquids.GetLiquid(cfg);      // 二次确认：扫描间隔内玩家可能刚换了液体
 
             if (!ok) return;
+
+            // 开局即倒地的剧情单位（中三拳）死亡时没掉瓶盖，改在吸取这一下结算
+            if (_enemy != null && _enemy.StartedDefeated && _enemy.config != null && _enemy.config.CapDrop > 0)
+            {
+                var pc = player != null ? player.GetComponent<PlayerController>() : null;
+                if (pc != null && pc.PlayerStats != null)
+                {
+                    pc.PlayerStats.Caps += _enemy.config.CapDrop;
+                    Debug.Log($"[瓶盖] 剧情给予 {_enemy.config.CapDrop} 个，共 {pc.PlayerStats.Caps}");
+                }
+            }
 
             _absorbed = true;
             Global.Get<GameplayRoot>()?.ReportGoalReached("absorb");

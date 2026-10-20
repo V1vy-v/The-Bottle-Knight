@@ -48,6 +48,9 @@ namespace UI
 
         private void OnBeginBtn()
         {
+            // 开始游戏的流程音，和场景加载同时起
+            Global.Get<Framework.SubSystems.AudioManager>()?.PlaySfx("SFX_Flow_GameStart");
+
             // 走 RequestNewGame：通关回菜单后再点开始，才不会掉进 ContinueGame（还没有存档）
             ProcedureCore.Instance.RequestNewGame();
         }

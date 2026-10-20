@@ -27,6 +27,13 @@ namespace GamePlay.Enemy
         [Tooltip("玩家靠近时要报的目标（和 FlowTrigger 的 goalId 同一套，比如 Node_1）。填了就会自动当成剧情敌人")]
         [SerializeField] private string _talkGoalId;
 
+        [Tooltip("剧情单位：开局就躺在地上（被击晕的中三拳）。勾上后不会发现玩家、不能被打，只能被 F 吸取；" +
+                 "掉落瓶盖改成吸取时结算")]
+        [SerializeField] private bool _startDefeated;
+
+        /// <summary>开局即倒地（剧情单位）</summary>
+        public bool StartedDefeated => _startDefeated;
+
         [Tooltip("对话触发半径。会生成一个这个大小的交互层碰撞体（吸取用的是预制体上那个小的 InteractPoint）")]
         [SerializeField] private float _talkZoneRadius = 8f;
 
@@ -82,7 +89,7 @@ namespace GamePlay.Enemy
         {
             InitFromConfig();
             // 填了对话目标 = 剧情敌人，自动进非战斗状态，省得两个地方都勾
-            CombatEnabled = !_passiveAtStart && string.IsNullOrEmpty(_talkGoalId);
+            CombatEnabled = !_startDefeated && !_passiveAtStart && string.IsNullOrEmpty(_talkGoalId);
             animator = GetComponent<Animator>();
             _sprite = GetComponent<SpriteRenderer>();
             moveController = GetComponent<EnemyMoveController>();
@@ -128,6 +135,13 @@ namespace GamePlay.Enemy
 
             _fsm.ChangeState(EnemyState.Idle);
 
+            // 剧情单位：开局就躺在地上，直接走死亡通路（尸体保留、可被吸取、不掉瓶盖）
+            if (_startDefeated)
+            {
+                ForceDefeated();
+                return;
+            }
+
             // 剧情敌人：登记进被动列表，等战斗接管
             if (!CombatEnabled)
             {
@@ -139,12 +153,32 @@ namespace GamePlay.Enemy
 
         private void Update()
         {
+            if (_aiPaused) return;
             _fsm?.Update(Time.deltaTime);
         }
 
         private void FixedUpdate()
         {
+            if (_aiPaused) return;
             _fsm?.FixedUpdate(Time.fixedDeltaTime);
+        }
+
+        /// <summary>AI 是否被冻结（对话 / 商店 / 暂停时由 GameplayRoot 统一开关）</summary>
+        public bool IsAiPaused => _aiPaused;
+        private bool _aiPaused;
+
+        /// <summary>
+        /// 冻结 / 解冻 AI。对话与商店期间玩家动不了，如果巡逻怪还在追，
+        /// 就会出现「隔着对话框被打死」。只冻结活着、还在战斗状态的敌人，
+        /// 已经倒地的不碰（尸体还在渐隐）。
+        /// </summary>
+        public void SetAiPaused(bool paused)
+        {
+            if (_aiPaused == paused) return;
+            if (IsDefeated) return;                 // 尸体不受影响，让渐隐照常播完
+
+            _aiPaused = paused;
+            if (paused) StopMove();                 // 清速度与路径，冻住就别再滑
         }
 
         /// <summary>
@@ -358,8 +392,8 @@ namespace GamePlay.Enemy
             if (IsDefeated) return;
             IsDefeated = true;
 
-            // 掉落瓶盖
-            if (config != null && config.CapDrop > 0)
+            // 掉落瓶盖。开局即倒地的剧情单位（中三拳）不走这里，改成吸取时结算
+            if (!_startDefeated && config != null && config.CapDrop > 0)
             {
                 GameObject playerGo = Global.Get<GameplayRoot>()?.Player;
                 PlayerController pc = playerGo != null ? playerGo.GetComponent<PlayerController>() : null;

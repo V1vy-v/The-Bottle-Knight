@@ -1,4 +1,5 @@
 using Framework;
+using GamePlay.Story;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -59,10 +60,22 @@ namespace GamePlay.Interaction
             if (_once && _fired) return;
             if (other.GetComponentInParent<Player.PlayerController>() == null) return;
 
+            var root = Global.Get<GameplayRoot>();
+            if (root == null) return;
+
+            // 当前节点不是在等这个目标（比如还在「吸取雷碧」的漫游节点）就什么都别做，
+            // 更不要把自己标记成已触发 —— 否则玩家顺手先踩到下一个触发点，
+            // 等真正走到这一步时触发器已经哑了，流程再也推不动（开放地图里很容易发生）。
+            NodeConfig node = root.Story?.CurrentNode;
+            if (node != null && !string.IsNullOrEmpty(node.goalId) && node.goalId != _goalId)
+            {
+                Debug.Log($"[流程] {name} 暂不触发：当前节点 {node.Id} 等的是 {node.goalId}，本触发器报 {_goalId}");
+                return;
+            }
+
             _fired = true;
 
-            var root = Global.Get<GameplayRoot>();
-            root?.ReportGoalReached(_goalId);
+            root.ReportGoalReached(_goalId);
             if (_asEncounterAnchor) RegisterEncounter(root);
             if (_hideAfterFire) gameObject.SetActive(false);
 

@@ -1,4 +1,5 @@
-﻿using GamePlay.Player;
+using GamePlay.Enemy;
+using GamePlay.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,11 @@ using UnityEngine;
 public class EnemyAtkDetect : MonoBehaviour
 {
     private float damage;
+
+    private EnemyController _owner;
+
+    private void Awake() => _owner = GetComponentInParent<EnemyController>();
+
     void Start()
     {
         
@@ -18,6 +24,9 @@ public class EnemyAtkDetect : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
+
+        // 对话 / 商店期间 AI 被冻结，这时不该再结算伤害
+        if (_owner != null && _owner.IsAiPaused) return;
 
         PlayerController controller = collision.GetComponentInParent<PlayerController>();
         if (controller == null)

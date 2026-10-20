@@ -1,4 +1,4 @@
-﻿﻿using Framework;
+using Framework;
 using GamePlay.Enemy;
 using GamePlay.Liquid;
 using System.Collections;
@@ -24,6 +24,8 @@ namespace GamePlay.Player
 
         private bool _isStrawGained = false;
         private Transform _strawTransform;      // 吸管子物体，拿到吸管后显示
+        /// <summary>吸管子物体的名字（Player.prefab 里那根叫「吸管_0」）</summary>
+        private const string Straw = "吸管_0";
         private AttackModule _currentAtkModule = AttackModule.Melee;
         private float _elapsed;
 
@@ -49,6 +51,32 @@ namespace GamePlay.Player
             _rangeRenderer.sortingOrder = 999;
 
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+            // 吸管默认藏起来：买到吸管（UnlockRangeModule）才显示。
+            // 放在 Awake 而不是依赖预制体状态，免得有人把预制体上的吸管重新点开
+            Transform straw = ResolveStraw();
+            if (straw != null) straw.gameObject.SetActive(false);
+        }
+
+        /// <summary>找吸管子物体并缓存；找不到只报一次警告</summary>
+        private Transform ResolveStraw()
+        {
+            if (_strawTransform != null) return _strawTransform;
+
+            Transform found = transform.Find(Straw);
+            if (found == null)
+            {
+                foreach (Transform child in GetComponentsInChildren<Transform>(true))
+                {
+                    if (child.name == Straw) { found = child; break; }
+                }
+            }
+
+            _strawTransform = found;
+            if (found == null)
+                Debug.LogWarning($"[PlayerCombat] 主角身上找不到吸管子物体「{Straw}」，吸管不会显示");
+
+            return found;
         }
 
         private void Update()
@@ -158,23 +186,10 @@ namespace GamePlay.Player
 
         public void UnlockRangeModule()
         {
-            _isStrawGained |= true;
+            _isStrawGained = true;
 
-            if (_strawTransform == null)
-            {
-                Transform found = transform.Find(Straw);
-                if (found == null)
-                {
-                    foreach (Transform child in GetComponentsInChildren<Transform>(true))
-                    {
-                        if (child.name == Straw) { found = child; break; }
-                    }
-                }
-                _strawTransform = found;
-            }
-
-            if (_strawTransform != null)
-                _strawTransform.gameObject.SetActive(true);
+            Transform straw = ResolveStraw();
+            if (straw != null) straw.gameObject.SetActive(true);
         }
 
         private void RangeAttack(Vector2 offset, float radius)

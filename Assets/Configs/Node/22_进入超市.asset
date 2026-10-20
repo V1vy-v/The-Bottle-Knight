@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: "22_\u8FDB\u5165\u8D85\u5E02"
   m_EditorClassIdentifier: 
   Id: Node_22
-  questText: 进入超市，找到雷碧
-  mode: 1
-  refreshDialog: 1
+  questText: 走到雷碧身边
+  mode: 0
+  refreshDialog: 0
   refreshBattle: 0
-  goalId: 
-  dialogConfig: {fileID: 4900000, guid: 3f7c1a9b6e2d4c8f9a0b1c2d3e4f5a6b, type: 3}
+  goalId: Node_23
+  dialogConfig: {fileID: 0}
   battleConfig: {fileID: 0}
   autoWinBattle: 0
   nextNode: {fileID: 11400000, guid: 072a8655cafc4ca7bac9e419afccd048, type: 2}

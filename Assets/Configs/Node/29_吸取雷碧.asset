@@ -21,7 +21,7 @@ MonoBehaviour:
   dialogConfig: {fileID: 0}
   battleConfig: {fileID: 0}
   autoWinBattle: 0
-  nextNode: {fileID: 11400000, guid: 8415e4fa41384a90972e913daee9b8b4, type: 2}
+  nextNode: {fileID: 11400000, guid: 5a1b2c3d4e5f60718293a4b5c6d7e8f9, type: 2}
   currentStage: 3
   fadeTransition: 0
   teleportTargetName: 
