@@ -59,7 +59,18 @@ namespace GamePlay.Session
 
         private void OnCompleted()
         {
+            // 终章：对话结束后把「致后来者」当弹窗显示，玩家关掉它才收尾
+            var node = Root.Story != null ? Root.Story.CurrentNode : null;
+            if (node != null && !string.IsNullOrEmpty(node.letterText) && !_letterShown)
+            {
+                _letterShown = true;
+                Root.ShowEndingLetter(node.letterText);
+                return;
+            }
+
             MarkFinished();
         }
+
+        private bool _letterShown;
     }
 }

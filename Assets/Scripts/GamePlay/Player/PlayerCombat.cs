@@ -140,13 +140,8 @@ namespace GamePlay.Player
                 // 远程模式不放普攻动作：开枪只走子弹表现，播放「攻击」动画会显得像在近战挥管子
                 if (!_isStrawGained) return;
 
-                // 吸管朝向：朝左时把吸管 X 轴翻转，子弹才会从「管口」而不是「管尾」出来
-                if (_strawTransform != null)
-                {
-                    Vector3 s = _strawTransform.localScale;
-                    s.x = Mathf.Abs(s.x) * _facingDir;
-                    _strawTransform.localScale = s;
-                }
+                // 吸管的左右朝向由 PlayerView.SetFacing 每帧跟主角贴图同步，这里不再翻
+
 
                 // 【核心修改】强制纯左右方向，彻底没有 Y 轴！
                 Vector2 dir = new Vector2(_facingDir, 0f);
@@ -219,7 +214,13 @@ namespace GamePlay.Player
             _isStrawGained = true;
 
             Transform straw = ResolveStraw();
-            if (straw != null) straw.gameObject.SetActive(true);
+            if (straw != null)
+            {
+                straw.gameObject.SetActive(true);
+
+                // 吸管刚显示时先对齐当前朝向（PlayerView 每帧同步，这里补一次立即生效）
+                _view?.ApplyStrawFacing();
+            }
         }
 
         private void RangeAttack(Vector2 offset, float radius)

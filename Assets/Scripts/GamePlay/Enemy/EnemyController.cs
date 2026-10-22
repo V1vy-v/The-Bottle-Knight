@@ -631,7 +631,6 @@ namespace GamePlay.Enemy
         /// </summary>
         public void ForceDefeated()
         {
-            Debug.LogError("【死亡触发】ForceDefeated 被调用了！看看报错堆栈是谁调的");
             if (_fsm == null) return;
             state.CurrentHP = 0;
             _fsm.ChangeState(EnemyState.Dead);

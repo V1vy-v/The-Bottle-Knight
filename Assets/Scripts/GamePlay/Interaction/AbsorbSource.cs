@@ -56,7 +56,22 @@ namespace GamePlay.Interaction
 
         public Transform PromptAnchor => transform;
 
-        public bool CanInteract => !_absorbed && NodeAllowsAbsorb() && CanBeAbsorbed;
+        /// <summary>
+        /// 只要尸体还在、配置允许吸，就随时能吸 —— <b>不再</b>绑定「吸取节点」。
+        /// 冰美式这种可选能力，玩家击败后可以直接走去打 BOSS，也可以顺手回来吸；
+        /// 强制节点会把流程卡在「必须先吸」上。
+        /// </summary>
+        public bool CanInteract => !_absorbed && CanBeAbsorbed && IsFreeRoam;
+
+        /// <summary>只有自由行动时才能吸（战斗 / 对话 / 暂停里按 F 不生效）</summary>
+        private static bool IsFreeRoam
+        {
+            get
+            {
+                var root = Global.Get<GameplayRoot>();
+                return root != null && root.CurrentMode == GamePlay.Session.GameplayMode.FreeRoam;
+            }
+        }
 
         /// <summary>
         /// 还留在场上等人吸取（战斗结束时据此决定是否暂留尸体）。
@@ -72,24 +87,6 @@ namespace GamePlay.Interaction
             && _enemy.config.CanAbsorb
             && _enemy.IsDefeated
             && Liquid != null;
-
-        /// <summary>
-        /// 只有「当前节点就是在等吸取」时才允许按 F。
-        /// 否则玩家可以先跑到尸体边把剧情道具吃掉，对话节点再进场时就没东西可吸 —— 流程卡死。
-        /// </summary>
-        private static bool NodeAllowsAbsorb()
-        {
-            var root = Global.Get<GameplayRoot>();
-            NodeConfig node = root?.Story?.CurrentNode;
-            if (node == null) return false;
-
-            if (node.goalId == "absorb") return true;
-
-            // 刚在吸取节点吸掉一份、流程已经推进到下一个漫游节点：
-            // 场上剩下的可吸尸体（例如擂台里打死的料酒）仍然允许吸。
-            // 不然「先吸可乐 → 立刻推进节点」会把另一具尸体直接废掉。
-            return node.mode == GamePlay.Session.GameplayMode.FreeRoam && root.PreviousNodeWasAbsorb;
-        }
 
         public string GetPromptText(PlayerLiquids liquids)
         {

@@ -14,7 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 
   Name: 
-  sprite: {fileID: -661500404, guid: 25596659def39c347b043dd37debda89, type: 3}
-  tips: "篮球：国窖 K 变为高额小范围火伤肘击"
+  sprite: {fileID: -1480948921, guid: 25596659def39c347b043dd37debda89, type: 3}
+  tips: "\u7BEE\u7403\uFF1A\u56FD\u7A96 K \u53D8\u4E3A\u9AD8\u989D\u5C0F\u8303\u56F4\u706B\u4F24\u8098\u51FB"
   price: 2
   isHold: 0
+  unlockRangedModule: 0
+  tipOnBuy: 
+  DamageBonus: 0
+  AttackSpeedBonus: 0
+  SkillCdReduction: 0
+  ImmuneDot: 0
+  ShieldInterval: 0
+  ShieldMax: 1
+  StunChanceMinion: 0
+  StunChanceElite: 0
+  StunDuration: 1.2

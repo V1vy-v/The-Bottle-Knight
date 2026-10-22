@@ -392,7 +392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1410961432743316483
 Transform:
   m_ObjectHideFlags: 0
@@ -402,7 +402,7 @@ Transform:
   m_GameObject: {fileID: 6148194976491713576}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 9.36, z: 0}
+  m_LocalPosition: {x: -0, y: 9.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -527,8 +527,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '*******'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47443405f0ee3eb4aadee19e6e390539, type: 2}
-  m_sharedMaterial: {fileID: 2927238700444571493, guid: 47443405f0ee3eb4aadee19e6e390539,
+  m_fontAsset: {fileID: 11400000, guid: e13ce43f6a9beed469d0ebc5d6fa670d, type: 2}
+  m_sharedMaterial: {fileID: 2269618707725841448, guid: e13ce43f6a9beed469d0ebc5d6fa670d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

@@ -706,6 +706,42 @@ namespace GamePlay
             }
         }
 
+        /// <summary>
+        /// 终章信件「致后来者」：以弹窗显示（字号自适应），玩家按键 / 点击关闭后才收尾回主菜单。
+        /// </summary>
+        public void ShowEndingLetter(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+            {
+                EndStory();
+                return;
+            }
+
+            _awaitingLetterClose = true;
+
+            // 信件弹出时把对话框收掉，别两层叠着
+            Global.HideUI("DialogPanel");
+
+            Global.ShowUI("TipsPanel", new UI.TipsPanelProperties
+            {
+                tipsText = text,
+                holdSeconds = 0f,       // 不自动关，等玩家按键 / 点击
+            });
+
+            Debug.Log("[GameplayRoot] 显示终章信件");
+        }
+
+        /// <summary>信件被关闭：结束本局</summary>
+        public void OnEndingLetterClosed()
+        {
+            if (!_awaitingLetterClose) return;
+
+            _awaitingLetterClose = false;
+            EndStory();
+        }
+
+        private bool _awaitingLetterClose;
+
         /// <summary>流程走到最后一个节点（NodeConfig.endOfStory）：黑屏回主菜单。</summary>
         public void EndStory()
         {

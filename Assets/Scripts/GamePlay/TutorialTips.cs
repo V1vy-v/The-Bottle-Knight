@@ -48,6 +48,9 @@ namespace GamePlay
             }
 
             RestoreInput();
+
+            // 终章信件被关掉了：收尾回主菜单
+            Global.Get<GameplayRoot>()?.OnEndingLetterClosed();
         }
 
         /// <summary>清空队列（重开一局时用）</summary>

@@ -9,6 +9,16 @@ namespace GamePlay.Player
         private SpriteRenderer _sprite;
         private Animator _animator;
 
+        [Header("吸管")]
+        [Tooltip("吸管根节点（Player.prefab 里的「吸管_0」）。留空则按名字自动查找")]
+        [SerializeField] private Transform _strawRoot;
+
+        /// <summary>吸管的原始 X 缩放（翻转时取反，保证不越翻越大）</summary>
+        private float _strawBaseScaleX = 1f;
+
+        /// <summary>吸管子物体的名字</summary>
+        private const string StrawObjectName = "吸管_0";
+
         [Header("形态动画")]
         [Tooltip("不装液体时的默认形态，留空则用预制体上原本的 Controller")]
         public AnimatorOverrideController AnimatorOverride;
@@ -25,6 +35,40 @@ namespace GamePlay.Player
             _sprite = GetComponent<SpriteRenderer>();
             _animator = GetComponent<Animator>();
             _defaultController = _animator != null ? _animator.runtimeAnimatorController : null;
+
+            _strawRoot = ResolveStrawRoot();
+            if (_strawRoot != null)
+            {
+                float baseScale = Mathf.Abs(_strawRoot.localScale.x);
+                _strawBaseScaleX = baseScale < 0.001f ? 1f : baseScale;
+            }
+
+            ApplyStrawFacing();
+        }
+
+        private Transform ResolveStrawRoot()
+        {
+            if (_strawRoot != null) return _strawRoot;
+
+            Transform[] all = GetComponentsInChildren<Transform>(true);
+            for (int i = 0; i < all.Length; i++)
+            {
+                if (all[i].name == StrawObjectName) return all[i];
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// 吸管左右朝向跟着主角贴图走：根 SpriteRenderer.flipX 一变，吸管立刻同步。
+        /// 以前只在攻击那一瞬间翻，站着转身时吸管会保持反的。
+        /// </summary>
+        public void ApplyStrawFacing()
+        {
+            if (_strawRoot == null || _sprite == null) return;
+
+            Vector3 scale = _strawRoot.localScale;
+            scale.x = _sprite.flipX ? -_strawBaseScaleX : _strawBaseScaleX;
+            _strawRoot.localScale = scale;
         }
 
         private static readonly int AnimWalk = Animator.StringToHash("Walk");
@@ -75,7 +119,10 @@ namespace GamePlay.Player
         public void SetFacing(float x) 
         { 
             if (Mathf.Abs(x) > 0.01f) 
-                _sprite.flipX = x < 0f; 
+                _sprite.flipX = x < 0f;
+
+            // 吸管跟主角贴图完全同步，不再等攻击时才翻
+            ApplyStrawFacing();
         }
 
         /// <summary>

@@ -12,12 +12,9 @@ namespace UI
         /// <summary>要显示的教学文案</summary>
         public string tipsText;
 
-        /// <summary>字号自适应：文字多就把字号压小，保证整段塞得下（「致后来者」信件用）</summary>
-        public bool autoFit;
-
         /// <summary>
-        /// 停留多少秒后自动关闭。&lt;= 0 表示不自动关闭，等玩家按键 / 点击。
-        /// 默认 -1 → 用面板上配的 _holdSeconds。
+        /// 停留多少秒后自动关闭。&lt;= 0 表示不自动关闭，等玩家按键 / 点击（信件用）。
+        /// 默认 -1 → 用面板上配的 _holdSeconds。尺寸 / 字号自适应由预制体自己负责。
         /// </summary>
         public float holdSeconds = -1f;
 

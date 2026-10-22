@@ -90,6 +90,45 @@ namespace Framework
 
             OnShow();
             UpdateView();
+
+            // <临时诊断> 界面比画布还大就是配错了，把尺寸 / sizeDelta / 父链打出来定位
+            LogOversizeDiagnostics();
+        }
+
+        /// <summary>
+        /// 临时诊断：UI 实际尺寸超过画布时打印尺寸、sizeDelta 和父节点链。
+        /// 用来定位「面板比屏幕还大 / 超出屏幕」。确认问题后可以删掉。
+        /// </summary>
+        private void LogOversizeDiagnostics()
+        {
+            var self = transform as RectTransform;
+            var canvas = GetComponentInParent<Canvas>();
+            if (self == null || canvas == null) return;
+
+            float canvasWidth = canvas.pixelRect.width;
+            float canvasHeight = canvas.pixelRect.height;
+            if (self.rect.width <= canvasWidth * 1.05f && self.rect.height <= canvasHeight * 1.05f) return;
+
+            var chain = new System.Text.StringBuilder();
+            Transform p = self.parent;
+            int depth = 0;
+            while (p != null && depth < 6)
+            {
+                var prt = p as RectTransform;
+                if (prt != null)
+                    chain.Append($"[{prt.name} {prt.rect.width:F0}x{prt.rect.height:F0} sd={prt.sizeDelta.x:F0},{prt.sizeDelta.y:F0} " +
+                                 $"a=({prt.anchorMin.x:F2},{prt.anchorMin.y:F2})~({prt.anchorMax.x:F2},{prt.anchorMax.y:F2})] ");
+                else
+                    chain.Append($"[{p.name} 非RectTransform] ");
+
+                p = p.parent;
+                depth++;
+            }
+
+            Debug.LogWarning($"[UI尺寸异常] {name}({GetType().Name}) 画布={canvasWidth:F0}x{canvasHeight:F0} " +
+                             $"面板={self.rect.width:F0}x{self.rect.height:F0} sd={self.sizeDelta.x:F0},{self.sizeDelta.y:F0} " +
+                             $"a=({self.anchorMin.x:F2},{self.anchorMin.y:F2})~({self.anchorMax.x:F2},{self.anchorMax.y:F2})\n" +
+                             $"父链: {chain}");
         }
 
         /// <summary>

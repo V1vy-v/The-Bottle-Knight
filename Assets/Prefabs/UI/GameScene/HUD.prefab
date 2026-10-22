@@ -580,8 +580,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47443405f0ee3eb4aadee19e6e390539, type: 2}
-  m_sharedMaterial: {fileID: 2927238700444571493, guid: 47443405f0ee3eb4aadee19e6e390539,
+  m_fontAsset: {fileID: 11400000, guid: e13ce43f6a9beed469d0ebc5d6fa670d, type: 2}
+  m_sharedMaterial: {fileID: 2269618707725841448, guid: e13ce43f6a9beed469d0ebc5d6fa670d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2003,7 +2003,7 @@ MonoBehaviour:
         mapCoveredWorldWidth:
         - 195.12
         - 195.12
-        - 340
+        - 300
         mapCoveredWorldHeight:
         - 0
         - 0
@@ -2019,7 +2019,7 @@ MonoBehaviour:
         playerMarkSize: {x: 16, y: 16}
         enemyDotSize: {x: 14, y: 14}
         interactMarkSize: {x: 22, y: 22}
-        debugMapPosition: 1
+        debugMapPosition: 0
 --- !u!1 &6475420447678100160
 GameObject:
   m_ObjectHideFlags: 0
@@ -2312,8 +2312,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u5F53\u524D\u4EFB\u52A1 ******"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 47443405f0ee3eb4aadee19e6e390539, type: 2}
-  m_sharedMaterial: {fileID: 2927238700444571493, guid: 47443405f0ee3eb4aadee19e6e390539,
+  m_fontAsset: {fileID: 11400000, guid: e13ce43f6a9beed469d0ebc5d6fa670d, type: 2}
+  m_sharedMaterial: {fileID: 2269618707725841448, guid: e13ce43f6a9beed469d0ebc5d6fa670d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

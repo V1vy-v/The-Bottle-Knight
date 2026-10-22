@@ -56,5 +56,8 @@ namespace GamePlay.Story
         [Header("结局")]
         [Tooltip("本节点是最后一个节点：它的目标完成后黑屏回主菜单。不勾则流程停在末端（开发期防误触）")]
         public bool endOfStory;
+
+        [Tooltip("对话结束后弹出的信件（「致后来者」）。填了就不走普通推进，改为弹窗显示，玩家按键关闭后才收尾")]
+        [TextArea(6, 16)] public string letterText;
     }
 }

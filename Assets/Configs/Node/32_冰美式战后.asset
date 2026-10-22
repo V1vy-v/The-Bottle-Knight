@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 32_冰美式战后
   m_EditorClassIdentifier: 
   Id: Node_32
-  questText: 冰柜区已清空
+  questText: 冰柜区已清空，前往老巢
   mode: 1
   refreshDialog: 1
   refreshBattle: 0
@@ -21,7 +21,7 @@ MonoBehaviour:
   dialogConfig: {fileID: 4900000, guid: 18af2a86cd25473ea0575fea27e4c7c6, type: 3}
   battleConfig: {fileID: 0}
   autoWinBattle: 0
-  nextNode: {fileID: 11400000, guid: 430a97a2f3c3465ea2db375a817780ed, type: 2}
+  nextNode: {fileID: 11400000, guid: 7236ca917583464a89b12787698c6e77, type: 2}
   currentStage: 3
   fadeTransition: 0
   teleportTargetName: 

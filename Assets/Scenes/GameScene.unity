@@ -716,7 +716,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1844914484, guid: 88464a8baf748c54e80854edb18caa1d, type: 3}
+  m_Sprite: {fileID: 82104998, guid: 643968ff6622f934aa8d66bc55a94981, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -763,7 +763,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.96, y: 3.8804176}
+    oldSize: {x: 7.9300003, y: 3.8604186}
     newSize: {x: 7.96, y: 3.8804176}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -14078,7 +14078,7 @@ Transform:
   m_GameObject: {fileID: 826646419}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 102.27991, y: 9.440182, z: 0}
+  m_LocalPosition: {x: 40.9, y: 25.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14124,7 +14124,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 1836323250, guid: 34d7e8fe3c34e874dbb40a183a27ddcb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -34407,7 +34407,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -99
-  m_Sprite: {fileID: -1699011955, guid: 88464a8baf748c54e80854edb18caa1d, type: 3}
+  m_Sprite: {fileID: -374072413, guid: 643968ff6622f934aa8d66bc55a94981, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -36287,8 +36287,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 85.4, y: -25.7}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.000006198883}
+  m_SizeDelta: {x: 0, y: 0.000012397766}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1597391089
 MonoBehaviour:
@@ -43063,15 +43063,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nodeId: Node_24
---- !u!1660057539 &9223372036854775807
-SceneRoots:
-  m_ObjectHideFlags: 0
-  m_Roots:
-  - {fileID: 1270238312}
-  - {fileID: 1699828803}
-  - {fileID: 372058294}
-  - {fileID: 1151193512}
-  - {fileID: 1911991791}
 --- !u!114 &812345678901234610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43085,3 +43076,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nodeId: Node_9b
+--- !u!1660057539 &9223372036854775807
+SceneRoots:
+  m_ObjectHideFlags: 0
+  m_Roots:
+  - {fileID: 1270238312}
+  - {fileID: 1699828803}
+  - {fileID: 372058294}
+  - {fileID: 1151193512}
+  - {fileID: 1911991791}
